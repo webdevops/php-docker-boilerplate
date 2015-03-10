@@ -1,0 +1,33 @@
+typo3:
+  build: docker/typo3/
+  links:
+    - mysql
+  volumes:
+    - ./htdocs:/var/www
+
+nginx:
+  build: docker/nginx/
+  ports:
+    - 8081:80
+  links:
+    - fpm
+  volumes_from:
+    - typo3
+  environment:
+    TYPO3_CONTEXT: Development/Docker
+
+fpm:
+  build: docker/php-fpm/
+  links:
+    - mysql
+  volumes_from:
+    - typo3
+  environment:
+    TYPO3_CONTEXT: Development/Docker
+
+mysql:
+  image: mysql:5.5
+  environment:
+    - MYSQL_ROOT_PASSWORD=dev
+  ports:
+    - 3306:3306

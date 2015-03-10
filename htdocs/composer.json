@@ -1,0 +1,11 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://composer.typo3.org/"
+    }
+  ],
+  "require": {
+    "typo3/cms": "6.2.*"
+  }
+}
