@@ -26,6 +26,9 @@ You can run one-shot command inside the `TYPO3` service container:
 
     $ docker-compose run typo3 bash
 
+
+Webserver is available at Port 8000
+
 ## Settings
 
 ### MySQL connection
