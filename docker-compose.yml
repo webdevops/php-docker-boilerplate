@@ -10,7 +10,7 @@ typo3:
 nginx:
   build: docker/nginx/
   ports:
-    - 8081:80
+    - 8000:80
   links:
     - fpm
   volumes_from:
