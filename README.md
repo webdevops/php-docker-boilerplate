@@ -12,8 +12,8 @@ You can run the Docker environment using [docker-compose](https://github.com/doc
     $ cd htdocs
     $ composer install
 
-You can run one-shot command inside the `symfony` service container:
+You can run one-shot command inside the `TYPO3` service container:
 
-    $ fig run --rm typo3 typo3/cli_dispatch.phpsh scheduler
+    $  docker-compose run --rm typo3 typo3/cli_dispatch.phpsh scheduler
 
 TYPO3 installation is accessable in ./htdocs/ and will be shared into Docker containers.
