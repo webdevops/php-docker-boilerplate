@@ -24,7 +24,12 @@ You can run one-shot command inside the `TYPO3` service container:
     $ docker-compose run typo3 bash
 
 
-Database connection:
-    User: root
-    Password: dev
-    Host: mysql
+## Settings
+
+
+Database connection
+------------- | -------------
+User          | root
+Password      | dev
+Host          | mysql
+Port          | 3306
