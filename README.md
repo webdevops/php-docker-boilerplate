@@ -27,7 +27,9 @@ You can run one-shot command inside the `TYPO3` service container:
 ## Settings
 
 
-Database connection
+### MySQL connection
+
+Setting       | Value
 ------------- | -------------
 User          | root
 Password      | dev
