@@ -4,6 +4,8 @@ typo3:
     - mysql
   volumes:
     - ./htdocs:/var/www
+  environment:
+    TYPO3_CONTEXT: Development/Docker
 
 nginx:
   build: docker/nginx/
