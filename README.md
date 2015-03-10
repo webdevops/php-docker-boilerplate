@@ -1,6 +1,8 @@
 #Dockerized TYPO3 Project
 
 A TYPO3 boilerplate project utilizing Docker based on PHP-FPM, nginx and MySQL with support for TYPO3_CONTEXT.
+This Docker boilerplate based on the best practises and don't use too much magic.
+Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
 
 Based on https://github.com/denderello/symfony-docker-example/
 
@@ -23,9 +25,7 @@ You can run one-shot command inside the `TYPO3` service container:
 
     $ docker-compose run typo3 bash
 
-
 ## Settings
-
 
 ### MySQL connection
 
