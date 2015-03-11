@@ -7,5 +7,7 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
+rm -f "$TYPO3_DIR/.gitkeep"
 execInDir "$TYPO3_DIR" "composer create-project typo3/cms-base-distribution \"$TYPO3_DIR\""
 execInDir "$TYPO3_DIR" "touch FIRST_INSTALL"
+touch "$TYPO3_DIR/.gitkeep"
