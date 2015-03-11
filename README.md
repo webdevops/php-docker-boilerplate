@@ -54,3 +54,7 @@ User          | dev
 Password      | dev
 Database      | typo3
 Host          | mysql:3306
+
+### Docker Environment
+
+Use a Vagrant box either with preinstalled Docker or use your provisioning to configure Docker.
