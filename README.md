@@ -44,7 +44,7 @@ make mysql-backup      | Backup MySQL database
 make mysql-restore     | Restore MySQL database
 make deploy            | Run deployment (composer, gulp, bower)
 make create-project    | Create new TYPO3 project
-make scheduler         | Exec TYPO3 scheduler
+make scheduler         | Run TYPO3 scheduler
 
 ### MySQL connection
 
