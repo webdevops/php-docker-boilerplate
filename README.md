@@ -13,10 +13,14 @@ You can run the Docker environment using [docker-compose](https://github.com/doc
 
     $ docker-compose up -d
 
-For TYPO3 Setup:
+For the first TYPO3 Setup (make sure [composer](https://getcomposer.org/) is installed):
 
-    $ cd htdocs
-    $ composer install
+    $ make create-project
+
+or
+
+    $ composer create-project typo3/cms-base-distribution htdocs/
+    $ touch htdocs/FIRST_INSTALL
 
 Feel free to modify your TYPO3 installation in your htdocs (shared folder of Docker), most of the time there is no need to enter any Docker container.
 
@@ -26,16 +30,25 @@ You can run one-shot command inside the `TYPO3` service container:
 
     $ docker-compose run typo3 bash
 
-
 Webserver is available at Port 8000
 
-## Settings
+## Informations
+
+### Makefile commands
+
+Command                | Description
+---------------------- | -------------------------------
+make clean             | Clear TYPO3 configuration cache
+make mysql-backup      | Backup MySQL database
+make mysql-restore     | Restore MySQL database
+make deploy            | Run deployment (composer, gulp, bower)
+make create-project    | Create new TYPO3 project
 
 ### MySQL connection
 
 Setting       | Value
 ------------- | -------------
-User          | root
+User          | dev
 Password      | dev
-Host          | mysql
-Port          | 3306
+Database      | typo3
+Host          | mysql:3306
