@@ -43,7 +43,7 @@ make clean             | Clear TYPO3 configuration cache
 make mysql-backup      | Backup MySQL database
 make mysql-restore     | Restore MySQL database
 make deploy            | Run deployment (composer, gulp, bower)
-make create-project    | Create new TYPO3 project
+make create-project    | Create new TYPO3 project (based on typo3/cms-base-distribution)
 make scheduler         | Run TYPO3 scheduler
 
 ### MySQL connection
