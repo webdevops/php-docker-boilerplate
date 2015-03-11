@@ -4,8 +4,8 @@ typo3:
     - mysql
   volumes:
     - ./htdocs:/var/www
-  environment:
-    TYPO3_CONTEXT: Development/Docker
+  env_file:
+    - docker-env.yml
 
 nginx:
   build: docker/nginx/
@@ -15,8 +15,8 @@ nginx:
     - fpm
   volumes_from:
     - typo3
-  environment:
-    TYPO3_CONTEXT: Development/Docker
+  env_file:
+    - docker-env.yml
 
 fpm:
   build: docker/php-fpm/
@@ -24,12 +24,12 @@ fpm:
     - mysql
   volumes_from:
     - typo3
-  environment:
-    TYPO3_CONTEXT: Development/Docker
+  env_file:
+    - docker-env.yml
 
 mysql:
   image: mysql:5.5
-  environment:
-    - MYSQL_ROOT_PASSWORD=dev
   ports:
     - 3306:3306
+  env_file:
+    - docker-env.yml
