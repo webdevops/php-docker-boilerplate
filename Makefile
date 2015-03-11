@@ -17,3 +17,6 @@ deploy:
 
 create-project:
 	bash bin/create-project.sh
+
+scheduler:
+	docker-compose run --rm typo3 typo3/cli_dispatch.phpsh scheduler
