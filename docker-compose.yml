@@ -21,6 +21,7 @@ nginx:
 fpm:
   build: docker/php-fpm/
   links:
+    - solr
     - mysql
   volumes_from:
     - typo3
