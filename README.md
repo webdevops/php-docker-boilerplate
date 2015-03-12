@@ -28,6 +28,8 @@ You can run the Docker environment using [docker-compose](https://github.com/doc
 
     $ docker-compose up -d
 
+### Create TYPO3 project
+
 For the first TYPO3 Setup (make sure [composer](https://getcomposer.org/) is installed):
 
     $ make create-project
@@ -38,8 +40,17 @@ or
     $ composer create-project typo3/cms-base-distribution htdocs/
     $ touch htdocs/FIRST_INSTALL htdocs/.gitkeep
 
+
 Feel free to modify your TYPO3 installation in your htdocs (shared folder of Docker),
 most of the time there is no need to enter any Docker container.
+
+
+### Existing TYPO3 project
+
+Just put your TYPO3 project inside the htdocs folder or use git to checkout your project into htdocs.
+
+
+### TYPO3 cli runner
 
 You can run one-shot command inside the `TYPO3` service container:
 
