@@ -1,11 +1,26 @@
-#Dockerized TYPO3 Project
+# Dockerized TYPO3 Project
 
-A TYPO3 boilerplate project utilizing Docker based on **PHP-FPM, nginx and MySQL** with support for **TYPO3_CONTEXT**.
+A TYPO3 boilerplate project utilizing Docker based on
+**PHP-FPM, nginx, MySQL and Solr** with support for **TYPO3_CONTEXT**.
 
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
 
 Based on https://github.com/denderello/symfony-docker-example/
+
+Warning: Don't use this Docker containers for production - they're for development!
+
+
+## Requirements
+
+- GNU/Linux with Docker (recommendation: Vagrant or native)
+- make
+- [composer](https://getcomposer.org/)
+- [docker-compose](https://github.com/docker/compose)
+
+If you want to run a Docker VM make sure you're using VMware or Parallels Desktop because of
+the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
+
 
 ## Running
 
@@ -23,7 +38,8 @@ or
     $ composer create-project typo3/cms-base-distribution htdocs/
     $ touch htdocs/FIRST_INSTALL htdocs/.gitkeep
 
-Feel free to modify your TYPO3 installation in your htdocs (shared folder of Docker), most of the time there is no need to enter any Docker container.
+Feel free to modify your TYPO3 installation in your htdocs (shared folder of Docker),
+most of the time there is no need to enter any Docker container.
 
 You can run one-shot command inside the `TYPO3` service container:
 
@@ -33,9 +49,11 @@ You can run one-shot command inside the `TYPO3` service container:
 
 Webserver is available at Port 8000
 
+
 ## Informations
 
-### Makefile commands
+
+### Makefile
 
 Command                | Description
 ---------------------- | -------------------------------
@@ -46,17 +64,34 @@ make deploy            | Run deployment (composer, gulp, bower)
 make create-project    | Create new TYPO3 project (based on typo3/cms-base-distribution)
 make scheduler         | Run TYPO3 scheduler
 
-### MySQL connection
+
+### MySQL
 
 Setting       | Value
 ------------- | -------------
-User          | dev
-Password      | dev
-Database      | typo3
+User          | dev (if not changed in env)
+Password      | dev (if not changed in env)
+Database      | typo3 (if not changed in env)
 Host          | mysql:3306
 
-### Docker Environment
+Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. for debugging, dumps and other stuff).
 
-Use a Vagrant box either with preinstalled Docker or use your provisioning to configure Docker.
 
-I recommend using VMware or Parallels Desktop because of the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
+### Solr
+
+Setting       | Value
+------------- | -------------
+Host          | solr:8983
+Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
+
+
+### Environment settings
+
+Environment           | Description
+--------------------- | -------------
+TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
+                      |
+MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
+MYSQL_USER            | Initial created MySQL user
+MYSQL_PASSWORD        | Password for initial MySQL user
+MYSQL_DATABASE        | Initial created MySQL database
