@@ -90,7 +90,7 @@ Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
 Environment           | Description
 --------------------- | -------------
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
-                      |
+<br>                  |
 MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
