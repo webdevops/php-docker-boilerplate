@@ -6,6 +6,9 @@ A TYPO3 boilerplate project utilizing Docker based on
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
 
+This boilerplate can also be used for any other web project eg. TYPO3 NEOS, Symfony, Magento and more.
+Just customize the makefile for your needs
+
 Based on https://github.com/denderello/symfony-docker-example/
 
 Warning: Don't use this Docker containers for production - they're for development!
