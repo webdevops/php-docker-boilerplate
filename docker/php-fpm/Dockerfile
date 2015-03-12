@@ -22,10 +22,10 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
-ADD start.sh /start.sh
+ADD entrypoint.sh /entrypoint.sh
 
 EXPOSE 9000
 
 WORKDIR /var/www
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
