@@ -1,0 +1,25 @@
+FROM guywithnose/solr:4.9.0
+ENV DEBIAN_FRONTEND noninteractive
+
+COPY ./conf/ /opt/solr-conf/
+COPY ./core-create.sh /tmp/
+
+# Download plugin
+RUN curl -sf -o /tmp/solr-typo3-plugin.jar -L http://www.typo3-solr.com/fileadmin/files/solr/solr-typo3-plugin-1.3.0.jar
+
+# Init directories
+RUN cp -a /opt/solr-conf/* /opt/solr/example/solr/
+RUN mkdir -p /opt/solr/example/solr/typo3cores/data
+RUN mkdir -p /opt/solr/example/solr/typo3lib
+
+# Add plugins
+RUN mv /tmp/solr-typo3-plugin.jar   /opt/solr/example/solr/typo3lib/
+RUN ln -s /opt/solr/contrib         /opt/solr/example/solr/contrib
+
+# Create cores (from xml, with grep and sed)
+RUN bash /tmp/core-create.sh
+
+# Fix rights
+RUN chown solr:solr -R /opt/solr/example/solr/
+RUN chmod 777 /opt/solr/example/solr/typo3cores/data/
+RUN chmod 777 /opt/solr/example/solr/typo3cores/data/core_*/

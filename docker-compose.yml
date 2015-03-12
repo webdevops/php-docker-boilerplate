@@ -10,7 +10,7 @@ typo3:
 nginx:
   build: docker/nginx/
   ports:
-    - 8000:80
+    - 8001:80
   links:
     - fpm
   volumes_from:
@@ -28,8 +28,15 @@ fpm:
     - docker-env.yml
 
 mysql:
-  image: mysql:5.5
+  build: docker/mysql/
   ports:
     - 3306:3306
+  env_file:
+    - docker-env.yml
+    
+solr:
+  build: docker/solr/
+  ports:
+    - 8983:8983
   env_file:
     - docker-env.yml
