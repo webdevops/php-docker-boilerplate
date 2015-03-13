@@ -4,7 +4,7 @@ typo3:
     - solr
     - mysql
   volumes:
-    - ./htdocs:/var/www
+    - ./htdocs:/var/www/html
   env_file:
     - docker-env.yml
 
@@ -35,7 +35,7 @@ mysql:
     - 3306:3306
   env_file:
     - docker-env.yml
-    
+
 solr:
   build: docker/solr/
   ports:

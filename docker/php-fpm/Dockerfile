@@ -26,6 +26,6 @@ ADD entrypoint.sh /entrypoint.sh
 
 EXPOSE 9000
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 ENTRYPOINT ["/entrypoint.sh"]

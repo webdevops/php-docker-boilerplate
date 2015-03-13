@@ -27,9 +27,9 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
 ADD entrypoint.sh /entrypoint.sh
-ADD ./htdocs /var/www
+ADD ./htdocs /var/www/html
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["echo", "hello"]
