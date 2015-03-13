@@ -98,6 +98,11 @@ Setting       | Value
 Host          | solr:8983
 Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
 
+### Elasticsearch (disabled by default)
+
+Setting       | Value
+------------- | -------------
+Host          | elasticsearch:9200 and :9300
 
 ### Environment settings
 
