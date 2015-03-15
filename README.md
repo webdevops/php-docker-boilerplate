@@ -81,6 +81,8 @@ make scheduler         | Run TYPO3 scheduler
 
 ### MySQL
 
+You can choose between [MySQL](https://www.mysql.com/) (default), [MariaDB](https://www.mariadb.org/) and [PerconaDB](http://www.percona.com/software)
+
 Setting       | Value
 ------------- | -------------
 User          | dev (if not changed in env)
