@@ -1,7 +1,14 @@
 # Dockerized TYPO3 Project
 
-A TYPO3 boilerplate project utilizing Docker based on
-**PHP-FPM, nginx, MySQL and Solr/Elasticsearch** with support for **TYPO3_CONTEXT**.
+A TYPO3 boilerplate project utilizing Docker based  with support for **TYPO3_CONTEXT**.
+
+Supports:
+
+- Nginx
+- PHP-FPM
+- MySQL
+- Solr
+- Elasticsearch
 
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
