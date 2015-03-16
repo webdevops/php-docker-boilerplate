@@ -19,6 +19,17 @@ nginx:
   env_file:
     - docker-env.yml
 
+#httpd:
+#  build: docker/httpd/
+#  ports:
+#    - 8000:80
+#  links:
+#    - fpm
+#  volumes_from:
+#    - typo3
+#  env_file:
+#    - docker-env.yml
+
 fpm:
   build: docker/php-fpm/
   links:

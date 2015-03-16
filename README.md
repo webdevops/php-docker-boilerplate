@@ -4,11 +4,10 @@ A TYPO3 boilerplate project utilizing Docker based  with support for **TYPO3_CON
 
 Supports:
 
-- Nginx
+- Nginx or Apache HTTPd
 - PHP-FPM
-- MySQL
-- Solr
-- Elasticsearch
+- MySQL, MariaDB or PerconaDB
+- Solr or Elasticsearch
 
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
