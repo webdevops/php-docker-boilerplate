@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/www.conf
-
 echo "
 env[TYPO3_CONTEXT] = ${TYPO3_CONTEXT}
 
@@ -18,6 +16,6 @@ php_value[max_input_time]            = 300
 php_admin_value[post_max_size]       = 50M
 php_admin_value[upload_max_filesize] = 50M
 
-" >> /etc/php5/fpm/pool.d/www.conf
+" >> /usr/local/etc/php-fpm.conf.default
 
-exec /usr/sbin/php5-fpm --nodaemonize
+exec php-fpm --nodaemonize

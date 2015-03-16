@@ -1,10 +1,13 @@
-FROM ubuntu:14.04
+FROM php:5.6-fpm
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Install modules
 RUN apt-get update && apt-get install -y \
-    php5-cli \
-    php5-fpm \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libpng12-dev \
     php5-json \
     php5-intl \
     php5-curl \
@@ -20,7 +23,10 @@ RUN apt-get update && apt-get install -y \
     php5-ldap \
     graphicsmagick \
     zip \
-    unzip
+    unzip \
+    && docker-php-ext-install iconv mcrypt \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd
 
 ADD entrypoint.sh /entrypoint.sh
 

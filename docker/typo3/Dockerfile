@@ -1,12 +1,10 @@
-FROM ubuntu:14.04
+FROM php:5.6-fpm
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y \
     git \
     curl \
-    php5-cli \
-    php5-fpm \
     php5-json \
     php5-intl \
     php5-curl \

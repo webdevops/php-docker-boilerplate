@@ -30,9 +30,7 @@ fpm:
     - docker-env.yml
 
 mysql:
-  image: mysql:5.5
-  #image: mariadb:5.5
-  #image: percona:5.5
+  build: docker/mysql/
   ports:
     - 3306:3306
   env_file:
