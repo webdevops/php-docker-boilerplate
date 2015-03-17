@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Backup original
+if [ ! -f "/usr/local/etc/.php-fpm.conf.default.original" ]; then
+    cp /usr/local/etc/php-fpm.conf.default /usr/local/etc/.php-fpm.conf.default.original
+fi
+
+# Restore original
+cp /usr/local/etc/.php-fpm.conf.default.original  /usr/local/etc/php-fpm.conf.default
+
+# Manipulate phpfpm configuration
 echo "
 env[TYPO3_CONTEXT] = ${TYPO3_CONTEXT}
 

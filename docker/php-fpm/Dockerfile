@@ -2,12 +2,21 @@ FROM php:5.6-fpm
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install modules
-RUN apt-get update && apt-get install -y \
+RUN apt-get update
+
+RUN apt-get install -y \
+    graphicsmagick \
+    zip \
+    unzip
+
+RUN apt-get install -y \
+    build-essential \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
     libpng12-dev \
+    libicu-dev \
+    libcurl3 \
     php5-json \
     php5-intl \
     php5-curl \
@@ -21,10 +30,7 @@ RUN apt-get update && apt-get install -y \
     php5-xsl \
     php5-geoip \
     php5-ldap \
-    graphicsmagick \
-    zip \
-    unzip \
-    && docker-php-ext-install iconv mcrypt \
+    && docker-php-ext-install iconv mcrypt mysqli \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 
