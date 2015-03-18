@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Backup original
+if [ ! -f "/usr/local/etc/.php-fpm.conf.default.original" ]; then
+    cp /etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/.www.original
+fi
+
+# Restore original
+cp /etc/php5/fpm/pool.d/.www.original  /etc/php5/fpm/pool.d/www.conf
+sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/www.conf
+
+# Manipulate php-fpm configuration
 echo "
 env[TYPO3_CONTEXT] = ${TYPO3_CONTEXT}
 
@@ -16,6 +26,6 @@ php_value[max_input_time]            = 300
 php_admin_value[post_max_size]       = 50M
 php_admin_value[upload_max_filesize] = 50M
 
-" >> /usr/local/etc/php-fpm.conf.default
+" >> /etc/php5/fpm/pool.d/www.conf
 
-exec php-fpm --nodaemonize
+exec /usr/sbin/php5-fpm --nodaemonize
