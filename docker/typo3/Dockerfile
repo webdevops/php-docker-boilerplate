@@ -25,7 +25,8 @@ RUN apt-get install -y \
     graphicsmagick \
     zip \
     unzip \
-    curl
+    curl \
+    mysql-client
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
@@ -33,7 +34,8 @@ RUN mv composer.phar /usr/local/bin/composer
 ADD entrypoint.sh /entrypoint.sh
 ADD ./htdocs /var/www/html
 
-WORKDIR /var/www/html
+VOLUME /var/www/
+WORKDIR /var/www/htdocs/
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["echo", "hello"]
