@@ -4,7 +4,7 @@ typo3:
     - solr
     - mysql
   volumes:
-    - ./htdocs:/var/www/html
+    - ./:/var/www/
   env_file:
     - docker-env.yml
 
