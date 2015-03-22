@@ -96,6 +96,7 @@ User          | dev (if not changed in env)
 Password      | dev (if not changed in env)
 Database      | typo3 (if not changed in env)
 Host          | mysql:3306
+External Port | 13306
 
 Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. for debugging, dumps and other stuff).
 
@@ -105,6 +106,7 @@ Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. f
 Setting       | Value
 ------------- | -------------
 Host          | solr:8983
+External Port | 18983
 Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
 
 ### Elasticsearch (disabled by default)
@@ -112,6 +114,7 @@ Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
 Setting       | Value
 ------------- | -------------
 Host          | elasticsearch:9200 and :9300
+External Port | 19200 and 19300
 
 ### Environment settings
 
