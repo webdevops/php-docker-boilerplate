@@ -57,7 +57,7 @@ solr:
 #elasticsearch:
 #  build: docker/elasticsearch/
 #  ports:
-#    - 9200:9200
-#    - 9300:9300
+#    - 19200:9200
+#    - 19300:9300
 #  env_file:
 #    - docker-env.yml
