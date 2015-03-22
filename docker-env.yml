@@ -1,4 +1,6 @@
 TYPO3_CONTEXT=Development/Docker
+FLOW_CONTEXT=Development/Docker
+FLOW_REWRITEURLS=1
 
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev

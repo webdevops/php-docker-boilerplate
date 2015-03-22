@@ -1,13 +1,15 @@
-# Dockerized TYPO3 Project
+# Dockerized TYPO3 Project (CMS, FLOW, NEOS)
 
-A TYPO3 boilerplate project utilizing Docker based  with support for **TYPO3_CONTEXT**.
+A TYPO3 boilerplate project utilizing Docker based with support
+for **TYPO3_CONTEXT** and **FLOW_CONTEXT**
 
 Supports:
 
 - Nginx or Apache HTTPd
 - PHP-FPM
 - MySQL, MariaDB or PerconaDB
-- Solr or Elasticsearch
+- Solr
+- Elasticsearch (without configuration)
 
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
@@ -37,11 +39,11 @@ You can run the Docker environment using [docker-compose](https://github.com/doc
 
     $ docker-compose up -d
 
-### Create TYPO3 project
+### Create TYPO3 CMS project
 
-For the first TYPO3 Setup (make sure [composer](https://getcomposer.org/) is installed):
+For the first TYPO3 CMS Setup (make sure [composer](https://getcomposer.org/) is installed):
 
-    $ make create-project
+    $ make create-cms-project
 
 or
 

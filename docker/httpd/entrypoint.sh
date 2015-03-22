@@ -20,10 +20,12 @@ Include conf/docker-vhost.conf
 # docker-vhost.conf
 ###################
 
-cp /usr/local/apache2/conf/.docker-vhost.conf.original /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"     /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FPM_HOST>@${FPM_PORT_9000_TCP_ADDR}@" /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FPM_PORT>@${FPM_PORT_9000_TCP_PORT}@" /usr/local/apache2/conf/docker-vhost.conf
+cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"        /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"          /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"  /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FPM_HOST>@${FPM_PORT_9000_TCP_ADDR}@"    /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FPM_PORT>@${FPM_PORT_9000_TCP_PORT}@"    /usr/local/apache2/conf/docker-vhost.conf
 
 
 httpd -DFOREGROUND

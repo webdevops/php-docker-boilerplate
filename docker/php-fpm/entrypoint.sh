@@ -11,7 +11,9 @@ sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/w
 
 # Manipulate php-fpm configuration
 echo "
-env[TYPO3_CONTEXT] = ${TYPO3_CONTEXT}
+env[TYPO3_CONTEXT]    = ${TYPO3_CONTEXT}
+env[FLOW_CONTEXT]     = ${FLOW_CONTEXT}
+env[FLOW_REWRITEURLS] = ${FLOW_REWRITEURLS}
 
 php_value[short_open_tag]    = On
 php_value[variables_order]   = 'GPCS'
