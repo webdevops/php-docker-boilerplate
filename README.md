@@ -129,3 +129,14 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+
+## Advanced usage (git)
+
+Use this boilerplate as template and customize it for each project. Put this Docker
+configuration for each project into seperate git repositories.
+
+Now set your existing TYPO3 repository to be a git submodule in htdocs/.
+Every developer now needs only to check out the Docker repository with **--recursive**
+to get both, the Docker configuration and the TYPO3 installation.
+
+For better useability track a whole branch (eg. develop or master) as submodule and not just a single commit.
