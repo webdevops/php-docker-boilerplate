@@ -43,14 +43,14 @@ fpm:
 mysql:
   build: docker/mysql/
   ports:
-    - 3306:3306
+    - 13306:3306
   env_file:
     - docker-env.yml
 
 solr:
   build: docker/solr/
   ports:
-    - 8983:8983
+    - 18983:8983
   env_file:
     - docker-env.yml
 
