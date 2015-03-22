@@ -123,7 +123,7 @@ External Port | 19200 and 19300
 Environment           | Description
 --------------------- | -------------
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
-FLOW_CONTEXT          | Context for TYPO3 FLOW
+FLOW_CONTEXT          | Context for TYPO3 FLOW an NEOS
 <br>                  |
 MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
