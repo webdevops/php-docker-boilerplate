@@ -3,6 +3,10 @@ MYSQL_BACKUP_FILE = database.sql.bz2
 
 all: deploy
 
+backup: mysql-backup
+
+restore: mysql-restore
+
 clean:
 	test -d htdocs/typo3temp && { rm -rf htdocs/typo3temp/*; }
 
@@ -16,7 +20,10 @@ deploy:
 	bash bin/deploy.sh
 
 create-cms-project:
-	bash bin/create-cms-project.sh
+	bash bin/create-project.sh cms
+
+create-neos-project:
+	bash bin/create-project.sh neos
 
 scheduler:
 	docker-compose run --rm typo3 typo3/cli_dispatch.phpsh scheduler
