@@ -17,14 +17,12 @@ Configuration of each docker container is availabe in the docker/ directory - fe
 This boilerplate can also be used for any other web project eg. TYPO3 NEOS, Symfony, Magento and more.
 Just customize the makefile for your needs
 
-Based on https://github.com/denderello/symfony-docker-example/
-
-Warning: Don't use this Docker containers for production - they're for development!
+Warning: Don't use this Docker containers for production - they are only for development!
 
 
 ## Requirements
 
-- GNU/Linux with Docker (recommendation: Vagrant or native)
+- GNU/Linux with Docker (recommendation: Vagrant VM with Docker or native Linux with Docker)
 - make
 - [composer](https://getcomposer.org/)
 - [docker-compose](https://github.com/docker/compose)
@@ -33,7 +31,7 @@ If you want to run a Docker VM make sure you're using VMware or Parallels Deskto
 the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
 
 
-## Running
+## Running TYPO3
 
 You can run the Docker environment using [docker-compose](https://github.com/docker/compose):
 
@@ -41,7 +39,7 @@ You can run the Docker environment using [docker-compose](https://github.com/doc
 
 ### Create TYPO3 CMS project
 
-For the first TYPO3 CMS Setup (make sure [composer](https://getcomposer.org/) is installed):
+For the first TYPO3 CMS setup (make sure [composer](https://getcomposer.org/) is installed):
 
     $ make create-cms-project
 
@@ -52,24 +50,50 @@ or
     $ touch htdocs/FIRST_INSTALL htdocs/.gitkeep
 
 
-Feel free to modify your TYPO3 installation in your htdocs (shared folder of Docker),
+Feel free to modify your TYPO3 installation in your htdocs (a shared folder of Docker),
 most of the time there is no need to enter any Docker container.
 
-
-### Existing TYPO3 project
-
-Just put your TYPO3 project inside the htdocs folder or use git to checkout your project into htdocs.
-
-
-### TYPO3 cli runner
+#### TYPO3 CMS cli runner
 
 You can run one-shot command inside the `TYPO3` service container:
 
     $ docker-compose run --rm typo3 typo3/cli_dispatch.phpsh scheduler
 
-    $ docker-compose run typo3 bash
+    $ docker-compose run --rm typo3 bash
 
 Webserver is available at Port 8000
+
+### Create TYPO3 NEOS project
+
+For the first TYPO3 NEOS setup (make sure [composer](https://getcomposer.org/) is installed):
+
+    $ make create-neos-project
+
+or
+
+    $ rm -f htdocs/.gitkeep
+    $ composer create-project typo3/neos-base-distribution htdocs/
+    $ touch htdocs/.gitkeep
+
+
+Feel free to modify your TYPO3 NEOS installation in your htdocs (a shared folder of Docker),
+most of the time there is no need to enter any Docker container.
+
+
+#### TYPO3 NEOS cli runner
+
+You can run one-shot command inside the `TYPO3` service container:
+
+    $ docker-compose run --rm typo3 flow core:setfilepermissions
+
+    $ docker-compose run --rm typo3 bash
+
+Webserver is available at Port 8000
+
+
+### Existing project
+
+Just put your TYPO3 project inside the htdocs folder or use git to checkout your project into htdocs.
 
 
 ## Informations
@@ -77,14 +101,15 @@ Webserver is available at Port 8000
 
 ### Makefile
 
-Command                | Description
----------------------- | -------------------------------
-make clean             | Clear TYPO3 configuration cache
-make mysql-backup      | Backup MySQL database
-make mysql-restore     | Restore MySQL database
-make deploy            | Run deployment (composer, gulp, bower)
-make create-project    | Create new TYPO3 project (based on typo3/cms-base-distribution)
-make scheduler         | Run TYPO3 scheduler
+Command                   | Description
+------------------------- | -------------------------------
+make clean                | Clear TYPO3 configuration cache
+make mysql-backup         | Backup MySQL database
+make mysql-restore        | Restore MySQL database
+make deploy               | Run deployment (composer, gulp, bower)
+make create-cms-project   | Create new TYPO3 CMS project (based on typo3/cms-base-distribution)
+make create-neos-project  | Create new TYPO3 NEOS project (based on typo3/neos-base-distribution)
+make scheduler            | Run TYPO3 scheduler
 
 
 ### MySQL
@@ -136,7 +161,13 @@ Use this boilerplate as template and customize it for each project. Put this Doc
 configuration for each project into seperate git repositories.
 
 Now set your existing TYPO3 repository to be a git submodule in htdocs/.
-Every developer now needs only to check out the Docker repository with **--recursive**
+Every developer now needs only to clone the Docker repository with **--recursive**
 to get both, the Docker configuration and the TYPO3 installation.
 
 For better useability track a whole branch (eg. develop or master) as submodule and not just a single commit.
+
+## Credits
+
+This Docker layout is based on https://github.com/denderello/symfony-docker-example/
+
+Thanks to [cron IT GmbH](http://www.cron.eu/) for the inspiration for this Docker boilerplate.
