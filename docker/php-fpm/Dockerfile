@@ -27,6 +27,9 @@ RUN apt-get install -y \
     unzip \
     curl
 
+ADD conf/php.ini /etc/php5/mods-available/typo3.ini
+RUN php5enmod typo3
+
 ADD entrypoint.sh /entrypoint.sh
 
 EXPOSE 9000
