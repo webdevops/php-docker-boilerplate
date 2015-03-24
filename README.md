@@ -55,15 +55,21 @@ Customize the [Makefile](Makefile) for your needs.
 
 Command                   | Description
 ------------------------- | -------------------------------
-make clean                | Clear TYPO3 configuration cache
 make backup               | General backup (run all backup tasks)
 make restore              | General restore (run all restore tasks)
-make mysql-backup         | Backup MySQL database
-make mysql-restore        | Restore MySQL database
+<br>                      |
+make mysql-backup         | Backup MySQL databases
+make mysql-restore        | Restore MySQL databases
+<br>                      |
+make solr-backup          | Backup Solr cores
+make solr-restore         | Restore Solr cores
+<br>                      |
 make deploy               | Run deployment (composer, gulp, bower)
 make create-cms-project   | Create new TYPO3 project (based on typo3/cms-base-distribution)
 make create-neos-project  | Create new NEOS project (based on typo3/neos-base-distribution)
+<br>                      |
 make scheduler            | Run TYPO3 scheduler
+make clean                | Clear TYPO3 configuration cache
 
 
 ### MySQL
