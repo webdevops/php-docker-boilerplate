@@ -56,7 +56,7 @@ solr:
   volumes_from:
     - storage
   environment:
-    - SOLR_STORAGE=/data/solr/
+    - SOLR_STORAGE=/data/solr/server-master/
   env_file:
     - docker-env.yml
 
