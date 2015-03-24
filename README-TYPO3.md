@@ -1,3 +1,5 @@
+[<-- Back to main section](README.md)
+
 # Running TYPO3
 
 ## Create TYPO3 project

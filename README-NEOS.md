@@ -1,3 +1,5 @@
+[<-- Back to main section](README.md)
+
 # Running NEOS
 
 ## Create NEOS project
