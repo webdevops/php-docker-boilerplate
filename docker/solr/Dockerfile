@@ -4,7 +4,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD entrypoint.sh /entrypoint.sh
 
 COPY ./conf/ /opt/solr-conf/
-COPY ./core-create.sh /
 
 # Download plugin
 RUN curl -sf -o /tmp/solr-typo3-plugin.jar -L http://www.typo3-solr.com/fileadmin/files/solr/solr-typo3-plugin-1.3.0.jar
