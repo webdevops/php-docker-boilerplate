@@ -5,6 +5,8 @@ typo3:
     - mysql
   volumes:
     - ./:/var/www/
+  volumes_from:
+    - storage
   env_file:
     - docker-env.yml
 
@@ -51,6 +53,10 @@ solr:
   build: docker/solr/
   ports:
     - 18983:8983
+  volumes_from:
+    - storage
+  environment:
+    - SOLR_STORAGE=/data/solr/server-master/
   env_file:
     - docker-env.yml
 
@@ -61,3 +67,9 @@ solr:
 #    - 19300:9300
 #  env_file:
 #    - docker-env.yml
+
+storage:
+  build: docker/storage/
+  volumes:
+    - /data
+  command: true
