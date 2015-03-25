@@ -12,6 +12,7 @@ RUN apt-get install -y \
     php5-curl \
     php5-mysqlnd \
     php5-xhprof \
+    php5-xdebug \
     php5-memcache \
     php5-mcrypt \
     php5-gd \
