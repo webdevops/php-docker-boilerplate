@@ -10,6 +10,7 @@ Supports:
 - MySQL, MariaDB or PerconaDB
 - Solr
 - Elasticsearch (without configuration)
+- Redis
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
@@ -102,6 +103,13 @@ Setting       | Value
 ------------- | -------------
 Host          | elasticsearch:9200 and :9300
 External Port | 19200 and 19300
+
+### Redis
+
+Setting       | Value
+------------- | -------------
+Host          | redis
+Port          | 6379
 
 ### Environment settings
 
