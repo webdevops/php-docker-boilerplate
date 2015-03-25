@@ -3,6 +3,7 @@ typo3:
   links:
     - solr
     - mysql
+    - redis
   volumes:
     - ./:/var/www/
   volumes_from:
@@ -37,6 +38,7 @@ fpm:
   links:
     - solr
     - mysql
+    - redis
   volumes_from:
     - typo3
   env_file:
@@ -67,6 +69,11 @@ solr:
 #    - 19300:9300
 #  env_file:
 #    - docker-env.yml
+
+redis:
+  build: docker/redis/
+  env_file:
+    - docker-env.yml
 
 storage:
   build: docker/storage/
