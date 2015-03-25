@@ -6,7 +6,7 @@ for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW and NEOS projects.
 Supports:
 
 - Nginx or Apache HTTPd
-- PHP-FPM
+- PHP-FPM (with Xdebug and Xhprof)
 - MySQL, MariaDB or PerconaDB
 - Solr
 - Elasticsearch (without configuration)
@@ -114,6 +114,27 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+
+### Xdebug Remote debugger (PhpStorm)
+
+Add a server (Preferences -> PHP -> Servers):
+
+Setting                 | Value
+----------------------- | -------------
+Hostname                | IP or Hostname of VM
+Port                    | 8000
+Use path mappings       | Check
+Path mapping of htdocs  | /var/www/htdocs/
+
+Add a debug connection (Run -> Edit -> Connections) and create a new connection.
+
+Setting               | Value
+--------------------- | -------------
+Server                | Server you created before
+Start URL             | /
+Browser               | Choose one
+
+Save, set a break point and test the debugger.
 
 ## Advanced usage (git)
 
