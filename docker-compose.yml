@@ -48,6 +48,8 @@ mysql:
   build: docker/mysql/
   ports:
     - 13306:3306
+  volumes:
+    - /tmp/debug/:/tmp/debug/
   env_file:
     - docker-env.yml
 
