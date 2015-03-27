@@ -4,6 +4,7 @@ typo3:
     - solr
     - mysql
     #- redis
+    #- memcached
   volumes:
     - ./:/var/www/
   volumes_from:
@@ -63,6 +64,11 @@ solr:
 
 #redis:
 #  build: docker/redis/
+#  env_file:
+#    - docker-env.yml
+
+#memcached:
+#  build: docker/memcached/
 #  env_file:
 #    - docker-env.yml
 
