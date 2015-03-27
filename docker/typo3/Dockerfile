@@ -17,7 +17,8 @@ RUN apt-get install -y \
     php5-curl \
     php5-mysqlnd \
     php5-xhprof \
-    php5-memcache \
+    php5-memcached \
+    php5-redis \
     php5-mcrypt \
     php5-gd \
     php5-sqlite \
