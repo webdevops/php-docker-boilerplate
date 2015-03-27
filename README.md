@@ -111,6 +111,13 @@ Setting       | Value
 Host          | redis
 Port          | 6379
 
+### Memcached
+
+Setting       | Value
+------------- | -------------
+Host          | memcached
+Port          | 11211
+
 ### Environment settings
 
 Environment           | Description
