@@ -2,7 +2,7 @@
 
 # Backup original
 if [ ! -f "/usr/local/etc/.php-fpm.conf.default.original" ]; then
-    cp /etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/.www.original
+cp /etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/.www.original
 fi
 
 # Restore original

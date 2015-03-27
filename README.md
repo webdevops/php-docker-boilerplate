@@ -21,7 +21,6 @@ Just customize the makefile for your needs
 
 Warning: Don't use this Docker containers for production - they are only for development!
 
-
 ## Requirements
 
 - GNU/Linux with Docker (recommendation: Vagrant VM with Docker or native Linux with Docker)
