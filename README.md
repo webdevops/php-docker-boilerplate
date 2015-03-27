@@ -9,8 +9,9 @@ Supports:
 - PHP-FPM (with Xdebug and Xhprof)
 - MySQL, MariaDB or PerconaDB
 - Solr
-- Elasticsearch (without configuration)
-- Redis
+- Elasticsearch (disabled, without configuration)
+- Redis (disabeld)
+- Memcached (disabeld)
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
