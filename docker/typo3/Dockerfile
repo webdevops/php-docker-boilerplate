@@ -4,7 +4,12 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
+RUN mkdir -p /opt/docker/ /var/log/supervisor
+COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY bin/* /opt/docker/
+
 RUN apt-get install -y \
+    supervisor \
     php5-cli \
     php5-fpm \
     php5-json \
@@ -38,11 +43,16 @@ RUN php5enmod typo3
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+<<<<<<< Updated upstream
 ADD entrypoint.sh /entrypoint.sh
 ADD ./htdocs /var/www/html
+=======
+ADD ./htdocs /var/www/htdocs
+>>>>>>> Stashed changes
+
+EXPOSE 9000
 
 VOLUME /var/www/
 WORKDIR /var/www/htdocs/
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["echo", "hello"]
+CMD ["/usr/bin/supervisord"]

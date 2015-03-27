@@ -23,5 +23,3 @@ user=\"$MYSQL_USER\"
 password=\"$MYSQL_PASSWORD\"
 
 " > /root/.my.cnf
-
-/bin/bash -l -c "$*"

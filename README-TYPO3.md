@@ -31,6 +31,7 @@ Webserver is available at Port 8000
 
 
 ## Error: Trusted Host pattern
+
 Set in htdocs/typo3conf/LocalConfiguration.php:
 
     'SYS' => array(
