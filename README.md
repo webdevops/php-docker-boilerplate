@@ -22,6 +22,8 @@ Just customize the makefile for your needs
 
 Warning: Don't use this Docker containers for production - they are only for development!
 
+Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate.
+
 ## Requirements
 
 - GNU/Linux with Docker (recommendation: Vagrant VM with Docker or native Linux with Docker)
