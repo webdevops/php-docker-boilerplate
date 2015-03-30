@@ -1,5 +1,5 @@
-typo3:
-  build: docker/typo3/
+code:
+  build: docker/code/
   links:
     - solr
     - mysql
@@ -17,9 +17,9 @@ nginx:
   ports:
     - 8000:80
   links:
-    - typo3
+    - code
   volumes_from:
-    - typo3
+    - code
   env_file:
     - docker-env.yml
 
@@ -30,7 +30,7 @@ nginx:
 #  links:
 #    - fpm
 #  volumes_from:
-#    - typo3
+#    - code
 #  env_file:
 #    - docker-env.yml
 
