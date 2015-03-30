@@ -12,7 +12,9 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-rm -f "$TYPO3_DIR/.gitkeep"
+mkdir -p -- "$TYPO3_DIR/"
+
+rm -f -- "$TYPO3_DIR/.gitkeep"
 
 case "$1" in
     ###################################
@@ -31,4 +33,4 @@ case "$1" in
         ;;
 esac
 
-touch "$TYPO3_DIR/.gitkeep"
+touch -- "$TYPO3_DIR/.gitkeep"
