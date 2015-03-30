@@ -7,7 +7,7 @@ COPY bin/*                 /opt/docker/
 
 RUN bash /opt/docker/install.sh
 
-ADD ./htdocs /var/www/htdocs
+ADD ./htdocs /code/htdocs
 
 EXPOSE 9000
 
