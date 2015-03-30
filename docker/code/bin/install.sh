@@ -22,6 +22,7 @@ apt-get update
 
 apt-get install -y \
     supervisor \
+    ssmtp \
     php5-cli \
     php5-fpm \
     php5-json \

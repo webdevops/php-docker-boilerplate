@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+#############################
+## Init MySQL
+#############################
+
 echo "[client]
 host=mysql
 user=\"$MYSQL_USER\"
@@ -25,14 +29,18 @@ password=\"$MYSQL_PASSWORD\"
 
 " > /root/.my.cnf
 
-if [ "$1" = 'postgres' ]; then
-    chown -R postgres "$PGDATA"
+#############################
+## Init SSMTP
+#############################
 
-    if [ -z "$(ls -A "$PGDATA")" ]; then
-        gosu postgres initdb
-    fi
+sed -i "s/mailhub=.*/mailhub=${MAIL_GATEWAY}/" /etc/ssmtp/ssmtp.conf
 
-    exec gosu postgres "$@"
+#############################
+## COMMAND
+#############################
+
+if [ "$1" = 'supervisord' ]; then
+    exec supervisord "$@"
 fi
 
 exec "$@"
