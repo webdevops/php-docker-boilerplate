@@ -29,7 +29,7 @@ nginx:
 #  ports:
 #    - 8000:80
 #  links:
-#    - fpm
+#    - main
 #  volumes_from:
 #    - main
 #  env_file:
