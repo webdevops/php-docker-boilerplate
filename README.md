@@ -164,6 +164,11 @@ to get both, the Docker configuration and the TYPO3 installation.
 
 For better useability track a whole branch (eg. develop or master) as submodule and not just a single commit.
 
+# Root privilege requirements for NFS
+
+Under Linux and MacOS you will be asked for root rights (sudo).
+If you don't want to enter your password every time [take a look at the vagrant manual for NFS usage](https://docs.vagrantup.com/v2/synced-folders/nfs.html)
+
 ## Credits
 
 This Docker layout is based on https://github.com/denderello/symfony-docker-example/
