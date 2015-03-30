@@ -14,4 +14,5 @@ EXPOSE 9000
 VOLUME /code/
 WORKDIR /code/
 
-CMD ["/usr/bin/supervisord"]
+ENTRYPOINT ["/opt/docker/entrypoint.sh"]
+CMD ["supervisord"]
