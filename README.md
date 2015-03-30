@@ -51,6 +51,19 @@ For an existing project just put your files into htdocs/ folder or use git to cl
 
 ## Informations
 
+### Docker layout
+
+Container                 | Description
+------------------------- | -------------------------------
+code                      | Main code container with PHP-FPM and tools
+storage                   | Storage container, eg. for Solr data
+nginx                     | Nginx webserver
+httpd (optional)          | Apache HTTPD webserver
+mysql                     | MySQL database
+solr                      | Apache Solr server
+elasticsearch (optional)  | Elasticsearch server
+memcached (optional)      | Memcached server
+redis (optional)          | Redis server
 
 ### Makefile
 
@@ -163,6 +176,11 @@ Every developer now needs only to clone the Docker repository with **--recursive
 to get both, the Docker configuration and the TYPO3 installation.
 
 For better useability track a whole branch (eg. develop or master) as submodule and not just a single commit.
+
+# Root privilege requirements for NFS
+
+Under Linux and MacOS you will be asked for root rights (sudo).
+If you don't want to enter your password every time [take a look at the vagrant manual for NFS usage](https://docs.vagrantup.com/v2/synced-folders/nfs.html)
 
 ## Credits
 
