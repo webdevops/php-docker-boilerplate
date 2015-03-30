@@ -51,6 +51,19 @@ For an existing project just put your files into htdocs/ folder or use git to cl
 
 ## Informations
 
+### Docker layout
+
+Container                 | Description
+------------------------- | -------------------------------
+code                      | Main code container with PHP-FPM and tools
+storage                   | Storage container, eg. for Solr data
+nginx                     | Nginx webserver
+httpd (optional)          | Apache HTTPD webserver
+mysql                     | MySQL database
+solr                      | Apache Solr server
+elasticsearch (optional)  | Elasticsearch server
+memcached (optional)      | Memcached server
+redis (optional)          | Redis server
 
 ### Makefile
 
