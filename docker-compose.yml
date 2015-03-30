@@ -6,7 +6,7 @@ typo3:
     #- redis
     #- memcached
   volumes:
-    - ./:/var/www/
+    - ./:/code/
   volumes_from:
     - storage
   env_file:

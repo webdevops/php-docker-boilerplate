@@ -11,7 +11,7 @@ ADD ./htdocs /var/www/htdocs
 
 EXPOSE 9000
 
-VOLUME /var/www/
-WORKDIR /var/www/htdocs/
+VOLUME /code/
+WORKDIR /code/
 
 CMD ["/usr/bin/supervisord"]
