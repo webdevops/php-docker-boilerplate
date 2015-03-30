@@ -69,3 +69,10 @@ php5enmod typo3
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+
+#############################
+# Cleanup
+#############################
+
+apt-get clean -y
+apt-get autoclean -y
