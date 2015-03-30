@@ -23,3 +23,4 @@ RUN chown solr:solr -R /opt/solr/example/solr/
 VOLUME "/data"
 
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["solr"]

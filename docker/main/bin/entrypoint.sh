@@ -40,7 +40,7 @@ sed -i "s/mailhub=.*/mailhub=${MAIL_GATEWAY}/" /etc/ssmtp/ssmtp.conf
 #############################
 
 if [ "$1" = 'supervisord' ]; then
-    exec supervisord "$@"
+    exec supervisord
 fi
 
 exec "$@"

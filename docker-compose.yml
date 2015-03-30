@@ -1,5 +1,5 @@
-code:
-  build: docker/code/
+main:
+  build: docker/main/
   links:
     - solr
     - mysql
@@ -18,9 +18,9 @@ nginx:
   ports:
     - 8000:80
   links:
-    - code
+    - main
   volumes_from:
-    - code
+    - main
   env_file:
     - docker-env.yml
 
@@ -31,7 +31,7 @@ nginx:
 #  links:
 #    - fpm
 #  volumes_from:
-#    - code
+#    - main
 #  env_file:
 #    - docker-env.yml
 

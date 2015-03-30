@@ -55,7 +55,7 @@ For an existing project just put your files into htdocs/ folder or use git to cl
 
 Container                 | Description
 ------------------------- | -------------------------------
-code                      | Main code container with PHP-FPM and tools
+main                      | Main container with PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
 nginx                     | Nginx webserver
 httpd (optional)          | Apache HTTPD webserver

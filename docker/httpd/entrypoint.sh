@@ -24,8 +24,15 @@ cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf
 /bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"        /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"          /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"  /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FPM_HOST>@${CODE_PORT_9000_TCP_ADDR}@"    /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FPM_PORT>@${CODE_PORT_9000_TCP_PORT}@"    /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"    /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"    /usr/local/apache2/conf/docker-vhost.conf
 
+#############################
+## COMMAND
+#############################
 
-httpd -DFOREGROUND
+if [ "$1" = 'httpd' ]; then
+    exec httpd -DFOREGROUND
+fi
+
+exec "$@"
