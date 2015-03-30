@@ -15,10 +15,10 @@ create-neos-project:
 #############################
 
 mysql-backup:
-	docker-compose run --rm --no-deps typo3 bash /code/bin/backup.sh mysql
+	docker-compose run --rm --no-deps code bash /code/bin/backup.sh mysql
 
 mysql-restore:
-	docker-compose run --rm --no-deps typo3 bash /code/bin/restore.sh mysql
+	docker-compose run --rm --no-deps code bash /code/bin/restore.sh mysql
 
 #############################
 # Solr
@@ -26,12 +26,12 @@ mysql-restore:
 
 solr-backup:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps typo3 bash /code/bin/backup.sh solr
+	docker-compose run --rm --no-deps code bash /code/bin/backup.sh solr
 	docker-compose start solr
 
 solr-restore:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps typo3 bash /code/bin/restore.sh solr
+	docker-compose run --rm --no-deps code bash /code/bin/restore.sh solr
 	docker-compose start solr
 
 #############################
@@ -47,9 +47,12 @@ deploy:
 clean:
 	test -d htdocs/typo3temp && { rm -rf htdocs/typo3temp/*; }
 
+bash:
+	docker-compose run --rm code bash
+
 #############################
 # TYPO3
 #############################
 
 scheduler:
-	docker-compose run --rm typo3 typo3/cli_dispatch.phpsh scheduler
+	docker-compose run --rm code typo3/cli_dispatch.phpsh scheduler
