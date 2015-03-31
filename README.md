@@ -188,7 +188,7 @@ Setting                 | Value
 Hostname                | IP or Hostname of VM
 Port                    | 8000
 Use path mappings       | Check
-Path mapping of htdocs  | /var/www/htdocs/
+Path mapping of htdocs  | /docker/htdocs/
 
 Add a debug connection (Run -> Edit -> Connections) and create a new connection.
 
