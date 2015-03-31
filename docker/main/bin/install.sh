@@ -22,6 +22,7 @@ apt-get update
 
 apt-get install -y \
     supervisor \
+    ssmtp \
     php5-cli \
     php5-fpm \
     php5-json \
@@ -69,3 +70,10 @@ php5enmod typo3
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+
+#############################
+# Cleanup
+#############################
+
+apt-get clean -y
+apt-get autoclean -y

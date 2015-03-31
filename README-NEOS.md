@@ -23,8 +23,8 @@ most of the time there is no need to enter any Docker container.
 
 You can run one-shot command inside the `TYPO3` service container:
 
-    $ docker-compose run --rm typo3 flow core:setfilepermissions
+    $ docker-compose run --rm code flow core:setfilepermissions
 
-    $ docker-compose run --rm typo3 bash
+    $ docker-compose run --rm code bash
 
 Webserver is available at Port 8000

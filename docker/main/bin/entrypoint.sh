@@ -1,4 +1,9 @@
 #!/bin/bash
+set -e
+
+#############################
+## Init MySQL
+#############################
 
 echo "[client]
 host=mysql
@@ -23,3 +28,19 @@ user=\"$MYSQL_USER\"
 password=\"$MYSQL_PASSWORD\"
 
 " > /root/.my.cnf
+
+#############################
+## Init SSMTP
+#############################
+
+sed -i "s/mailhub=.*/mailhub=${MAIL_GATEWAY}/" /etc/ssmtp/ssmtp.conf
+
+#############################
+## COMMAND
+#############################
+
+if [ "$1" = 'supervisord' ]; then
+    exec supervisord
+fi
+
+exec "$@"

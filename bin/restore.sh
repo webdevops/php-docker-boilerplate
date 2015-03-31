@@ -8,29 +8,25 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
 if [ "$#" -ne 1 ]; then
-    echo "No project type defined (either cms or neos)"
+    echo "No type defined"
     exit 1
 fi
 
-mkdir -p -- "$TYPO3_DIR/"
-
-rm -f -- "$TYPO3_DIR/.gitkeep"
+mkdir -p -- "${BACKUP_DIR}"
 
 case "$1" in
     ###################################
-    ## TYPO3 CMS
+    ## MySQL
     ###################################
-    "cms")
-        execInDir "$TYPO3_DIR" "composer create-project typo3/cms-base-distribution \"$TYPO3_DIR\""
-        execInDir "$TYPO3_DIR" "touch FIRST_INSTALL"
+    "mysql")
+        bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | mysql
         ;;
 
     ###################################
-    ## TYPO3 NEOS
+    ## Solr
     ###################################
-    "neos")
-        execInDir "$TYPO3_DIR" "composer create-project typo3/neos-base-distribution \"$TYPO3_DIR\""
+    "solr")
+        rm -rf /data/solr/* && mkdir -p /data/solr/
+        tar jxf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" -C /
         ;;
 esac
-
-touch -- "$TYPO3_DIR/.gitkeep"

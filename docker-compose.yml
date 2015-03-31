@@ -1,12 +1,13 @@
-typo3:
-  build: docker/typo3/
+main:
+  build: docker/main/
   links:
     - solr
     - mysql
     #- redis
     #- memcached
   volumes:
-    - ./:/var/www/
+    - ./:/docker/
+    - /tmp/debug/:/tmp/debug/
   volumes_from:
     - storage
   env_file:
@@ -17,9 +18,9 @@ nginx:
   ports:
     - 8000:80
   links:
-    - typo3
+    - main
   volumes_from:
-    - typo3
+    - main
   env_file:
     - docker-env.yml
 
@@ -28,9 +29,9 @@ nginx:
 #  ports:
 #    - 8000:80
 #  links:
-#    - fpm
+#    - main
 #  volumes_from:
-#    - typo3
+#    - main
 #  env_file:
 #    - docker-env.yml
 

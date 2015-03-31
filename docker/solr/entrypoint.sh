@@ -19,8 +19,12 @@ grep -o "dataDir=\"[^'\"]*\"" /opt/solr/example/solr/solr.xml | sed -E 's/dataDi
     chmod 777 "/opt/solr/example/solr/typo3cores/$SOLR_CORE"
 done
 
+#############################
+## COMMAND
+#############################
 
-###################
-# Run solr
-###################
-exec java -jar start.jar
+if [ "$1" = 'solr' ]; then
+    exec java -jar start.jar
+fi
+
+exec "$@"

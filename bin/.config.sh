@@ -24,6 +24,10 @@ SCRIPT_DIR=$(dirname $($READLINK -f "$0"))
 ROOT_DIR=$($READLINK -f "$SCRIPT_DIR/../")
 TYPO3_DIR=$($READLINK -f "$ROOT_DIR/htdocs")
 
+BACKUP_DIR=$($READLINK -f "$ROOT_DIR/backup")
+BACKUP_SOLR_FILE='solr.cores.tbz2'
+BACKUP_MYSQL_FILE='mysql.sql.bz2'
+
 #######################################
 ## Functions
 #######################################

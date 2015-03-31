@@ -36,6 +36,14 @@ query_cache_size  = 60M
 query_cache_type  = 1
 
 #################################################
+## Query log
+
+slow-query-log
+slow_query_log_file = /dev/stderr
+long_query_time     = 1
+; log-queries-not-using-indexes
+
+#################################################
 ## Connections
 ##
 ## keep connections low because each conncetion
