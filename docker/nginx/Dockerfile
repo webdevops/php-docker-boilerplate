@@ -1,6 +1,6 @@
-FROM dockerfile/nginx
+FROM nginx
 
-ADD conf/vhost.conf /etc/nginx/sites-available/default.tpl
+ADD conf/vhost.conf /opt/docker/vhost.conf
 ADD entrypoint.sh   /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
