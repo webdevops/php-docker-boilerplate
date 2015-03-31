@@ -15,10 +15,10 @@ create-neos-project:
 #############################
 
 mysql-backup:
-	docker-compose run --rm --no-deps main bash /code/bin/backup.sh mysql
+	docker-compose run --rm --no-deps main bash /docker/bin/backup.sh mysql
 
 mysql-restore:
-	docker-compose run --rm --no-deps main bash /code/bin/restore.sh mysql
+	docker-compose run --rm --no-deps main bash /docker/bin/restore.sh mysql
 
 #############################
 # Solr
@@ -26,12 +26,12 @@ mysql-restore:
 
 solr-backup:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps main bash /code/bin/backup.sh solr
+	docker-compose run --rm --no-deps main bash /docker/bin/backup.sh solr
 	docker-compose start solr
 
 solr-restore:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps main bash /code/bin/restore.sh solr
+	docker-compose run --rm --no-deps main bash /docker/bin/restore.sh solr
 	docker-compose start solr
 
 #############################
