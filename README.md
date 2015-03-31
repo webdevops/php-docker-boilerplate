@@ -167,6 +167,8 @@ Port          | 11211
 
 Environment           | Description
 --------------------- | -------------
+DOCUMENT_ROOT         | Document root for Nginx and Apache HTTPD
+<br>                  |
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
 FLOW_CONTEXT          | Context for FLOW and NEOS
 <br>                  |
