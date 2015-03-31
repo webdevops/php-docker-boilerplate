@@ -7,12 +7,10 @@ COPY bin/*                 /opt/docker/
 
 RUN bash /opt/docker/install.sh
 
-ADD ./htdocs /code/htdocs
-
 EXPOSE 9000
 
-VOLUME /code/
-WORKDIR /code/
+VOLUME /docker/
+WORKDIR /docker/
 
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]
 CMD ["supervisord"]

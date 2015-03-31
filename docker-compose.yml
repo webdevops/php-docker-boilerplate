@@ -6,7 +6,7 @@ main:
     #- redis
     #- memcached
   volumes:
-    - ./:/code/
+    - ./:/docker/
     - /tmp/debug/:/tmp/debug/
   volumes_from:
     - storage
