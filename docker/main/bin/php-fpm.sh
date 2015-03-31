@@ -11,6 +11,14 @@ sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/w
 
 # Manipulate php-fpm configuration
 echo "
+catch_workers_output = yes
+
+access.log = /proc/self/fd/2
+slowlog    = /proc/self/fd/2
+request_slowlog_timeout = 30s
+
+php_admin_value[error_log] = /proc/self/fd/2
+
 env[TYPO3_CONTEXT]    = ${TYPO3_CONTEXT}
 env[FLOW_CONTEXT]     = ${FLOW_CONTEXT}
 env[FLOW_REWRITEURLS] = ${FLOW_REWRITEURLS}
