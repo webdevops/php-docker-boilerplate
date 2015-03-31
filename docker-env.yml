@@ -1,3 +1,5 @@
+DOCUMENT_ROOT=htdocs/
+
 TYPO3_CONTEXT=Development/Docker
 FLOW_CONTEXT=Development/Docker
 FLOW_REWRITEURLS=1

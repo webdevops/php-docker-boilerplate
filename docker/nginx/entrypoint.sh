@@ -1,6 +1,14 @@
 #!/bin/bash
 
+###################
+# vhost
+###################
+
+# Detect correct path of document root
+DOCUMENT_ROOT=$(readlink -f "/docker/$DOCUMENT_ROOT")
+
 cp /etc/nginx/sites-available/default.tpl /etc/nginx/sites-enabled/default
+/bin/sed -i "s@<DOCUMENT_ROOT>@${DOCUMENT_ROOT}@"         /etc/nginx/sites-enabled/default
 /bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"         /etc/nginx/sites-enabled/default
 /bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"           /etc/nginx/sites-enabled/default
 /bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"   /etc/nginx/sites-enabled/default
