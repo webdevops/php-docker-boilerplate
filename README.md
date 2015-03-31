@@ -34,6 +34,34 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 If you want to run a Docker VM make sure you're using VMware or Parallels Desktop because of
 the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
 
+## Docker short introduction
+
+Create and start containers (eg. first start):
+
+    $ docker-compose up -d
+
+Stop containers
+
+    $ docker-compose stop
+
+Start containers (only stopped containers)
+
+    $ docker-compose start
+
+Build (but not create and start) containers
+
+    $ docker-compose build --no-cache
+
+Delete container content
+
+    $ docker-compose rm --force
+
+Recreate containers (if there is any issue or just to start from a clean build)
+
+    $ docker-compose stop
+    $ docker-compose rm --force
+    $ docker-compose build --no-cache
+    $ docker-compose up -d
 
 ## Create new project
 
@@ -64,6 +92,8 @@ solr                      | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
+
+This directory will be mounted under /docker in main, nginx and httpd container.
 
 ### Makefile
 
@@ -183,15 +213,6 @@ For better useability track a whole branch (eg. develop or master) as submodule 
 
 Under Linux and MacOS you will be asked for root rights (sudo).
 If you don't want to enter your password every time [take a look at the vagrant manual for NFS usage](https://docs.vagrantup.com/v2/synced-folders/nfs.html)
-
-## Recreate docker containers
-
-If your docker containers crashed or you want to recreate and rebuild it:
-
-        $ docker-compose stop
-        $ docker-compose rm --force
-        $ docker-compose build --no-cache
-        $ docker-compose up -d
 
 ## Credits
 
