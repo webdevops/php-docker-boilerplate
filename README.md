@@ -10,8 +10,8 @@ Supports:
 - MySQL, MariaDB or PerconaDB
 - Solr
 - Elasticsearch (disabled, without configuration)
-- Redis (disabeld)
-- Memcached (disabeld)
+- Redis (disabled)
+- Memcached (disabled)
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
@@ -140,6 +140,8 @@ Environment           | Description
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
 FLOW_CONTEXT          | Context for FLOW and NEOS
 <br>                  |
+MAIL_GATEWAY          | Upstream server for sending mails (ssmtp)
+<br>                  |
 MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
@@ -181,6 +183,15 @@ For better useability track a whole branch (eg. develop or master) as submodule 
 
 Under Linux and MacOS you will be asked for root rights (sudo).
 If you don't want to enter your password every time [take a look at the vagrant manual for NFS usage](https://docs.vagrantup.com/v2/synced-folders/nfs.html)
+
+## Recreate docker containers
+
+If your docker containers crashed or you want to recreate and rebuild it:
+
+        $ docker-compose stop
+        $ docker-compose rm --force
+        $ docker-compose build --no-cache
+        $ docker-compose up -d
 
 ## Credits
 
