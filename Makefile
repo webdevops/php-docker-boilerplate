@@ -10,6 +10,9 @@ create-cms-project:
 create-neos-project:
 	bash bin/create-project.sh neos
 
+create-symfony-project:
+	bash bin/create-project.sh symfony
+
 #############################
 # MySQL
 #############################

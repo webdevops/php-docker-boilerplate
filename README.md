@@ -1,7 +1,8 @@
-# Dockerized TYPO3, FLOW and NEOS project boilerplate
+# Dockerized PHP web project boilerplate
 
 This is a boilerplate utilizing Docker based with support
-for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW and NEOS projects.
+for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
+It also supports Symfony and any other PHP base project.
 
 Supports:
 
@@ -84,6 +85,8 @@ Now create the project:
 
 - [Create new TYPO3](README-TYPO3.md)
 - [Create new NEOS](README-NEOS.md)
+- [Create new SYMFONY](README-SYMFONY.md)
+- [Running any php based project](README-OTHER.md)
 
 For an existing project just put your files into code/ folder or use git to clone your project into code/.
 
