@@ -22,7 +22,7 @@ fi
 
 SCRIPT_DIR=$(dirname $($READLINK -f "$0"))
 ROOT_DIR=$($READLINK -f "$SCRIPT_DIR/../")
-TYPO3_DIR=$($READLINK -f "$ROOT_DIR/htdocs")
+CODE_DIR=$($READLINK -f "$ROOT_DIR/code")
 
 BACKUP_DIR=$($READLINK -f "$ROOT_DIR/backup")
 BACKUP_SOLR_FILE='solr.cores.tbz2'

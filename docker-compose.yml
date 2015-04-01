@@ -24,16 +24,16 @@ nginx:
   env_file:
     - docker-env.yml
 
-#httpd:
-#  build: docker/httpd/
-#  ports:
-#    - 8000:80
-#  links:
-#    - main
-#  volumes_from:
-#    - main
-#  env_file:
-#    - docker-env.yml
+httpd:
+  build: docker/httpd/
+  ports:
+    - 8001:80
+  links:
+    - main
+  volumes_from:
+    - main
+  env_file:
+    - docker-env.yml
 
 mysql:
   build: docker/mysql/
