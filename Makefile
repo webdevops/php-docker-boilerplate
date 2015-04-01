@@ -45,7 +45,7 @@ deploy:
 	bash bin/deploy.sh
 
 clean:
-	test -d htdocs/typo3temp && { rm -rf htdocs/typo3temp/*; }
+	test -d code/typo3temp && { rm -rf code/typo3temp/*; }
 
 bash:
 	docker-compose run --rm main bash

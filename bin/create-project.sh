@@ -12,25 +12,25 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-mkdir -p -- "$TYPO3_DIR/"
+mkdir -p -- "$CODE_DIR/"
 
-rm -f -- "$TYPO3_DIR/.gitkeep"
+rm -f -- "$CODE_DIR/.gitkeep"
 
 case "$1" in
     ###################################
     ## TYPO3 CMS
     ###################################
     "cms")
-        execInDir "$TYPO3_DIR" "composer create-project typo3/cms-base-distribution \"$TYPO3_DIR\""
-        execInDir "$TYPO3_DIR" "touch FIRST_INSTALL"
+        execInDir "$CODE_DIR" "composer create-project typo3/cms-base-distribution \"$CODE_DIR\""
+        execInDir "$CODE_DIR" "touch FIRST_INSTALL"
         ;;
 
     ###################################
     ## TYPO3 NEOS
     ###################################
     "neos")
-        execInDir "$TYPO3_DIR" "composer create-project typo3/neos-base-distribution \"$TYPO3_DIR\""
+        execInDir "$CODE_DIR" "composer create-project typo3/neos-base-distribution \"$CODE_DIR\""
         ;;
 esac
 
-touch -- "$TYPO3_DIR/.gitkeep"
+touch -- "$CODE_DIR/.gitkeep"
