@@ -16,7 +16,7 @@ Supports:
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
-Configuration of each docker container is availabe in the docker/ directory - feel free to customize.
+Configuration of each docker container is available in the `docker/` directory - feel free to customize.
 
 This boilerplate can also be used for any other web project eg. Symfony, Magento and more.
 Just customize the makefile for your needs
@@ -83,12 +83,12 @@ First create and run the Docker containers using [docker-compose](https://github
 
 Now create the project:
 
-- [Create new TYPO3](README-TYPO3.md)
-- [Create new NEOS](README-NEOS.md)
-- [Create new SYMFONY](README-SYMFONY.md)
-- [Running any php based project](README-OTHER.md)
+- [Create new TYPO3 project](README-TYPO3.md)
+- [Create new NEOS project](README-NEOS.md)
+- [Create new Symfony project](README-SYMFONY.md)
+- [Running any other php based project](README-OTHER.md)
 
-For an existing project just put your files into code/ folder or use git to clone your project into code/.
+For an existing project just put your files into `code/` folder or use git to clone your project into `code/`.
 
 
 ## Informations
@@ -107,7 +107,7 @@ elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
 
-This directory will be mounted under /docker in main, nginx and httpd container.
+This directory will be mounted under `/docker` in `main`, `nginx` and `httpd` container.
 
 ### Makefile
 
@@ -135,7 +135,7 @@ make clean                | Clear TYPO3 configuration cache
 ### MySQL
 
 You can choose between [MySQL](https://www.mysql.com/) (default), [MariaDB](https://www.mariadb.org/)
-and [PerconaDB](http://www.percona.com/software) in docker/mysql/Dockerfile
+and [PerconaDB](http://www.percona.com/software) in `docker/mysql/Dockerfile`
 
 Setting       | Value
 ------------- | -------------
@@ -219,7 +219,7 @@ Save, set a break point and test the debugger.
 Use this boilerplate as template and customize it for each project. Put this Docker
 configuration for each project into seperate git repositories.
 
-Now set your existing project repository to be a git submodule in code/.
+Now set your existing project repository to be a git submodule in `code/`.
 Every developer now needs only to clone the Docker repository with **--recursive**
 to get both, the Docker configuration and the TYPO3 installation.
 
