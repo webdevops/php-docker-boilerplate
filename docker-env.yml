@@ -1,4 +1,5 @@
-DOCUMENT_ROOT=htdocs/
+DOCUMENT_ROOT=code/
+DOCUMENT_INDEX=index.php
 
 TYPO3_CONTEXT=Development/Docker
 FLOW_CONTEXT=Development/Docker
