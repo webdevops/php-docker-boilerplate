@@ -10,7 +10,7 @@ RUN bash /opt/docker/install.sh
 EXPOSE 9000
 
 VOLUME /docker/
-WORKDIR /docker/
+WORKDIR /docker/code/
 
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]
 CMD ["supervisord"]
