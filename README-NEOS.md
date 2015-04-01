@@ -15,16 +15,16 @@ or
     $ touch code/.gitkeep
 
 
-And change DOCUMENT_ROOT in docuer-env.yml:
+And change `DOCUMENT_ROOT` in `docker-env.yml`:
 
     DOCUMENT_ROOT=code/Web/
 
-Feel free to modify your NEOS installation in your htdocs (a shared folder of Docker),
+Feel free to modify your NEOS installation in your `code` (a shared folder of Docker),
 most of the time there is no need to enter any Docker container.
 
 ## NEOS cli runner
 
-You can run one-shot command inside the `TYPO3` service container:
+You can run one-shot command inside the `main` service container:
 
     $ docker-compose run --rm code flow core:setfilepermissions
 

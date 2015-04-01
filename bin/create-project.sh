@@ -13,6 +13,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 mkdir -p -- "$CODE_DIR/"
+chmod 777 "$CODE_DIR/"
 
 rm -f -- "$CODE_DIR/.gitkeep"
 
@@ -30,6 +31,15 @@ case "$1" in
     ###################################
     "neos")
         execInDir "$CODE_DIR" "composer create-project typo3/neos-base-distribution \"$CODE_DIR\""
+        ;;
+
+    ###################################
+    ## SYMFONY
+    ###################################
+    "symfony")
+        curl -LsS http://symfony.com/installer > /tmp/symfony.$$.phar
+        execInDir "$CODE_DIR" "php /tmp/symfony.$$.phar new '$CODE_DIR'"
+        rm -f -- /tmp/symfony.$$.phar
         ;;
 esac
 
