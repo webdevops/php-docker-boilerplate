@@ -63,6 +63,17 @@ Recreate containers (if there is any issue or just to start from a clean build)
     $ docker-compose build --no-cache
     $ docker-compose up -d
 
+Logs (eg. for debugging)
+
+    $ docker-compose logs
+
+    # or only php
+    $ docker-compose logs main
+
+    # or only php and nginx
+    $ docker-compose logs main
+
+
 ## Create new project
 
 First create and run the Docker containers using [docker-compose](https://github.com/docker/compose):
@@ -74,7 +85,7 @@ Now create the project:
 - [Create new TYPO3](README-TYPO3.md)
 - [Create new NEOS](README-NEOS.md)
 
-For an existing project just put your files into htdocs/ folder or use git to clone your project into htdocs.
+For an existing project just put your files into code/ folder or use git to clone your project into code/.
 
 
 ## Informations
@@ -188,7 +199,7 @@ Setting                 | Value
 Hostname                | IP or Hostname of VM
 Port                    | 8000
 Use path mappings       | Check
-Path mapping of htdocs  | /docker/htdocs/
+Path mapping of code    | /docker/code/
 
 Add a debug connection (Run -> Edit -> Connections) and create a new connection.
 
@@ -205,7 +216,7 @@ Save, set a break point and test the debugger.
 Use this boilerplate as template and customize it for each project. Put this Docker
 configuration for each project into seperate git repositories.
 
-Now set your existing project repository to be a git submodule in htdocs/.
+Now set your existing project repository to be a git submodule in code/.
 Every developer now needs only to clone the Docker repository with **--recursive**
 to get both, the Docker configuration and the TYPO3 installation.
 

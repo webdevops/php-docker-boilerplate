@@ -10,9 +10,9 @@ For the first TYPO3 setup (make sure [composer](https://getcomposer.org/) is ins
 
 or
 
-    $ rm -f htdocs/.gitkeep
-    $ composer create-project typo3/cms-base-distribution htdocs/
-    $ touch htdocs/FIRST_INSTALL htdocs/.gitkeep
+    $ rm -f code/.gitkeep
+    $ composer create-project typo3/cms-base-distribution code/
+    $ touch htdocs/FIRST_INSTALL code/.gitkeep
 
 
 Feel free to modify your TYPO3 installation in your htdocs (a shared folder of Docker),

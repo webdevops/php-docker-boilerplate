@@ -25,6 +25,7 @@ DOCUMENT_ROOT=$(readlink -f "/docker/$DOCUMENT_ROOT")
 
 cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<DOCUMENT_ROOT>@${DOCUMENT_ROOT}@"        /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<DOCUMENT_INDEX>@${DOCUMENT_INDEX}@"        /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"        /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"          /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"  /usr/local/apache2/conf/docker-vhost.conf

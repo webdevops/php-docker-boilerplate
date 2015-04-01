@@ -13,8 +13,8 @@ source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
 sectionHeader "Checking TYPO3 installation ..."
 
-if [ ! -d "$TYPO3_DIR/fileadmin" -o ! -d "$TYPO3_DIR/typo3conf/ext/" ]; then
-    errorMsg "Either $TYPO3_DIR/fileadmin or $TYPO3_DIR/typo3conf/ext/ doesn't exists"
+if [ ! -d "$CODE_DIR/fileadmin" -o ! -d "$CODE_DIR/typo3conf/ext/" ]; then
+    errorMsg "Either $CODE_DIR/fileadmin or $CODE_DIR/typo3conf/ext/ doesn't exists"
     exit 1
 fi
 
@@ -24,9 +24,9 @@ fi
 
 sectionHeader "Checking for composer.json ..."
 
-if [ -f "htdocs/composer.json" ]; then
+if [ -f "$CODE_DIR/composer.json" ]; then
     # Install composer
-    execInDir "$TYPO3_DIR" "composer install --no-dev --no-interaction"
+    execInDir "$CODE_DIR" "composer install --no-dev --no-interaction"
 fi
 
 #######################################
@@ -35,7 +35,7 @@ fi
 
 sectionHeader "Checking for bower.json ..."
 
-find "$TYPO3_DIR/fileadmin" "$TYPO3_DIR/typo3conf/ext/" -type f -name 'bower.json' | while read FILE; do
+find "$CODE_DIR/fileadmin" "$CODE_DIR/typo3conf/ext/" -type f -name 'bower.json' | while read FILE; do
     BOWER_JSON_DIR=$(dirname $($READLINK -f "$FILE"))
 
     execInDir "$BOWER_JSON_DIR" "bower install --silent"
@@ -48,7 +48,7 @@ done
 
 sectionHeader "Checking for package.json (npm) ..."
 
-find "$TYPO3_DIR/fileadmin" "$TYPO3_DIR/typo3conf/ext/" -type f -name 'package.json' | while read FILE; do
+find "$CODE_DIR/fileadmin" "$CODE_DIR/typo3conf/ext/" -type f -name 'package.json' | while read FILE; do
     PACKAGE_JSON_DIR=$(dirname $($READLINK -f "$FILE"))
 
     if [ ! -d "$PACKAGE_JSON_DIR/node_modules/" -a -n "`which npm-cache`" ]; then
@@ -66,6 +66,6 @@ done
 
 sectionHeader "Checking for gulpfile.js in T3 Root ..."
 
-if [ -f "$TYPO3_DIR\gulpfile.js" ]; then
-    execInDir "$TYPO3_DIR" "gulp deploy"
+if [ -f "$CODE_DIR\gulpfile.js" ]; then
+    execInDir "$CODE_DIR" "gulp deploy"
 fi
