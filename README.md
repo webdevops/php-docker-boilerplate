@@ -72,7 +72,7 @@ Logs (eg. for debugging)
     $ docker-compose logs main
 
     # or only php and nginx
-    $ docker-compose logs main
+    $ docker-compose logs main nginx
 
 
 ## Create new project
