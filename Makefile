@@ -1,17 +1,13 @@
+ARGS = $(filter-out $@,$(MAKECMDGOALS))
+
 all: deploy
 
 #############################
 # Create new project
 #############################
 
-create-cms-project:
-	bash bin/create-project.sh cms
-
-create-neos-project:
-	bash bin/create-project.sh neos
-
-create-symfony-project:
-	bash bin/create-project.sh symfony
+create:
+	bash bin/create-project.sh $(ARGS)
 
 #############################
 # MySQL
@@ -58,4 +54,10 @@ bash:
 #############################
 
 scheduler:
-	docker-compose run --rm main typo3/cli_dispatch.phpsh scheduler
+	docker-compose run --rm main typo3/cli_dispatch.phpsh scheduler $(ARGS)
+
+#############################
+# Argument fix workaround
+#############################
+%:
+	@:

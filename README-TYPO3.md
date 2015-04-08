@@ -6,7 +6,7 @@
 
 For the first TYPO3 setup (make sure [composer](https://getcomposer.org/) is installed):
 
-    $ make create-cms-project
+    $ make create-project typo3
 
 or
 

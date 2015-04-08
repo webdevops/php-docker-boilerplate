@@ -7,8 +7,8 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
-if [ "$#" -ne 1 ]; then
-    echo "No project type defined (either cms or neos)"
+if [ "$#" -lt 1 ]; then
+    echo "No project type defined (either cms, neos, symfony or git)"
     exit 1
 fi
 
@@ -21,7 +21,7 @@ case "$1" in
     ###################################
     ## TYPO3 CMS
     ###################################
-    "cms")
+    "typo3")
         execInDir "$CODE_DIR" "composer create-project typo3/cms-base-distribution \"$CODE_DIR\""
         execInDir "$CODE_DIR" "touch FIRST_INSTALL"
         ;;
@@ -40,6 +40,17 @@ case "$1" in
         curl -LsS http://symfony.com/installer > /tmp/symfony.$$.phar
         execInDir "$CODE_DIR" "php /tmp/symfony.$$.phar new '$CODE_DIR'"
         rm -f -- /tmp/symfony.$$.phar
+        ;;
+
+    ###################################
+    ## GIT
+    ###################################
+    "git")
+        if [ "$#" -lt 2 ]; then
+            echo "Missing git url"
+            exit 1
+        fi
+        git clone --recursive "$2" "$CODE_DIR"
         ;;
 esac
 

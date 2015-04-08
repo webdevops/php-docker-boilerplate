@@ -4,7 +4,7 @@
 
 ## Create SYMFONY project
 
-    $ make create-symfony-project
+    $ make create-project symfony
 
 And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `docker-env.yml`:
 

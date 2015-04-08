@@ -6,7 +6,7 @@
 
 For the first NEOS setup (make sure [composer](https://getcomposer.org/) is installed):
 
-    $ make create-neos-project
+    $ make create-project neos
 
 or
 
