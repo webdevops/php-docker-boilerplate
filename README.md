@@ -75,7 +75,7 @@ Logs (eg. for debugging)
     $ docker-compose logs main nginx
 
 
-## Create new project
+## Create project
 
 First create and run the Docker containers using [docker-compose](https://github.com/docker/compose):
 
@@ -87,6 +87,7 @@ Now create the project:
 - [Create new NEOS project](README-NEOS.md)
 - [Create new Symfony project](README-SYMFONY.md)
 - [Running any other php based project](README-OTHER.md)
+- [Running existing project](README-EXISTING.md)
 
 For an existing project just put your files into `code/` folder or use git to clone your project into `code/`.
 
