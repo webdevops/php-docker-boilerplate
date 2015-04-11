@@ -40,12 +40,12 @@ sed -i "s/mailhub=.*/mailhub=${MAIL_GATEWAY}/" /etc/ssmtp/ssmtp.conf
 #############################
 
 # Backup original
-if [ ! -f "/usr/local/etc/.php-fpm.conf.default.original" ]; then
-cp /etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/.www.original
+if [ ! -f "/opt/docker/.fpm-www.conf" ]; then
+    cp /etc/php5/fpm/pool.d/www.conf /opt/docker/.fpm-www.conf
 fi
 
 # Restore original
-cp /etc/php5/fpm/pool.d/.www.original  /etc/php5/fpm/pool.d/www.conf
+cp /opt/docker/.fpm-www.conf  /etc/php5/fpm/pool.d/www.conf
 sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/www.conf
 
 # Manipulate php-fpm configuration
@@ -76,6 +76,21 @@ env[FLOW_REWRITEURLS] = ${FLOW_REWRITEURLS}
 
 case "$1" in
     supervisord)
+#        ## Register in consul (if available)
+#        if [ -n "${CONSUL_PORT_8500_TCP_ADDR}" ]; then
+#            ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+#
+#            curl -XPUT http://${CONSUL_PORT_8500_TCP_ADDR}:8500/v1/agent/service/register \
+#            -d "{
+#                \"ID\"      : \"container_main\",
+#                \"Name\"    : \"main\",
+#                \"Port\"    : 9000,
+#                \"tags\"    : [\"php\", \"main\"],
+#                \"Address\" : \"${ETH0_IP}\"
+#            }"
+#        fi
+
+        ## Start services
         exec supervisord
         ;;
 
