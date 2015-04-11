@@ -8,6 +8,14 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 export DEBIAN_FRONTEND="noninteractive"
 
 #############################
+# Modify user
+#############################
+
+usermod  -u 1000 -s /bin/bash -h /home www-data
+groupmod -g 1000 www-data
+chown    www-data:www-data /home
+
+#############################
 # Common tasks
 #############################
 
