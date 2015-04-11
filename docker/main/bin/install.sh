@@ -52,12 +52,18 @@ apt-get install -y \
     graphicsmagick \
     zip \
     unzip \
+    wget \
     curl \
     mysql-client \
     nodejs \
     nodejs-legacy \
     node-less \
     npm
+
+# Internal tools
+apt-get install -y \
+    moreutils \
+    dnsutils
 
 #############################
 # Generate locales
