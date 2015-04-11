@@ -1,6 +1,7 @@
 main:
   build: docker/main/
   links:
+    - consul
     - solr
     - mysql
     #- redis
@@ -18,6 +19,7 @@ main:
 #  ports:
 #    - 8000:80
 #  links:
+#    - consul
 #    - main
 #  volumes_from:
 #    - main
@@ -29,6 +31,7 @@ httpd:
   ports:
     - 8000:80
   links:
+    - consul
     - main
   volumes_from:
     - main
@@ -78,3 +81,7 @@ storage:
   volumes:
     - /data
   command: true
+
+consul:
+  image: progrium/consul
+  command: -server -bootstrap

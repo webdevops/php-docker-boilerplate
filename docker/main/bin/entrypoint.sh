@@ -76,19 +76,19 @@ env[FLOW_REWRITEURLS] = ${FLOW_REWRITEURLS}
 
 case "$1" in
     supervisord)
-#        ## Register in consul (if available)
-#        if [ -n "${CONSUL_PORT_8500_TCP_ADDR}" ]; then
-#            ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-#
-#            curl -XPUT http://${CONSUL_PORT_8500_TCP_ADDR}:8500/v1/agent/service/register \
-#            -d "{
-#                \"ID\"      : \"container_main\",
-#                \"Name\"    : \"main\",
-#                \"Port\"    : 9000,
-#                \"tags\"    : [\"php\", \"main\"],
-#                \"Address\" : \"${ETH0_IP}\"
-#            }"
-#        fi
+        ## Register in consul (if available)
+        if [ -n "${CONSUL_PORT_8500_TCP_ADDR}" ]; then
+            ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+
+            curl -XPUT http://${CONSUL_PORT_8500_TCP_ADDR}:8500/v1/agent/service/register \
+            -d "{
+                \"ID\"      : \"container_main\",
+                \"Name\"    : \"main\",
+                \"Port\"    : 9000,
+                \"tags\"    : [\"php\", \"main\"],
+                \"Address\" : \"${ETH0_IP}\"
+            }"
+        fi
 
         ## Start services
         exec supervisord
@@ -99,7 +99,9 @@ case "$1" in
         ;;
 
     *)
+        ## Set home dir
         export HOME=/home/
+        ## Execute cmd
         sudo -E -u www-data "$@"
         ;;
 esac

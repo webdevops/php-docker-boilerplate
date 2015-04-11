@@ -11,9 +11,13 @@ export DEBIAN_FRONTEND="noninteractive"
 # Modify user
 #############################
 
-usermod  -u 1000 -s /bin/bash -h /home www-data
-groupmod -g 1000 www-data
+usermod  --uid 1000 --shell /bin/bash --home /home www-data
+groupmod --gid 1000 www-data
 chown    www-data:www-data /home
+
+## Fix terminal
+echo 'export TERM="xterm-color"' >> /root/.bashrc
+echo 'export TERM="xterm-color"' >> /home/.bashrc
 
 #############################
 # Common tasks
@@ -30,6 +34,7 @@ apt-get update
 
 apt-get install -y \
     supervisor \
+    dnsmasq \
     ssmtp \
     php5-cli \
     php5-fpm \
@@ -84,6 +89,17 @@ php5enmod typo3
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+
+
+#############################
+# Dnsmasq
+#############################
+
+## Fix dnsmasqd
+echo "
+user=root
+conf-dir=/etc/dnsmasq.d
+" >> /etc/dnsmasq.conf
 
 #############################
 # Cleanup
