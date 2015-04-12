@@ -116,6 +116,9 @@ Customize the [Makefile](Makefile) for your needs.
 
 Command                   | Description
 ------------------------- | -------------------------------
+make bash                 | Enter main container with bash (user www-data)
+make root                 | Enter main container with bash (user root)
+<br>                      |
 make backup               | General backup (run all backup tasks)
 make restore              | General restore (run all restore tasks)
 <br>                      |
@@ -188,6 +191,7 @@ TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions
 FLOW_CONTEXT          | Context for FLOW and NEOS
 <br>                  |
 MAIL_GATEWAY          | Upstream server for sending mails (ssmtp)
+DNS_DOMAIN            | List of wildcard domains pointing to webserver (eg. for local content fetching)
 <br>                  |
 MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
