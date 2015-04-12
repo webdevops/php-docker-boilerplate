@@ -89,7 +89,14 @@ case "$1" in
 
     ## Root shell
     root)
-        exec bash
+        if [ "$#" -eq 1 ]; then
+            ## No command, fall back to shell
+            exec bash
+        else
+            ## Exec root command
+            shift
+            exec "$@"
+        fi
         ;;
 
     ## All other commands

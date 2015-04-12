@@ -19,14 +19,27 @@ case "$1" in
     ## MySQL
     ###################################
     "mysql")
-        bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | mysql
+        if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
+            logMsg "Starting MySQL restore..."
+            bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | mysql
+        else
+            errorMsg "MySQL backup file not found"
+            exit 1
+        fi
         ;;
 
     ###################################
     ## Solr
     ###################################
     "solr")
-        rm -rf /data/solr/* && mkdir -p /data/solr/
-        tar jxf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" -C /
+        if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
+            logMsg "Starting Solr restore..."
+            rm -rf /data/solr/* && mkdir -p /data/solr/
+            chmod 777 /data/solr/
+            tar jxPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" -C /
+        else
+            errorMsg "Solr backup file not found"
+            exit 1
+        fi
         ;;
 esac

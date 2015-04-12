@@ -33,7 +33,11 @@ BACKUP_MYSQL_FILE='mysql.sql.bz2'
 #######################################
 
 errorMsg() {
-    echo "[ERR] $*"
+    echo "[ERROR] $*"
+}
+
+logMsg() {
+    echo " * $*"
 }
 
 sectionHeader() {

@@ -4,7 +4,6 @@
 # Storage directories
 ###################
 
-
 mkdir -p /data/solr/
 mkdir -p /data/dns/
 
