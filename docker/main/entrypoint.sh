@@ -75,6 +75,8 @@ env[FLOW_REWRITEURLS] = ${FLOW_REWRITEURLS}
 #############################
 
 case "$1" in
+
+    ## Supervisord (start daemons)
     supervisord)
         ## Register IP
         ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
@@ -85,12 +87,14 @@ case "$1" in
         exec supervisord
         ;;
 
+    ## Root shell
     root)
         exec bash
         ;;
 
+    ## All other commands
     *)
-        ## Set home dir
+        ## Set home dir (workaround)
         export HOME=/home/
         ## Execute cmd
         sudo -E -u www-data "$@"
