@@ -1,4 +1,4 @@
-[<-- Back to main section](README.md)
+[<-- Back to main section](../README.md)
 
 # Running TYPO3
 

@@ -83,11 +83,11 @@ First create and run the Docker containers using [docker-compose](https://github
 
 Now create the project:
 
-- [Create new TYPO3 project](README-TYPO3.md)
-- [Create new NEOS project](README-NEOS.md)
-- [Create new Symfony project](README-SYMFONY.md)
-- [Running any other php based project](README-OTHER.md)
-- [Running existing project](README-EXISTING.md)
+- [Create new TYPO3 project](doc/README-TYPO3.md)
+- [Create new NEOS project](doc/README-NEOS.md)
+- [Create new Symfony project](doc/README-SYMFONY.md)
+- [Running any other php based project](doc/README-OTHER.md)
+- [Running existing project](doc/README-EXISTING.md)
 
 For an existing project just put your files into `code/` folder or use git to clone your project into `code/`.
 
