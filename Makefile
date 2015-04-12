@@ -49,6 +49,9 @@ clean:
 bash:
 	docker-compose run --rm main bash
 
+root:
+	docker-compose run --rm main root
+
 #############################
 # TYPO3
 #############################
