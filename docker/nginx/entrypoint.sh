@@ -22,19 +22,10 @@ cp /opt/docker/vhost.conf /etc/nginx/conf.d/vhost.conf
 #############################
 
 if [ "$1" = 'nginx' ]; then
-    ## Register in consul (if available)
-    if [ -n "${CONSUL_PORT_8500_TCP_ADDR}" ]; then
-        ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-
-        curl -XPUT http://${CONSUL_PORT_8500_TCP_ADDR}:8500/v1/agent/service/register \
-        -d "{
-            \"ID\"      : \"container_nginx\",
-            \"Name\"    : \"nginx\",
-            \"Port\"    : 80,
-            \"tags\"    : [\"nginx\", \"web\"],
-            \"Address\" : \"${ETH0_IP}\"
-        }"
-    fi
+    ## Register IP
+    ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+    echo "${ETH0_IP}"                 > /data/dns/nginx.ip
+    echo "${ETH0_IP}   nginx nginx_1" > /data/dns/nginx.hosts
 
     exec nginx -g "daemon off;"
 fi

@@ -1,7 +1,6 @@
 main:
   build: docker/main/
   links:
-    - consul
     - solr
     - mysql
     #- redis
@@ -19,10 +18,10 @@ main:
 #  ports:
 #    - 8000:80
 #  links:
-#    - consul
 #    - main
 #  volumes_from:
 #    - main
+#    - storage
 #  env_file:
 #    - docker-env.yml
 
@@ -31,10 +30,10 @@ httpd:
   ports:
     - 8000:80
   links:
-    - consul
     - main
   volumes_from:
     - main
+    - storage
   env_file:
     - docker-env.yml
 
@@ -42,6 +41,8 @@ mysql:
   build: docker/mysql/
   ports:
     - 13306:3306
+  volumes_from:
+    - storage
   volumes:
     - /tmp/debug/:/tmp/debug/
   env_file:
@@ -63,16 +64,22 @@ solr:
 #  ports:
 #    - 19200:9200
 #    - 19300:9300
+#  volumes_from:
+#    - storage
 #  env_file:
 #    - docker-env.yml
 
 #redis:
 #  build: docker/redis/
+#  volumes_from:
+#    - storage
 #  env_file:
 #    - docker-env.yml
 
 #memcached:
 #  build: docker/memcached/
+#  volumes_from:
+#    - storage
 #  env_file:
 #    - docker-env.yml
 
@@ -80,8 +87,3 @@ storage:
   build: docker/storage/
   volumes:
     - /data
-  command: true
-
-consul:
-  image: progrium/consul
-  command: -server -bootstrap

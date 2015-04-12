@@ -36,19 +36,10 @@ cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf
 #############################
 
 if [ "$1" = 'httpd' ]; then
-    ## Register in consul (if available)
-    if [ -n "${CONSUL_PORT_8500_TCP_ADDR}" ]; then
-        ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-
-        curl -XPUT http://${CONSUL_PORT_8500_TCP_ADDR}:8500/v1/agent/service/register \
-        -d "{
-            \"ID\"      : \"container_httpd\",
-            \"Name\"    : \"httpd\",
-            \"Port\"    : 80,
-            \"tags\"    : [\"httpd\", \"web\"],
-            \"Address\" : \"${ETH0_IP}\"
-        }"
-    fi
+    ## Register IP
+    ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+    echo "${ETH0_IP}"                 > /data/dns/httpd.ip
+    echo "${ETH0_IP}   httpd httpd_1" > /data/dns/httpd.hosts
 
     exec httpd -DFOREGROUND
 fi

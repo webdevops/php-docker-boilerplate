@@ -19,34 +19,31 @@ function dnsmasq_start() {
     restore_resolvconf
 
     echo > /etc/dnsmasq.d/development
-    echo "address=/vm.dev/${1}" >> /etc/dnsmasq.d/development
-    echo "address=/vm/${1}" >> /etc/dnsmasq.d/development
+
+    for DOMAIN in $DNS_DOMAIN; do
+        echo "address=/${DOMAIN}/${1}" >> /etc/dnsmasq.d/development
+    done
+
     service dnsmasq restart
 
     echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
-    sleep 900000
+    sleep 21600
 }
 
-## Register in consul (if available)
-if [ -n "${CONSUL_PORT_8500_TCP_ADDR}" ]; then
-    HTTPD_IP=$(dig @${CONSUL_PORT_8500_TCP_ADDR} +short httpd.service.consul | head -1)
-    NGINX_IP=$(dig @${CONSUL_PORT_8500_TCP_ADDR} +short nginx.service.consul | head -1)
-
-
-    if [ -n "$HTTPD_IP" ]; then
-        ## Found HTTPD
-        dnsmasq_start "${HTTPD_IP}"
-    elif [ -n "$NGINX_IP" ]; then
-        ## Found NGINX
-        dnsmasq_start "${NGINX_IP}"
-    else
-        ## Found nothing, restore original resolvconf
-        restore_resolvconf
-        sleep 15
-    fi
+## Fetch IP from services
+if [ -f "/data/dns/httpd.ip" ]; then
+    ## Found HTTPD
+    HTTPD_IP=$(cat /data/dns/httpd.ip)
+    dnsmasq_start "${HTTPD_IP}"
+elif [ -f "/data/dns/nginx.ip" ]; then
+    ## Found NGINX
+    NGINX_IP=$(cat /data/dns/nginx.ip)
+    dnsmasq_start "${NGINX_IP}"
 else
-    sleep 120
+    ## Found nothing, restore original resolvconf
+    restore_resolvconf
+    sleep 15
 fi
 
 exit 0
