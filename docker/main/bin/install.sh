@@ -42,6 +42,7 @@ apt-get install -y \
     php5-intl \
     php5-curl \
     php5-mysqlnd \
+    php5-xdebug \
     php5-xhprof \
     php5-memcached \
     php5-redis \
