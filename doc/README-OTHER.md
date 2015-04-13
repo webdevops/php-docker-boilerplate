@@ -12,8 +12,8 @@
 
 You can run one-shot command inside the `main` service container:
 
-    $ docker-compose run --rm code any-php-file.php argument1 argument2
+    $ docker-compose run --rm main any-php-file.php argument1 argument2
 
-    $ docker-compose run --rm code bash
+    $ docker-compose run --rm main bash
 
 Webserver is available at Port 8000

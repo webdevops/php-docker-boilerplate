@@ -26,8 +26,12 @@ most of the time there is no need to enter any Docker container.
 
 You can run one-shot command inside the `main` service container:
 
-    $ docker-compose run --rm code flow core:setfilepermissions
+    # commands with root rights
+    $ docker-compose run --rm main root ./flow core:setfilepermissions
 
-    $ docker-compose run --rm code bash
+    # normal commands
+    $ docker-compose run --rm main ./flow core:anyothercommand
+
+    $ docker-compose run --rm main bash
 
 Webserver is available at Port 8000
