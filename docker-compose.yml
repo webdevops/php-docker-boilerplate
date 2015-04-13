@@ -1,7 +1,6 @@
 main:
   build: docker/main/
   links:
-
     - mysql
     #- solr
     #- elasticsearch
