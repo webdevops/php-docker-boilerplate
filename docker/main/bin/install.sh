@@ -43,9 +43,7 @@ apt-get install -y \
     php5-curl \
     php5-mysqlnd \
     php5-xdebug \
-    php5-xhprof \
     php5-memcached \
-    php5-redis \
     php5-mcrypt \
     php5-gd \
     php5-sqlite \
@@ -61,13 +59,6 @@ apt-get install -y \
     wget \
     curl \
     mysql-client \
-    nodejs \
-    nodejs-legacy \
-    node-less \
-    npm
-
-# Internal tools
-apt-get install -y \
     moreutils \
     dnsutils
 
@@ -82,7 +73,7 @@ locale-gen
 # Enable php modules
 #############################
 ## custom config
-php5enmod typo3
+php5enmod docker-boilerplate
 
 #############################
 # Composer
