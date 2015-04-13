@@ -1,8 +1,10 @@
 main:
   build: docker/main/
   links:
-    - solr
+
     - mysql
+    #- solr
+    #- elasticsearch
     #- redis
     #- memcached
   volumes:
@@ -13,20 +15,9 @@ main:
   env_file:
     - docker-env.yml
 
-#nginx:
-#  build: docker/nginx/
-#  ports:
-#    - 8000:80
-#  links:
-#    - main
-#  volumes_from:
-#    - main
-#    - storage
-#  env_file:
-#    - docker-env.yml
-
-httpd:
+web:
   build: docker/httpd/
+  #build: docker/nginx/
   ports:
     - 8000:80
   links:
@@ -48,16 +39,16 @@ mysql:
   env_file:
     - docker-env.yml
 
-solr:
-  build: docker/solr/
-  ports:
-    - 18983:8983
-  volumes_from:
-    - storage
-  environment:
-    - SOLR_STORAGE=/data/solr/server-master/
-  env_file:
-    - docker-env.yml
+#solr:
+#  build: docker/solr/
+#  ports:
+#    - 18983:8983
+#  volumes_from:
+#    - storage
+#  environment:
+#    - SOLR_STORAGE=/data/solr/server-master/
+#  env_file:
+#    - docker-env.yml
 
 #elasticsearch:
 #  build: docker/elasticsearch/

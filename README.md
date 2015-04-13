@@ -9,7 +9,7 @@ Supports:
 - Nginx or Apache HTTPd
 - PHP-FPM (with Xdebug and Xhprof)
 - MySQL, MariaDB or PerconaDB
-- Solr
+- Solr (disabled, without EXT:solr configuration)
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
@@ -71,8 +71,8 @@ Logs (eg. for debugging)
     # or only php
     $ docker-compose logs main
 
-    # or only php and nginx
-    $ docker-compose logs main nginx
+    # or only php and webserver
+    $ docker-compose logs main web
 
 
 ## Create project
@@ -100,15 +100,14 @@ Container                 | Description
 ------------------------- | -------------------------------
 main                      | Main container with PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
-nginx                     | Nginx webserver
-httpd (optional)          | Apache HTTPD webserver
+web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
 solr                      | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
 
-This directory will be mounted under `/docker` in `main`, `nginx` and `httpd` container.
+This directory will be mounted under `/docker` in `main` and `web` container.
 
 ### Makefile
 

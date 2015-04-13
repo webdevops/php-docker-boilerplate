@@ -24,8 +24,8 @@ cp /opt/docker/vhost.conf /etc/nginx/conf.d/vhost.conf
 if [ "$1" = 'nginx' ]; then
     ## Register IP
     ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-    echo "${ETH0_IP}"                 > /data/dns/nginx.ip
-    echo "${ETH0_IP}   nginx nginx_1" > /data/dns/nginx.hosts
+    echo "${ETH0_IP}"             > /data/dns/web.ip
+    echo "${ETH0_IP}   web web_1" > /data/dns/web.hosts
 
     exec nginx -g "daemon off;"
 fi

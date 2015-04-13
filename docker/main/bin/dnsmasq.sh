@@ -19,6 +19,8 @@ function restore_resolvconf() {
 
 ## Start and configure dnsmasq
 function dnsmasq_start() {
+    echo "Found Webserver IP: $1"
+
     restore_resolvconf
 
     ## clear dns file
@@ -40,14 +42,15 @@ function dnsmasq_start() {
 }
 
 ## Fetch IP from services
-if [ -f "/data/dns/httpd.ip" ]; then
-    ## Found HTTPD
-    HTTPD_IP=$(cat /data/dns/httpd.ip)
-    dnsmasq_start "${HTTPD_IP}"
+if [ -f "/data/dns/web.ip" ]; then
+    ## Found WEB
+    dnsmasq_start "$(cat /data/dns/web.ip)"
+elif [ -f "/data/dns/httpd.ip" ]; then
+    ## Found HTTPD (fallback)
+    dnsmasq_start "$(cat /data/dns/httpd.ip)"
 elif [ -f "/data/dns/nginx.ip" ]; then
-    ## Found NGINX
-    NGINX_IP=$(cat /data/dns/nginx.ip)
-    dnsmasq_start "${NGINX_IP}"
+    ## Found NGINX (fallback)
+    dnsmasq_start "$(cat /data/dns/nginx.ip)"
 else
     ## Found nothing, restore original resolvconf
     restore_resolvconf

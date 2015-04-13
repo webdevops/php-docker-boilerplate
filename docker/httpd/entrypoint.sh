@@ -38,8 +38,8 @@ cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf
 if [ "$1" = 'httpd' ]; then
     ## Register IP
     ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-    echo "${ETH0_IP}"                 > /data/dns/httpd.ip
-    echo "${ETH0_IP}   httpd httpd_1" > /data/dns/httpd.hosts
+    echo "${ETH0_IP}"             > /data/dns/web.ip
+    echo "${ETH0_IP}   web web_1" > /data/dns/web.hosts
 
     exec httpd -DFOREGROUND
 fi
