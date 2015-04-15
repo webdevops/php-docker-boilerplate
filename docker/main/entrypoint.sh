@@ -48,6 +48,11 @@ fi
 cp /opt/docker/.fpm-www.conf  /etc/php5/fpm/pool.d/www.conf
 sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/www.conf
 
+# FIXME
+# /etc/php5/fpm/php-fpm.conf
+# error_log = /proc/self/fd/2
+# issue: clients stdout isn't cathced by supervisord :(
+
 # Manipulate php-fpm configuration
 echo "
 ; Server resource settings
@@ -64,6 +69,7 @@ slowlog    = /proc/self/fd/2
 request_slowlog_timeout = 30s
 
 php_admin_value[error_log] = /proc/self/fd/2
+php_admin_flag[log_errors] = on
 
 env[TYPO3_CONTEXT]    = ${TYPO3_CONTEXT}
 env[FLOW_CONTEXT]     = ${FLOW_CONTEXT}
@@ -80,6 +86,8 @@ case "$1" in
     supervisord)
         ## Register IP
         ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+        mkdir -p /data/dns/
+        chmod 777 /data/dns/
         echo "${ETH0_IP}"                 > /data/dns/main.ip
         echo "${ETH0_IP}   httpd httpd_1" > /data/dns/main.hosts
 
