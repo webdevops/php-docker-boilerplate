@@ -13,6 +13,7 @@ main:
     - storage
   cap_add:
     - SYS_PTRACE
+  privileged: true
   env_file:
     - docker-env.yml
 
