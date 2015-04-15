@@ -11,6 +11,8 @@ main:
     - /tmp/debug/:/tmp/debug/
   volumes_from:
     - storage
+  cap_add:
+    - SYS_PTRACE
   env_file:
     - docker-env.yml
 
