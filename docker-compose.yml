@@ -11,6 +11,7 @@ main:
     - /tmp/debug/:/tmp/debug/
   volumes_from:
     - storage
+  # cap and privileged needed for slowlog
   cap_add:
     - SYS_PTRACE
   privileged: true
