@@ -66,7 +66,7 @@ catch_workers_output = yes
 
 access.log = /tmp/php.access.log
 slowlog    = /tmp/php.slow.log
-request_slowlog_timeout = 10s
+request_slowlog_timeout = 30s
 
 php_admin_value[error_log] = /tmp/php.error.log
 php_admin_flag[log_errors] = on
