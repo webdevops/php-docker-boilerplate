@@ -15,6 +15,8 @@ echo "
 Include conf/docker-vhost.conf
 " >> /usr/local/apache2/conf/httpd.conf
 
+sed -i 's/CustomLog/#CustomLog/' -- /usr/local/apache2/conf/httpd.conf
+
 ###################
 # vhost
 ###################
@@ -22,14 +24,20 @@ Include conf/docker-vhost.conf
 # Detect correct path of document root
 DOCUMENT_ROOT=$(readlink -f "/docker/$DOCUMENT_ROOT")
 
+ALIAS_DOMAIN=""
+for DOMAIN in $DNS_DOMAIN; do
+    ALIAS_DOMAIN="${ALIAS_DOMAIN} *.${DOMAIN}"
+done
+
 cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<DOCUMENT_ROOT>@${DOCUMENT_ROOT}@"        /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<DOCUMENT_INDEX>@${DOCUMENT_INDEX}@"        /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<DOCUMENT_INDEX>@${DOCUMENT_INDEX}@"      /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"        /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"          /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"  /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"   /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"   /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<ALIAS_DOMAIN>@${ALIAS_DOMAIN}@"          /usr/local/apache2/conf/docker-vhost.conf
 
 #############################
 ## COMMAND
