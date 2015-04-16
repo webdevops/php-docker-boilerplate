@@ -38,3 +38,5 @@ Set in htdocs/typo3conf/LocalConfiguration.php:
         [ ... ],
         'trustedHostsPattern' => '.*',
     ),
+
+Should not be needed on Apache HTTPd.
