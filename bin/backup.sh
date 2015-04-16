@@ -25,7 +25,7 @@ case "$1" in
         fi
 
         logMsg "Starting MySQL backup..."
-        mysqldump --opt --all-databases | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+        mysqldump --opt --single-transaction --all-databases | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
         ;;
 
     ###################################
