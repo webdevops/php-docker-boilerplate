@@ -44,10 +44,10 @@ if [ ! -f "/opt/docker/.fpm-www.conf" ]; then
     cp /etc/php5/fpm/pool.d/www.conf /opt/docker/.fpm-www.conf
 fi
 
-## init log
-rm -f -- /tmp/php.log
-touch /tmp/php.log
-chmod 666 /tmp/php.log
+## Remove old logs
+rm -f -- /tmp/php.access.log /tmp/php.slow.log /tmp/php.error.log
+touch -- /tmp/php.access.log /tmp/php.slow.log /tmp/php.error.log
+chmod 666 /tmp/php.access.log /tmp/php.slow.log /tmp/php.error.log
 
 # Restore original
 cp /opt/docker/.fpm-www.conf  /etc/php5/fpm/pool.d/www.conf
@@ -64,11 +64,11 @@ pm.max_spare_servers = 3
 
 catch_workers_output = yes
 
-access.log = /tmp/php.log
-slowlog    = /tmp/php.log
+access.log = /tmp/php.access.log
+slowlog    = /tmp/php.slow.log
 request_slowlog_timeout = 10s
 
-php_admin_value[error_log] = /tmp/php.log
+php_admin_value[error_log] = /tmp/php.error.log
 php_admin_flag[log_errors] = on
 
 env[TYPO3_CONTEXT]    = ${TYPO3_CONTEXT}

@@ -19,7 +19,7 @@ function restore_resolvconf() {
 
 ## Start and configure dnsmasq
 function dnsmasq_start() {
-    echo "Found Webserver IP: $1"
+    echo "[dnsmasq] Found Webserver IP: $1"
 
     restore_resolvconf
 
