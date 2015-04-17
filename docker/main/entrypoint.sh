@@ -64,6 +64,7 @@ pm.max_spare_servers = 3
 
 catch_workers_output = yes
 
+access.format = \"%R - %u %t \\\"%m %r%Q%q\\\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d\"
 access.log = /tmp/php.access.log
 slowlog    = /tmp/php.slow.log
 request_slowlog_timeout = 30s
