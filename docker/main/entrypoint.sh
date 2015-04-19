@@ -10,7 +10,7 @@ source /opt/docker/init-mysql.sh
 ## Init SSMTP
 source /opt/docker/init-ssmtp.sh
 
-## Init SSMTP
+## Init PHP and PHP-FPM
 source /opt/docker/init-php.sh
 
 #############################
