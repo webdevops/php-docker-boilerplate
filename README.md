@@ -196,6 +196,10 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+<br>                  |
+PHP_TIMEZONE          | Timezone (date.timezone) setting for PHP (cli and fpm)
+PHP_UID               | Effective UID for www-data (cli and fpm)
+PHP_GID               | Effective GID for www-data (cli and fpm)
 
 ### Xdebug Remote debugger (PhpStorm)
 
