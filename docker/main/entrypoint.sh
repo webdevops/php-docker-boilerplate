@@ -2,6 +2,13 @@
 set -e
 
 #############################
+## Init UID/GID
+#############################
+
+usermod  --uid "${PHP_UID}" --shell /bin/bash --home /home www-data
+groupmod --gid "${PHP_GID}" www-data
+
+#############################
 ## Init MySQL
 #############################
 
