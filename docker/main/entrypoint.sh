@@ -36,6 +36,13 @@ password=\"$MYSQL_PASSWORD\"
 sed -i "s/mailhub=.*/mailhub=${MAIL_GATEWAY}/" /etc/ssmtp/ssmtp.conf
 
 #############################
+## Init PHP
+#############################
+echo "
+date.timezone = ${PHP_TIMEZONE}
+" > /etc/php5/mods-available/docker-boilerplate.ini
+
+#############################
 ## Init PHP-FPM
 #############################
 
