@@ -1,5 +1,10 @@
 FROM ubuntu:14.04
 
+# Ensure UTF-8
+RUN locale-gen en_US.UTF-8
+ENV LANG       en_US.UTF-8
+ENV LC_ALL     en_US.UTF-8
+
 COPY conf/php.ini          /etc/php5/mods-available/docker-boilerplate.ini
 COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY conf/locale.conf      /opt/docker/locale.conf

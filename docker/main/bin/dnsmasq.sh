@@ -40,8 +40,8 @@ function dnsmasq_start() {
     ## set dnsmasq to main nameserver
     echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
-    ## wait for 6 hours
-    sleep 21600
+    ## wait for 10 hours
+    sleep 36000
 }
 
 ## Fetch IP from services
