@@ -17,7 +17,10 @@ if [ "$unamestr" == 'FreeBSD' -o "$unamestr" == 'Darwin'  ]; then
 fi
 
 if [ -z "`which $READLINK`" ]; then
-    echo '$READLINK not installed'
+    echo "[ERROR] $READLINK not installed"
+    echo "        make sure coreutils are installed"
+    echo "        MacOS: brew install coreutils"
+    exit 1
 fi
 
 SCRIPT_DIR=$(dirname $($READLINK -f "$0"))
@@ -33,7 +36,11 @@ BACKUP_MYSQL_FILE='mysql.sql.bz2'
 #######################################
 
 errorMsg() {
-    echo "[ERR] $*"
+    echo "[ERROR] $*"
+}
+
+logMsg() {
+    echo " * $*"
 }
 
 sectionHeader() {

@@ -9,7 +9,7 @@ Supports:
 - Nginx or Apache HTTPd
 - PHP-FPM (with Xdebug and Xhprof)
 - MySQL, MariaDB or PerconaDB
-- Solr
+- Solr (disabled, without EXT:solr configuration)
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
@@ -71,11 +71,11 @@ Logs (eg. for debugging)
     # or only php
     $ docker-compose logs main
 
-    # or only php and nginx
-    $ docker-compose logs main nginx
+    # or only php and webserver
+    $ docker-compose logs main web
 
 
-## Create new project
+## Create project
 
 First create and run the Docker containers using [docker-compose](https://github.com/docker/compose):
 
@@ -83,10 +83,11 @@ First create and run the Docker containers using [docker-compose](https://github
 
 Now create the project:
 
-- [Create new TYPO3 project](README-TYPO3.md)
-- [Create new NEOS project](README-NEOS.md)
-- [Create new Symfony project](README-SYMFONY.md)
-- [Running any other php based project](README-OTHER.md)
+- [Create new TYPO3 project](doc/README-TYPO3.md)
+- [Create new NEOS project](doc/README-NEOS.md)
+- [Create new Symfony project](doc/README-SYMFONY.md)
+- [Running any other php based project](doc/README-OTHER.md)
+- [Running existing project](doc/README-EXISTING.md)
 
 For an existing project just put your files into `code/` folder or use git to clone your project into `code/`.
 
@@ -99,15 +100,14 @@ Container                 | Description
 ------------------------- | -------------------------------
 main                      | Main container with PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
-nginx                     | Nginx webserver
-httpd (optional)          | Apache HTTPD webserver
+web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
 solr                      | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
 
-This directory will be mounted under `/docker` in `main`, `nginx` and `httpd` container.
+This directory will be mounted under `/docker` in `main` and `web` container.
 
 ### Makefile
 
@@ -115,6 +115,9 @@ Customize the [Makefile](Makefile) for your needs.
 
 Command                   | Description
 ------------------------- | -------------------------------
+make bash                 | Enter main container with bash (user www-data)
+make root                 | Enter main container with bash (user root)
+<br>                      |
 make backup               | General backup (run all backup tasks)
 make restore              | General restore (run all restore tasks)
 <br>                      |
@@ -187,6 +190,7 @@ TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions
 FLOW_CONTEXT          | Context for FLOW and NEOS
 <br>                  |
 MAIL_GATEWAY          | Upstream server for sending mails (ssmtp)
+DNS_DOMAIN            | List of wildcard domains pointing to webserver (eg. for local content fetching)
 <br>                  |
 MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user

@@ -19,15 +19,25 @@ case "$1" in
     ## MySQL
     ###################################
     "mysql")
-        rm -f -- "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
-        mysqldump --opt --all-databases | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+        if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
+            logMsg "Removing old backup file..."
+            rm -f -- "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+        fi
+
+        logMsg "Starting MySQL backup..."
+        mysqldump --opt --single-transaction --all-databases | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
         ;;
 
     ###################################
     ## Solr
     ###################################
     "solr")
-        rm -f -- "${BACKUP_DIR}/${BACKUP_SOLR_FILE}"
-        tar jcf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" /data/solr/
+        if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
+            logMsg "Removing old backup file..."
+            rm -f -- "${BACKUP_DIR}/${BACKUP_SOLR_FILE}"
+        fi
+
+        logMsg "Starting Solr backup..."
+        tar jcPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" /data/solr/
         ;;
 esac

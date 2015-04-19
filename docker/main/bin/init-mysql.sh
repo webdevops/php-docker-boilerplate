@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
 
 #############################
 ## Init MySQL
@@ -27,20 +26,4 @@ host=mysql
 user=\"$MYSQL_USER\"
 password=\"$MYSQL_PASSWORD\"
 
-" > /root/.my.cnf
-
-#############################
-## Init SSMTP
-#############################
-
-sed -i "s/mailhub=.*/mailhub=${MAIL_GATEWAY}/" /etc/ssmtp/ssmtp.conf
-
-#############################
-## COMMAND
-#############################
-
-if [ "$1" = 'supervisord' ]; then
-    exec supervisord
-fi
-
-exec "$@"
+" | tee /root/.my.cnf > /home/.my.cnf

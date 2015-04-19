@@ -1,4 +1,4 @@
-[<-- Back to main section](README.md)
+[<-- Back to main section](../README.md)
 
 # Running TYPO3
 
@@ -6,7 +6,7 @@
 
 For the first TYPO3 setup (make sure [composer](https://getcomposer.org/) is installed):
 
-    $ make create-cms-project
+    $ make create-project typo3
 
 or
 
@@ -23,9 +23,9 @@ most of the time there is no need to enter any Docker container.
 
 You can run one-shot command inside the `main` service container:
 
-    $ docker-compose run --rm code typo3/cli_dispatch.phpsh scheduler
+    $ docker-compose run --rm main typo3/cli_dispatch.phpsh scheduler
 
-    $ docker-compose run --rm code bash
+    $ docker-compose run --rm main bash
 
 Webserver is available at Port 8000
 
@@ -38,3 +38,5 @@ Set in htdocs/typo3conf/LocalConfiguration.php:
         [ ... ],
         'trustedHostsPattern' => '.*',
     ),
+
+Should not be needed on Apache HTTPd.

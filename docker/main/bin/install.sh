@@ -8,6 +8,18 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 export DEBIAN_FRONTEND="noninteractive"
 
 #############################
+# Modify user
+#############################
+
+usermod  --uid 1000 --shell /bin/bash --home /home www-data
+groupmod --gid 1000 www-data
+chown    www-data:www-data /home
+
+## Fix terminal
+echo 'export TERM="xterm-color"' >> /root/.bashrc
+echo 'export TERM="xterm-color"' >> /home/.bashrc
+
+#############################
 # Common tasks
 #############################
 
@@ -22,6 +34,7 @@ apt-get update
 
 apt-get install -y \
     supervisor \
+    dnsmasq \
     ssmtp \
     php5-cli \
     php5-fpm \
@@ -29,9 +42,8 @@ apt-get install -y \
     php5-intl \
     php5-curl \
     php5-mysqlnd \
-    php5-xhprof \
+    php5-xdebug \
     php5-memcached \
-    php5-redis \
     php5-mcrypt \
     php5-gd \
     php5-sqlite \
@@ -44,12 +56,11 @@ apt-get install -y \
     graphicsmagick \
     zip \
     unzip \
+    wget \
     curl \
     mysql-client \
-    nodejs \
-    nodejs-legacy \
-    node-less \
-    npm
+    moreutils \
+    dnsutils
 
 #############################
 # Generate locales
@@ -62,7 +73,7 @@ locale-gen
 # Enable php modules
 #############################
 ## custom config
-php5enmod typo3
+php5enmod docker-boilerplate
 
 #############################
 # Composer
@@ -70,6 +81,17 @@ php5enmod typo3
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+
+
+#############################
+# Dnsmasq
+#############################
+
+## Fix dnsmasqd
+echo "
+user=root
+conf-dir=/etc/dnsmasq.d
+" >> /etc/dnsmasq.conf
 
 #############################
 # Cleanup
