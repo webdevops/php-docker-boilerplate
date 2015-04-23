@@ -1,5 +1,8 @@
 # Dockerized PHP web project boilerplate
 
+![latest v3.0.0](https://img.shields.io/badge/latest-v3.0.0-green.svg?style=flat)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+
 This is a boilerplate utilizing Docker based with support
 for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
 It also supports Symfony and any other PHP base project.
@@ -185,6 +188,8 @@ Port          | 11211
 Environment           | Description
 --------------------- | -------------
 DOCUMENT_ROOT         | Document root for Nginx and Apache HTTPD, can be absolute or relative (to /docker inside the container).
+DOCUMENT_INDEX        | Default document index file for Nginx and Apache HTTPd
+CLI_SCRIPT            | Target for "cli" command of main container
 <br>                  |
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
 FLOW_CONTEXT          | Context for FLOW and NEOS
