@@ -1,18 +1,36 @@
+# Settings: TYPO3 CMS
 DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
+CLI_SCRIPT=php typo3/cli_dispatch.phpsh
 
+# Settings: NEOS or FLOW
+#DOCUMENT_ROOT=code/Web/
+#DOCUMENT_INDEX=index.php
+#CLI_SCRIPT=php flow
+
+# Settings: SYMFONY FRAMEWORK
+#DOCUMENT_ROOT=code/web/
+#DOCUMENT_INDEX=app_dev.php
+#CLI_SCRIPT=php app/console
+
+# Contexts environment
 TYPO3_CONTEXT=Development/Docker
 FLOW_CONTEXT=Development/Docker
 FLOW_REWRITEURLS=1
+SYMFONY_ENV=dev
+SYMFONY_DEBUG=0
 
+# Service settings
 MAIL_GATEWAY=192.168.56.2
 DNS_DOMAIN=vm vm.dev
 
+# MySQL settings
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
 MYSQL_DATABASE=typo3
 
+# PHP Settings
 PHP_TIMEZONE=UTC
 PHP_UID=1000
 PHP_GID=1000

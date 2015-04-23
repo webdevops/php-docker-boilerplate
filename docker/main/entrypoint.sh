@@ -44,6 +44,17 @@ case "$1" in
         fi
         ;;
 
+    ## Defined cli script
+    cli)
+        if [ -n "${CLI_SCRIPT}" ]; then
+            shift
+            exec ${CLI_SCRIPT} "$@"
+        else
+            echo "[ERROR] No CLI_SCRIPT in docker-env.yml defined"
+            exit 1
+        fi
+        ;;
+
     ## All other commands
     *)
         ## Set home dir (workaround)
