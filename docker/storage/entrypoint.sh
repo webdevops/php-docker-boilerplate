@@ -19,8 +19,8 @@ find /data/dns/ -type f -exec rm -rf {} \;
 ## COMMAND
 #############################
 
-if [ "$1" = 'none' ]; then
-    exit 0
+if [ "$1" = 'noop' ]; then
+    exec sleep 10000d
 fi
 
 exec "$@"
