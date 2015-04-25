@@ -38,6 +38,8 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 If you want to run a Docker VM make sure you're using VMware or Parallels Desktop because of
 the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
 
+For more convenience use [CliTools.phar](https://github.com/mblaschke/vagrant-clitools) (will also run on native Linux, not only Vagrant)
+
 ## Docker short introduction
 
 Create and start containers (eg. first start):
