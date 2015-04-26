@@ -1,6 +1,6 @@
 # Dockerized PHP web project boilerplate
 
-![latest v3.0.0](https://img.shields.io/badge/latest-v3.0.0-green.svg?style=flat)
+![latest v3.2.0](https://img.shields.io/badge/latest-v3.2.0-green.svg?style=flat)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 This is a boilerplate utilizing Docker based with support
