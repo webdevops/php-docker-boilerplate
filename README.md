@@ -79,6 +79,10 @@ Logs (eg. for debugging)
     # or only php and webserver
     $ docker-compose logs main web
 
+CLI script (defined in docker-env.yml)
+
+    $ docker-compose run --rm main cli help
+
 
 ## Create project
 
