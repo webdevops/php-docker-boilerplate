@@ -1,5 +1,8 @@
 # Dockerized PHP web project boilerplate
 
+![latest v3.0.0](https://img.shields.io/badge/latest-v3.0.0-green.svg?style=flat)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+
 This is a boilerplate utilizing Docker based with support
 for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
 It also supports Symfony and any other PHP base project.
@@ -34,6 +37,8 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 
 If you want to run a Docker VM make sure you're using VMware or Parallels Desktop because of
 the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
+
+For more convenience use [CliTools.phar](https://github.com/mblaschke/vagrant-clitools) (will also run on native Linux, not only Vagrant)
 
 ## Docker short introduction
 
@@ -185,6 +190,8 @@ Port          | 11211
 Environment           | Description
 --------------------- | -------------
 DOCUMENT_ROOT         | Document root for Nginx and Apache HTTPD, can be absolute or relative (to /docker inside the container).
+DOCUMENT_INDEX        | Default document index file for Nginx and Apache HTTPd
+CLI_SCRIPT            | Target for "cli" command of main container
 <br>                  |
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
 FLOW_CONTEXT          | Context for FLOW and NEOS
@@ -196,6 +203,10 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+<br>                  |
+PHP_TIMEZONE          | Timezone (date.timezone) setting for PHP (cli and fpm)
+PHP_UID               | Effective UID for www-data (cli and fpm)
+PHP_GID               | Effective GID for www-data (cli and fpm)
 
 ### Xdebug Remote debugger (PhpStorm)
 

@@ -9,4 +9,4 @@ RUN chmod -R 777 /data
 VOLUME "/data"
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["none"]
+CMD ["noop"]
