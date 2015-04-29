@@ -2,6 +2,8 @@
 
 ![latest v3.2.0](https://img.shields.io/badge/latest-v3.2.0-green.svg?style=flat)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
 
 This is a boilerplate utilizing Docker based with support
 for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
