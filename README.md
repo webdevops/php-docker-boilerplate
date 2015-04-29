@@ -5,6 +5,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
 
+
 This is a boilerplate utilizing Docker based with support
 for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
 It also supports Symfony and any other PHP base project.
@@ -243,6 +244,11 @@ Start URL             | /
 Browser               | Choose one
 
 Save, set a break point and test the debugger.
+
+## Application cache
+
+Symlink your application cache (eg. typo3temp/) to `/data/cache/` and it will be stored inside the `storage` container
+so it will be accessable within all containers (eg. web or main).
 
 ## Advanced usage (git)
 
