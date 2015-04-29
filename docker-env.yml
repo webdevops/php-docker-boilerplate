@@ -20,8 +20,13 @@ FLOW_REWRITEURLS=1
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
 
-# Service settings
+# Mail - Vagrant mail sandbox
 MAIL_GATEWAY=192.168.56.2
+
+# Mail - Mailcatcher
+#MAIL_GATEWAY=mail:1025
+
+# Service settings
 DNS_DOMAIN=vm vm.dev
 
 # MySQL settings
@@ -35,5 +40,3 @@ PHP_TIMEZONE=UTC
 PHP_UID=1000
 PHP_GID=1000
 
-# Mailcatcher SMTP port
-MAILCATCHER_PORT_1025_TCP_ADDR = 1025

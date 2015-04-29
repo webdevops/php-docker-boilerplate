@@ -16,6 +16,7 @@ Supports:
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
+- Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
@@ -188,6 +189,14 @@ Setting       | Value
 ------------- | -------------
 Host          | memcached
 Port          | 11211
+
+### Mailcatcher
+
+Setting       | Value
+------------- | -------------
+Host          | mail
+SMTP port     | 1025
+Web port      | 1080
 
 ### Environment settings
 
