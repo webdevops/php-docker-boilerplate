@@ -147,6 +147,12 @@ make deploy               | Run deployment (composer, gulp, bower)
 make scheduler            | Run TYPO3 scheduler
 make clean                | Clear TYPO3 configuration cache
 
+### Web (Nginx or Apache HTTPd)
+
+Setting       | Value
+------------- | -------------
+Host          | web:80 and web:443 (ssl)
+External Port | 8000 and 8443 (ssl)
 
 ### MySQL
 
