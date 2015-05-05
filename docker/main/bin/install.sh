@@ -11,9 +11,8 @@ export DEBIAN_FRONTEND="noninteractive"
 # Modify user
 #############################
 
-usermod  --uid 1000 --shell /bin/bash --home /home www-data
-groupmod --gid 1000 www-data
-chown    www-data:www-data /home
+usermod --shell /bin/bash --home /home www-data
+chown   www-data:www-data /home
 
 ## Fix terminal
 echo 'export TERM="xterm-color"' >> /root/.bashrc

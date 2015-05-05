@@ -12,6 +12,7 @@ COPY bin/*                 /opt/docker/
 ADD entrypoint.sh          /entrypoint.sh
 
 RUN bash /opt/docker/install.sh
+RUN bash /opt/docker/customization.sh
 
 EXPOSE 9000
 
