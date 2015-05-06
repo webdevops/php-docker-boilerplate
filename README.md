@@ -5,21 +5,19 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
 
-
-This is a boilerplate utilizing Docker based with support
-for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
-It also supports Symfony and any other PHP base project.
+This is an easy customizable docker boilerplate for any PHP based projects like TYPO3 CMS, TYPO3 NEOS, TYPO3 FLOW, Symfony Famework and many other.
 
 Supports:
 
 - Nginx or Apache HTTPd
-- PHP-FPM (with Xdebug and Xhprof)
+- PHP-FPM (with Xdebug)
 - MySQL, MariaDB or PerconaDB
-- Solr (disabled, without EXT:solr configuration)
+- Solr (disabled, with TYPO3 CMS EXT:solr configuration as example)
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
 - Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
+- Support for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
@@ -28,9 +26,9 @@ Configuration of each docker container is available in the `docker/` directory -
 This boilerplate can also be used for any other web project eg. Symfony, Magento and more.
 Just customize the makefile for your needs
 
-Warning: Don't use this Docker containers for production - they are only for development!
+Warning: Don't use this Docker containers for production - they are only for development. If you find it usefull for production please contact me.
 
-Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate.
+Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
 
 ## Requirements
 
@@ -42,7 +40,7 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 If you want to run a Docker VM make sure you're using VMware or Parallels Desktop because of
 the much faster virtualisation (networking, disk access, shared folders) compared to VirtualBox.
 
-For more convenience use [CliTools.phar](https://github.com/mblaschke/vagrant-clitools) (will also run on native Linux, not only Vagrant)
+For more convenience use [CliTools.phar](https://github.com/mblaschke/vagrant-clitools) (will also run on native Linux, not only inside a Vagrant box)
 
 ## Docker short introduction
 
@@ -214,6 +212,7 @@ Environment           | Description
 DOCUMENT_ROOT         | Document root for Nginx and Apache HTTPD, can be absolute or relative (to /docker inside the container).
 DOCUMENT_INDEX        | Default document index file for Nginx and Apache HTTPd
 CLI_SCRIPT            | Target for "cli" command of main container
+CLI_USER              | User which should be used to run CLI scripts (normally www-data, equals php-fpm user)
 <br>                  |
 TYPO3_CONTEXT         | Context for TYPO3, can be used for TypoScript conditions and AdditionalConfiguration
 FLOW_CONTEXT          | Context for FLOW and NEOS
@@ -272,3 +271,4 @@ For better useability track a whole branch (eg. develop or master) as submodule 
 This Docker layout is based on https://github.com/denderello/symfony-docker-example/
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for the inspiration for this Docker boilerplate.
+Also thanks to Ingo Pfennigstorf for testing and some usefull ideas.
