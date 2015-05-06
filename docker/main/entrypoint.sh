@@ -48,7 +48,7 @@ case "$1" in
     cli)
         if [ -n "${CLI_SCRIPT}" ]; then
             shift
-            exec sudo -E -u "${CLI_USER}" ${CLI_SCRIPT} "$@"
+            exec sudo -H -E -u "${CLI_USER}" ${CLI_SCRIPT} "$@"
         else
             echo "[ERROR] No CLI_SCRIPT in docker-env.yml defined"
             exit 1
@@ -57,9 +57,7 @@ case "$1" in
 
     ## All other commands
     *)
-        ## Set home dir (workaround)
-        export HOME=/home/
         ## Execute cmd
-        exec sudo -E -u "${CLI_USER}" "$@"
+        exec sudo -H -E -u "${CLI_USER}" "$@"
         ;;
 esac
