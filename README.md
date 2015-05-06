@@ -5,7 +5,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
 
-This is an easy customizable docker boilerplate for any PHP based projects like TYPO3 CMS, TYPO3 NEOS, TYPO3 FLOW, Symfony Famework and many other.
+This is an easy customizable docker boilerplate for any PHP based projects like _TYPO3 CMS_, _TYPO3 NEOS_, _TYPO3 FLOW_, _Symfony Framework_ and many other.
 
 Supports:
 
@@ -17,7 +17,7 @@ Supports:
 - Redis (disabled)
 - Memcached (disabled)
 - Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
-- Support for **TYPO3_CONTEXT** and **FLOW_CONTEXT** for TYPO3, FLOW, NEOS.
+- Support for `TYPO3_CONTEXT` and `FLOW_CONTEXT` for TYPO3, FLOW, NEOS.
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.
@@ -261,7 +261,7 @@ Use this boilerplate as template and customize it for each project. Put this Doc
 configuration for each project into seperate git repositories.
 
 Now set your existing project repository to be a git submodule in `code/`.
-Every developer now needs only to clone the Docker repository with **--recursive**
+Every developer now needs only to clone the Docker repository with `--recursive` option
 to get both, the Docker configuration and the TYPO3 installation.
 
 For better useability track a whole branch (eg. develop or master) as submodule and not just a single commit.
