@@ -1,8 +1,8 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
-3.3.0 - Upcoming
-------------------
+3.3.0 - 2015-05-09 - t3cs2015 release
+-------------------------------------
 - Fixed `make mysql-backup`
 - Added `docker/main/bin/customization.sh` for easy customization and faster docker rebuilding
 - Added `CLI_USER` for customizable user in `docker-env.yml` (for `CLI_SCRIPT`)

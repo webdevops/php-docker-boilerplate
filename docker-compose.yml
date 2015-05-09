@@ -1,3 +1,6 @@
+#######################################
+# Main php container
+#######################################
 main:
   build: docker/main/
   links:
@@ -19,6 +22,9 @@ main:
   env_file:
     - docker-env.yml
 
+#######################################
+# Webserver
+#######################################
 web:
   build: docker/httpd/
   #build: docker/nginx/
@@ -33,6 +39,9 @@ web:
   env_file:
     - docker-env.yml
 
+#######################################
+# MySQL server
+#######################################
 mysql:
   build: docker/mysql/
   ports:
@@ -44,6 +53,9 @@ mysql:
   env_file:
     - docker-env.yml
 
+#######################################
+# Solr server
+#######################################
 #solr:
 #  build: docker/solr/
 #  ports:
@@ -55,6 +67,9 @@ mysql:
 #  env_file:
 #    - docker-env.yml
 
+#######################################
+# Elasticsearch
+#######################################
 #elasticsearch:
 #  build: docker/elasticsearch/
 #  ports:
@@ -65,6 +80,9 @@ mysql:
 #  env_file:
 #    - docker-env.yml
 
+#######################################
+# Redis
+#######################################
 #redis:
 #  build: docker/redis/
 #  volumes_from:
@@ -72,6 +90,9 @@ mysql:
 #  env_file:
 #    - docker-env.yml
 
+#######################################
+# Memcached
+#######################################
 #memcached:
 #  build: docker/memcached/
 #  volumes_from:
@@ -79,6 +100,9 @@ mysql:
 #  env_file:
 #    - docker-env.yml
 
+#######################################
+# Mailcatcher
+#######################################
 #mail:
 #  build: docker/mail/
 #  ports:
@@ -86,6 +110,9 @@ mysql:
 #  env_file:
 #    - docker-env.yml
 
+#######################################
+# Storage
+#######################################
 storage:
   build: docker/storage/
   volumes:
