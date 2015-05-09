@@ -7,16 +7,9 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
-#######################################
-## Checks
-#######################################
-
-sectionHeader "Checking TYPO3 installation ..."
-
-if [ ! -d "$CODE_DIR/fileadmin" -o ! -d "$CODE_DIR/typo3conf/ext/" ]; then
-    errorMsg "Either $CODE_DIR/fileadmin or $CODE_DIR/typo3conf/ext/ doesn't exists"
-    exit 1
-fi
+function excludeFilter {
+    cat | grep -v -E -e '(/typo3/|/typo3_src|/fileadmin/|/typo3temp/|/uploads/|/Packages/|/Data/|/vendor/)'
+}
 
 #######################################
 ## Composer
@@ -24,10 +17,12 @@ fi
 
 sectionHeader "Checking for composer.json ..."
 
-if [ -f "$CODE_DIR/composer.json" ]; then
-    # Install composer
-    execInDir "$CODE_DIR" "composer install --no-dev --no-interaction"
-fi
+find "$CODE_DIR" -type f -name 'composer.json' | excludeFilter | while read FILE; do
+    COMPOSER_JSON_DIR=$(dirname $($READLINK -f "$FILE"))
+
+    execInDir "$COMPOSER_JSON_DIR" "composer install --no-dev --no-interaction"
+done
+
 
 #######################################
 ## Bower
@@ -35,7 +30,7 @@ fi
 
 sectionHeader "Checking for bower.json ..."
 
-find "$CODE_DIR/fileadmin" "$CODE_DIR/typo3conf/ext/" -type f -name 'bower.json' | while read FILE; do
+find "$CODE_DIR" -type f -name 'bower.json' | excludeFilter | while read FILE; do
     BOWER_JSON_DIR=$(dirname $($READLINK -f "$FILE"))
 
     execInDir "$BOWER_JSON_DIR" "bower install --silent"
@@ -48,7 +43,7 @@ done
 
 sectionHeader "Checking for package.json (npm) ..."
 
-find "$CODE_DIR/fileadmin" "$CODE_DIR/typo3conf/ext/" -type f -name 'package.json' | while read FILE; do
+find "$CODE_DIR" -type f -name 'package.json' | excludeFilter | while read FILE; do
     PACKAGE_JSON_DIR=$(dirname $($READLINK -f "$FILE"))
 
     if [ ! -d "$PACKAGE_JSON_DIR/node_modules/" -a -n "`which npm-cache`" ]; then
@@ -66,6 +61,8 @@ done
 
 sectionHeader "Checking for gulpfile.js in T3 Root ..."
 
-if [ -f "$CODE_DIR\gulpfile.js" ]; then
-    execInDir "$CODE_DIR" "gulp deploy"
-fi
+find "$CODE_DIR" -type f -name 'package.json' | excludeFilter | while read FILE; do
+    GULPFILE_DIR=$(dirname $($READLINK -f "$FILE"))
+
+    execInDir "$GULPFILE_DIR" "gulp deploy"
+done
