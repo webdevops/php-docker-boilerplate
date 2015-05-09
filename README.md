@@ -113,7 +113,7 @@ main                      | Main container with PHP-FPM and tools (your entrypoi
 storage                   | Storage container, eg. for Solr data
 web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
-solr                      | Apache Solr server
+solr (optional)           | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
