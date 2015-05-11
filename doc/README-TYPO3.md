@@ -12,7 +12,7 @@ or
 
     $ rm -f code/.gitkeep
     $ composer create-project typo3/cms-base-distribution code/
-    $ touch htdocs/FIRST_INSTALL code/.gitkeep
+    $ touch code/FIRST_INSTALL code/.gitkeep
 
 
 Feel free to modify your TYPO3 installation in your `code` (a shared folder of Docker),

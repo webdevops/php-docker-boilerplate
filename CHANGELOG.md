@@ -1,6 +1,10 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
+3.3.1 - 2015-05-11
+-------------------------------------
+- Fixed ssl certificate
+
 3.3.0 - 2015-05-09 - t3cs2015 release
 -------------------------------------
 - Fixed `make mysql-backup`
