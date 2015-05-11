@@ -26,8 +26,8 @@ main:
 # Webserver
 #######################################
 web:
-  build: docker/httpd/
-  #build: docker/nginx/
+  #build: docker/httpd/
+  build: docker/nginx/
   ports:
     - 8000:80
     - 8443:443
