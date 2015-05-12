@@ -271,4 +271,4 @@ For better useability track a whole branch (eg. develop or master) as submodule 
 This Docker layout is based on https://github.com/denderello/symfony-docker-example/
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for the inspiration for this Docker boilerplate.
-Also thanks to Ingo Pfennigstorf for testing and some usefull ideas.
+Also thanks to [Ingo Pfennigstorf](https://twitter.com/krautsock) and [Florian Tatzel](https://twitter.com/PanadeEdu) for testing and some usefull ideas.
