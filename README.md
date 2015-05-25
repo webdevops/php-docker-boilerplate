@@ -32,10 +32,10 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 
 ## Table of contents
 
-- [Installation and requirements](/Documentation/INSTALL.md)
-- [Docker Quickstart](/Documentation/DOCKER-QUICKSTART.md)
-- [Run your project](/Documentation/DOCKER-STARTUP.md)
-- [Container detail info](/Documentation/DOCKER-INFO.md)
+- [Installation and requirements](/documentation/INSTALL.md)
+- [Docker Quickstart](/documentation/DOCKER-QUICKSTART.md)
+- [Run your project](/documentation/DOCKER-STARTUP.md)
+- [Container detail info](/documentation/DOCKER-INFO.md)
 
 ## Credits
 
