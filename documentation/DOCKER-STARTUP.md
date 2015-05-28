@@ -14,11 +14,11 @@ docker-compose up -d
 
 Now create your project inside the docker boilerplate:
 
-- [Create new TYPO3 project](Documentation/PROJECT-TYPO3.md)
-- [Create new Symfony project](Documentation/PROJECT-SYMFONY.md)
-- [Create new NEOS project](Documentation/PROJECT-NEOS.md)
-- [Running any other php based project](Documentation/PROJECT-OTHER.md)
-- [Running existing project](Documentation/PROJECT-EXISTING.md)
+- [Create new TYPO3 project](PROJECT-TYPO3.md)
+- [Create new Symfony project](PROJECT-SYMFONY.md)
+- [Create new NEOS project](PROJECT-NEOS.md)
+- [Running any other php based project](PROJECT-OTHER.md)
+- [Running existing project](PROJECT-EXISTING.md)
 
 For an existing project just put your files into `code/` folder or use git to clone your project into `code/`.
 
