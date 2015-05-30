@@ -41,7 +41,7 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 
 This Docker layout is based on https://github.com/denderello/symfony-docker-example/
 
-Thanks for support, ideas and issues to ...
+Thanks for support, ideas and issues ...
 - [Ingo Pfennigstorf](https://twitter.com/krautsock)
 - [Florian Tatzel](https://twitter.com/PanadeEdu)
 - [Josef Florian Glatz](https://twitter.com/jouschcom)
