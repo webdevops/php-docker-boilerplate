@@ -49,3 +49,5 @@ Thanks for support, ideas and issues ...
 - [Benjamin Rau](https://twitter.com/benjamin_rau)
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for inspiration.
+
+Did I forget anyone? Send me a tweet or create pull request!
