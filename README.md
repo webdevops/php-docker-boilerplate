@@ -41,5 +41,11 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 
 This Docker layout is based on https://github.com/denderello/symfony-docker-example/
 
-Thanks to [cron IT GmbH](http://www.cron.eu/) for the inspiration for this Docker boilerplate.
-Also thanks to [Ingo Pfennigstorf](https://twitter.com/krautsock) and [Florian Tatzel](https://twitter.com/PanadeEdu) for testing and some usefull ideas.
+Thanks for support, ideas and issues to ...
+- [Ingo Pfennigstorf](https://twitter.com/krautsock)
+- [Florian Tatzel](https://twitter.com/PanadeEdu)
+- [Josef Florian Glatz](https://twitter.com/jouschcom)
+- [Ingo Müller](https://twitter.com/imueller17)
+- [Benjamin Rau](https://twitter.com/benjamin_rau)
+
+Thanks to [cron IT GmbH](http://www.cron.eu/) for inspiration.
