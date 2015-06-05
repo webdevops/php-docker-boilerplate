@@ -21,4 +21,8 @@ For more convenience use [CliTools.phar](https://github.com/mblaschke/clitools) 
 
 ```bash
 git clone https://github.com/mblaschke/TYPO3-docker-boilerplate.git projectname
+
+cd projectname
+
+docker-compose up -d
 ```
