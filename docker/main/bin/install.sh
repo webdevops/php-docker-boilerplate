@@ -49,7 +49,9 @@ apt-get install -y \
     php5-xmlrpc \
     php5-xsl \
     php5-geoip \
-    php5-ldap
+    php5-ldap \
+    php5-memcache \
+    php5-memcached
 
 apt-get install -y \
     graphicsmagick \
