@@ -1,6 +1,14 @@
 #!/bin/bash
 
 ###################
+# UID/GID
+###################
+
+## Set uid/gid for www-data user
+usermod  --uid "${EFFECTIVE_UID}" --shell /bin/bash --home /home daemon > /dev/null
+groupmod --gid "${EFFECTIVE_GID}" daemon > /dev/null
+
+###################
 # httpd.conf
 ###################
 

@@ -125,8 +125,8 @@ MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
 <br>                  |
 PHP_TIMEZONE          | Timezone (date.timezone) setting for PHP (cli and fpm)
-PHP_UID               | Effective UID for www-data (cli and fpm)
-PHP_GID               | Effective GID for www-data (cli and fpm)
+EFFECTIVE_UID         | Effective UID for php, fpm und webserver
+EFFECTIVE_GID         | Effective GID for php, fpm und webserver
 
 ## Xdebug Remote debugger (PhpStorm)
 
