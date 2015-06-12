@@ -46,6 +46,9 @@ cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf
 /bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"   /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"   /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<ALIAS_DOMAIN>@${ALIAS_DOMAIN}@"          /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<MYSQL_PASSWORD>@${MYSQL_PASSWORD}@"      /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<MYSQL_USER>@${MYSQL_USER}@"              /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<MYSQL_DATABASE>@${MYSQL_DATABASE}@"      /usr/local/apache2/conf/docker-vhost.conf
 
 #############################
 ## COMMAND

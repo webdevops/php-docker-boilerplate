@@ -30,6 +30,9 @@ cp /opt/docker/vhost.conf /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"    /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"    /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<ALIAS_DOMAIN>@${ALIAS_DOMAIN}@"           /etc/nginx/conf.d/vhost.conf
+/bin/sed -i "s@<MYSQL_PASSWORD>@${MYSQL_PASSWORD}@"       /etc/nginx/conf.d/vhost.conf
+/bin/sed -i "s@<MYSQL_USER>@${MYSQL_USER}@"               /etc/nginx/conf.d/vhost.conf
+/bin/sed -i "s@<MYSQL_DATABASE>@${MYSQL_DATABASE}@"       /etc/nginx/conf.d/vhost.conf
 
 #############################
 ## COMMAND
