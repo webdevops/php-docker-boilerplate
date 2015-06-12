@@ -74,6 +74,7 @@ locale-gen
 # Enable php modules
 #############################
 ## custom config
+touch /etc/php5/mods-available/docker-boilerplate.ini
 php5enmod docker-boilerplate
 
 #############################
