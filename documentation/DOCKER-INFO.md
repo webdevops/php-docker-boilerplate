@@ -38,7 +38,7 @@ make solr-restore         | Restore Solr cores
 make create-cms-project   | Create new TYPO3 project (based on typo3/cms-base-distribution)
 make create-neos-project  | Create new NEOS project (based on typo3/neos-base-distribution)
 <br>                      |
-make deploy               | Run deployment (composer, gulp, bower)
+make build                | Run building (composer, gulp, bower)
 make scheduler            | Run TYPO3 scheduler
 make clean                | Clear TYPO3 configuration cache
 
