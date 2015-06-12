@@ -36,6 +36,7 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 - [Docker Quickstart](/documentation/DOCKER-QUICKSTART.md)
 - [Run your project](/documentation/DOCKER-STARTUP.md)
 - [Container detail info](/documentation/DOCKER-INFO.md)
+- [Troubleshooting](/documentation/TROUBLESHOOTING.md)
 
 ## Credits
 
@@ -43,10 +44,11 @@ This Docker layout is based on https://github.com/denderello/symfony-docker-exam
 
 Thanks for support, ideas and issues ...
 - [Ingo Pfennigstorf](https://github.com/ipf)
-- [Florian Tatzel](https://twitter.com/PanadeEdu)
-- [Josef Florian Glatz](https://twitter.com/jouschcom)
-- [Ingo Müller](https://twitter.com/imueller17)
+- [Florian Tatzel](https://github.com/PanadeEdu)
+- [Josef Florian Glatz](https://github.com/jousch)
+- [Ingo Müller](https://github.com/IngoMueller)
 - [Benjamin Rau](https://twitter.com/benjamin_rau)
+- [Philipp Kitzberger](https://github.com/Kitzberger)
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for inspiration.
 
