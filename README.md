@@ -33,6 +33,7 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 ## Table of contents
 
 - [Installation and requirements](/documentation/INSTALL.md)
+- [Updating docker boilerplate](/documentation/UPDATE.md)
 - [Docker Quickstart](/documentation/DOCKER-QUICKSTART.md)
 - [Run your project](/documentation/DOCKER-STARTUP.md)
 - [Container detail info](/documentation/DOCKER-INFO.md)
