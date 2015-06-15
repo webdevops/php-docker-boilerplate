@@ -38,6 +38,7 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 - [Run your project](/documentation/DOCKER-STARTUP.md)
 - [Container detail info](/documentation/DOCKER-INFO.md)
 - [Troubleshooting](/documentation/TROUBLESHOOTING.md)
+- [Changelog](/CHANGELOG.md)
 
 ## Credits
 
