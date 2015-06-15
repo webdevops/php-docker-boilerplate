@@ -14,8 +14,24 @@ solr (optional)           | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
+ftps (optional)           | FTP server (vsftpd)
+mailcatcher (optional)    | Mailserver with easy web and REST interface for mailing
 
 This directory will be mounted under `/docker` in `main` and `web` container.
+
+## Docker images
+Container                 | Source
+------------------------- | -------------------------------
+main                      | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
+mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
+solr (optional)           | [Solr](https://registry.hub.docker.com/u/guywithnose/solr/) from _guywithnose_
+elasticsearch (optional)  | [Elasticsearch](https://registry.hub.docker.com/_/elasticsearch/) *official*
+memcached (optional)      | [Memcached](https://registry.hub.docker.com/_/memcached/) *official*
+redis (optional)          | [Redis](https://registry.hub.docker.com/_/redis/) *official*
+ftp (optional)            | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+mailcatcher (optional)    | [Mailcatcher](https://registry.hub.docker.com/u/schickling/mailcatcher/) from _schickling_
 
 ## Makefile
 
