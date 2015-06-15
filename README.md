@@ -5,7 +5,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
 
-This is an easy customizable docker boilerplate for any PHP based projects like _TYPO3 CMS_, _TYPO3 NEOS_, _TYPO3 FLOW_, _Symfony Framework_ and many other.
+This is an easy customizable docker boilerplate for any PHP based projects like _TYPO3 CMS_,  _Symfony Framework_, _FLOW/NEOS_ and many other frameworks or applications.
 
 Supports:
 
@@ -17,6 +17,7 @@ Supports:
 - Redis (disabled)
 - Memcached (disabled)
 - Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
+- FTP server (vsftpd)
 - Support for `TYPO3_CONTEXT` and `FLOW_CONTEXT` for TYPO3, FLOW, NEOS.
 - maybe more later...
 
@@ -34,6 +35,7 @@ Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 
 - [Installation and requirements](/documentation/INSTALL.md)
 - [Updating docker boilerplate](/documentation/UPDATE.md)
+- [Customizing](/documentation/CUSTOMIZE.md)
 - [Docker Quickstart](/documentation/DOCKER-QUICKSTART.md)
 - [Run your project](/documentation/DOCKER-STARTUP.md)
 - [Container detail info](/documentation/DOCKER-INFO.md)
