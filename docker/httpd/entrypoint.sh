@@ -1,6 +1,14 @@
 #!/bin/bash
 
 ###################
+# UID/GID
+###################
+
+## Set uid/gid for www-data user
+usermod  --uid "${EFFECTIVE_UID}" --shell /bin/bash --home /home daemon > /dev/null
+groupmod --gid "${EFFECTIVE_GID}" daemon > /dev/null
+
+###################
 # httpd.conf
 ###################
 
@@ -29,15 +37,22 @@ for DOMAIN in $DNS_DOMAIN; do
     ALIAS_DOMAIN="${ALIAS_DOMAIN} *.${DOMAIN}"
 done
 
-cp /usr/local/apache2/conf/.docker-vhost.conf.original   /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<DOCUMENT_ROOT>@${DOCUMENT_ROOT}@"        /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<DOCUMENT_INDEX>@${DOCUMENT_INDEX}@"      /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"        /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"          /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"  /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"   /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"   /usr/local/apache2/conf/docker-vhost.conf
-/bin/sed -i "s@<ALIAS_DOMAIN>@${ALIAS_DOMAIN}@"          /usr/local/apache2/conf/docker-vhost.conf
+cp /usr/local/apache2/conf/.docker-vhost.conf.original         /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<DOCUMENT_ROOT>@${DOCUMENT_ROOT}@"              /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<DOCUMENT_INDEX>@${DOCUMENT_INDEX}@"            /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<ALIAS_DOMAIN>@${ALIAS_DOMAIN}@"                /usr/local/apache2/conf/docker-vhost.conf
+
+/bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"              /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"                /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"        /usr/local/apache2/conf/docker-vhost.conf
+
+/bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"         /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"         /usr/local/apache2/conf/docker-vhost.conf
+
+/bin/sed -i "s@<MYSQL_USER>@${MYSQL_USER}@"                    /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<MYSQL_PASSWORD>@${MYSQL_PASSWORD}@"            /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<MYSQL_ROOT_PASSWORD>@${MYSQL_ROOT_PASSWORD}@"  /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<MYSQL_DATABASE>@${MYSQL_DATABASE}@"            /usr/local/apache2/conf/docker-vhost.conf
 
 #############################
 ## COMMAND

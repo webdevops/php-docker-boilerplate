@@ -1,4 +1,4 @@
-[<-- Back to main section](../README.md)
+[<-- Back to main section](DOCKER-STARTUP.md)
 
 # Running NEOS
 
@@ -6,14 +6,17 @@
 
 For the first NEOS setup (make sure [composer](https://getcomposer.org/) is installed):
 
-    $ make create-project neos
+```bash
+make create-project neos
+```
 
 or
 
-    $ rm -f code/.gitkeep
-    $ composer create-project typo3/neos-base-distribution code/
-    $ touch code/.gitkeep
-
+```bash
+rm -f code/.gitkeep
+composer create-project typo3/neos-base-distribution code/
+touch code/.gitkeep
+```
 
 And change `DOCUMENT_ROOT` in `docker-env.yml`:
 
@@ -26,12 +29,15 @@ most of the time there is no need to enter any Docker container.
 
 You can run one-shot command inside the `main` service container:
 
-    # commands with root rights
-    $ docker-compose run --rm main root ./flow core:setfilepermissions
+```bash
+# commands with root rights
+docker-compose run --rm main root ./flow core:setfilepermissions
 
-    # normal commands
-    $ docker-compose run --rm main ./flow core:anyothercommand
+# normal commands
+docker-compose run --rm main ./flow core:anyothercommand
 
-    $ docker-compose run --rm main bash
+docker-compose run --rm main bash
+```
+
 
 Webserver is available at Port 8000

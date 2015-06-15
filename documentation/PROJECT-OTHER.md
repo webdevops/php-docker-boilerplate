@@ -1,4 +1,4 @@
-[<-- Back to main section](../README.md)
+[<-- Back to main section](DOCKER-STARTUP.md)
 
 # Running any php based project
 
@@ -12,8 +12,9 @@
 
 You can run one-shot command inside the `main` service container:
 
-    $ docker-compose run --rm main any-php-file.php argument1 argument2
-
-    $ docker-compose run --rm main bash
+```bash
+docker-compose run --rm main any-php-file.php argument1 argument2
+docker-compose run --rm main bash
+```
 
 Webserver is available at Port 8000

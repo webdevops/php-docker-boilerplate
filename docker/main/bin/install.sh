@@ -49,7 +49,9 @@ apt-get install -y \
     php5-xmlrpc \
     php5-xsl \
     php5-geoip \
-    php5-ldap
+    php5-ldap \
+    php5-memcache \
+    php5-memcached
 
 apt-get install -y \
     graphicsmagick \
@@ -72,6 +74,7 @@ locale-gen
 # Enable php modules
 #############################
 ## custom config
+touch /etc/php5/mods-available/docker-boilerplate.ini
 php5enmod docker-boilerplate
 
 #############################

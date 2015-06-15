@@ -37,8 +37,10 @@ MYSQL_DATABASE=typo3
 
 # PHP Settings
 PHP_TIMEZONE=UTC
-PHP_UID=1000
-PHP_GID=1000
+
+# Permission settings
+EFFECTIVE_UID=1000
+EFFECTIVE_GID=1000
 
 # Default cli user (should be www-data)
 CLI_USER=www-data

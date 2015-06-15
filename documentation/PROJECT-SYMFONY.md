@@ -4,7 +4,9 @@
 
 ## Create SYMFONY project
 
-    $ make create-project symfony
+```bash
+make create-project symfony
+```
 
 And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `docker-env.yml`:
 
@@ -15,8 +17,9 @@ And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `docker-env.yml`:
 
 You can run one-shot command inside the `main` service container:
 
-    $ docker-compose run --rm main php code/app/console
-
-    $ docker-compose run --rm main bash
+```bash
+docker-compose run --rm main php code/app/console
+docker-compose run --rm main bash
+```
 
 Webserver is available at Port 8000

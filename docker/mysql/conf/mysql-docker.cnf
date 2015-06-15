@@ -1,6 +1,12 @@
 [mysqld]
 
 #################################################
+## Charset
+
+character-set-server=utf8
+collation-server=utf8_general_ci
+
+#################################################
 ## Buffers
 
 key_buffer_size                 = 200M
