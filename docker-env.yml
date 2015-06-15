@@ -1,3 +1,11 @@
+#######################################
+# Environment Configuration
+#  - feel free to edit -
+#######################################
+
+#######################################
+# Webserver
+
 # Settings: TYPO3 CMS
 DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
@@ -13,34 +21,50 @@ CLI_SCRIPT=php typo3/cli_dispatch.phpsh
 #DOCUMENT_INDEX=app_dev.php
 #CLI_SCRIPT=php app/console
 
-# Contexts environment
+#######################################
+# Context environment
 TYPO3_CONTEXT=Development/Docker
 FLOW_CONTEXT=Development/Docker
 FLOW_REWRITEURLS=1
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
 
-# Mail - Vagrant mail sandbox
+#######################################
+# Mail
+
+# Vagrant mail sandbox
 MAIL_GATEWAY=192.168.56.2
 
-# Mail - Mailcatcher
+# Mailcatcher (container)
 #MAIL_GATEWAY=mail:1025
 
-# Service settings
+#######################################
+# Internal dns routing
 DNS_DOMAIN=vm vm.dev
 
+#######################################
 # MySQL settings
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
 MYSQL_DATABASE=typo3
 
+#######################################
+# FTP settings
+FTP_USER=dev
+FTP_PASSWORD=dev
+FTP_PATH=/data/ftp/
+#FTP_PATH=/docker/code/
+
+#######################################
 # PHP Settings
 PHP_TIMEZONE=UTC
 
+#######################################
 # Permission settings
 EFFECTIVE_UID=1000
 EFFECTIVE_GID=1000
 
+#######################################
 # Default cli user (should be www-data)
 CLI_USER=www-data
