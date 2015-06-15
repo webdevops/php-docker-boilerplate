@@ -6,6 +6,7 @@
 
 mkdir -p /data/solr/
 mkdir -p /data/dns/
+mkdir -p /data/ftp/
 mkdir -p /data/cache/
 
 find /data/ -type d -print0 | xargs -0 --no-run-if-empty chmod 777
