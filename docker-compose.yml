@@ -111,6 +111,19 @@ mysql:
 #    - docker-env.yml
 
 #######################################
+# FTP (vsftpd)
+#######################################
+#ftp:
+#  build: docker/vsftpd/
+#  volumes_from:
+#    - storage
+#  volumes:
+#    - ./:/docker/
+#    - /tmp/debug/:/tmp/debug/
+#  env_file:
+#    - docker-env.yml
+
+#######################################
 # Storage
 #######################################
 storage:
