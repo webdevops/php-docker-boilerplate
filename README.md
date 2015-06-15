@@ -1,6 +1,6 @@
 # Dockerized PHP web project boilerplate
 
-![latest v3.3.1](https://img.shields.io/badge/latest-v3.3.1-green.svg?style=flat)
+![latest v3.4.0](https://img.shields.io/badge/latest-v3.4.0-green.svg?style=flat)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
@@ -26,7 +26,7 @@ Configuration of each docker container is available in the `docker/` directory -
 This boilerplate can also be used for any other web project eg. Symfony, Magento and more.
 Just customize the makefile for your needs
 
-Warning: Don't use this Docker containers for production - they are only for development. If you find it usefull for production please contact me.
+Warning: There may be issues when using it in production - if you have any success stories please contact me.
 
 Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
 

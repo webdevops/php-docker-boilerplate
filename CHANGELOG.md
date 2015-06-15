@@ -1,7 +1,7 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
-3.4.0 - UPCOMING
+3.4.0 - 2015-06-15
 -------------------------------------
 - Renamed `PHP_UID` and `PHP_GID` to `EFFECTIVE_UID` and `EFFECTIVE_GID`
 - Set Apache HTTPd and Nginx UID to `EFFECTIVE_UID` and `EFFECTIVE_GID`
