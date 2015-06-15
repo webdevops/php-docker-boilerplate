@@ -104,6 +104,16 @@ Host          | mail
 SMTP port     | 1025
 Web port      | 1080
 
+### FTP
+
+Setting       | Value
+------------- | -------------
+Host          | ftp
+Ports         | 20,21
+User          | dev (if not changed in env)
+Password      | dev (if not changed in env)
+Path          | /data/ftp (if not changed in env)
+
 ## Environment settings
 
 Environment           | Description
