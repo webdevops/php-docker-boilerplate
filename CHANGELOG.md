@@ -4,7 +4,7 @@ TYPO3 Docker Boilerplate Changelog
 3.4.0 - UPCOMING
 -------------------------------------
 - Renamed `PHP_UID` and `PHP_GID` to `EFFECTIVE_UID` and `EFFECTIVE_GID`
-- Set Apache HTTPd and Nginx UID to EFFECTIVE_UID and EFFECTIVE_GID
+- Set Apache HTTPd and Nginx UID to `EFFECTIVE_UID` and `EFFECTIVE_GID`
 - Renamed `make deploy` to `make build` (was confusing)
 - Fixed MySQL default charset (set to utf8)
 - Added `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_ROOT_USER`, `MYSQL_ROOT_PASSWORD` and `MYSQL_DATABASE` for nginx/apache/php-fpm
