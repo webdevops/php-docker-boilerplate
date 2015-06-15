@@ -1,6 +1,12 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
+3.5.0 - 2015-06-15
+-----------------------
+- Added `ftp` container (with vsftpd)
+- Enabled php module `mcrypt` by default
+- Improved documentation
+
 3.4.0 - 2015-06-15
 -------------------------------------
 - Renamed `PHP_UID` and `PHP_GID` to `EFFECTIVE_UID` and `EFFECTIVE_GID`
