@@ -1,2 +1,1 @@
-FROM dockerfile/elasticsearch
-
+FROM elasticsearch
