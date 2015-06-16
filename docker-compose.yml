@@ -10,6 +10,7 @@ main:
     #- elasticsearch
     #- redis
     #- memcached
+    #- ftp
   volumes:
     - ./:/docker/
     - /tmp/debug/:/tmp/debug/
