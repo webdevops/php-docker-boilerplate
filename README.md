@@ -12,6 +12,7 @@ Supports:
 - Nginx or Apache HTTPd
 - PHP-FPM (with Xdebug)
 - MySQL, MariaDB or PerconaDB
+- PostgreSQL
 - Solr (disabled, with TYPO3 CMS EXT:solr configuration as example)
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)

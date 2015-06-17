@@ -10,6 +10,7 @@ main                      | Main container with PHP-FPM and tools (your entrypoi
 storage                   | Storage container, eg. for Solr data
 web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
+postgres (optional)       | PostgreSQL database
 solr (optional)           | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
@@ -26,6 +27,7 @@ main                      | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) 
 storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
 web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
 mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
+postgres                  | [PostgreSQL](https://registry.hub.docker.com/_/postgres/) *official*
 solr (optional)           | [Solr](https://registry.hub.docker.com/u/guywithnose/solr/) from _guywithnose_
 elasticsearch (optional)  | [Elasticsearch](https://registry.hub.docker.com/_/elasticsearch/) *official*
 memcached (optional)      | [Memcached](https://registry.hub.docker.com/_/memcached/) *official*
@@ -81,6 +83,16 @@ Host          | mysql:3306
 External Port | 13306
 
 Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. for debugging, dumps and other stuff).
+
+
+### PostgreSQL
+
+Setting       | Value
+------------- | -------------
+User          | dev (if not changed in env)
+Password      | dev (if not changed in env)
+Host          | postgres:5432
+External Port | 15432
 
 
 ### Solr

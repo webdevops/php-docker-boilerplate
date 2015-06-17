@@ -5,6 +5,7 @@ main:
   build: docker/main/
   links:
     - mysql
+    #- postgres
     #- mail
     #- solr
     #- elasticsearch
@@ -53,6 +54,18 @@ mysql:
     - /tmp/debug/:/tmp/debug/
   env_file:
     - docker-env.yml
+
+#######################################
+# PostgreSQL server
+#######################################
+#postgres:
+#  build: docker/postgres/
+#  ports:
+#    - 15432:5432
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-env.yml
 
 #######################################
 # Solr server

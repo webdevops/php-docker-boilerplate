@@ -50,6 +50,11 @@ MYSQL_PASSWORD=dev
 MYSQL_DATABASE=typo3
 
 #######################################
+# PostgreSQL settings
+POSTGRES_USER=dev
+POSTGRES_PASSWORD=dev
+
+#######################################
 # FTP settings
 FTP_USER=dev
 FTP_PASSWORD=dev
