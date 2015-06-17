@@ -15,7 +15,7 @@ the much faster virtualisation (networking, disk access, shared folders) compare
 There is also a [Vagrant VM for VirtualBox, VMware and Parallels](https://github.com/mblaschke/vagrant-development)
 with a mailcatcher (Postfix with Dovecot, catches all outgoing mails).
 
-*Warning:* Boot2docker ist not recommended because of slow/buggy file sharing between host and guest and there is no
+_Warning:_ Boot2docker ist not recommended because of slow/buggy file sharing between host and guest and there is no
 convienient way to access the box with Samba or SSH.
 This Docker boilerplate tries to avoid common anti-pattners like a Samba/SSH container because Boot2docker
 isn't able to handle such tasks.
