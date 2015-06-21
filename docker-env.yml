@@ -1,25 +1,28 @@
 #######################################
 # Environment Configuration
 #  - feel free to edit -
+# -> for most changes you only have to
+#         docker-compose up -d
+#    to apply them
 #######################################
 
 #######################################
 # Webserver
 
-# Settings: TYPO3 CMS
+# TYPO3 CMS
 DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php typo3/cli_dispatch.phpsh
 
-# Settings: NEOS or FLOW
-#DOCUMENT_ROOT=code/Web/
-#DOCUMENT_INDEX=index.php
-#CLI_SCRIPT=php flow
-
-# Settings: SYMFONY FRAMEWORK
+# SYMFONY FRAMEWORK
 #DOCUMENT_ROOT=code/web/
 #DOCUMENT_INDEX=app_dev.php
 #CLI_SCRIPT=php app/console
+
+# NEOS or FLOW
+#DOCUMENT_ROOT=code/Web/
+#DOCUMENT_INDEX=index.php
+#CLI_SCRIPT=php flow
 
 #######################################
 # Context environment
@@ -44,6 +47,12 @@ DNS_DOMAIN=vm vm.dev
 
 #######################################
 # MySQL settings
+# -> if you change these settings
+#    you have to remove the database:
+#         docker-compose rm mysql
+#    because it's stored database in
+#    volume and provisioning is only
+#    done once.
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
