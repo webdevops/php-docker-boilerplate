@@ -1,9 +1,10 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
-3.5.0 - 2015-06-15
+3.5.0 - 2015-06-23
 -----------------------
 - Added `ftp` container (with vsftpd)
+- Added `postgres` container (with PostgreSQL)
 - Enabled php module `mcrypt` by default
 - Improved documentation
 
