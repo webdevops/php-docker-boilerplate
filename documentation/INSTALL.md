@@ -15,12 +15,17 @@ the much faster virtualisation (networking, disk access, shared folders) compare
 There is also a [Vagrant VM for VirtualBox, VMware and Parallels](https://github.com/mblaschke/vagrant-development)
 with a mailcatcher (Postfix with Dovecot, catches all outgoing mails).
 
+_Warning:_ Boot2docker ist not recommended because of slow/buggy file sharing between host and guest and there is no
+convienient way to access the box with Samba or SSH.
+This Docker boilerplate tries to avoid common anti-pattners like a Samba/SSH container because Boot2docker
+isn't able to handle such tasks.
+
 For more convenience use [CliTools.phar](https://github.com/mblaschke/clitools) (will also run on native Linux, not only inside a Vagrant box)
 
 ## First startup
 
 ```bash
-git clone https://github.com/mblaschke/TYPO3-docker-boilerplate.git projectname
+git clone --recursive https://github.com/mblaschke/TYPO3-docker-boilerplate.git projectname
 
 cd projectname
 

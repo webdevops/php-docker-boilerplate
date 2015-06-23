@@ -10,12 +10,30 @@ main                      | Main container with PHP-FPM and tools (your entrypoi
 storage                   | Storage container, eg. for Solr data
 web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
+postgres (optional)       | PostgreSQL database
 solr (optional)           | Apache Solr server
 elasticsearch (optional)  | Elasticsearch server
 memcached (optional)      | Memcached server
 redis (optional)          | Redis server
+ftps (optional)           | FTP server (vsftpd)
+mailcatcher (optional)    | Mailserver with easy web and REST interface for mailing
 
 This directory will be mounted under `/docker` in `main` and `web` container.
+
+## Docker images
+Container                 | Source
+------------------------- | -------------------------------
+main                      | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
+mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
+postgres                  | [PostgreSQL](https://registry.hub.docker.com/_/postgres/) *official*
+solr (optional)           | [Solr](https://registry.hub.docker.com/u/guywithnose/solr/) from _guywithnose_
+elasticsearch (optional)  | [Elasticsearch](https://registry.hub.docker.com/_/elasticsearch/) *official*
+memcached (optional)      | [Memcached](https://registry.hub.docker.com/_/memcached/) *official*
+redis (optional)          | [Redis](https://registry.hub.docker.com/_/redis/) *official*
+ftp (optional)            | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+mailcatcher (optional)    | [Mailcatcher](https://registry.hub.docker.com/u/schickling/mailcatcher/) from _schickling_
 
 ## Makefile
 
@@ -67,6 +85,16 @@ External Port | 13306
 Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. for debugging, dumps and other stuff).
 
 
+### PostgreSQL
+
+Setting       | Value
+------------- | -------------
+User          | dev (if not changed in env)
+Password      | dev (if not changed in env)
+Host          | postgres:5432
+External Port | 15432
+
+
 ### Solr
 
 Setting       | Value
@@ -103,6 +131,16 @@ Setting       | Value
 Host          | mail
 SMTP port     | 1025
 Web port      | 1080
+
+### FTP
+
+Setting       | Value
+------------- | -------------
+Host          | ftp
+Ports         | 20,21
+User          | dev (if not changed in env)
+Password      | dev (if not changed in env)
+Path          | /data/ftp (if not changed in env)
 
 ## Environment settings
 

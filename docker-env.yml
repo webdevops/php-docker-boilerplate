@@ -1,46 +1,84 @@
-# Settings: TYPO3 CMS
+#######################################
+# Environment Configuration
+#  - feel free to edit -
+# -> for most changes you only have to
+#         docker-compose up -d
+#    to apply them
+#######################################
+
+#######################################
+# Webserver
+
+# TYPO3 CMS
 DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php typo3/cli_dispatch.phpsh
 
-# Settings: NEOS or FLOW
-#DOCUMENT_ROOT=code/Web/
-#DOCUMENT_INDEX=index.php
-#CLI_SCRIPT=php flow
-
-# Settings: SYMFONY FRAMEWORK
+# SYMFONY FRAMEWORK
 #DOCUMENT_ROOT=code/web/
 #DOCUMENT_INDEX=app_dev.php
 #CLI_SCRIPT=php app/console
 
-# Contexts environment
+# NEOS or FLOW
+#DOCUMENT_ROOT=code/Web/
+#DOCUMENT_INDEX=index.php
+#CLI_SCRIPT=php flow
+
+#######################################
+# Context environment
 TYPO3_CONTEXT=Development/Docker
 FLOW_CONTEXT=Development/Docker
 FLOW_REWRITEURLS=1
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
 
-# Mail - Vagrant mail sandbox
+#######################################
+# Mail
+
+# Vagrant mail sandbox
 MAIL_GATEWAY=192.168.56.2
 
-# Mail - Mailcatcher
+# Mailcatcher (container)
 #MAIL_GATEWAY=mail:1025
 
-# Service settings
+#######################################
+# Internal dns routing
 DNS_DOMAIN=vm vm.dev
 
+#######################################
 # MySQL settings
+# -> if you change these settings
+#    you have to remove the database:
+#         docker-compose rm mysql
+#    because it's stored database in
+#    volume and provisioning is only
+#    done once.
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
 MYSQL_DATABASE=typo3
 
+#######################################
+# PostgreSQL settings
+POSTGRES_USER=dev
+POSTGRES_PASSWORD=dev
+
+#######################################
+# FTP settings
+FTP_USER=dev
+FTP_PASSWORD=dev
+FTP_PATH=/data/ftp/
+#FTP_PATH=/docker/code/
+
+#######################################
 # PHP Settings
 PHP_TIMEZONE=UTC
 
+#######################################
 # Permission settings
 EFFECTIVE_UID=1000
 EFFECTIVE_GID=1000
 
+#######################################
 # Default cli user (should be www-data)
 CLI_USER=www-data

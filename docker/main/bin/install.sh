@@ -77,6 +77,9 @@ locale-gen
 touch /etc/php5/mods-available/docker-boilerplate.ini
 php5enmod docker-boilerplate
 
+# enable ext mcrypt
+php5enmod mcrypt
+
 #############################
 # Composer
 #############################

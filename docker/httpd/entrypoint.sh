@@ -54,6 +54,9 @@ cp /usr/local/apache2/conf/.docker-vhost.conf.original         /usr/local/apache
 /bin/sed -i "s@<MYSQL_ROOT_PASSWORD>@${MYSQL_ROOT_PASSWORD}@"  /usr/local/apache2/conf/docker-vhost.conf
 /bin/sed -i "s@<MYSQL_DATABASE>@${MYSQL_DATABASE}@"            /usr/local/apache2/conf/docker-vhost.conf
 
+/bin/sed -i "s@<POSTGRES_USER>@${POSTGRES_USER}@"              /usr/local/apache2/conf/docker-vhost.conf
+/bin/sed -i "s@<POSTGRES_PASSWORD>@${POSTGRES_PASSWORD}@"      /usr/local/apache2/conf/docker-vhost.conf
+
 #############################
 ## COMMAND
 #############################
