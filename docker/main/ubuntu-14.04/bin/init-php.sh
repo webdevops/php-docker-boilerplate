@@ -29,6 +29,8 @@ sed -i "s@listen = /var/run/php5-fpm.sock@listen = 9000@" /etc/php5/fpm/pool.d/w
 echo "
 ; Server resource settings
 
+listen = 0.0.0.0:9000
+
 pm.max_children = 10
 pm.start_servers = 2
 pm.min_spare_servers = 1

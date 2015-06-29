@@ -32,6 +32,7 @@ mkdir -p /opt/docker/ \
 apt-get update
 
 apt-get install -y \
+    sudo \
     supervisor \
     dnsmasq \
     ssmtp \
