@@ -2,7 +2,12 @@
 # Main php container
 #######################################
 main:
-  build: docker/main/
+    # Ubuntu 12.04 (LTS, PHP 5.3)
+  #build: docker/main/ubuntu-12.04
+    # Ubuntu 14.04 (LTS, PHP 5.5)
+  build: docker/main/ubuntu-14.04
+    # Ubuntu 15.04 (PHP 5.6)
+  #build: docker/main/ubuntu-15.04
   links:
     - mysql
     #- postgres
@@ -28,7 +33,9 @@ main:
 # Webserver
 #######################################
 web:
+  # Apache HTTPD webserver
   build: docker/httpd/
+  # Nginx webserver
   #build: docker/nginx/
   ports:
     - 8000:80
