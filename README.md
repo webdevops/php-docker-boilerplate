@@ -2,10 +2,10 @@
 
 ![latest v3.5.0](https://img.shields.io/badge/latest-v3.5.0-green.svg?style=flat)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/php-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/php-docker-boilerplate "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/php-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/php-docker-boilerplate "Percentage of issues still open")
 
-This is an easy customizable docker boilerplate for any PHP based projects like _TYPO3 CMS_,  _Symfony Framework_, _FLOW/NEOS_ and many other frameworks or applications.
+This is an easy customizable docker boilerplate for any PHP based projects like _Symfony Framework_, _CakePHP_ and many other frameworks or applications.
 
 Supports:
 
@@ -13,13 +13,12 @@ Supports:
 - PHP-FPM (with Xdebug)
 - MySQL, MariaDB or PerconaDB
 - PostgreSQL
-- Solr (disabled, with TYPO3 CMS EXT:solr configuration as example)
+- Solr (disabled, without configuration)
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
 - Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
 - FTP server (vsftpd)
-- Support for `TYPO3_CONTEXT` and `FLOW_CONTEXT` for TYPO3, FLOW, NEOS.
 - maybe more later...
 
 This Docker boilerplate based on the best practises and don't use too much magic.

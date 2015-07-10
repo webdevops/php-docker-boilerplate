@@ -53,12 +53,7 @@ make mysql-restore        | Restore MySQL databases
 make solr-backup          | Backup Solr cores
 make solr-restore         | Restore Solr cores
 <br>                      |
-make create-cms-project   | Create new TYPO3 project (based on typo3/cms-base-distribution)
-make create-neos-project  | Create new NEOS project (based on typo3/neos-base-distribution)
-<br>                      |
 make build                | Run building (composer, gulp, bower)
-make scheduler            | Run TYPO3 scheduler
-make clean                | Clear TYPO3 configuration cache
 
 ## Docker containers
 
@@ -78,7 +73,7 @@ Setting       | Value
 ------------- | -------------
 User          | dev (if not changed in env)
 Password      | dev (if not changed in env)
-Database      | typo3 (if not changed in env)
+Database      | database (if not changed in env)
 Host          | mysql:3306
 External Port | 13306
 

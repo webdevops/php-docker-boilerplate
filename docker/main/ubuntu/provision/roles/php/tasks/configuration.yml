@@ -5,7 +5,6 @@
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
    # Env
-   - { key: 'env[TYPO3_CONTEXT]',         value: '{{ DOCKER.TYPO3_CONTEXT }}' }
    - { key: 'env[FLOW_CONTEXT]',          value: '{{ DOCKER.FLOW_CONTEXT }}' }
    - { key: 'env[FLOW_REWRITEURLS]',      value: '{{ DOCKER.FLOW_REWRITEURLS }}' }
 

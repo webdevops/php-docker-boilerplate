@@ -19,21 +19,6 @@ rm -f -- "$CODE_DIR/.gitkeep"
 
 case "$1" in
     ###################################
-    ## TYPO3 CMS
-    ###################################
-    "typo3")
-        execInDir "$CODE_DIR" "composer create-project typo3/cms-base-distribution \"$CODE_DIR\""
-        execInDir "$CODE_DIR" "touch FIRST_INSTALL"
-        ;;
-
-    ###################################
-    ## TYPO3 NEOS
-    ###################################
-    "neos")
-        execInDir "$CODE_DIR" "composer create-project typo3/neos-base-distribution \"$CODE_DIR\""
-        ;;
-
-    ###################################
     ## SYMFONY
     ###################################
     "symfony")

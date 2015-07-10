@@ -9,26 +9,13 @@
 #######################################
 # Webserver
 
-# TYPO3 CMS
-DOCUMENT_ROOT=code/
-DOCUMENT_INDEX=index.php
-CLI_SCRIPT=php typo3/cli_dispatch.phpsh
-
-# SYMFONY FRAMEWORK
-#DOCUMENT_ROOT=code/web/
-#DOCUMENT_INDEX=app_dev.php
-#CLI_SCRIPT=php app/console
-
-# NEOS or FLOW
-#DOCUMENT_ROOT=code/Web/
-#DOCUMENT_INDEX=index.php
-#CLI_SCRIPT=php flow
+# Symfony
+DOCUMENT_ROOT=code/web/
+DOCUMENT_INDEX=app_dev.php
+CLI_SCRIPT=php app/console
 
 #######################################
 # Context environment
-TYPO3_CONTEXT=Development/Docker
-FLOW_CONTEXT=Development/Docker
-FLOW_REWRITEURLS=1
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
 
@@ -56,7 +43,7 @@ DNS_DOMAIN=vm vm.dev
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
-MYSQL_DATABASE=typo3
+MYSQL_DATABASE=database
 
 #######################################
 # PostgreSQL settings

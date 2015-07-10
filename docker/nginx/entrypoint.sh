@@ -26,10 +26,6 @@ cp /opt/docker/vhost.conf /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<DOCUMENT_INDEX>@${DOCUMENT_INDEX}@"            /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<ALIAS_DOMAIN>@${ALIAS_DOMAIN}@"                /etc/nginx/conf.d/vhost.conf
 
-/bin/sed -i "s@<TYPO3_CONTEXT>@${TYPO3_CONTEXT}@"              /etc/nginx/conf.d/vhost.conf
-/bin/sed -i "s@<FLOW_CONTEXT>@${FLOW_CONTEXT}@"                /etc/nginx/conf.d/vhost.conf
-/bin/sed -i "s@<FLOW_REWRITEURLS>@${FLOW_REWRITEURLS}@"        /etc/nginx/conf.d/vhost.conf
-
 /bin/sed -i "s@<FPM_HOST>@${MAIN_PORT_9000_TCP_ADDR}@"         /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<FPM_PORT>@${MAIN_PORT_9000_TCP_PORT}@"         /etc/nginx/conf.d/vhost.conf
 
