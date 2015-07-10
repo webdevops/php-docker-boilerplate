@@ -1,0 +1,9 @@
+- group:
+    name:  www-data
+    gid:   "{{ DOCKER.EFFECTIVE_UID }}"
+
+- user:
+    name:  www-data
+    uid:   "{{ DOCKER.EFFECTIVE_GID }}"
+    shell: /bin/bash
+    home:  /home
