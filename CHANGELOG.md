@@ -1,6 +1,10 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
+4.0.0 - UPCOMING
+-----------------------
+- Seperated TYPO3 Docker Boilerplate and PHP Docker Boilerplate
+
 3.5.0 - 2015-06-23
 -----------------------
 - Added `ftp` container (with vsftpd)

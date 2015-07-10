@@ -8,7 +8,7 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
 if [ "$#" -lt 1 ]; then
-    echo "No project type defined (either cms, neos, symfony or git)"
+    echo "No project type defined (either cms, neos or git)"
     exit 1
 fi
 
@@ -31,15 +31,6 @@ case "$1" in
     ###################################
     "neos")
         execInDir "$CODE_DIR" "composer create-project typo3/neos-base-distribution \"$CODE_DIR\""
-        ;;
-
-    ###################################
-    ## SYMFONY
-    ###################################
-    "symfony")
-        curl -LsS http://symfony.com/installer > /tmp/symfony.$$.phar
-        execInDir "$CODE_DIR" "php /tmp/symfony.$$.phar new '$CODE_DIR'"
-        rm -f -- /tmp/symfony.$$.phar
         ;;
 
     ###################################

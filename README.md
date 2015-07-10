@@ -1,4 +1,4 @@
-# Dockerized PHP web project boilerplate
+# Dockerized TYPO3 project boilerplate
 
 ![latest v3.5.0](https://img.shields.io/badge/latest-v3.5.0-green.svg?style=flat)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
