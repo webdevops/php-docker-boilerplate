@@ -5,7 +5,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
 
-This is an easy customizable docker boilerplate for any PHP based projects like _TYPO3 CMS_,  _Symfony Framework_, _FLOW/NEOS_ and many other frameworks or applications.
+This is an easy customizable TYPO3 docker boilerplate.
 
 Supports:
 
@@ -24,9 +24,6 @@ Supports:
 
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is available in the `docker/` directory - feel free to customize.
-
-This boilerplate can also be used for any other web project eg. Symfony, Magento and more.
-Just customize the makefile for your needs
 
 Warning: There may be issues when using it in production - if you have any success stories please contact me.
 
