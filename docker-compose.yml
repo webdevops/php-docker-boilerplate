@@ -5,7 +5,7 @@ main:
   #build: docker/main/ubuntu-12.04  # PHP 5.3, LTS (precise)
   build: docker/main/ubuntu-14.04   # PHP 5.5, LTS (trusty)
   #build: docker/main/ubuntu-15.04  # PHP 5.6 (vivid)
-  #build: docker/main/ubuntu-15.10  # PHP 5.6, LTS (wily)
+  #build: docker/main/ubuntu-15.10  # PHP 5.6 (wily)
   links:
     - mysql
     #- postgres
