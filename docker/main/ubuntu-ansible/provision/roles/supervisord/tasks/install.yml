@@ -1,6 +1,6 @@
 - name: Install supervisor
   apt:
-    pkg:   '{{ item }}'
+    name:  '{{ item }}'
     state: latest
   with_items:
     - supervisor

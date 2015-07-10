@@ -1,6 +1,6 @@
 - name: Install ssmtp
   apt:
-    pkg:   '{{ item }}'
+    name:  '{{ item }}'
     state: latest
   with_items:
     - ssmtp

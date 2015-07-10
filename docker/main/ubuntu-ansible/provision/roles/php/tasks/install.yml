@@ -1,6 +1,6 @@
 - name: Install php
   apt:
-    pkg:   '{{ item }}'
+    name:  '{{ item }}'
     state: latest
   with_items:
     - php5-cli
@@ -34,19 +34,19 @@
     state: touch
     mode:  0755
 
-- name: Activate /etc/php5/mods-available/docker-boilerplate.ini
+- name: Activate php config files (fpm)
   file:
-    src:  /etc/php5/conf.d/docker-boilerplate.ini
-    dest: /etc/php5/mods-available/docker-boilerplate.ini
+    src:  '/etc/php5/mods-available/{{ item.file }}'
+    dest: '/etc/php5/{{ item.category }}/conf.d/{{ item.order }}-{{ item.file }}'
     force: yes
     state: link
-
-- name: Activate /etc/php5/mods-available/docker-boilerplate.ini
-  file:
-    src:  /etc/php5/conf.d/mcrypt.ini
-    dest: /etc/php5/mods-available/mcrypt.ini
-    state: link
-  ignore_errors: True
+  with_items:
+  # PHP cli
+   - { category: 'cli', file: 'mcrypt.ini',             order: '20' }
+   - { category: 'cli', file: 'docker-boilerplate.ini', order: '99' }
+   # PHP fpm
+   - { category: 'fpm', file: 'mcrypt.ini',             order: '20' }
+   - { category: 'fpm', file: 'docker-boilerplate.ini', order: '99' }
 
 - name: Configure php-fpm (php-fpm.conf)
   lineinfile:

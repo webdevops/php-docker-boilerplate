@@ -1,6 +1,6 @@
 - name: Install default packages
   apt:
-    pkg:   '{{ item }}'
+    name:  '{{ item }}'
     state: latest
   with_items:
     # System tools
