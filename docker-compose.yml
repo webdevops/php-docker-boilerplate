@@ -2,7 +2,8 @@
 # Main php container
 #######################################
 main:
-  build: docker/main/ubuntu
+  build: docker/main/ubuntu  # dynamic ubuntu version (ansible provisioning)
+  #build: docker/main/centos # dynamic centos version (ansible provisioning)
   links:
     - mysql
     #- postgres
