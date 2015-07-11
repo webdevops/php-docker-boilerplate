@@ -1,9 +1,8 @@
 - name: Setup ssmtp
   lineinfile:
     dest:   /etc/ssmtp/ssmtp.conf
-    regexp: '{{ item.regexp }}'
-    line:   '{{ item.line }}'
+    regexp: '^[\s]*{{ item.key }}[\s]*='
+    line:   '{{ item.key }}={{ item.value }}'
   with_items:
-  # Send buffer sizes
-   - { regexp: '^mailhub=',              line: 'mailhub={{ DOCKER.MAIL_GATEWAY }}' }
-   - { regexp: '^#?FromLineOverride=',   line: 'FromLineOverride=YES' }
+   - { key: 'mailhub',          value: '{{ DOCKER.MAIL_GATEWAY }}' }
+   - { key: 'FromLineOverride', value: 'YES' }

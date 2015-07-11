@@ -8,9 +8,9 @@
 - name: Configure dnsmasq
   lineinfile:
     dest:   /etc/dnsmasq.conf
-    regexp: '{{ item.regexp }}'
-    line:   '{{ item.line }}'
+    regexp: '^[\s]*{{ item.key }}[\s]*='
+    line:   '{{ item.key }}={{ item.value }}'
   with_items:
-   - { regexp: '^user[\s]*=', line: 'user=root' }
-   - { regexp: '^conf-dir[\s]*=', line: 'conf-dir=/etc/dnsmasq.d' }
+   - { key: 'user',     value: 'root' }
+   - { key: 'conf-dir', value: '/etc/dnsmasq.d' }
 
