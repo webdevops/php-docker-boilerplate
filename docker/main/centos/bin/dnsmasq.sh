@@ -31,9 +31,6 @@ function dnsmasq_start() {
     ## set forward servers
     cat /opt/docker/.resolv.conf | grep nameserver | sed 's/nameserver /server=/' > /etc/dnsmasq.d/forward
 
-    ## (re)start dnsmasq as DNS server
-    service dnsmasq restart
-
     ## set dnsmasq to main nameserver
     echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
