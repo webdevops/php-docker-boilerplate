@@ -6,7 +6,8 @@ main:
   build: docker/main/ubuntu-14.04    # PHP 5.5, LTS (trusty)
   #build: docker/main/ubuntu-15.04   # PHP 5.6 (vivid)
   #build: docker/main/ubuntu-15.10   # PHP 5.6 (wily)
-  #build: docker/main/ubuntu-ansible # any ubuntu version, ansible provisioning
+  #build: docker/main/ubuntu-ansible # dynamic ubuntu version, ansible provisioning
+  #build: docker/main/centos-ansible # dynamic centos version, ansible provisioning
   links:
     - mysql
     #- postgres
