@@ -45,8 +45,8 @@
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
   # Networking
-   - { key: 'listen',                    value: '0.0.0.0:9000' }
-   - { key: 'listen.allowed_clients',    value: '' }
+   - { key: 'listen',                     value: '0.0.0.0:9000' }
+   - { key: 'listen.allowed_clients',     value: '' }
    # Process manager
    - { key: 'pm.max_children',            value: '15' }
    - { key: 'pm.start_servers',           value: '2' }

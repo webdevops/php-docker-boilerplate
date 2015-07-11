@@ -5,11 +5,11 @@
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
    # User
-   - { key: 'user',                  value: '{{ DOCKER.CLI_USER }}' }
-   - { key: 'group',                 value: '{{ DOCKER.CLI_USER }}' }
+   - { key: 'user',  value: '{{ DOCKER.CLI_USER }}' }
+   - { key: 'group', value: '{{ DOCKER.CLI_USER }}' }
    # Env
-   - { key: 'env[SYMFONY_ENV]',      value: '{{ DOCKER.SYMFONY_ENV }}' }
-   - { key: 'env[SYMFONY_DEBUG]',    value: '{{ DOCKER.SYMFONY_DEBUG }}' }
+   - { key: 'env[SYMFONY_ENV]',   value: '{{ DOCKER.SYMFONY_ENV }}' }
+   - { key: 'env[SYMFONY_DEBUG]', value: '{{ DOCKER.SYMFONY_DEBUG }}' }
 
 - name: Configure php (docker-boilerplate.ini)
   lineinfile:
@@ -17,7 +17,7 @@
     regexp: '{{ item.regexp }}'
     line:   '{{ item.line }}'
   with_items:
-   - { regexp: '^date.timezone',              line: 'date.timezone={{ DOCKER.PHP_TIMEZONE }}' }
+   - { regexp: '^date.timezone', line: 'date.timezone={{ DOCKER.PHP_TIMEZONE }}' }
 
 - name: Truncate log files
   command: 'cp /dev/null {{ item }}'

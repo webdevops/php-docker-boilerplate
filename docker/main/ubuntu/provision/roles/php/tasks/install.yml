@@ -63,7 +63,7 @@
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
   # Networking
-   - { key: 'listen',                    value: '0.0.0.0:9000' }
+   - { key: 'listen',                     value: '0.0.0.0:9000' }
    # Process manager
    - { key: 'pm.max_children',            value: '15' }
    - { key: 'pm.start_servers',           value: '2' }
@@ -78,3 +78,12 @@
    # PHP flags
    - { key: 'php_admin_value[error_log]', value: '/tmp/php.error.log' }
    - { key: 'php_admin_flag[log_errors]', value: 'on' }
+
+- name: Configure php-fpm (pool www.conf)
+  lineinfile:
+    dest:   /etc/php-fpm.d/www.conf
+    regexp: '^{{ item.key }}[\s]*='
+    state:  absent
+  with_items:
+  # Networking
+   - { key: 'listen.allowed_clients' }
