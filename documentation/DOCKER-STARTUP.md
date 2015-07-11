@@ -7,7 +7,7 @@
 Checkout this project and create and run the Docker containers using [docker-compose](https://github.com/docker/compose):
 
 ```bash
-git clone https://github.com/mblaschke/TYPO3-docker-boilerplate.git projectname
+git clone https://github.com/mblaschke/php-docker-boilerplate.git projectname
 cd projectname
 docker-compose up -d
 ```
