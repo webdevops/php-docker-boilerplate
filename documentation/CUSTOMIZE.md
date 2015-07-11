@@ -4,12 +4,12 @@
 
 ## Custom packages (`main` controller)
 
-You can add custom shell commands in `docker/main/bin/customization.sh`
+You can add custom shell commands in `docker/main/{DISTRIBUTION}/bin/customization.sh`
 
 
 ## Custom php.ini directives
 
-Modify the `docker/main/conf/php.ini`, it will be added on top of the default php.ini so
+Modify the `docker/main/{DISTRIBUTION}/conf/php.ini`, it will be added on top of the default php.ini so
 you can overwrite any directives.
 
 After modification rebuild your `main` container:
