@@ -5,16 +5,16 @@
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
    # Env
-   - { key: 'env[FLOW_CONTEXT]',     value: '{{ DOCKER.FLOW_CONTEXT }}' }
-   - { key: 'env[FLOW_REWRITEURLS]', value: '{{ DOCKER.FLOW_REWRITEURLS }}' }
+   - { key: 'env[SYMFONY_ENV]',   value: '{{ DOCKER.SYMFONY_ENV }}' }
+   - { key: 'env[SYMFONY_DEBUG]', value: '{{ DOCKER.SYMFONY_DEBUG }}' }
 
-- name: Configure php (docker-boilerplate.ini)
+- name: Configure php (docker php.ini)
   lineinfile:
-    dest:   /etc/php5/mods-available/docker-boilerplate.ini
-    regexp: '{{ item.regexp }}'
-    line:   '{{ item.line }}'
+    dest:   /opt/docker/conf/php.ini
+    regexp: '^{{ item.key }}[\s]*='
+    line:   '{{ item.key }} = {{ item.value }}'
   with_items:
-   - { regexp: '^date.timezone', line: 'date.timezone={{ DOCKER.PHP_TIMEZONE }}' }
+   - { key: 'date.timezone', value: '{{ DOCKER.PHP_TIMEZONE }}' }
 
 - name: Truncate log files
   command: 'cp /dev/null {{ item }}'
