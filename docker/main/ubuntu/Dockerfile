@@ -24,7 +24,7 @@ COPY bin/bootstrap.sh      /opt/docker/bin/bootstrap.sh
 COPY bin/provision.sh      /opt/docker/bin/provision.sh
 COPY bin/logwatch.sh       /opt/docker/bin/logwatch.sh
 COPY bin/dnsmasq.sh        /opt/docker/bin/dnsmasq.sh
-COPY provision/*           /opt/docker/provision/
+COPY provision             /opt/docker/provision/
 
 RUN bash /opt/docker/bin/bootstrap.sh
 RUN bash /opt/docker/bin/provision.sh bootstrap
