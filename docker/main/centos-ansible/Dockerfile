@@ -1,10 +1,7 @@
 #+++++++++++++++++++++++++++
-# Ubuntu PHP Docker container
+# Centos PHP Docker container
 #
-# ubuntu:12.04 - PHP 5.3, LTS (precise)
-# ubuntu:14.04 - PHP 5.5, LTS (trusty)
-# ubuntu:15.10 - PHP 5.6 (vivid)
-# ubuntu:15.10 - PHP 5.6, LTS (wily)
+# centos:7 - PHP 5.4
 #
 #+++++++++++++++++++++++++++
 
