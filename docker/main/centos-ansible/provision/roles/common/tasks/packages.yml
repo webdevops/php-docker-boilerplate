@@ -1,0 +1,19 @@
+- name: Install default packages
+  yum:
+    name:  '{{ item }}'
+    state: latest
+  with_items:
+    # System tools
+    - sudo
+    # Compression
+    - zip
+    - unzip
+    - bzip2
+    # Graphic tools
+    - ImageMagick
+    # Networking tools
+    - wget
+    - curl
+    # Utils
+    - moreutils
+    - bind-utils

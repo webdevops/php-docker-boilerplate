@@ -1,0 +1,12 @@
+- name: Install supervisor
+  yum:
+    name:  '{{ item }}'
+    state: latest
+  with_items:
+    - supervisor
+
+- name: Create /etc/supervisord.d/supervisord.conf
+  file:
+    path:  /etc/supervisord.d/supervisord.conf
+    state: touch
+    mode:  0755

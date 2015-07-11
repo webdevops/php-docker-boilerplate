@@ -1,0 +1,6 @@
+- name: Install mysql client
+  yum:
+    name:  '{{ item }}'
+    state: latest
+  with_items:
+    - mysql
