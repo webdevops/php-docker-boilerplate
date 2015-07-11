@@ -24,7 +24,7 @@ Supports:
 This Docker boilerplate based on the best practises and don't use too much magic.
 Configuration of each docker container is available in the `docker/` directory - feel free to customize.
 
-This boilerplate can also be used for any other web project eg. Symfony, Magento and more.
+This boilerplate can also be used for any other web project eg. Symfony, CakePHP, Magento and more.
 Just customize the makefile for your needs
 
 Warning: There may be issues when using it in production - if you have any success stories please contact me.

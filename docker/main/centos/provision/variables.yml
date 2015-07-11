@@ -37,6 +37,5 @@ DOCKER:
   DNS_DOMAIN: "{{ lookup('env','DNS_DOMAIN') }}"
 
   # Context
-  TYPO3_CONTEXT:    "{{ lookup('env','TYPO3_CONTEXT') }}"
-  FLOW_CONTEXT:     "{{ lookup('env','FLOW_CONTEXT') }}"
-  FLOW_REWRITEURLS: "{{ lookup('env','FLOW_REWRITEURLS') }}"
+  SYMFONY_ENV:   "{{ lookup('env','SYMFONY_ENV') }}"
+  SYMFONY_DEBUG: "{{ lookup('env','SYMFONY_DEBUG') }}"

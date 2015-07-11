@@ -8,9 +8,8 @@
    - { key: 'user',                  value: '{{ DOCKER.CLI_USER }}' }
    - { key: 'group',                 value: '{{ DOCKER.CLI_USER }}' }
    # Env
-   - { key: 'env[TYPO3_CONTEXT]',    value: '{{ DOCKER.TYPO3_CONTEXT }}' }
-   - { key: 'env[FLOW_CONTEXT]',     value: '{{ DOCKER.FLOW_CONTEXT }}' }
-   - { key: 'env[FLOW_REWRITEURLS]', value: '{{ DOCKER.FLOW_REWRITEURLS }}' }
+   - { key: 'env[SYMFONY_ENV]',      value: '{{ DOCKER.SYMFONY_ENV }}' }
+   - { key: 'env[SYMFONY_DEBUG]',    value: '{{ DOCKER.SYMFONY_DEBUG }}' }
 
 - name: Configure php (docker-boilerplate.ini)
   lineinfile:
