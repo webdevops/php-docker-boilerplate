@@ -23,7 +23,8 @@ This directory will be mounted under `/docker` in `main` and `web` container.
 ## Docker images
 Container                 | Source
 ------------------------- | -------------------------------
-main                      | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+main/ubuntu               | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+main/centos               | [CentOS](https://registry.hub.docker.com/_/centos/) *official*
 storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
 web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
 mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
