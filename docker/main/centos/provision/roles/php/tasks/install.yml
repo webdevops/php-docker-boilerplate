@@ -54,7 +54,7 @@
    - { key: 'pm.max_spare_servers',       value: '3' }
    - { key: 'catch_workers_output',       value: 'yes' }
    # Logs
-   - { key: 'access.format',              value: '\"%R - %u %t \\\"%m %r%Q%q\\\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d\"' }
+   - { key: 'access.format',              value: '"%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d"' }
    - { key: 'access.log',                 value: '/tmp/php.access.log' }
    - { key: 'slowlog',                    value: '/tmp/php.slow.log' }
    - { key: 'request_slowlog_timeout',    value: '30s' }
@@ -70,3 +70,10 @@
   with_items:
   # Networking
    - { key: 'listen.allowed_clients' }
+
+- name: Create link for additional php.ini
+  file:
+    src:  '/opt/docker/conf/php.ini'
+    dest: '/etc/php.d/zzz-docker-boilerplate.ini'
+    state: link
+    force: yes

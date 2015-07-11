@@ -4,9 +4,3 @@
     state: latest
   with_items:
     - supervisor
-
-- name: Create /etc/supervisor/conf.d/supervisord.conf
-  file:
-    path:  /etc/supervisor/conf.d/supervisord.conf
-    state: touch
-    mode:  0755

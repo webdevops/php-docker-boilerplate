@@ -41,8 +41,7 @@ RUN bash /opt/docker/bin/customization.sh
 ##
 
 COPY entrypoint.sh         /entrypoint.sh
-COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY conf/php.ini          /etc/php5/mods-available/docker-boilerplate.ini
+COPY conf                  /opt/docker/conf/
 
 EXPOSE 9000
 
