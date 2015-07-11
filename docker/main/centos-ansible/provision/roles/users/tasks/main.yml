@@ -1,0 +1,3 @@
+- include: www-data.yml
+  tags:
+    - entrypoint

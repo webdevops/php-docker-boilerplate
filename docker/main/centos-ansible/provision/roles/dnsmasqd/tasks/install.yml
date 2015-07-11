@@ -1,0 +1,16 @@
+- name: Install dnsmasqd
+  yum:
+    name:  '{{ item }}'
+    state: latest
+  with_items:
+    - dnsmasq
+
+- name: Configure dnsmasq
+  lineinfile:
+    dest:   /etc/dnsmasq.conf
+    regexp: '{{ item.regexp }}'
+    line:   '{{ item.line }}'
+  with_items:
+   - { regexp: '^user[\s]*=', line: 'user=root' }
+   - { regexp: '^conf-dir[\s]*=', line: 'conf-dir=/etc/dnsmasq.d' }
+

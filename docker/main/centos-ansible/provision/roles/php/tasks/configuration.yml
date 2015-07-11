@@ -1,0 +1,28 @@
+- name: Configure php-fpm (pool www.conf)
+  lineinfile:
+    dest:   /etc/php-fpm.d/www.conf
+    regexp: '^{{ item.key }}[\s]*='
+    line:   '{{ item.key }} = {{ item.value }}'
+  with_items:
+   # User
+   - { key: 'user',                  value: '{{ DOCKER.CLI_USER }}' }
+   - { key: 'group',                 value: '{{ DOCKER.CLI_USER }}' }
+   # Env
+   - { key: 'env[TYPO3_CONTEXT]',    value: '{{ DOCKER.TYPO3_CONTEXT }}' }
+   - { key: 'env[FLOW_CONTEXT]',     value: '{{ DOCKER.FLOW_CONTEXT }}' }
+   - { key: 'env[FLOW_REWRITEURLS]', value: '{{ DOCKER.FLOW_REWRITEURLS }}' }
+
+- name: Configure php (docker-boilerplate.ini)
+  lineinfile:
+    dest:   /etc/php.d/zzz-docker-boilerplate.ini
+    regexp: '{{ item.regexp }}'
+    line:   '{{ item.line }}'
+  with_items:
+   - { regexp: '^date.timezone',              line: 'date.timezone={{ DOCKER.PHP_TIMEZONE }}' }
+
+- name: Truncate log files
+  command: 'cp /dev/null {{ item }}'
+  with_items:
+   - '/tmp/php.slow.log'
+   - '/tmp/php.error.log'
+   - '/tmp/php.access.log'
