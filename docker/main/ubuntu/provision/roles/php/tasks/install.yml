@@ -28,18 +28,13 @@
     state: directory
     mode:  0755
 
-- name: Create /etc/php5/mods-available/docker-boilerplate.ini
-  file:
-    path:  /etc/php5/mods-available/docker-boilerplate.ini
-    state: touch
-    mode:  0755
-
 - name: Activate php config files (fpm)
   file:
     src:  '/etc/php5/mods-available/{{ item.file }}'
     dest: '/etc/php5/{{ item.category }}/conf.d/{{ item.order }}-{{ item.file }}'
     force: yes
     state: link
+
   with_items:
   # PHP cli
    - { category: 'cli', file: 'mcrypt.ini',             order: '20' }
@@ -71,7 +66,7 @@
    - { key: 'pm.max_spare_servers',       value: '3' }
    - { key: 'catch_workers_output',       value: 'yes' }
    # Logs
-   - { key: 'access.format',              value: '\"%R - %u %t \\\"%m %r%Q%q\\\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d\"' }
+   - { key: 'access.format',              value: '"%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d"' }
    - { key: 'access.log',                 value: '/tmp/php.access.log' }
    - { key: 'slowlog',                    value: '/tmp/php.slow.log' }
    - { key: 'request_slowlog_timeout',    value: '30s' }

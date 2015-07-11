@@ -13,7 +13,7 @@
 
 - name: Configure php (docker-boilerplate.ini)
   lineinfile:
-    dest:   /etc/php.d/zzz-docker-boilerplate.ini
+    dest:   /opt/docker/conf/php.ini
     regexp: '{{ item.regexp }}'
     line:   '{{ item.line }}'
   with_items:
