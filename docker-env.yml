@@ -9,10 +9,15 @@
 #######################################
 # Webserver
 
+# General
+DOCUMENT_ROOT=code/
+DOCUMENT_INDEX=index.php
+CLI_SCRIPT=php index.php
+
 # Symfony
-DOCUMENT_ROOT=code/web/
-DOCUMENT_INDEX=app_dev.php
-CLI_SCRIPT=php app/console
+# DOCUMENT_ROOT=code/web/
+# DOCUMENT_INDEX=app_dev.php
+# CLI_SCRIPT=php app/console
 
 #######################################
 # Context environment
