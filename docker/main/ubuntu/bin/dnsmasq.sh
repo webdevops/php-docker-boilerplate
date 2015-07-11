@@ -32,7 +32,7 @@ function dnsmasq_start() {
     done
 
     ## set forward servers
-    cat /var/run/dnsmasq/resolv.conf | grep nameserver | sed 's/nameserver /server=/' > /etc/dnsmasq.d/forward
+    cat /opt/docker/.resolv.conf | grep nameserver | sed 's/nameserver /server=/' > /etc/dnsmasq.d/forward
 
     ## (re)start dnsmasq as DNS server
     service dnsmasq restart
