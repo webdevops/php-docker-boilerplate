@@ -1,6 +1,6 @@
 - name: Install ssmtp
   yum:
     name:  '{{ item }}'
-    state: latest
+    state: present
   with_items:
     - ssmtp

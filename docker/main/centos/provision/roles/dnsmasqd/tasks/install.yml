@@ -1,7 +1,7 @@
 - name: Install dnsmasqd
   yum:
     name:  '{{ item }}'
-    state: latest
+    state: present
   with_items:
     - dnsmasq
 

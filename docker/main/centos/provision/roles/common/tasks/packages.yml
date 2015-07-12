@@ -1,7 +1,7 @@
 - name: Install default packages
   yum:
     name:  '{{ item }}'
-    state: latest
+    state: present
   with_items:
     # System tools
     - sudo

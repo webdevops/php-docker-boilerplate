@@ -1,14 +1,24 @@
-#+++++++++++++++++++++++++++
+#++++++++++++++++++++++++++++++++++++++
 # Ubuntu PHP Docker container
+#++++++++++++++++++++++++++++++++++++++
 #
-# ubuntu:12.04 - PHP 5.3, LTS (precise)
-# ubuntu:14.04 - PHP 5.5, LTS (trusty)
-# ubuntu:15.10 - PHP 5.6 (vivid)
-# ubuntu:15.10 - PHP 5.6, LTS (wily)
+# Prebuild images:
 #
-#+++++++++++++++++++++++++++
+#   mblaschke/php-boilerplate:ubuntu-12.04
+#   mblaschke/php-boilerplate:ubuntu-14.04
+#   mblaschke/php-boilerplate:ubuntu-15.04
+#   mblaschke/php-boilerplate:ubuntu-15.10
+#
+# Official images:
+#
+#   ubuntu:12.04 - PHP 5.3, LTS (precise)
+#   ubuntu:14.04 - PHP 5.5, LTS (trusty)
+#   ubuntu:15.04 - PHP 5.6 (vivid)
+#   ubuntu:15.10 - PHP 5.6 (wily)
+#
+#++++++++++++++++++++++++++++++++++++++
 
-FROM ubuntu:14.04
+FROM mblaschke/php-boilerplate:ubuntu-14.04
 
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8

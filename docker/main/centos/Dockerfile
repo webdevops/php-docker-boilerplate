@@ -1,11 +1,18 @@
-#+++++++++++++++++++++++++++
+#++++++++++++++++++++++++++++++++++++++
 # Centos PHP Docker container
+#++++++++++++++++++++++++++++++++++++++
 #
-# centos:7 - PHP 5.4
+# Prebuild images:
 #
-#+++++++++++++++++++++++++++
+#   mblaschke/php-boilerplate:centos-7
+#
+# Official images:
+#
+#   centos:7 - PHP 5.4
+#
+#++++++++++++++++++++++++++++++++++++++
 
-FROM centos:7
+FROM mblaschke/php-boilerplate:centos-7
 
 ENV PATH /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
 ENV PYTHONPATH /opt/ansible/lib

@@ -1,6 +1,6 @@
 - name: Install mysql client
   apt:
     name:  '{{ item }}'
-    state: latest
+    state: present
   with_items:
     - mysql-client
