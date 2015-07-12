@@ -1,7 +1,7 @@
 - name: Install php
   yum:
     name:  '{{ item }}'
-    state: latest
+    state: present
   with_items:
     - php-cli
     - php-fpm

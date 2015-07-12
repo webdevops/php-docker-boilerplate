@@ -1,6 +1,6 @@
 - name: Install supervisor
   apt:
     name:  '{{ item }}'
-    state: latest
+    state: present
   with_items:
     - supervisor
