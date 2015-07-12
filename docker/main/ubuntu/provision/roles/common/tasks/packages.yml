@@ -10,6 +10,7 @@
     - unzip
     - bzip2
     # Graphic tools
+    - imagemagick
     - graphicsmagick
     # Networking tools
     - wget
