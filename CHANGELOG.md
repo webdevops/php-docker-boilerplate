@@ -4,6 +4,11 @@ PHP Docker Boilerplate Changelog
 4.0.0 - UPCOMING
 -----------------------
 - Seperated TYPO3 Docker Boilerplate and PHP Docker Boilerplate
+- Switched to Ansible provisioning (playbook)
+- Added multiple Ubuntu versions
+- Added CentOS
+- Improved provisioning
+- Added prebuilt Docker images
 
 3.5.0 - 2015-06-23
 -----------------------
