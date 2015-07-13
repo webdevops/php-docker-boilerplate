@@ -21,20 +21,20 @@
 FROM mblaschke/php-boilerplate:ubuntu-14.04
 
 # Ensure UTF-8
-RUN locale-gen en_US.UTF-8
-ENV LANG       en_US.UTF-8
-ENV LC_ALL     en_US.UTF-8
+RUN locale-gen  en_US.UTF-8
+ENV LANG        en_US.UTF-8
+ENV LC_ALL      en_US.UTF-8
 
 ##
 # Bootstrap
 ##
 
-COPY conf/locale.conf      /opt/docker/locale.conf
-COPY bin/bootstrap.sh      /opt/docker/bin/bootstrap.sh
-COPY bin/provision.sh      /opt/docker/bin/provision.sh
-COPY bin/logwatch.sh       /opt/docker/bin/logwatch.sh
-COPY bin/dnsmasq.sh        /opt/docker/bin/dnsmasq.sh
-COPY provision             /opt/docker/provision/
+COPY conf/locale.conf  /opt/docker/locale.conf
+COPY bin/bootstrap.sh  /opt/docker/bin/bootstrap.sh
+COPY bin/provision.sh  /opt/docker/bin/provision.sh
+COPY bin/logwatch.sh   /opt/docker/bin/logwatch.sh
+COPY bin/dnsmasq.sh    /opt/docker/bin/dnsmasq.sh
+COPY provision         /opt/docker/provision/
 
 RUN bash /opt/docker/bin/bootstrap.sh
 RUN bash /opt/docker/bin/provision.sh bootstrap
@@ -50,8 +50,8 @@ RUN bash /opt/docker/bin/customization.sh
 # Config
 ##
 
-COPY entrypoint.sh         /entrypoint.sh
-COPY conf                  /opt/docker/conf/
+COPY entrypoint.sh  /entrypoint.sh
+COPY conf           /opt/docker/conf/
 
 EXPOSE 9000
 
