@@ -19,7 +19,8 @@ case "$1" in
         echo "${ETH0_IP}   main main_1" > /data/dns/main.hosts
 
         ## Start services
-        exec supervisord -c /opt/docker/conf/supervisord.conf
+        cd /
+        exec supervisord -c /opt/docker/conf/supervisord.conf --logfile /dev/null --pidfile /dev/null --user root
         ;;
 
     ## Root shell
