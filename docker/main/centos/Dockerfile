@@ -14,20 +14,20 @@
 
 FROM mblaschke/php-boilerplate:centos-7
 
-ENV PATH /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
-ENV PYTHONPATH /opt/ansible/lib
-ENV ANSIBLE_LIBRARY /opt/ansible/library
+ENV PATH             /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
+ENV PYTHONPATH       /opt/ansible/lib
+ENV ANSIBLE_LIBRARY  /opt/ansible/library
 
 ##
 # Bootstrap
 ##
 
-COPY conf/locale.conf      /opt/docker/locale.conf
-COPY bin/bootstrap.sh      /opt/docker/bin/bootstrap.sh
-COPY bin/provision.sh      /opt/docker/bin/provision.sh
-COPY bin/logwatch.sh       /opt/docker/bin/logwatch.sh
-COPY bin/dnsmasq.sh        /opt/docker/bin/dnsmasq.sh
-COPY provision             /opt/docker/provision/
+COPY conf/locale.conf  /opt/docker/locale.conf
+COPY bin/bootstrap.sh  /opt/docker/bin/bootstrap.sh
+COPY bin/provision.sh  /opt/docker/bin/provision.sh
+COPY bin/logwatch.sh   /opt/docker/bin/logwatch.sh
+COPY bin/dnsmasq.sh    /opt/docker/bin/dnsmasq.sh
+COPY provision         /opt/docker/provision/
 
 RUN bash /opt/docker/bin/bootstrap.sh
 RUN bash /opt/docker/bin/provision.sh bootstrap
@@ -43,8 +43,8 @@ RUN bash /opt/docker/bin/customization.sh
 # Config
 ##
 
-COPY entrypoint.sh         /entrypoint.sh
-COPY conf                  /opt/docker/conf/
+COPY entrypoint.sh  /entrypoint.sh
+COPY conf           /opt/docker/conf/
 
 EXPOSE 9000
 
