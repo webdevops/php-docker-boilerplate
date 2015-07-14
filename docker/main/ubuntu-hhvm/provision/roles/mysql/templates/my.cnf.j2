@@ -1,0 +1,21 @@
+[client]
+host=mysql
+user="root"
+password="{{ DOCKER.MYSQL_ROOT_PASSWORD }}"
+
+[mysql]
+host=mysql
+user="root"
+password="{{ DOCKER.MYSQL_ROOT_PASSWORD }}"
+database="{{ DOCKER.MYSQL_DATABASE }}"
+default-character-set=utf8
+local-infile=1
+show-warnings
+auto-rehash
+sigint-ignore
+reconnect
+
+[mysqldump]
+host=mysql
+user="root"
+password="{{ DOCKER.MYSQL_ROOT_PASSWORD }}"

@@ -1,0 +1,5 @@
+- name: Cleanup apt
+  command: apt-get clean -y
+
+- name: Cleanup apt
+  command: apt-get autoclean -y
