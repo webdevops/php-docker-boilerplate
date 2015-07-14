@@ -1,9 +1,19 @@
 - group:
-    name:  www-data
+    name:  "www-data"
     gid:   "{{ DOCKER.EFFECTIVE_UID }}"
 
 - user:
-    name:  www-data
+    name:  "www-data"
     uid:   "{{ DOCKER.EFFECTIVE_GID }}"
+    group: "www-data"
     shell: /bin/bash
     home:  /home
+
+# create a directory if it doesn't exist
+- file:
+    path:  /home/
+    state: directory
+    mode:  0755
+    owner: "www-data"
+    group: "www-data"
+    recurse: yes
