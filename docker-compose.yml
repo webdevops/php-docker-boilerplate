@@ -2,8 +2,8 @@
 # Main php container
 #######################################
 main:
-  build: docker/main/ubuntu  # dynamic ubuntu version (ansible provisioning)
-  #build: docker/main/centos # dynamic centos version (ansible provisioning)
+  build: docker/main/ubuntu      # dynamic ubuntu version (ansible provisioning)
+  #build: docker/main/centos     # dynamic centos version (ansible provisioning)
   links:
     - mysql
     #- postgres
@@ -29,10 +29,8 @@ main:
 # Webserver
 #######################################
 web:
-  # Apache HTTPD webserver
-  build: docker/httpd/
-  # Nginx webserver
-  #build: docker/nginx/
+  build: docker/web/httpd/   # Apache HTTPD webserver
+  #build: docker/web/nginx/  # Nginx
   ports:
     - 8000:80
     - 8443:443
@@ -48,7 +46,7 @@ web:
 # MySQL server
 #######################################
 mysql:
-  build: docker/mysql/
+  build: docker/mysql/  # MySQL, MariaDB or PerconaDB
   ports:
     - 13306:3306
   volumes_from:

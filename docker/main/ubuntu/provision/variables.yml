@@ -37,5 +37,7 @@ DOCKER:
   DNS_DOMAIN: "{{ lookup('env','DNS_DOMAIN') }}"
 
   # Context
-  SYMFONY_ENV:   "{{ lookup('env','SYMFONY_ENV') }}"
-  SYMFONY_DEBUG: "{{ lookup('env','SYMFONY_DEBUG') }}"
+  SYMFONY_ENV:     "{{ lookup('env','SYMFONY_ENV') }}"
+  SYMFONY_DEBUG:   "{{ lookup('env','SYMFONY_DEBUG') }}"
+  CAKE_ENV:        "{{ lookup('env','CAKE_ENV') }}"
+  YII_ENVIRONMENT: "{{ lookup('env','YII_ENVIRONMENT') }}"

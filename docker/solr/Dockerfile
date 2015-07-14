@@ -1,3 +1,14 @@
+#++++++++++++++++++++++++++++++++++++++
+# Solr Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# Images:
+#
+#   guywithnose/solr
+#       https://registry.hub.docker.com/u/guywithnose/solr/
+#
+#++++++++++++++++++++++++++++++++++++++
+
 FROM guywithnose/solr:4.9.0
 ENV DEBIAN_FRONTEND noninteractive
 
