@@ -16,3 +16,4 @@
     mode:  0755
     owner: "{{ DOCKER.CLI_USER }}"
     group: "{{ DOCKER.CLI_USER }}"
+    recurse: yes
