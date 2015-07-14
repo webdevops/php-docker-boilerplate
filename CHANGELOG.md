@@ -7,7 +7,9 @@ PHP Docker Boilerplate Changelog
 - Switched to Ansible provisioning (playbook)
 - Added multiple Ubuntu versions
 - Added CentOS
+- Added Ubuntu with HHVM
 - Improved provisioning
+- Refactored layout
 - Added prebuilt Docker images
 
 3.5.0 - 2015-06-23
