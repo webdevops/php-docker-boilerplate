@@ -1,0 +1,8 @@
+- name: Setup ssmtp
+  lineinfile:
+    dest:   /etc/ssmtp/ssmtp.conf
+    regexp: '^[\s]*{{ item.key }}[\s]*='
+    line:   '{{ item.key }}={{ item.value }}'
+  with_items:
+   - { key: 'mailhub',          value: '{{ DOCKER.MAIL_GATEWAY }}' }
+   - { key: 'FromLineOverride', value: 'YES' }

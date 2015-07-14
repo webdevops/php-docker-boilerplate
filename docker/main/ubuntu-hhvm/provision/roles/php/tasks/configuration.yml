@@ -1,0 +1,24 @@
+- name: Configure php-fpm (pool www.conf)
+  lineinfile:
+    dest:   /etc/php5/fpm/pool.d/www.conf
+    regexp: '^{{ item.key }}[\s]*='
+    line:   '{{ item.key }} = {{ item.value }}'
+  with_items:
+   # Env
+   - { key: 'env[SYMFONY_ENV]',   value: '{{ DOCKER.SYMFONY_ENV }}' }
+   - { key: 'env[SYMFONY_DEBUG]', value: '{{ DOCKER.SYMFONY_DEBUG }}' }
+
+- name: Configure php (docker php.ini)
+  lineinfile:
+    dest:   /opt/docker/conf/php.ini
+    regexp: '^{{ item.key }}[\s]*='
+    line:   '{{ item.key }} = {{ item.value }}'
+  with_items:
+   - { key: 'date.timezone', value: '{{ DOCKER.PHP_TIMEZONE }}' }
+
+- name: Truncate log files
+  command: 'cp /dev/null {{ item }}'
+  with_items:
+   - '/tmp/php.slow.log'
+   - '/tmp/php.error.log'
+   - '/tmp/php.access.log'

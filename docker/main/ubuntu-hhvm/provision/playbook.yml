@@ -1,0 +1,13 @@
+- hosts: all
+  vars_files:
+    - /opt/docker/provision/variables.yml
+  roles:
+    - common
+    - locales
+    - supervisord
+    - dnsmasqd
+    - ssmtp
+    - hhvm
+    - mysql
+    - users
+    - finalize

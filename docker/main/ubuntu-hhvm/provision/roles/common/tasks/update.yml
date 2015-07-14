@@ -1,0 +1,5 @@
+- name: Update system
+  apt: update_cache=yes
+
+- name: Upgrade system
+  apt: upgrade=full
