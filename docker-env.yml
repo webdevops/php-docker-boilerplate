@@ -14,11 +14,6 @@ DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php typo3/cli_dispatch.phpsh
 
-# SYMFONY FRAMEWORK
-#DOCUMENT_ROOT=code/web/
-#DOCUMENT_INDEX=app_dev.php
-#CLI_SCRIPT=php app/console
-
 # NEOS or FLOW
 #DOCUMENT_ROOT=code/Web/
 #DOCUMENT_INDEX=index.php

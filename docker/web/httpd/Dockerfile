@@ -1,3 +1,14 @@
+#++++++++++++++++++++++++++++++++++++++
+# HTTPD Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# Official images:
+#
+#   httpd:14.04 - Apache HTTPD
+#                 https://registry.hub.docker.com/u/library/httpd/
+#
+#++++++++++++++++++++++++++++++++++++++
+
 FROM httpd:2.4
 
 RUN apt-get update && apt-get install -y net-tools

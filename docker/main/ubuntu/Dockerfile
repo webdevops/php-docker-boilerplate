@@ -15,6 +15,7 @@
 #   ubuntu:14.04 - PHP 5.5, LTS (trusty)
 #   ubuntu:15.04 - PHP 5.6 (vivid)
 #   ubuntu:15.10 - PHP 5.6 (wily)
+#                  https://registry.hub.docker.com/u/library/ubuntu/
 #
 #++++++++++++++++++++++++++++++++++++++
 

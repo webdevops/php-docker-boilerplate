@@ -9,6 +9,7 @@
 # Official images:
 #
 #   centos:7 - PHP 5.4
+#              https://registry.hub.docker.com/u/library/centos/
 #
 #++++++++++++++++++++++++++++++++++++++
 
