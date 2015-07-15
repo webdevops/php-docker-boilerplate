@@ -1,3 +1,14 @@
+#++++++++++++++++++++++++++++++++++++++
+# Storage Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# Official images:
+#
+#   ubuntu:14.04 - PHP 5.5, LTS (trusty)
+#                  https://registry.hub.docker.com/u/library/ubuntu/
+#
+#++++++++++++++++++++++++++++++++++++++
+
 FROM ubuntu:14.04
 
 ADD entrypoint.sh   /entrypoint.sh

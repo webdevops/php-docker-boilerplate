@@ -2,14 +2,18 @@
 # Main php container
 #######################################
 main:
-  build: docker/main/
+  build: docker/main/ubuntu       # dynamic ubuntu version (ansible provisioning)
+  #build: docker/main/centos      # dynamic centos version (ansible provisioning)
+  #build: docker/main/ubuntu-hhvm # ubuntu lts with HHVM   (ansible provisioning)
   links:
     - mysql
+    #- postgres
     #- mail
     #- solr
     #- elasticsearch
     #- redis
     #- memcached
+    #- ftp
   volumes:
     - ./:/docker/
     - /tmp/debug/:/tmp/debug/
@@ -26,8 +30,8 @@ main:
 # Webserver
 #######################################
 web:
-  build: docker/httpd/
-  #build: docker/nginx/
+  build: docker/web/httpd/   # Apache HTTPD webserver
+  #build: docker/web/nginx/  # Nginx
   ports:
     - 8000:80
     - 8443:443
@@ -43,7 +47,7 @@ web:
 # MySQL server
 #######################################
 mysql:
-  build: docker/mysql/
+  build: docker/mysql/  # MySQL, MariaDB or PerconaDB
   ports:
     - 13306:3306
   volumes_from:
@@ -52,6 +56,18 @@ mysql:
     - /tmp/debug/:/tmp/debug/
   env_file:
     - docker-env.yml
+
+#######################################
+# PostgreSQL server
+#######################################
+#postgres:
+#  build: docker/postgres/
+#  ports:
+#    - 15432:5432
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-env.yml
 
 #######################################
 # Solr server
@@ -107,6 +123,19 @@ mysql:
 #  build: docker/mail/
 #  ports:
 #    - 1080:1080
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# FTP (vsftpd)
+#######################################
+#ftp:
+#  build: docker/vsftpd/
+#  volumes_from:
+#    - storage
+#  volumes:
+#    - ./:/docker/
+#    - /tmp/debug/:/tmp/debug/
 #  env_file:
 #    - docker-env.yml
 

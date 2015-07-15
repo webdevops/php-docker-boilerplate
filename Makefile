@@ -1,6 +1,6 @@
 ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
-all: deploy
+all: build
 
 #############################
 # Create new project
@@ -40,8 +40,8 @@ solr-restore:
 backup:  mysql-backup  solr-backup
 restore: mysql-restore solr-restore
 
-deploy:
-	bash bin/deploy.sh
+build:
+	bash bin/build.sh
 
 clean:
 	test -d code/typo3temp && { rm -rf code/typo3temp/*; }

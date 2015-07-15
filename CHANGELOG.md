@@ -1,6 +1,35 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
+4.0.0 - UPCOMING
+-----------------------
+- Seperated TYPO3 Docker Boilerplate and PHP Docker Boilerplate
+- Switched to Ansible provisioning (playbook)
+- Added multiple Ubuntu versions
+- Added CentOS
+- Added Ubuntu with HHVM
+- Improved provisioning
+- Refactored layout
+- Added prebuilt Docker images
+
+3.5.0 - 2015-06-23
+-----------------------
+- Added `ftp` container (with vsftpd)
+- Added `postgres` container (with PostgreSQL)
+- Enabled php module `mcrypt` by default
+- Improved documentation
+
+3.4.0 - 2015-06-15
+-------------------------------------
+- Renamed `PHP_UID` and `PHP_GID` to `EFFECTIVE_UID` and `EFFECTIVE_GID`
+- Set Apache HTTPd and Nginx UID to `EFFECTIVE_UID` and `EFFECTIVE_GID`
+- Renamed `make deploy` to `make build` (was confusing)
+- Fixed MySQL default charset (set to utf8)
+- Added `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_ROOT_USER`, `MYSQL_ROOT_PASSWORD` and `MYSQL_DATABASE` for nginx/apache/php-fpm
+- Improved customization of `php.ini`
+- Improved documentation
+- Added php memcache and memcached
+
 3.3.1 - 2015-05-11
 -------------------------------------
 - Fixed ssl certificate
