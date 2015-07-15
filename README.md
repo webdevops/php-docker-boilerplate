@@ -27,7 +27,7 @@ Configuration of each docker container is available in the `docker/` directory -
 
 Warning: There may be issues when using it in production - if you have any success stories please contact me.
 
-Use can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
+You can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
 
 ## Table of contents
 
