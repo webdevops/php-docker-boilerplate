@@ -4,7 +4,7 @@
 #
 # Prebuild images:
 #
-#   mblaschke/php-boilerplate:centos-7
+#   webdevops/php-boilerplate:centos-7
 #
 # Official images:
 #
@@ -13,7 +13,7 @@
 #
 #++++++++++++++++++++++++++++++++++++++
 
-FROM mblaschke/php-boilerplate:centos-7
+FROM webdevops/php-boilerplate:centos-7
 
 ENV PATH             /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
 ENV PYTHONPATH       /opt/ansible/lib
