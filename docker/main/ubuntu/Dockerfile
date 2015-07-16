@@ -4,10 +4,10 @@
 #
 # Prebuild images:
 #
-#   mblaschke/php-boilerplate:ubuntu-12.04
-#   mblaschke/php-boilerplate:ubuntu-14.04
-#   mblaschke/php-boilerplate:ubuntu-15.04
-#   mblaschke/php-boilerplate:ubuntu-15.10
+#   webdevops/php-boilerplate:ubuntu-12.04
+#   webdevops/php-boilerplate:ubuntu-14.04
+#   webdevops/php-boilerplate:ubuntu-15.04
+#   webdevops/php-boilerplate:ubuntu-15.10
 #
 # Official images:
 #
@@ -19,7 +19,7 @@
 #
 #++++++++++++++++++++++++++++++++++++++
 
-FROM mblaschke/php-boilerplate:ubuntu-14.04
+FROM webdevops/php-boilerplate:ubuntu-14.04
 
 # Ensure UTF-8
 RUN locale-gen  en_US.UTF-8
