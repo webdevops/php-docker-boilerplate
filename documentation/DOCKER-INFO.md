@@ -164,7 +164,7 @@ EFFECTIVE_GID         | Effective GID for php, fpm und webserver
 
 ## Xdebug Remote debugger (PhpStorm)
 
-### 1.) Add a server (Preferences -> Languages & Frameworks -> PHP -> Servers):
+### 1.) Add a server (Preferences -> Languages & Frameworks -> PHP -> Servers).
 
 Setting                          | Value
 ---------------------------------| -------------
