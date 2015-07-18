@@ -164,16 +164,17 @@ EFFECTIVE_GID         | Effective GID for php, fpm und webserver
 
 ## Xdebug Remote debugger (PhpStorm)
 
-Add a server (Preferences -> PHP -> Servers):
+### 1.) Add a server (Preferences -> Languages & Frameworks -> PHP -> Servers):
 
-Setting                 | Value
------------------------ | -------------
-Hostname                | IP or Hostname of VM
-Port                    | 8000
-Use path mappings       | Check
-Path mapping of code    | /docker/code/
+Setting                          | Value
+---------------------------------| -------------
+Hostname                         | IP or Hostname of VM
+Port                             | 8000
+Debugger                         | Xdebug  
+Use path mappings                | Check
+Path mapping of folder 'code'    | /docker/code/
 
-Add a debug connection (Run -> Edit -> Connections) and create a new connection.
+### Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
 
 Setting               | Value
 --------------------- | -------------
