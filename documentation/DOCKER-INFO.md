@@ -174,7 +174,7 @@ Debugger                         | Xdebug
 Use path mappings                | Check
 Path mapping of folder 'code'    | /docker/code/
 
-### Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
+### 2.) Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
 
 Setting               | Value
 --------------------- | -------------
