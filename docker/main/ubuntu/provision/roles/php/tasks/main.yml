@@ -2,6 +2,10 @@
   tags:
     - bootstrap
 
+- include: blackfire.yml
+  tags:
+    - bootstrap
+
 - include: configuration.yml
   tags:
     - entrypoint
