@@ -18,3 +18,4 @@
     # Utils
     - moreutils
     - bind-utils
+    - pygpgme

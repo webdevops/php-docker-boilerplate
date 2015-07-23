@@ -1,0 +1,24 @@
+- name: Add blackfire.io key
+  rpm_key:
+    key:   https://packagecloud.io/gpg.key
+    state: present
+
+- name: Add blackfire.io repository
+  get_url:
+    url:  http://packages.blackfire.io/fedora/blackfire.repo
+    dest: /etc/yum.repos.d/blackfire.repo
+    mode: 0644
+
+- name: Disable gpg check for blackfire (CentOS 7 workaround)
+  lineinfile:
+    dest:   /etc/yum.repos.d/blackfire.repo
+    regexp: '^repo_gpgcheck=1'
+    line:   'repo_gpgcheck=0'
+#  when: ansible_distribution == 'CentOS' and ansible_distribution_version == "7"
+
+- name: Install blackfire-php
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - blackfire-php

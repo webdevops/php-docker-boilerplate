@@ -12,6 +12,22 @@
    - { key: 'env[FLOW_CONTEXT]',     value: '{{ DOCKER.FLOW_CONTEXT }}' }
    - { key: 'env[FLOW_REWRITEURLS]', value: '{{ DOCKER.FLOW_REWRITEURLS }}' }
 
+- name: Set development environment php.ini
+  file:
+    src:  '/opt/docker/conf/php.development.ini'
+    dest: '/opt/docker/conf/php.ini'
+    force: yes
+    state: link
+  when: PROVISION.CONTEXT == "development" or PROVISION.CONTEXT == ""
+
+- name: Enable production environment php.ini
+  file:
+    src:  '/opt/docker/conf/php.production.ini'
+    dest: '/opt/docker/conf/php.ini'
+    force: yes
+    state: link
+  when: PROVISION.CONTEXT == "production"
+
 - name: Configure php (docker php.ini)
   lineinfile:
     dest:   /opt/docker/conf/php.ini

@@ -28,6 +28,16 @@ SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
 
 #######################################
+# PROVISION environment
+
+# Context for provision [development|production]
+PROVISION_CONTEXT=development
+
+# PHP Modules
+PROVISION_PHP_BLACKFIRE=1
+PROVISION_PHP_XDEBUG=1
+
+#######################################
 # Mail
 
 # Vagrant mail sandbox

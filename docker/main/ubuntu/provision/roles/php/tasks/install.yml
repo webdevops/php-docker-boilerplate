@@ -28,7 +28,7 @@
     state: directory
     mode:  0755
 
-- name: Activate php config files (fpm)
+- name: Link php.ini for cli and fpm
   file:
     src:  '{{ item.file }}'
     dest: '/etc/php5/{{ item.category }}/conf.d/{{ item.target }}'
