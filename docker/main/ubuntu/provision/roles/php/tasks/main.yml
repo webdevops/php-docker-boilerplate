@@ -9,3 +9,7 @@
 - include: configuration.yml
   tags:
     - entrypoint
+
+- include: modules.yml
+  tags:
+    - entrypoint

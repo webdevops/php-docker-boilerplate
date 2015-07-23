@@ -1,5 +1,12 @@
 ---
 
+PROVISION:
+  CONTEXT: "{{ lookup('env','PROVISION_CONTEXT') }}"
+
+  PHP:
+    BLACKFIRE: "{{ lookup('env','PROVISION_PHP_BLACKFIRE') }}"
+    XDEBUG:    "{{ lookup('env','PROVISION_PHP_XDEBUG') }}"
+
 DOCKER:
   # System
   EFFECTIVE_UID: "{{ lookup('env','EFFECTIVE_UID') }}"

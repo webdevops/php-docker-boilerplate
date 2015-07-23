@@ -33,6 +33,16 @@ CAKE_ENV=dev
 YII_ENVIRONMENT=Development
 
 #######################################
+# PROVISION environment
+
+# Context for provision [development|production]
+PROVISION_CONTEXT=development
+
+# PHP Modules
+PROVISION_PHP_BLACKFIRE=1
+PROVISION_PHP_XDEBUG=1
+
+#######################################
 # Mail
 
 # Vagrant mail sandbox
