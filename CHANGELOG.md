@@ -8,6 +8,9 @@ PHP Docker Boilerplate Changelog
 - Added multiple Ubuntu versions
 - Added CentOS
 - Added Ubuntu with HHVM
+- Added development/production context
+- Added blackfire.io
+- Added possiblity to disable Xdebug and Blackfire
 - Improved provisioning
 - Refactored layout
 - Added prebuilt Docker images
