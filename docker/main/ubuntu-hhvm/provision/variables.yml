@@ -30,9 +30,6 @@ DOCKER:
   # Mail
   MAIL_GATEWAY: "{{ lookup('env','MAIL_GATEWAY') }}"
 
-  # PHP
-  PHP_TIMEZONE: "{{ lookup('env','PHP_TIMEZONE') }}"
-
   # DNS
   DNS_DOMAIN: "{{ lookup('env','DNS_DOMAIN') }}"
 
