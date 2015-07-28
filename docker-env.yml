@@ -81,10 +81,6 @@ FTP_PATH=/data/ftp/
 #FTP_PATH=/docker/code/
 
 #######################################
-# PHP Settings
-PHP_TIMEZONE=UTC
-
-#######################################
 # Permission settings
 EFFECTIVE_UID=1000
 EFFECTIVE_GID=1000

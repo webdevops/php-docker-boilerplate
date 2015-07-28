@@ -10,7 +10,7 @@
 
 - name: Set development environment php.ini
   file:
-    src:  '/opt/docker/conf/php.development.ini'
+    src:  '/docker/etc/php/development.ini'
     dest: '/opt/docker/conf/php.ini'
     force: yes
     state: link
@@ -18,19 +18,11 @@
 
 - name: Enable production environment php.ini
   file:
-    src:  '/opt/docker/conf/php.production.ini'
+    src:  '/docker/etc/php/production.ini'
     dest: '/opt/docker/conf/php.ini'
     force: yes
     state: link
   when: PROVISION.CONTEXT == "production"
-
-- name: Configure php (docker php.ini)
-  lineinfile:
-    dest:   /opt/docker/conf/php.ini
-    regexp: '^{{ item.key }}[\s]*='
-    line:   '{{ item.key }} = {{ item.value }}'
-  with_items:
-   - { key: 'date.timezone', value: '{{ DOCKER.PHP_TIMEZONE }}' }
 
 - name: Truncate log files
   command: 'cp /dev/null {{ item }}'
