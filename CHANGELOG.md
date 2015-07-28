@@ -11,6 +11,7 @@ PHP Docker Boilerplate Changelog
 - Added development/production context
 - Added blackfire.io
 - Added possiblity to disable Xdebug and Blackfire
+- Moved php.ini to etc/php/development.ini and etc/php/production.ini
 - Improved provisioning
 - Refactored layout
 - Added prebuilt Docker images
