@@ -1,21 +1,41 @@
-- name: Install default packages
+- name: Install packages (system tools)
   apt:
     name:  '{{ item }}'
     state: present
   with_items:
-    # System tools
     - sudo
-    # Compression
+
+- name: Install packages (compression tools)
+  apt:
+    name:  '{{ item }}'
+    state: present
+  with_items:
     - zip
     - unzip
     - bzip2
-    # Graphic tools
+
+- name: Install packages (graphic tools)
+  apt:
+    name:  '{{ item }}'
+    state: present
+  with_items:
     - imagemagick
     - graphicsmagick
-    # Networking tools
+
+- name: Install packages (network tools)
+  apt:
+    name:  '{{ item }}'
+    state: present
+  with_items:
     - wget
     - curl
     - net-tools
-    # Utils
+    - rsync
+
+- name: Install packages (general tools)
+  apt:
+    name:  '{{ item }}'
+    state: present
+  with_items:
     - moreutils
     - dnsutils
