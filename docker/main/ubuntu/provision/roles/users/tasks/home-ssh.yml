@@ -1,0 +1,29 @@
+# create a directory if it doesn't exist
+- name: Create /home/.ssh/
+  file:
+    path:  /home/.ssh/
+    state: directory
+    mode:  0750
+    owner: www-data
+    group: www-data
+
+- name: Sync etc/ssh/ to /home/.ssh
+  local_action: synchronize src=/docker/etc/ssh/ dest=/home/.ssh/ perms=no
+  ignore_errors: True
+
+- name: Fix /home/.ssh/ permissions
+  file:
+    path:  /home/.ssh/
+    state: directory
+    owner: www-data
+    group: www-data
+    recurse: yes
+  ignore_errors: True
+
+- name: Fix ssh key permissions (if exists)
+  file:
+    path:  /home/.ssh/id_rsa
+    mode:  0600
+    owner: www-data
+    group: www-data
+  ignore_errors: True

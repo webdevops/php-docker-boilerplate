@@ -12,6 +12,7 @@ PHP Docker Boilerplate Changelog
 - Added blackfire.io
 - Added possiblity to disable Xdebug and Blackfire
 - Moved php.ini to etc/php/development.ini and etc/php/production.ini
+- Added ssh key/config (etc/ssh) setting for /home/.ssh/
 - Added possibility to use supervisorctl (as root)
 - Improved provisioning
 - Refactored layout
