@@ -6,9 +6,6 @@ sleep 5
 if [ ! -f "/opt/docker/.resolv.conf" ]; then
     ## backup original file
     cp /etc/resolv.conf /opt/docker/.resolv.conf
-
-    ## Copy resolv.conf for dnsmasq (default resolver)
-    cp /etc/resolv.conf /var/run/dnsmasq/resolv.conf
 fi
 
 ## Restore original resolvconf
@@ -34,14 +31,10 @@ function dnsmasq_start() {
     ## set forward servers
     cat /opt/docker/.resolv.conf | grep nameserver | sed 's/nameserver /server=/' > /etc/dnsmasq.d/forward
 
-    ## (re)start dnsmasq as DNS server
-    service dnsmasq restart
-
     ## set dnsmasq to main nameserver
     echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
-    ## wait for 10 hours
-    sleep 10h
+    dnsmasq --keep-in-foreground
 }
 
 ## Fetch IP from services
