@@ -2,5 +2,14 @@
   apt:
     name:  '{{ item }}'
     state: present
+  when: ansible_distribution == 'Ubuntu'
+  with_items:
+    - supervisor
+
+- name: Install supervisor
+  yum:
+    name:  '{{ item }}'
+    state: present
+  when: ansible_distribution == 'CentOS'
   with_items:
     - supervisor

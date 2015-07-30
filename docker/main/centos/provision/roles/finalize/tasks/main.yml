@@ -1,3 +1,0 @@
-- include: cleanup.yml
-  tags:
-    - bootstrap

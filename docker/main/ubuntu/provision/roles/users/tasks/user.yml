@@ -1,11 +1,11 @@
 - group:
-    name:  "www-data"
+    name:  "{{ DOCKER.CLI_USER }}"
     gid:   "{{ DOCKER.EFFECTIVE_UID }}"
 
 - user:
-    name:  "www-data"
+    name:  "{{ DOCKER.CLI_USER }}"
     uid:   "{{ DOCKER.EFFECTIVE_GID }}"
-    group: "www-data"
+    group: "{{ DOCKER.CLI_USER }}"
     shell: /bin/bash
     home:  /home
 
@@ -14,6 +14,6 @@
     path:  /home/
     state: directory
     mode:  0755
-    owner: "www-data"
-    group: "www-data"
+    owner: "{{ DOCKER.CLI_USER }}"
+    group: "{{ DOCKER.CLI_USER }}"
     recurse: yes

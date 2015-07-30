@@ -24,7 +24,7 @@ ENV LC_ALL      en_US.UTF-8
 # Bootstrap
 ##
 
-COPY conf/ubuntu/locale.conf  /opt/docker/locale.conf
+COPY conf/locale.conf         /opt/docker/locale.conf
 COPY bin/ubuntu/bootstrap.sh  /opt/docker/bin/bootstrap.sh
 COPY bin/provision.sh         /opt/docker/bin/provision.sh
 COPY bin/logwatch.sh          /opt/docker/bin/logwatch.sh
@@ -46,7 +46,7 @@ RUN bash /opt/docker/bin/customization.sh
 ##
 
 COPY entrypoint.sh  /entrypoint.sh
-COPY conf/ubuntu    /opt/docker/conf/
+COPY conf           /opt/docker/conf/
 
 EXPOSE 9000
 

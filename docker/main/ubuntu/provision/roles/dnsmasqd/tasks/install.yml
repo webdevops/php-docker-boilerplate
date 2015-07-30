@@ -2,6 +2,15 @@
   apt:
     name:  '{{ item }}'
     state: present
+  when: ansible_distribution == 'Ubuntu'
+  with_items:
+    - dnsmasq
+
+- name: Install dnsmasqd
+  yum:
+    name:  '{{ item }}'
+    state: present
+  when: ansible_distribution == 'CentOS'
   with_items:
     - dnsmasq
 

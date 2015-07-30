@@ -4,8 +4,8 @@
     path:  /home/.ssh/
     state: directory
     mode:  0750
-    owner: www-data
-    group: www-data
+    owner: "{{ DOCKER.CLI_USER }}"
+    group: "{{ DOCKER.CLI_USER }}"
 
 - name: Sync etc/ssh/ to /home/.ssh
   local_action: synchronize src=/docker/etc/ssh/ dest=/home/.ssh/ perms=no
@@ -15,8 +15,8 @@
   file:
     path:  /home/.ssh/
     state: directory
-    owner: www-data
-    group: www-data
+    owner: "{{ DOCKER.CLI_USER }}"
+    group: "{{ DOCKER.CLI_USER }}"
     recurse: yes
   ignore_errors: True
 
@@ -24,6 +24,6 @@
   file:
     path:  /home/.ssh/id_rsa
     mode:  0600
-    owner: www-data
-    group: www-data
+    owner: "{{ DOCKER.CLI_USER }}"
+    group: "{{ DOCKER.CLI_USER }}"
   ignore_errors: True

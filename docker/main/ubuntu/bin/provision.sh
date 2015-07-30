@@ -9,7 +9,7 @@ export PYTHONUNBUFFERED=1
 
 ANSIBLE_DIR='/opt/docker/provision'
 
-ANSIBLE_TAG="$1"
+ANSIBLE_TAG="$*"
 
 # workaround if windows
 chmod -x "$ANSIBLE_DIR/inventory"
