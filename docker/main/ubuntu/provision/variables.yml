@@ -4,6 +4,8 @@ PROVISION:
   CONTEXT: "{{ lookup('env','PROVISION_CONTEXT') }}"
 
   PHP:
+    DISTRIBUTION: "{{ lookup('env','PROVISION_PHP_DISTRIBUTION') }}"
+
     BLACKFIRE: "{{ lookup('env','PROVISION_PHP_BLACKFIRE') }}"
     XDEBUG:    "{{ lookup('env','PROVISION_PHP_XDEBUG') }}"
 

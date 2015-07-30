@@ -15,6 +15,8 @@
 
 FROM webdevops/php-boilerplate:ubuntu-12.04
 
+ENV PROVISION_PHP_DISTRIBUTION   php
+
 # Ensure UTF-8
 RUN locale-gen  en_US.UTF-8
 ENV LANG        en_US.UTF-8
@@ -45,8 +47,8 @@ RUN bash /opt/docker/bin/customization.sh
 # Config
 ##
 
-COPY entrypoint.sh  /entrypoint.sh
-COPY conf/ubuntu    /opt/docker/conf/
+COPY bin/entrypoint.sh  /entrypoint.sh
+COPY conf/ubuntu        /opt/docker/conf/
 
 EXPOSE 9000
 

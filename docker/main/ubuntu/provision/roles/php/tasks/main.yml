@@ -13,10 +13,12 @@
     - bootstrap
 
 - include: ubuntu/configuration.yml
+  when: ansible_distribution == 'Ubuntu'
   tags:
     - entrypoint
 
 - include: ubuntu/modules.yml
+  when: ansible_distribution == 'Ubuntu'
   tags:
     - entrypoint
 
