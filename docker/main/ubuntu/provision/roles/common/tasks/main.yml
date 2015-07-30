@@ -1,7 +1,19 @@
-- include: update.yml
+- include: update-centos.yml
+  when: ansible_distribution == 'CentOS'
   tags:
     - bootstrap
 
-- include: packages.yml
+- include: update-ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+  tags:
+    - bootstrap
+
+- include: packages-centos.yml
+  when: ansible_distribution == 'CentOS'
+  tags:
+    - bootstrap
+
+- include: packages-ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
   tags:
     - bootstrap

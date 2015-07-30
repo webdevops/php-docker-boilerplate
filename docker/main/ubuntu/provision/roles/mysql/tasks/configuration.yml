@@ -10,6 +10,6 @@
   template:
     src:   my.cnf.j2
     dest:  /home/.my.cnf
-    owner: www-data
-    group: www-data
+    owner: "{{ DOCKER.CLI_USER }}"
+    group: "{{ DOCKER.CLI_USER }}"
     mode:  0644

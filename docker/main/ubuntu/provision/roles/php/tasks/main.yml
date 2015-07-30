@@ -1,15 +1,45 @@
-- include: install.yml
+#############################
+# Ubuntu
+#############################
+
+- include: ubuntu/install.yml
+  when: ansible_distribution == 'Ubuntu'
   tags:
     - bootstrap
 
-- include: blackfire.yml
+- include: ubuntu/blackfire.yml
+  when: ansible_distribution == 'Ubuntu'
   tags:
     - bootstrap
 
-- include: configuration.yml
+- include: ubuntu/configuration.yml
   tags:
     - entrypoint
 
-- include: modules.yml
+- include: ubuntu/modules.yml
+  tags:
+    - entrypoint
+
+#############################
+# CentOS
+#############################
+
+- include: centos/install.yml
+  when: ansible_distribution == 'CentOS'
+  tags:
+    - bootstrap
+
+- include: centos/blackfire.yml
+  when: ansible_distribution == 'CentOS'
+  tags:
+    - bootstrap
+
+- include: centos/configuration.yml
+  when: ansible_distribution == 'CentOS'
+  tags:
+    - entrypoint
+
+- include: centos/modules.yml
+  when: ansible_distribution == 'CentOS'
   tags:
     - entrypoint
