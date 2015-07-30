@@ -4,10 +4,11 @@
   roles:
     - common
     - locales
+    - users
     - supervisord
     - dnsmasqd
     - ssmtp
-    - php
+    - { role: php,  when: PROVISION.PHP.DISTRIBUTION == "php" }
+    - { role: hhvm, when: PROVISION.PHP.DISTRIBUTION == "hhvm" }
     - mysql
-    - users
     - finalize

@@ -15,6 +15,8 @@
 
 FROM webdevops/php-boilerplate:centos-7
 
+ENV PROVISION_PHP_DISTRIBUTION   php
+
 ENV PATH             /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
 ENV PYTHONPATH       /opt/ansible/lib
 ENV ANSIBLE_LIBRARY  /opt/ansible/library
@@ -44,8 +46,8 @@ RUN bash /opt/docker/bin/customization.sh
 # Config
 ##
 
-COPY entrypoint.sh  /entrypoint.sh
-COPY conf/centos    /opt/docker/conf/
+COPY bin/entrypoint.sh  /entrypoint.sh
+COPY conf/centos        /opt/docker/conf/
 
 EXPOSE 9000
 

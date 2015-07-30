@@ -9,10 +9,12 @@ export PYTHONUNBUFFERED=1
 
 ANSIBLE_DIR='/opt/docker/provision'
 
-ANSIBLE_TAG="$*"
+ANSIBLE_TAG="$1"
+
+ANSIBLE_OPTS=""
 
 # workaround if windows
 chmod -x "$ANSIBLE_DIR/inventory"
 
 # run ansible
-ansible-playbook "$ANSIBLE_DIR/playbook.yml" --inventory="$ANSIBLE_DIR/inventory" --tags="${ANSIBLE_TAG}"
+ansible-playbook "${ANSIBLE_DIR}/playbook.yml" --inventory="${ANSIBLE_DIR}/inventory" --tags="${ANSIBLE_TAG}" $ANSIBLE_OPTS
