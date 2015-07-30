@@ -1,0 +1,57 @@
+#++++++++++++++++++++++++++++++++++++++
+# Ubuntu PHP Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# Prebuild images:
+#
+#   webdevops/php-boilerplate:ubuntu-15.04
+#
+# Official images:
+#
+#   ubuntu:15.04 - PHP 5.6 (vivid)
+#                  https://registry.hub.docker.com/u/library/ubuntu/
+#
+#++++++++++++++++++++++++++++++++++++++
+
+FROM webdevops/php-boilerplate:ubuntu-15.04
+
+# Ensure UTF-8
+RUN locale-gen  en_US.UTF-8
+ENV LANG        en_US.UTF-8
+ENV LC_ALL      en_US.UTF-8
+
+##
+# Bootstrap
+##
+
+COPY conf/locale.conf  /opt/docker/locale.conf
+COPY bin/bootstrap.sh  /opt/docker/bin/bootstrap.sh
+COPY bin/provision.sh  /opt/docker/bin/provision.sh
+COPY bin/logwatch.sh   /opt/docker/bin/logwatch.sh
+COPY bin/dnsmasq.sh    /opt/docker/bin/dnsmasq.sh
+COPY provision         /opt/docker/provision/
+
+RUN bash /opt/docker/bin/bootstrap.sh
+RUN bash /opt/docker/bin/provision.sh bootstrap
+
+##
+# Customization
+##
+
+COPY bin/customization.sh  /opt/docker/bin/customization.sh
+RUN bash /opt/docker/bin/customization.sh
+
+##
+# Config
+##
+
+COPY entrypoint.sh  /entrypoint.sh
+COPY conf           /opt/docker/conf/
+
+EXPOSE 9000
+
+VOLUME /docker/
+WORKDIR /docker/code/
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["supervisord"]

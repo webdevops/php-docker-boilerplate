@@ -4,17 +4,11 @@
 #
 # Prebuild images:
 #
-#   webdevops/php-boilerplate:ubuntu-12.04
 #   webdevops/php-boilerplate:ubuntu-14.04
-#   webdevops/php-boilerplate:ubuntu-15.04
-#   webdevops/php-boilerplate:ubuntu-15.10
 #
 # Official images:
 #
-#   ubuntu:12.04 - PHP 5.3, LTS (precise)
 #   ubuntu:14.04 - PHP 5.5, LTS (trusty)
-#   ubuntu:15.04 - PHP 5.6 (vivid)
-#   ubuntu:15.10 - PHP 5.6 (wily)
 #                  https://registry.hub.docker.com/u/library/ubuntu/
 #
 #++++++++++++++++++++++++++++++++++++++
