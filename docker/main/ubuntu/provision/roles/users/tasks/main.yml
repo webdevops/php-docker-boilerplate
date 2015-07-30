@@ -1,7 +1,0 @@
-- include: www-data.yml
-  tags:
-    - entrypoint
-
-- include: home-ssh.yml
-  tags:
-    - entrypoint

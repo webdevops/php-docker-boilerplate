@@ -1,0 +1,15 @@
+- name: Deploy root my.cnf
+  template:
+    src:   my.cnf.j2
+    dest:  /root/.my.cnf
+    owner: root
+    group: root
+    mode:  0644
+
+- name: Deploy user my.cnf
+  template:
+    src:   my.cnf.j2
+    dest:  /home/.my.cnf
+    owner: "{{ DOCKER.CLI_USER }}"
+    group: "{{ DOCKER.CLI_USER }}"
+    mode:  0644

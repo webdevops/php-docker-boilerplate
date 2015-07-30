@@ -1,0 +1,14 @@
+- hosts: all
+  vars_files:
+    - /opt/docker/provision/variables.yml
+  roles:
+    - common
+    - locales
+    - users
+    - supervisord
+    - dnsmasqd
+    - ssmtp
+    - { role: php,  when: PROVISION.PHP.DISTRIBUTION == "php" }
+    - { role: hhvm, when: PROVISION.PHP.DISTRIBUTION == "hhvm" }
+    - mysql
+    - finalize
