@@ -1,7 +1,14 @@
 #!/bin/bash
 set -e
 
-bash /opt/docker/bin/provision.sh entrypoint
+
+if [ "$1" == "supervisord" ]; then
+    # Visible provisioning
+    bash /opt/docker/bin/provision.sh entrypoint
+else
+    # Hidden provisioning
+    bash /opt/docker/bin/provision.sh entrypoint > /dev/null
+fi
 
 #############################
 ## COMMAND
