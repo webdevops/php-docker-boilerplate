@@ -15,6 +15,7 @@
 
 FROM webdevops/php-boilerplate:ubuntu-12.04
 
+ENV PROVISION_SYS_UPDATE         0
 ENV PROVISION_PHP_DISTRIBUTION   php
 
 # Ensure UTF-8

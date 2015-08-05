@@ -3,6 +3,9 @@
 PROVISION:
   CONTEXT: "{{ lookup('env','PROVISION_CONTEXT') }}"
 
+  SYS:
+    UPDATE:  "{{ lookup('env','PROVISION_SYS_UPDATE') }}"
+
   PHP:
     DISTRIBUTION: "{{ lookup('env','PROVISION_PHP_DISTRIBUTION') }}"
 

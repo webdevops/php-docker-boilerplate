@@ -15,6 +15,7 @@
 
 FROM webdevops/php-boilerplate:centos-7
 
+ENV PROVISION_SYS_UPDATE         0
 ENV PROVISION_PHP_DISTRIBUTION   php
 
 ENV PATH             /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin

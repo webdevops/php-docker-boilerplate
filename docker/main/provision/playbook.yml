@@ -2,7 +2,9 @@
   vars_files:
     - /opt/docker/provision/variables.yml
   roles:
-    - common
+    - init
+    - { role: update,  when: PROVISION.SYS.UPDATE == "1" }
+    - packages
     - locales
     - users
     - supervisord

@@ -1,0 +1,2 @@
+- name: Upgrade distribution packages (apt-get dist-upgrade) ... will take some time
+  apt: upgrade=dist
