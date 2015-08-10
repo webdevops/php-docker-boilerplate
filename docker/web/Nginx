@@ -13,9 +13,9 @@ FROM nginx
 
 RUN apt-get update && apt-get install -y net-tools
 
-ADD conf/vhost.conf /opt/docker/vhost.conf
-ADD ssl/*           /etc/nginx/ssl/
-ADD entrypoint.sh   /entrypoint.sh
+ADD conf/nginx/vhost.conf     /opt/docker/vhost.conf
+ADD ssl/*                     /etc/nginx/ssl/
+ADD bin/nginx/entrypoint.sh   /entrypoint.sh
 
 EXPOSE 80
 EXPOSE 8000
