@@ -23,8 +23,8 @@ This directory will be mounted under `/docker` in `main` and `web` container.
 ## Docker images
 Container                 | Source
 ------------------------- | -------------------------------
-main/ubuntu               | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official* (prebuild available from https://registry.hub.docker.com/u/mblaschke/php-boilerplate/)
-main/centos               | [CentOS](https://registry.hub.docker.com/_/centos/) *official* (prebuild available from https://registry.hub.docker.com/u/mblaschke/php-boilerplate/)
+main/ubuntu               | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official* (prebuilt available from https://registry.hub.docker.com/u/mblaschke/php-boilerplate/)
+main/centos               | [CentOS](https://registry.hub.docker.com/_/centos/) *official* (prebuilt available from https://registry.hub.docker.com/u/mblaschke/php-boilerplate/)
 storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
 web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
 mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
@@ -55,88 +55,6 @@ make solr-backup          | Backup Solr cores
 make solr-restore         | Restore Solr cores
 <br>                      |
 make build                | Run building (composer, gulp, bower)
-
-## Docker containers
-
-### Web (Nginx or Apache HTTPd)
-
-Setting       | Value
-------------- | -------------
-Host          | web:80 and web:443 (ssl)
-External Port | 8000 and 8443 (ssl)
-
-### MySQL
-
-You can choose between [MySQL](https://www.mysql.com/) (default), [MariaDB](https://www.mariadb.org/)
-and [PerconaDB](http://www.percona.com/software) in `docker/mysql/Dockerfile`
-
-Setting       | Value
-------------- | -------------
-User          | dev (if not changed in env)
-Password      | dev (if not changed in env)
-Database      | database (if not changed in env)
-Host          | mysql:3306
-External Port | 13306
-
-Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. for debugging, dumps and other stuff).
-
-
-### PostgreSQL
-
-Setting       | Value
-------------- | -------------
-User          | dev (if not changed in env)
-Password      | dev (if not changed in env)
-Host          | postgres:5432
-External Port | 15432
-
-
-### Solr
-
-Setting       | Value
-------------- | -------------
-Host          | solr:8983
-External Port | 18983
-Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
-
-### Elasticsearch (disabled by default)
-
-Setting       | Value
-------------- | -------------
-Host          | elasticsearch:9200 and :9300
-External Port | 19200 and 19300
-
-### Redis
-
-Setting       | Value
-------------- | -------------
-Host          | redis
-Port          | 6379
-
-### Memcached
-
-Setting       | Value
-------------- | -------------
-Host          | memcached
-Port          | 11211
-
-### Mailcatcher
-
-Setting       | Value
-------------- | -------------
-Host          | mail
-SMTP port     | 1025
-Web port      | 1080
-
-### FTP
-
-Setting       | Value
-------------- | -------------
-Host          | ftp
-Ports         | 20,21
-User          | dev (if not changed in env)
-Password      | dev (if not changed in env)
-Path          | /data/ftp (if not changed in env)
 
 ## Environment settings
 
