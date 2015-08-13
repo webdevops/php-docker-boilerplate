@@ -14,11 +14,6 @@ DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php typo3/cli_dispatch.phpsh
 
-# SYMFONY FRAMEWORK
-#DOCUMENT_ROOT=code/web/
-#DOCUMENT_INDEX=app_dev.php
-#CLI_SCRIPT=php app/console
-
 # NEOS or FLOW
 #DOCUMENT_ROOT=code/Web/
 #DOCUMENT_INDEX=index.php
@@ -31,6 +26,16 @@ FLOW_CONTEXT=Development/Docker
 FLOW_REWRITEURLS=1
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
+
+#######################################
+# PROVISION environment
+
+# Context for provision [development|production]
+PROVISION_CONTEXT=development
+
+# PHP Modules
+PROVISION_PHP_BLACKFIRE=1
+PROVISION_PHP_XDEBUG=1
 
 #######################################
 # Mail
@@ -69,10 +74,6 @@ FTP_USER=dev
 FTP_PASSWORD=dev
 FTP_PATH=/data/ftp/
 #FTP_PATH=/docker/code/
-
-#######################################
-# PHP Settings
-PHP_TIMEZONE=UTC
 
 #######################################
 # Permission settings
