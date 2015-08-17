@@ -1,8 +1,8 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
-4.0.0 - UPCOMING
------------------------
+4.0.0 - 2015-08-17
+------------------
 - Seperated TYPO3 Docker Boilerplate and PHP Docker Boilerplate
 - Switched to Ansible provisioning (playbook)
 - Added multiple Ubuntu versions
