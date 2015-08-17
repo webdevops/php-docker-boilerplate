@@ -33,6 +33,8 @@ COPY bin/provision.sh         /opt/docker/bin/provision.sh
 COPY bin/logwatch.sh          /opt/docker/bin/logwatch.sh
 COPY bin/dnsmasq.sh           /opt/docker/bin/dnsmasq.sh
 COPY provision                /opt/docker/provision/
+COPY conf/bashrc              /root/.bashrc
+COPY conf/bashrc              /home/.bashrc
 
 RUN bash /opt/docker/bin/bootstrap.sh
 RUN bash /opt/docker/bin/provision.sh bootstrap
