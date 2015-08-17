@@ -9,28 +9,38 @@
 #######################################
 # Webserver
 
-# TYPO3 CMS
+# General
 DOCUMENT_ROOT=code/
 DOCUMENT_INDEX=index.php
-CLI_SCRIPT=php typo3/cli_dispatch.phpsh
+CLI_SCRIPT=php index.php
 
-# SYMFONY FRAMEWORK
-#DOCUMENT_ROOT=code/web/
-#DOCUMENT_INDEX=app_dev.php
-#CLI_SCRIPT=php app/console
-
-# NEOS or FLOW
-#DOCUMENT_ROOT=code/Web/
-#DOCUMENT_INDEX=index.php
-#CLI_SCRIPT=php flow
+# Symfony
+# DOCUMENT_ROOT=code/web/
+# DOCUMENT_INDEX=app_dev.php
+# CLI_SCRIPT=php app/console
 
 #######################################
 # Context environment
-TYPO3_CONTEXT=Development/Docker
-FLOW_CONTEXT=Development/Docker
-FLOW_REWRITEURLS=1
+
+# Symfony
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0
+
+# CakePHP
+CAKE_ENV=dev
+
+# yii
+YII_ENVIRONMENT=Development
+
+#######################################
+# PROVISION environment
+
+# Context for provision [development|production]
+PROVISION_CONTEXT=development
+
+# PHP Modules
+PROVISION_PHP_BLACKFIRE=1
+PROVISION_PHP_XDEBUG=1
 
 #######################################
 # Mail
@@ -56,7 +66,7 @@ DNS_DOMAIN=vm vm.dev
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
-MYSQL_DATABASE=typo3
+MYSQL_DATABASE=database
 
 #######################################
 # PostgreSQL settings
@@ -69,10 +79,6 @@ FTP_USER=dev
 FTP_PASSWORD=dev
 FTP_PATH=/data/ftp/
 #FTP_PATH=/docker/code/
-
-#######################################
-# PHP Settings
-PHP_TIMEZONE=UTC
 
 #######################################
 # Permission settings

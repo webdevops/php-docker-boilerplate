@@ -1,0 +1,59 @@
+#++++++++++++++++++++++++++++++++++++++
+# Centos PHP Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# Prebuild images:
+#
+#   webdevops/php-boilerplate:centos-7
+#
+# Official images:
+#
+#   centos:7 - PHP 5.4
+#              https://registry.hub.docker.com/u/library/centos/
+#
+#++++++++++++++++++++++++++++++++++++++
+
+FROM webdevops/php-boilerplate:centos-7
+
+ENV PROVISION_SYS_UPDATE         0
+ENV PROVISION_PHP_DISTRIBUTION   php
+
+ENV PATH             /opt/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
+ENV PYTHONPATH       /opt/ansible/lib
+ENV ANSIBLE_LIBRARY  /opt/ansible/library
+
+##
+# Bootstrap
+##
+
+COPY conf/centos/locale.conf  /opt/docker/locale.conf
+COPY bin/centos/bootstrap.sh  /opt/docker/bin/bootstrap.sh
+COPY bin/provision.sh         /opt/docker/bin/provision.sh
+COPY bin/logwatch.sh          /opt/docker/bin/logwatch.sh
+COPY bin/dnsmasq.sh           /opt/docker/bin/dnsmasq.sh
+COPY provision                /opt/docker/provision/
+
+RUN bash /opt/docker/bin/bootstrap.sh
+RUN bash /opt/docker/bin/provision.sh bootstrap
+
+##
+# Customization
+##
+
+COPY bin/customization.sh  /opt/docker/bin/customization.sh
+RUN bash /opt/docker/bin/customization.sh
+
+##
+# Config
+##
+
+COPY bin/entrypoint.sh  /entrypoint.sh
+COPY conf/centos        /opt/docker/conf/
+
+EXPOSE 9000
+
+VOLUME /docker/
+WORKDIR /docker/code/
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["supervisord"]

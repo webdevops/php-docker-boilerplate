@@ -7,16 +7,14 @@
 Checkout this project and create and run the Docker containers using [docker-compose](https://github.com/docker/compose):
 
 ```bash
-git clone https://github.com/mblaschke/TYPO3-docker-boilerplate.git projectname
+git clone https://github.com/webdevops/php-docker-boilerplate.git projectname
 cd projectname
 docker-compose up -d
 ```
 
 Now create your project inside the docker boilerplate:
 
-- [Create new TYPO3 project](PROJECT-TYPO3.md)
 - [Create new Symfony project](PROJECT-SYMFONY.md)
-- [Create new NEOS project](PROJECT-NEOS.md)
 - [Running any other php based project](PROJECT-OTHER.md)
 - [Running existing project](PROJECT-EXISTING.md)
 

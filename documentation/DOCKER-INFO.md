@@ -23,7 +23,8 @@ This directory will be mounted under `/docker` in `main` and `web` container.
 ## Docker images
 Container                 | Source
 ------------------------- | -------------------------------
-main                      | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
+main/ubuntu               | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official* (prebuilt available from https://hub.docker.com/r/webdevops/php-boilerplate/)
+main/centos               | [CentOS](https://registry.hub.docker.com/_/centos/) *official* (prebuilt available from https://hub.docker.com/r/webdevops/php-boilerplate/)
 storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
 web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
 mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
@@ -53,94 +54,7 @@ make mysql-restore        | Restore MySQL databases
 make solr-backup          | Backup Solr cores
 make solr-restore         | Restore Solr cores
 <br>                      |
-make create-cms-project   | Create new TYPO3 project (based on typo3/cms-base-distribution)
-make create-neos-project  | Create new NEOS project (based on typo3/neos-base-distribution)
-<br>                      |
 make build                | Run building (composer, gulp, bower)
-make scheduler            | Run TYPO3 scheduler
-make clean                | Clear TYPO3 configuration cache
-
-## Docker containers
-
-### Web (Nginx or Apache HTTPd)
-
-Setting       | Value
-------------- | -------------
-Host          | web:80 and web:443 (ssl)
-External Port | 8000 and 8443 (ssl)
-
-### MySQL
-
-You can choose between [MySQL](https://www.mysql.com/) (default), [MariaDB](https://www.mariadb.org/)
-and [PerconaDB](http://www.percona.com/software) in `docker/mysql/Dockerfile`
-
-Setting       | Value
-------------- | -------------
-User          | dev (if not changed in env)
-Password      | dev (if not changed in env)
-Database      | typo3 (if not changed in env)
-Host          | mysql:3306
-External Port | 13306
-
-Access fo MySQL user "root" and "dev" will be allowed from external hosts (eg. for debugging, dumps and other stuff).
-
-
-### PostgreSQL
-
-Setting       | Value
-------------- | -------------
-User          | dev (if not changed in env)
-Password      | dev (if not changed in env)
-Host          | postgres:5432
-External Port | 15432
-
-
-### Solr
-
-Setting       | Value
-------------- | -------------
-Host          | solr:8983
-External Port | 18983
-Cores         | docker/solr/conf/solr.xml (data dirs are created automatically)
-
-### Elasticsearch (disabled by default)
-
-Setting       | Value
-------------- | -------------
-Host          | elasticsearch:9200 and :9300
-External Port | 19200 and 19300
-
-### Redis
-
-Setting       | Value
-------------- | -------------
-Host          | redis
-Port          | 6379
-
-### Memcached
-
-Setting       | Value
-------------- | -------------
-Host          | memcached
-Port          | 11211
-
-### Mailcatcher
-
-Setting       | Value
-------------- | -------------
-Host          | mail
-SMTP port     | 1025
-Web port      | 1080
-
-### FTP
-
-Setting       | Value
-------------- | -------------
-Host          | ftp
-Ports         | 20,21
-User          | dev (if not changed in env)
-Password      | dev (if not changed in env)
-Path          | /data/ftp (if not changed in env)
 
 ## Environment settings
 
@@ -168,16 +82,17 @@ EFFECTIVE_GID         | Effective GID for php, fpm und webserver
 
 ## Xdebug Remote debugger (PhpStorm)
 
-Add a server (Preferences -> PHP -> Servers):
+### 1.) Add a server (Preferences -> Languages & Frameworks -> PHP -> Servers).
 
-Setting                 | Value
------------------------ | -------------
-Hostname                | IP or Hostname of VM
-Port                    | 8000
-Use path mappings       | Check
-Path mapping of code    | /docker/code/
+Setting                          | Value
+---------------------------------| -------------
+Hostname                         | IP or Hostname of VM
+Port                             | 8000
+Debugger                         | Xdebug  
+Use path mappings                | Check
+Path mapping of folder 'code'    | /docker/code/
 
-Add a debug connection (Run -> Edit -> Connections) and create a new connection.
+### 2.) Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
 
 Setting               | Value
 --------------------- | -------------

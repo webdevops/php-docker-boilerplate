@@ -1,0 +1,49 @@
+- name: Install packages (system tools)
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - sudo
+
+- name: Install packages (compression tools)
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - zip
+    - unzip
+    - bzip2
+
+- name: Install packages (graphic tools)
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - ImageMagick
+
+- name: Install packages (network tools)
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - wget
+    - curl
+    - net-tools
+    - rsync
+
+- name: Install packages (development tools)
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - git
+
+- name: Install packages (general tools)
+  yum:
+    name:  '{{ item }}'
+    state: present
+  with_items:
+    - moreutils
+    - bind-utils
+    - pygpgme
+

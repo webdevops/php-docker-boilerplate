@@ -1,5 +1,22 @@
-TYPO3 Docker Boilerplate Changelog
+PHP Docker Boilerplate Changelog
 ==================================
+
+4.0.0 - 2015-08-17
+------------------
+- Seperated TYPO3 Docker Boilerplate and PHP Docker Boilerplate
+- Switched to Ansible provisioning (playbook)
+- Added multiple Ubuntu versions
+- Added CentOS
+- Added Ubuntu with HHVM
+- Added development/production context
+- Added blackfire.io
+- Added possiblity to disable Xdebug and Blackfire
+- Moved php.ini to `etc/php/development.ini` and `etc/php/production.ini`
+- Added ssh key/config (`etc/ssh`) setting for `/home/.ssh/`
+- Added possibility to use `supervisorctl` (only for root)
+- Improved provisioning
+- Refactored layout
+- Added prebuilt Docker images
 
 3.5.0 - 2015-06-23
 -----------------------
