@@ -1,8 +1,0 @@
-# currently fails because of missing AUFS features
-#- include: update.yml
-#  tags:
-#    - bootstrap
-
-- include: packages.yml
-  tags:
-    - bootstrap

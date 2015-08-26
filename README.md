@@ -1,9 +1,9 @@
 # Dockerized TYPO3 project boilerplate
 
-![latest v3.5.0](https://img.shields.io/badge/latest-v3.5.0-green.svg?style=flat)
+[![latest v4.0.0](https://img.shields.io/badge/latest-v4.0.0-green.svg?style=flat)](https://github.com/webdevops/TYPO3-docker-boilerplate/releases/tag/4.0.0)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/typo3-docker-boilerplate "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/webdevops/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/webdevops/typo3-docker-boilerplate "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/webdevops/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/webdevops/typo3-docker-boilerplate "Percentage of issues still open")
 
 This is an easy customizable TYPO3 docker boilerplate.
 
@@ -34,6 +34,7 @@ You can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 - [Installation and requirements](/documentation/INSTALL.md)
 - [Updating docker boilerplate](/documentation/UPDATE.md)
 - [Customizing](/documentation/CUSTOMIZE.md)
+- [Services (Webserver, MySQL... Ports, Users, Passwords)](/documentation/SERVICES.md)
 - [Docker Quickstart](/documentation/DOCKER-QUICKSTART.md)
 - [Run your project](/documentation/DOCKER-STARTUP.md)
 - [Container detail info](/documentation/DOCKER-INFO.md)

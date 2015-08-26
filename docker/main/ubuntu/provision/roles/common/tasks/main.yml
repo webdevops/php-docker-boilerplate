@@ -1,7 +1,0 @@
-- include: update.yml
-  tags:
-    - bootstrap
-
-- include: packages.yml
-  tags:
-    - bootstrap
