@@ -17,7 +17,7 @@ Supports:
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
-- Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
+- Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/webdevops/vagrant-development))
 - FTP server (vsftpd)
 - Support for `TYPO3_CONTEXT` and `FLOW_CONTEXT` for TYPO3, FLOW, NEOS.
 - maybe more later...
@@ -27,7 +27,7 @@ Configuration of each docker container is available in the `docker/` directory -
 
 Warning: There may be issues when using it in production - if you have any success stories please contact me.
 
-You can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
+You can use my [Vagrant Development VM](https://github.com/webdevops/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
 
 ## Table of contents
 
