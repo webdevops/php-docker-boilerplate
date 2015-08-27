@@ -7,7 +7,7 @@
 Checkout your git repository
 
 ```bash
-make create-project git https://github..../
+make create git https://github..../
 ```
 
 or manually
