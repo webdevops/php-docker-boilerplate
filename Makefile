@@ -10,6 +10,22 @@ create:
 	bash bin/create-project.sh $(ARGS)
 
 #############################
+# Docker machine states
+#############################
+
+up:
+	docker-compose up -d
+
+start:
+	docker-compose start
+
+stop:
+	docker-compose stop
+
+state:
+	docker-compose ps
+
+#############################
 # MySQL
 #############################
 
