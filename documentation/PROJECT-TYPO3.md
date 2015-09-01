@@ -7,7 +7,7 @@
 For the first TYPO3 setup (make sure [composer](https://getcomposer.org/) is installed):
 
 ```bash
-make create-project typo3
+make create typo3
 ```
 
 or
