@@ -1,6 +1,11 @@
 TYPO3 Docker Boilerplate Changelog
 ==================================
 
+4.1.0 - UPCOMING
+------------------
+- Added cron
+- Improved documentation
+
 4.0.0 - 2015-08-13 - t3ugs @jweilandnet
 ---------------------------------------
 - Seperated TYPO3 Docker Boilerplate and PHP Docker Boilerplate
