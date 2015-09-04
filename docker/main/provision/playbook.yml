@@ -9,6 +9,7 @@
     - users
     - supervisord
     - dnsmasqd
+    - cron
     - ssmtp
     - { role: php,  when: PROVISION.PHP.DISTRIBUTION == "php" }
     - { role: hhvm, when: PROVISION.PHP.DISTRIBUTION == "hhvm" }
