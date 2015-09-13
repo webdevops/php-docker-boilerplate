@@ -5,6 +5,7 @@ PHP Docker Boilerplate Changelog
 ------------------
 - Added cron
 - Improved documentation
+- Splitted MySQL Dockerfiles (with version and fork - MySQL, MariaDB and Percona)
 
 4.0.0 - 2015-08-17
 ------------------
