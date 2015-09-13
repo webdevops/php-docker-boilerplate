@@ -9,7 +9,7 @@
 # Official images:
 #
 #   ubuntu:12.04 - PHP 5.3, LTS (precise)
-#                  https://registry.hub.docker.com/u/library/ubuntu/
+#                  https://hub.docker.com/r/library/ubuntu/
 #
 #++++++++++++++++++++++++++++++++++++++
 

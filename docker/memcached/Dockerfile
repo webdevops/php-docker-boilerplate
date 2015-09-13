@@ -5,7 +5,7 @@
 # Official images:
 #
 #   memcached - official Memcached
-#               https://registry.hub.docker.com/u/library/memcached/
+#               https://hub.docker.com/r/library/memcached/
 #
 #++++++++++++++++++++++++++++++++++++++
 
