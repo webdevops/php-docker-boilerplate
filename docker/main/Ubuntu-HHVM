@@ -9,7 +9,7 @@
 # Official images:
 #
 #   ubuntu:14.04 - PHP 5.5, LTS (trusty)
-#                  https://registry.hub.docker.com/u/library/ubuntu/
+#                  https://hub.docker.com/r/library/ubuntu/
 #
 #++++++++++++++++++++++++++++++++++++++
 

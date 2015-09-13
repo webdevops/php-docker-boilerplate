@@ -5,7 +5,7 @@
 # Images:
 #
 #   guywithnose/solr
-#       https://registry.hub.docker.com/u/guywithnose/solr/
+#       https://hub.docker.com/r/guywithnose/solr/
 #
 #++++++++++++++++++++++++++++++++++++++
 

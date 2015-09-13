@@ -5,7 +5,7 @@
 # Official images:
 #
 #   redis - official Redis
-#           https://registry.hub.docker.com/u/library/redis/
+#           https://hub.docker.com/r/library/redis/
 #
 #++++++++++++++++++++++++++++++++++++++
 

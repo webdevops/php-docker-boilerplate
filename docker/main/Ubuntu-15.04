@@ -9,7 +9,7 @@
 # Official images:
 #
 #   ubuntu:15.04 - PHP 5.6 (vivid)
-#                  https://registry.hub.docker.com/u/library/ubuntu/
+#                  https://hub.docker.com/r/library/ubuntu/
 #
 #++++++++++++++++++++++++++++++++++++++
 

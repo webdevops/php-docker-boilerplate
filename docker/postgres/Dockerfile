@@ -5,7 +5,7 @@
 # Official images:
 #
 #   postgres - official PostgreSQL
-#              https://registry.hub.docker.com/u/library/postgres/
+#              https://hub.docker.com/r/library/postgres/
 #
 #++++++++++++++++++++++++++++++++++++++
 
