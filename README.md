@@ -54,6 +54,7 @@ Thanks for your support, ideas and issues.
 - [Ingo Müller](https://github.com/IngoMueller)
 - [Benjamin Rau](https://twitter.com/benjamin_rau)
 - [Philipp Kitzberger](https://github.com/Kitzberger)
+- [Stephan Ferraro](https://github.com/ferraro)
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for inspiration.
 
