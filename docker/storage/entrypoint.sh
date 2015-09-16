@@ -1,5 +1,8 @@
 #!/bin/bash
 
+trap 'echo sigterm ; exit' SIGTERM
+trap 'echo sigkill ; exit' SIGKILL
+
 ###################
 # Storage directories
 ###################
@@ -22,7 +25,9 @@ find /data/dns/ -type f -exec rm -rf {} \;
 #############################
 
 if [ "$1" = 'noop' ]; then
-    exec sleep 10000d
+    while true; do
+        sleep 1
+    done
 fi
 
 exec "$@"
