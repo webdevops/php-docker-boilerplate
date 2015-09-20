@@ -4,8 +4,8 @@
 #
 # Official images:
 #
-#   httpd:14.04 - Apache HTTPD
-#                 https://hub.docker.com/r/library/httpd/
+#   httpd:2.4 - Apache HTTPD
+#               https://hub.docker.com/r/library/httpd/
 #
 #++++++++++++++++++++++++++++++++++++++
 

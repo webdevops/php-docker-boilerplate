@@ -4,8 +4,8 @@
 #
 # Official images:
 #
-#   nginx:14.04 - Nginx Webserver
-#                 https://hub.docker.com/r/library/nginx/
+#   nginx - Nginx Webserver
+#           https://hub.docker.com/r/library/nginx/
 #
 #++++++++++++++++++++++++++++++++++++++
 
