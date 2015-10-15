@@ -27,6 +27,24 @@ stop:
 state:
 	docker-compose ps
 
+rebuild:
+	docker-compose stop
+	docker-compose rm --force main web
+	docker-compose build --no-cache
+
+#############################
+# Docker cloud
+#############################
+
+cloud-build:
+	mkdir -p docker/sourcecode/code
+	rsync -a code/ docker/sourcecode/code/
+	docker-compose --file docker-compose-cloud.yml build
+	docker-compose --file docker-compose-cloud.yml build --no-cache sourcecode
+	docker-compose --file docker-compose-cloud.yml stop
+	docker-compose --file docker-compose-cloud.yml rm --force sourcecode
+	docker-compose --file docker-compose-cloud.yml up -d --force-recreate
+
 #############################
 # MySQL
 #############################
@@ -61,21 +79,11 @@ restore: mysql-restore solr-restore
 build:
 	bash bin/build.sh
 
-clean:
-	test -d code/typo3temp && { rm -rf code/typo3temp/*; }
-
 bash:
 	docker-compose run --rm main bash
 
 root:
 	docker-compose run --rm main root
-
-#############################
-# TYPO3
-#############################
-
-scheduler:
-	docker-compose run --rm main typo3/cli_dispatch.phpsh scheduler $(ARGS)
 
 #############################
 # Argument fix workaround
