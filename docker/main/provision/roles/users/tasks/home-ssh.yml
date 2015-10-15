@@ -8,7 +8,7 @@
     group: "{{ DOCKER.CLI_USER }}"
 
 - name: Sync etc/ssh/ to /home/.ssh
-  local_action: synchronize src=/docker/etc/ssh/ dest=/home/.ssh/ perms=no
+  local_action: synchronize src=/opt/docker/etc/ssh/ dest=/home/.ssh/ perms=no
   ignore_errors: True
 
 - name: Fix /home/.ssh/ permissions

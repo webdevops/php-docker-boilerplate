@@ -1,10 +1,2 @@
-- name: Install crontab
-  copy:
-    src:   /docker/etc/cron/crontab
-    dest:  /opt/docker/conf/crontab
-    owner: root
-    group: root
-    mode:  0644
-
 - name: Add newline to crontab
-  raw: 'echo >> /opt/docker/conf/crontab'
+  raw: 'echo >> /opt/docker/etc/crontab'

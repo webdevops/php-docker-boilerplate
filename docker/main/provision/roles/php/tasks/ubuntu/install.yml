@@ -37,10 +37,10 @@
   with_items:
   # PHP cli
    - { category: 'cli', file: '/etc/php5/mods-available/mcrypt.ini', target: '20-mcrypt.ini' }
-   - { category: 'cli', file: '/opt/docker/conf/php.ini',            target: '99-docker-boilerplate.ini' }
+   - { category: 'cli', file: '/opt/docker/etc/php/php.ini',         target: '99-docker-boilerplate.ini' }
    # PHP fpm
    - { category: 'fpm', file: '/etc/php5/mods-available/mcrypt.ini', target: '20-mcrypt.ini' }
-   - { category: 'fpm', file: '/opt/docker/conf/php.ini',            target: '99-docker-boilerplate.ini' }
+   - { category: 'fpm', file: '/opt/docker/etc/php/php.ini',         target: '99-docker-boilerplate.ini' }
 
 - name: Configure php-fpm (php-fpm.conf)
   lineinfile:

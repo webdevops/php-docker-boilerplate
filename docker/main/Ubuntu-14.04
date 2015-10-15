@@ -50,6 +50,8 @@ RUN bash /opt/docker/bin/customization.sh
 # Config
 ##
 
+COPY etc                /opt/docker/etc/
+
 COPY bin/entrypoint.sh  /entrypoint.sh
 COPY conf/ubuntu        /opt/docker/conf/
 
