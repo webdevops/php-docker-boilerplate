@@ -16,7 +16,7 @@ ENV VSFTP_PASSWORD dev
 ENV VSFTP_PATH     /data/ftp/
 
 RUN apt-get update && \
-    apt-get install -y vsftpd supervisor net-tools
+    apt-get install -y vsftpd supervisor
 
 RUN mkdir -p /var/run/vsftpd/empty
 RUN mkdir -p /var/log/supervisor

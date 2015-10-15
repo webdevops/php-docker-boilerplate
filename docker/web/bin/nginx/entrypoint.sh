@@ -43,7 +43,7 @@ cp /opt/docker/vhost.conf /etc/nginx/conf.d/vhost.conf
 
 if [ "$1" = 'nginx' ]; then
     ## Register IP
-    ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+    ETH0_IP=$(hostname -i)
     mkdir -p /data/dns/
     chmod 777 /data/dns/
     echo "${ETH0_IP}"             > /data/dns/web.ip

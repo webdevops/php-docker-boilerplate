@@ -19,7 +19,7 @@ case "$1" in
     ## Supervisord (start daemons)
     supervisord)
         ## Register IP
-        ETH0_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+        ETH0_IP=$(hostname -i)
         mkdir -p /data/dns/
         chmod 777 /data/dns/
         echo "${ETH0_IP}"               > /data/dns/main.ip
