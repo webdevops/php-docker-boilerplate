@@ -12,6 +12,9 @@ PROVISION:
     BLACKFIRE: "{{ lookup('env','PROVISION_PHP_BLACKFIRE') }}"
     XDEBUG:    "{{ lookup('env','PROVISION_PHP_XDEBUG') }}"
 
+  SSH:
+    AUTHORIZED_KEY: "{{ lookup('env','SSH_AUTH_KEY') }}"
+
 DOCKER:
   # System
   EFFECTIVE_UID: "{{ lookup('env','EFFECTIVE_UID') }}"
@@ -22,7 +25,6 @@ DOCKER:
   # http
   DOCUMENT_ROOT:  "{{ lookup('env','DOCUMENT_ROOT') }}"
   DOCUMENT_INDEX: "{{ lookup('env','DOCUMENT_INDEX') }}"
-
 
   # MySQL
   MYSQL_ROOT_PASSWORD: "{{ lookup('env','MYSQL_ROOT_PASSWORD') }}"

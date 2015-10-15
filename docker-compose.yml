@@ -18,6 +18,8 @@ main:
     #- redis
     #- memcached
     #- ftp
+  ports:
+    - "10022:22"
   volumes:
     - ./:/docker/
     - /tmp/debug/:/tmp/debug/

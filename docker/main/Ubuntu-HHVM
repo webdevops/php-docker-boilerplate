@@ -56,6 +56,7 @@ COPY bin/entrypoint.sh  /entrypoint.sh
 COPY conf/ubuntu-hhvm   /opt/docker/conf/
 
 EXPOSE 9000
+EXPOSE 22
 
 VOLUME /docker/
 WORKDIR /docker/code/

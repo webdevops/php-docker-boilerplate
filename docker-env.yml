@@ -43,6 +43,14 @@ PROVISION_PHP_BLACKFIRE=1
 PROVISION_PHP_XDEBUG=1
 
 #######################################
+# SSH settings
+# SSH public key (without comment):
+# -> ssh-rsa AAAAB3Nza....
+#  Github public ssh keys:
+# -> https://github.com/USERNAME.keys
+SSH_AUTH_KEY=""
+
+#######################################
 # Mail
 
 # Vagrant mail sandbox

@@ -2,17 +2,18 @@
   vars_files:
     - /opt/docker/provision/variables.yml
   roles:
-    - init
+    - { role: init     }
     - { role: update,  when: PROVISION.SYS.UPDATE == "1" }
-    - packages
-    - locales
-    - users
-    - supervisord
-    - dnsmasqd
-    - cron
-    - ssmtp
+    - { role: packages }
+    - { role: locales  }
+    - { role: users    }
+    - { role: supervisord }
+    - { role: dnsmasqd }
+    - { role: cron     }
+    - { role: ssmtp    }
     - { role: php,  when: PROVISION.PHP.DISTRIBUTION == "php" }
     - { role: hhvm, when: PROVISION.PHP.DISTRIBUTION == "hhvm" }
-    - mysql
-    - composer
-    - finalize
+    - { role: mysql    }
+    - { role: ssh      }
+    - { role: composer }
+    - { role: finalize }

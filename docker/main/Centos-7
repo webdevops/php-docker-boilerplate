@@ -55,6 +55,7 @@ COPY bin/entrypoint.sh  /entrypoint.sh
 COPY conf/centos        /opt/docker/conf/
 
 EXPOSE 9000
+EXPOSE 22
 
 VOLUME /docker/
 WORKDIR /docker/code/
