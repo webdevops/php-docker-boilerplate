@@ -10,6 +10,12 @@ else
     bash /opt/docker/bin/provision.sh entrypoint > /dev/null
 fi
 
+function createNamedPipe() {
+    rm --force -- "$1"
+    mknod "$1" p
+}
+
+
 #############################
 ## COMMAND
 #############################
@@ -18,6 +24,12 @@ case "$1" in
 
     ## Supervisord (start daemons)
     supervisord)
+
+        # Create named pipes for direct log output
+        createNamedPipe /tmp/php.slow.log
+        createNamedPipe /tmp/php.error.log
+        createNamedPipe /tmp/php.access.log
+
         ## Register IP
         ETH0_IP=$(hostname -i)
         mkdir -p /data/dns/
