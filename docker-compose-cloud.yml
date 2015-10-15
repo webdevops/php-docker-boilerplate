@@ -1,0 +1,149 @@
+#######################################
+# Main php container
+#######################################
+main:
+  build: docker/main
+  #dockerfile: Ubuntu-12.04 # Ubuntu 12.04 - PHP 5.3, LTS (precise)
+  dockerfile: Ubuntu-14.04  # Ubuntu 14.04 - PHP 5.5, LTS (trusty)
+  #dockerfile: Ubuntu-15.04 # Ubuntu 15.04 - PHP 5.6 (vivid)
+  #dockerfile: Ubuntu-15.10 # Ubuntu 15.10 - PHP 5.6 (wily)
+  #dockerfile: Ubuntu-HHVM  # Ubuntu 14.04 - HHVM (trusty)
+  #dockerfile: Centos-7     # CentOS 7     - PHP 5.4
+  links:
+    - mysql
+    #- postgres
+    #- mail
+    #- solr
+    #- elasticsearch
+    #- redis
+    #- memcached
+    #- ftp
+  volumes_from:
+    - sourcecode
+    - storage
+  env_file:
+    - docker-env.yml
+
+#######################################
+# Webserver
+#######################################
+web:
+  build: docker/web
+  dockerfile: Apache-Httpd # Apache HTTPd
+  #dockerfile: Nginx       # Nginx
+  ports:
+    - 8000:80
+    - 8443:443
+  links:
+    - main
+  volumes_from:
+    - main
+    - storage
+  env_file:
+    - docker-env.yml
+
+#######################################
+# MySQL server
+#######################################
+mysql:
+  build: docker/mysql
+  dockerfile: MySQL-5.5
+  #dockerfile: MySQL-5.6
+  #dockerfile: MySQL-5.7
+  #dockerfile: MariaDB-5.5
+  #dockerfile: MariaDB-10
+  #dockerfile: Percona-5.5
+  #dockerfile: Percona-5.6
+  volumes_from:
+    - storage
+  env_file:
+    - docker-env.yml
+
+#######################################
+# PostgreSQL server
+#######################################
+#postgres:
+#  build: docker/postgres/
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# Solr server
+#######################################
+#solr:
+#  build: docker/solr/
+#  volumes_from:
+#    - storage
+#  environment:
+#    - SOLR_STORAGE=/data/solr/server-master/
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# Elasticsearch
+#######################################
+#elasticsearch:
+#  build: docker/elasticsearch/
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# Redis
+#######################################
+#redis:
+#  build: docker/redis/
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# Memcached
+#######################################
+#memcached:
+#  build: docker/memcached/
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# Mailcatcher
+#######################################
+#mail:
+#  build: docker/mail/
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# FTP (vsftpd)
+#######################################
+#ftp:
+#  build: docker/vsftpd/
+#  volumes_from:
+#    - sourcecode
+#    - storage
+#  env_file:
+#    - docker-env.yml
+
+#######################################
+# sourcecode
+#######################################
+sourcecode:
+  build: docker/sourcecode/
+  volumes:
+    - /docker/code/
+  env_file:
+    - docker-env.yml
+
+#######################################
+# Storage
+#######################################
+storage:
+  build: docker/storage/
+  volumes:
+    - /data
