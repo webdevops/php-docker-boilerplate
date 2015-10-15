@@ -1,3 +1,5 @@
+---
+
 - group:
     name:  "{{ DOCKER.CLI_USER }}"
     gid:   "{{ DOCKER.EFFECTIVE_UID }}"

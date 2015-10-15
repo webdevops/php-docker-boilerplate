@@ -1,3 +1,5 @@
+---
+
 - name: Deploy root my.cnf
   template:
     src:   my.cnf.j2

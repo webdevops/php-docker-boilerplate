@@ -1,3 +1,5 @@
+---
+
 - include: update-centos.yml
   when: ansible_distribution == 'CentOS'
   tags:

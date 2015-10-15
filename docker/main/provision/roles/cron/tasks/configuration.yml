@@ -1,2 +1,4 @@
+---
+
 - name: Add newline to crontab
   raw: 'echo >> /opt/docker/etc/crontab'

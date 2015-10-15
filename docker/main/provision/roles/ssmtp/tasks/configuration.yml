@@ -1,3 +1,5 @@
+---
+
 - name: Setup ssmtp
   lineinfile:
     dest:   /etc/ssmtp/ssmtp.conf

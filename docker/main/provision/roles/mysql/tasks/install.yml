@@ -1,3 +1,5 @@
+---
+
 - name: Install mysql client
   apt:
     name:  '{{ item }}'

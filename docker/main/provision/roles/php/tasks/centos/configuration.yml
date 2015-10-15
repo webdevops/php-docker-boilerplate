@@ -1,3 +1,5 @@
+---
+
 - name: Configure php-fpm (pool www.conf)
   lineinfile:
     dest:   /etc/php-fpm.d/www.conf

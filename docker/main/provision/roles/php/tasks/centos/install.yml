@@ -1,3 +1,5 @@
+---
+
 - name: Install php
   yum:
     name:  '{{ item }}'

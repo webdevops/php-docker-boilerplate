@@ -1,3 +1,5 @@
+---
+
 - name: Add blackfire.io key
   apt_key:
     url:   https://packagecloud.io/gpg.key

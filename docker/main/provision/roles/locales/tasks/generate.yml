@@ -1,3 +1,5 @@
+---
+
 - name: Copy defined locales
   raw: 'cat /opt/docker/locale.conf >> /var/lib/locales/supported.d/local'
 

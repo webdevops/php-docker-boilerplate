@@ -1,3 +1,5 @@
+---
+
 - name: Add blackfire.io key
   rpm_key:
     key:   https://packagecloud.io/gpg.key

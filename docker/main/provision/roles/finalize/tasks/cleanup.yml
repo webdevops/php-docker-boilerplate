@@ -1,3 +1,5 @@
+---
+
 - name: Cleanup apt
   command: apt-get clean -y
   when: ansible_distribution == 'Ubuntu'
