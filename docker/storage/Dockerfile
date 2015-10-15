@@ -15,6 +15,7 @@ ADD entrypoint.sh   /entrypoint.sh
 
 RUN mkdir -p /data
 RUN mkdir -p /data/dns/
+RUN mkdir -p /data/shared/
 RUN chmod -R 777 /data
 
 VOLUME "/data"
