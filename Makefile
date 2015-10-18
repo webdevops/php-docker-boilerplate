@@ -37,8 +37,6 @@ rebuild:
 #############################
 
 cloud-build:
-	mkdir -p docker/sourcecode/code
-	rsync -a code/ docker/sourcecode/code/
 	docker-compose --file docker-compose-cloud.yml build
 	docker-compose --file docker-compose-cloud.yml build --no-cache sourcecode
 	docker-compose --file docker-compose-cloud.yml stop

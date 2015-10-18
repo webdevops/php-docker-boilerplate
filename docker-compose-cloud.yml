@@ -136,7 +136,8 @@ mysql:
 # sourcecode
 #######################################
 sourcecode:
-  build: docker/sourcecode/
+  build: .
+  dockerfile: Dockerfile-Source
   volumes:
     - /docker/code/
   env_file:

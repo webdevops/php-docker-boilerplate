@@ -11,7 +11,7 @@
 
 FROM ubuntu:14.04
 
-ADD entrypoint.sh   /entrypoint.sh
+ADD bin/entrypoint.sh   /entrypoint.sh
 
 RUN mkdir -p /docker/code/
 RUN chmod -R 777 /docker/code/
