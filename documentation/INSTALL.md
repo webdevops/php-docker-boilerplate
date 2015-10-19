@@ -29,5 +29,8 @@ git clone --recursive https://github.com/webdevops/php-docker-boilerplate.git pr
 
 cd projectname
 
+# for local development (shared volumes)
+cp docker-compose-development.yml docker-compose.yml
+
 docker-compose up -d
 ```
