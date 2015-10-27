@@ -19,27 +19,11 @@ main:
     #- memcached
     #- ftp
   ports:
+    - "8000:80"
+    - "8443:443"
     - "10022:22"
   volumes_from:
     - sourcecode
-    - storage
-  env_file:
-    - docker-env.yml
-
-#######################################
-# Webserver
-#######################################
-web:
-  build: docker/web
-  dockerfile: Apache-Httpd # Apache HTTPd
-  #dockerfile: Nginx       # Nginx
-  ports:
-    - 8000:80
-    - 8443:443
-  links:
-    - main
-  volumes_from:
-    - main
     - storage
   env_file:
     - docker-env.yml

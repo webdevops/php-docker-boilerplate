@@ -1,0 +1,10 @@
+---
+
+- include: bootstrap/composer.yml
+- include: bootstrap/cron.yml
+
+- include: bootstrap/php.centos.yml
+  when: ansible_distribution == 'CentOS'
+- include: bootstrap/php.ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+

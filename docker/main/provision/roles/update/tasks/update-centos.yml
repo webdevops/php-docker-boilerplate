@@ -1,4 +1,0 @@
----
-
-- name: Update distribution packages (yum) ... will take some time
-  yum: name=* state=latest

@@ -1,7 +1,0 @@
----
-
-- name: Update package cache (apt-get update) ... will take some time
-  apt: update_cache=yes
-  when: ansible_distribution == 'Ubuntu'
-  tags:
-    - bootstrap

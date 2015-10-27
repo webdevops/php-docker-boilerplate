@@ -1,0 +1,29 @@
+---
+
+- name: Configure php-fpm (pool www.conf) [CentOS]
+  lineinfile:
+    dest:   /etc/php-fpm.d/www.conf
+    regexp: '^{{ item.key }}[\s]*='
+    line:   '{{ item.key }} = {{ item.value }}'
+  with_items:
+   # Process manager
+   - { key: 'pm.max_children',            value: '15' }
+   - { key: 'pm.start_servers',           value: '2' }
+   - { key: 'pm.min_spare_servers',       value: '1' }
+   - { key: 'pm.max_spare_servers',       value: '3' }
+   - { key: 'catch_workers_output',       value: 'yes' }
+   # Logs
+   - { key: 'access.format',              value: '"%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d"' }
+   - { key: 'access.log',                 value: '/tmp/php.access.log' }
+   - { key: 'slowlog',                    value: '/tmp/php.slow.log' }
+   - { key: 'request_slowlog_timeout',    value: '30s' }
+   # PHP flags
+   - { key: 'php_admin_value[error_log]', value: '/tmp/php.error.log' }
+   - { key: 'php_admin_flag[log_errors]', value: 'on' }
+
+- name: Create link for additional php.ini
+  file:
+    src:  '/opt/docker/etc/php/php.ini'
+    dest: '/etc/php.d/zzz-docker-boilerplate.ini'
+    state: link
+    force: yes

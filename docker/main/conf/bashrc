@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Workaround for buggy terminal setting with docker exec/run
-if [ -z "$TERM" -o "$TERM" == "unknown" -o "$TERM" == "dumb" ]; then
-    export TERM="xterm"
-fi
