@@ -1,5 +1,13 @@
 ---
 
+- include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+
+- include: bootstrap/systemUpdate.centos.yml
+  when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'CentOS'
+
+- include: bootstrap/systemUpdate.ubuntu.yml
+  when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'Ubuntu'
+
 - include: bootstrap/composer.yml
 - include: bootstrap/cron.yml
 - include: bootstrap/dnsmasq.yml

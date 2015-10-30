@@ -1,5 +1,8 @@
 ---
 
+PROVISION:
+  systemUpdate: false
+
 WEB:
   VHOST:
     - { serverName: "docker.vm", serverAlias: "*.vm" }
