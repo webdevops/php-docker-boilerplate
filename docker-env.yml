@@ -10,9 +10,9 @@
 # Webserver
 
 # General
-DOCUMENT_ROOT=code/
-DOCUMENT_INDEX=index.php
-CLI_SCRIPT=php index.php
+WEB_DOCUMENT_ROOT=/docker/code/
+WEB_DOCUMENT_INDEX=index.php
+CLI_SCRIPT=php /docker/code/index.php
 
 # Symfony
 # DOCUMENT_ROOT=code/web/
@@ -34,9 +34,6 @@ YII_ENVIRONMENT=Development
 
 #######################################
 # PROVISION environment
-
-# Context for provision [development|production]
-PROVISION_CONTEXT=development
 
 # PHP Modules
 PROVISION_PHP_BLACKFIRE=1
@@ -61,7 +58,7 @@ MAIL_GATEWAY=192.168.56.2
 
 #######################################
 # Internal dns routing
-DNS_DOMAIN=vm vm.dev
+WEB_ALIAS_DOMAIN=vm vm.dev
 
 #######################################
 # MySQL settings

@@ -1,0 +1,8 @@
+---
+
+- name: Create link for additional php.ini
+  file:
+    src:  '/opt/docker/etc/php/php.ini'
+    dest: '/etc/php.d/zzz-docker-boilerplate.ini'
+    state: link
+    force: yes

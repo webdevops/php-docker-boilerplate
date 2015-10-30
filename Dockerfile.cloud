@@ -1,0 +1,17 @@
+#++++++++++++++++++++++++++++++++++++++
+# Application Docker container
+#++++++++++++++++++++++++++++++++++++++
+
+FROM webdevops/php-apache:ubuntu-14.04
+
+ENV PROVISION_CONTEXT "production"
+
+# Deploy scripts/configurations
+COPY etc/             /opt/docker/etc/
+COPY provision/       /opt/docker/provision/
+
+COPY code/            /docker/code/
+
+RUN /opt/docker/bin/control.sh provision.role.startup boilerplate-main \
+    && /opt/docker/bin/control.sh service.enable cron \
+    && /opt/docker/bin/bootstrap.sh

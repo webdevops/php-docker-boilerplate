@@ -1,0 +1,8 @@
+---
+
+PHP:
+  pm:
+    maxChildren: 30
+    startServers: 10
+    minSpareServers: 5
+    maxSpareServers: 10
