@@ -3,7 +3,4 @@
 - include: bootstrap.yml
   tags:
     - bootstrap
-
-- include: entrypoint.yml
-  tags:
-    - entrypoint
+  when: PROVISION_CONTEXT == "development"
