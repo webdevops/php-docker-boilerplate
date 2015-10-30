@@ -26,11 +26,8 @@
    - { key: 'catch_workers_output',       value: 'yes' }
    # Logs
    - { key: 'access.format',              value: '"{{ PHP.log.accessFormat }}"' }
-   - { key: 'access.log',                 value: '/tmp/php.access.log' }
-   - { key: 'slowlog',                    value: '/tmp/php.slow.log' }
    - { key: 'request_slowlog_timeout',    value: '{{ PHP.log.slowlogTimeout }}' }
    # PHP flags
-   - { key: 'php_admin_value[error_log]', value: '/tmp/php.error.log' }
    - { key: 'php_admin_flag[log_errors]', value: 'on' }
 
 - name: Configure environment variables from APPLICATION_ENVIRONMENT for php-fpm (pool www.conf)
