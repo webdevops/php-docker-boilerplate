@@ -4,7 +4,7 @@ PROVISION:
   systemUpdate: false
 
 WEB:
-  VHOST:
+  vhost:
     - { serverName: "docker.vm", serverAlias: "*.vm" }
 
 DNS:
