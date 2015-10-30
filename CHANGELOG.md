@@ -1,7 +1,15 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
-4.1.0 - UPCOMING
+5.0.0 - UPCOMING
+----------------
+- Refactored with new `webdevops/base` images
+- Faster creation/startup times
+- Ansible provisioning
+- Real production and development provisioning
+- Added cloud support (without host mounted volumes)
+
+4.1.0 - canceled
 ------------------
 - Added cron
 - Improved documentation
