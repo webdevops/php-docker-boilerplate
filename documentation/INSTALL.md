@@ -4,7 +4,7 @@
 
 ## Reqirements
 
-- GNU/Linux with Docker (recommendation: Vagrant VM with Docker or native Linux with Docker)
+- GNU/Linux with Docker (recommendation: [Vagrant](https://www.vagrantup.com/downloads.html) VM with Docker or [native Linux with Docker](http://docs.docker.com/linux/step_one/)
 - make
 - [composer](https://getcomposer.org/)
 - [docker-compose](https://github.com/docker/compose)
