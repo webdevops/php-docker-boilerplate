@@ -14,11 +14,6 @@ WEB_DOCUMENT_ROOT=/docker/code/
 WEB_DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php /docker/code/index.php
 
-# Symfony
-# DOCUMENT_ROOT=code/web/
-# DOCUMENT_INDEX=app_dev.php
-# CLI_SCRIPT=php app/console
-
 #######################################
 # Context environment
 
@@ -32,12 +27,6 @@ CAKE_ENV=dev
 # yii
 YII_ENVIRONMENT=Development
 
-#######################################
-# PROVISION environment
-
-# PHP Modules
-PROVISION_PHP_BLACKFIRE=1
-PROVISION_PHP_XDEBUG=1
 
 #######################################
 # SSH settings
@@ -55,10 +44,6 @@ MAIL_GATEWAY=192.168.56.2
 
 # Mailcatcher (container)
 #MAIL_GATEWAY=mail:1025
-
-#######################################
-# Internal dns routing
-WEB_ALIAS_DOMAIN=vm vm.dev
 
 #######################################
 # MySQL settings
@@ -84,12 +69,3 @@ FTP_USER=dev
 FTP_PASSWORD=dev
 FTP_PATH=/data/ftp/
 #FTP_PATH=/docker/code/
-
-#######################################
-# Permission settings
-EFFECTIVE_UID=1000
-EFFECTIVE_GID=1000
-
-#######################################
-# Default cli user (should be www-data)
-CLI_USER=www-data
