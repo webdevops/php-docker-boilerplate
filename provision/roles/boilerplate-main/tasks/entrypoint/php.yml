@@ -1,8 +1,6 @@
 ---
 
-- include_vars: /opt/docker/etc/application.yml
 - include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
-
 
 - name: Fact - php pool on centos
   set_fact:
