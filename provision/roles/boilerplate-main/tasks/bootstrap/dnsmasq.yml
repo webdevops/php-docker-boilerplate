@@ -1,0 +1,12 @@
+---
+
+- include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+
+- name: Add domains to dnsmasq
+  lineinfile:
+    dest:   "/etc/dnsmasq.d/docker"
+    regexp: '^address=/{{ item.domain }}'
+    line:   'address=/{{ item.domain }}/{{ item.address }}'
+    create: yes
+  with_items: "{{ DNS.domain }}"
+  when: DNS.domain  is defined

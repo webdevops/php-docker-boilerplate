@@ -4,6 +4,10 @@ WEB:
   VHOST:
     - { serverName: "docker.vm", serverAlias: "*.vm" }
 
+DNS:
+  domain:
+    - { domain: ".vm", address: "127.0.0.1" }
+
 APPLICATION_ENVIRONMENT:
   TYPO3_CONTEXT: 'Development/Docker'
 
@@ -34,5 +38,5 @@ PHP:
     minSpareServers: 1
     maxSpareServers: 3
   log:
-    accessLogFormat: '%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d'
+    accessFormat: '%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d'
     slowlogTimeout: 10s

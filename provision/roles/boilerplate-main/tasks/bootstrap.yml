@@ -2,6 +2,7 @@
 
 - include: bootstrap/composer.yml
 - include: bootstrap/cron.yml
+- include: bootstrap/dnsmasq.yml
 
 - include: bootstrap/php.centos.yml
   when: ansible_distribution == 'CentOS'

@@ -15,4 +15,5 @@ COPY application.yml  /opt/docker/provision/variables.yml
 RUN /opt/docker/bin/control.sh provision.role.startup boilerplate-main \
     && /opt/docker/bin/control.sh provision.role boilerplate-main \
     && /opt/docker/bin/control.sh service.enable cron \
+    && /opt/docker/bin/control.sh service.enable dnsmasq \
     && /opt/docker/bin/bootstrap.sh
