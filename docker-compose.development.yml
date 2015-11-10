@@ -3,7 +3,7 @@
 #######################################
 main:
   build: .
-  dockerfile: Dockerfile.production
+  dockerfile: Dockerfile.development
   links:
     - mysql
     #- postgres
@@ -19,10 +19,16 @@ main:
     - "10022:22"
   volumes:
     - ./:/docker/
+    - /tmp/debug/:/tmp/debug/
   volumes_from:
     - storage
+  # cap and privileged needed for slowlog
+  cap_add:
+    - SYS_PTRACE
+  privileged: true
   env_file:
-    - docker-env.yml
+    - docker-environment.yml
+    - docker-environment.development.yml
 
 #######################################
 # MySQL server
@@ -43,7 +49,8 @@ mysql:
   volumes:
     - /tmp/debug/:/tmp/debug/
   env_file:
-    - docker-env.yml
+    - docker-environment.yml
+    - docker-environment.development.yml
 
 #######################################
 # PostgreSQL server
@@ -55,7 +62,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # Solr server
@@ -69,7 +77,8 @@ mysql:
 #  environment:
 #    - SOLR_STORAGE=/data/solr/server-master/
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # Elasticsearch
@@ -82,7 +91,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # Redis
@@ -92,7 +102,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # Memcached
@@ -102,7 +113,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # Mailcatcher
@@ -112,7 +124,8 @@ mysql:
 #  ports:
 #    - 1080:1080
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # FTP (vsftpd)
@@ -125,7 +138,8 @@ mysql:
 #    - ./:/docker/
 #    - /tmp/debug/:/tmp/debug/
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.development.yml
 
 #######################################
 # Storage

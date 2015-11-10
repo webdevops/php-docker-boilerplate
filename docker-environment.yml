@@ -15,23 +15,6 @@ WEB_DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php /docker/code/index.php
 
 #######################################
-# Context environment
-
-# TYPO3
-TYPO3_CONTEXT=Development/Docker
-
-# Symfony
-SYMFONY_ENV=dev
-SYMFONY_DEBUG=0
-
-# CakePHP
-CAKE_ENV=dev
-
-# yii
-YII_ENVIRONMENT=Development
-
-
-#######################################
 # SSH settings
 # SSH public key (without comment):
 # -> ssh-rsa AAAAB3Nza....

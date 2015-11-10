@@ -3,7 +3,7 @@
 #######################################
 main:
   build: .
-  dockerfile: Dockerfile.cloud
+  dockerfile: Dockerfile.production
   links:
     - mysql
     #- postgres
@@ -17,11 +17,13 @@ main:
     - "8000:80"
     - "8443:443"
     - "10022:22"
+  volumes:
+    - ./:/docker/
   volumes_from:
-    - sourcecode
     - storage
   env_file:
-    - docker-env.yml
+    - docker-environment.yml
+    - docker-environment.production.yml
 
 #######################################
 # MySQL server
@@ -35,42 +37,57 @@ mysql:
   #dockerfile: MariaDB-10
   #dockerfile: Percona-5.5
   #dockerfile: Percona-5.6
+  ports:
+    - 13306:3306
   volumes_from:
     - storage
+  volumes:
+    - /tmp/debug/:/tmp/debug/
   env_file:
-    - docker-env.yml
+    - docker-environment.yml
+    - docker-environment.production.yml
 
 #######################################
 # PostgreSQL server
 #######################################
 #postgres:
 #  build: docker/postgres/
+#  ports:
+#    - 15432:5432
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # Solr server
 #######################################
 #solr:
 #  build: docker/solr/
+#  ports:
+#    - 18983:8983
 #  volumes_from:
 #    - storage
 #  environment:
 #    - SOLR_STORAGE=/data/solr/server-master/
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # Elasticsearch
 #######################################
 #elasticsearch:
 #  build: docker/elasticsearch/
+#  ports:
+#    - 19200:9200
+#    - 19300:9300
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # Redis
@@ -80,7 +97,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # Memcached
@@ -90,15 +108,19 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # Mailcatcher
 #######################################
 #mail:
 #  build: docker/mail/
+#  ports:
+#    - 1080:1080
 #  env_file:
-#    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # FTP (vsftpd)
@@ -106,21 +128,13 @@ mysql:
 #ftp:
 #  build: docker/vsftpd/
 #  volumes_from:
-#    - sourcecode
 #    - storage
+#  volumes:
+#    - ./:/docker/
+#    - /tmp/debug/:/tmp/debug/
 #  env_file:
-#    - docker-env.yml
-
-#######################################
-# sourcecode
-#######################################
-sourcecode:
-  build: .
-  dockerfile: Dockerfile-Source
-  volumes:
-    - /docker/code/
-  env_file:
-    - docker-env.yml
+#    - docker-environment.yml
+#    - docker-environment.production.yml
 
 #######################################
 # Storage
