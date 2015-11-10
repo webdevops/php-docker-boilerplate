@@ -3,6 +3,10 @@
 PROVISION:
   systemUpdate: false
 
+  install:
+    phpBlackfire: false
+    phpXdebug:    false
+
 WEB:
   vhost:
     - { serverName: "docker.vm", serverAlias: "*.vm" }
