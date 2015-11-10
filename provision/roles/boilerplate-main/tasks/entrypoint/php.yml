@@ -18,7 +18,7 @@
     regexp: '^env\[{{ item.key }}\][\s]*='
     line:   'env[{{ item.key }}] = "{{ item.value }}"'
   with_dict: "{{ DOCKER_ENVIRONMENT }}"
-  when: DOCKER_ENVIRONMENT is defined
+  when: DOCKER_ENVIRONMENT is defined and item.value != ''
 
 - name: Configure environment variables from APPLICATION_ENVIRONMENT for php-fpm (pool www.conf)
   lineinfile:
@@ -26,7 +26,7 @@
     regexp: '^env\[{{ item.key }}\][\s]*='
     line:   'env[{{ item.key }}] = "{{ item.value }}"'
   with_dict: "{{ APPLICATION_ENVIRONMENT }}"
-  when: APPLICATION_ENVIRONMENT is defined
+  when: APPLICATION_ENVIRONMENT is defined and item.value != ''
 
 - name: Set development environment php.ini
   file:
