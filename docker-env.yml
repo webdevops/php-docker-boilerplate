@@ -17,6 +17,9 @@ CLI_SCRIPT=php /docker/code/index.php
 #######################################
 # Context environment
 
+# TYPO3
+TYPO3_CONTEXT=Development/Docker
+
 # Symfony
 SYMFONY_ENV=dev
 SYMFONY_DEBUG=0

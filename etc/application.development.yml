@@ -16,7 +16,14 @@ DNS:
     - { domain: ".vm", address: "127.0.0.1" }
 
 APPLICATION_ENVIRONMENT:
-  TYPO3_CONTEXT: 'Development/Docker'
+  TYPO3_CONTEXT:   "{{ lookup('env','TYPO3_CONTEXT') }}"
+
+  SYMFONY_ENV:     "{{ lookup('env','SYMFONY_ENV') }}"
+  SYMFONY_DEBUG:   "{{ lookup('env','SYMFONY_DEBUG') }}"
+
+  CAKE_ENV:        "{{ lookup('env','CAKE_ENV') }}"
+
+  YII_ENVIRONMENT: "{{ lookup('env','YII_ENVIRONMENT') }}"
 
 DOCKER_ENVIRONMENT:
   # General
