@@ -1,6 +1,7 @@
 ---
 
 - include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+- include_vars: "/opt/docker/etc/application.environment.yml"
 
 - name: Fact - php pool on centos
   set_fact:
@@ -19,14 +20,6 @@
     line:   'env[{{ item.key }}] = "{{ item.value }}"'
   with_dict: "{{ DOCKER_ENVIRONMENT }}"
   when: DOCKER_ENVIRONMENT is defined and item.value != ''
-
-- name: Configure environment variables from APPLICATION_ENVIRONMENT for php-fpm (pool www.conf)
-  lineinfile:
-    dest:   "{{ php_pool_conf }}"
-    regexp: '^env\[{{ item.key }}\][\s]*='
-    line:   'env[{{ item.key }}] = "{{ item.value }}"'
-  with_dict: "{{ APPLICATION_ENVIRONMENT }}"
-  when: APPLICATION_ENVIRONMENT is defined and item.value != ''
 
 - name: Set development environment php.ini
   file:
