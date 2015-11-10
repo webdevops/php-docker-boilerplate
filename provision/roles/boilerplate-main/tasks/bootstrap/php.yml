@@ -29,11 +29,3 @@
    - { key: 'request_slowlog_timeout',    value: '{{ PHP.log.slowlogTimeout }}' }
    # PHP flags
    - { key: 'php_admin_flag[log_errors]', value: 'on' }
-
-- name: Configure environment variables from APPLICATION_ENVIRONMENT for php-fpm (pool www.conf)
-  lineinfile:
-    dest:   "{{ php_pool_conf }}"
-    regexp: '^env\[{{ item.key }}\][\s]*='
-    line:   'env[{{ item.key }}] = "{{ item.value }}"'
-  with_dict: "{{ APPLICATION_ENVIRONMENT }}"
-  when: APPLICATION_ENVIRONMENT is defined

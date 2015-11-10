@@ -20,6 +20,14 @@
   with_dict: "{{ DOCKER_ENVIRONMENT }}"
   when: DOCKER_ENVIRONMENT is defined
 
+- name: Configure environment variables from APPLICATION_ENVIRONMENT for php-fpm (pool www.conf)
+  lineinfile:
+    dest:   "{{ php_pool_conf }}"
+    regexp: '^env\[{{ item.key }}\][\s]*='
+    line:   'env[{{ item.key }}] = "{{ item.value }}"'
+  with_dict: "{{ APPLICATION_ENVIRONMENT }}"
+  when: APPLICATION_ENVIRONMENT is defined
+
 - name: Set development environment php.ini
   file:
     src:  '/opt/docker/etc/php/development.ini'
