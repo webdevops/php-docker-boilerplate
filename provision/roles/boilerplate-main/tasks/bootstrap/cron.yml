@@ -2,7 +2,7 @@
 
 - name: Create link for crontab
   file:
-    src:  '/opt/docker/conf/crontab'
+    src:  '/opt/docker/etc/cron/crontab'
     dest: '/etc/cron.d/docker-boilerplate'
     state: link
     force: yes
