@@ -10,9 +10,9 @@
 # Webserver
 
 # General
-WEB_DOCUMENT_ROOT=/docker/code/
+WEB_DOCUMENT_ROOT=/application/code/
 WEB_DOCUMENT_INDEX=index.php
-CLI_SCRIPT=php /docker/code/index.php
+CLI_SCRIPT=php /application/code/index.php
 
 #######################################
 # SSH settings
@@ -21,15 +21,6 @@ CLI_SCRIPT=php /docker/code/index.php
 #  Github public ssh keys:
 # -> https://github.com/USERNAME.keys
 SSH_AUTH_KEY=""
-
-#######################################
-# Mail
-
-# Vagrant mail sandbox
-MAIL_GATEWAY=192.168.56.2
-
-# Mailcatcher (container)
-#MAIL_GATEWAY=mail:1025
 
 #######################################
 # MySQL settings

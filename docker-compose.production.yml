@@ -18,7 +18,7 @@ main:
     - "8443:443"
     - "10022:22"
   volumes:
-    - ./:/docker/
+    - ./:/application/
   volumes_from:
     - storage
   env_file:
