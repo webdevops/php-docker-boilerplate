@@ -12,8 +12,9 @@
   when: PROVISION.install.phpComposer is defined and PROVISION.install.phpComposer
 - include: bootstrap/cron.yml
 - include: bootstrap/dnsmasq.yml
+  when: DNS is defined
 - include: bootstrap/postfix.yml
-  when: MAIL.conf is defined
+  when: MAIL is defined
 
 - include: bootstrap/php.centos.yml
   when: ansible_distribution == 'CentOS'
