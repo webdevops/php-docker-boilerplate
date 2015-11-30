@@ -3,6 +3,11 @@
 PROVISION:
   systemUpdate: true
 
+  install:
+    phpComposer:  true
+    phpBlackfire: false
+    phpXdebug:    false
+
 WEB:
   vhost:
     - { serverName: "docker.vm", serverAlias: "*.vm" }
@@ -10,6 +15,11 @@ WEB:
 DNS:
   domain:
     - { domain: ".vm", address: "127.0.0.1" }
+
+MAIL:
+  conf:
+    - { variable: "inet_interfaces", value: "loopback-only" }
+    # - { variable: "relayhost", value: "foobar" }
 
 PHP:
   pm:

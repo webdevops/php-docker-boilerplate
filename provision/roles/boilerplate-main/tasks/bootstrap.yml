@@ -9,8 +9,11 @@
   when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'Ubuntu'
 
 - include: bootstrap/composer.yml
+  when: PROVISION.install.phpComposer is defined and PROVISION.install.phpComposer
 - include: bootstrap/cron.yml
 - include: bootstrap/dnsmasq.yml
+- include: bootstrap/postfix.yml
+  when: MAIL.conf is defined
 
 - include: bootstrap/php.centos.yml
   when: ansible_distribution == 'CentOS'
