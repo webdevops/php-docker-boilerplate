@@ -15,17 +15,7 @@
 - name: Configure php-fpm (pool www.conf)
   lineinfile:
     dest:   "{{ php_pool_conf }}"
-    regexp: '^{{ item.key }}[\s]*='
-    line:   '{{ item.key }} = {{ item.value }}'
-  with_items:
-   # Process manager
-   - { key: 'pm.max_children',            value: '{{ PHP.pm.maxChildren }}' }
-   - { key: 'pm.start_servers',           value: '{{ PHP.pm.startServers }}' }
-   - { key: 'pm.min_spare_servers',       value: '{{ PHP.pm.minSpareServers }}' }
-   - { key: 'pm.max_spare_servers',       value: '{{ PHP.pm.maxSpareServers }}' }
-   - { key: 'catch_workers_output',       value: 'yes' }
-   # Logs
-   - { key: 'access.format',              value: '"{{ PHP.log.accessFormat }}"' }
-   - { key: 'request_slowlog_timeout',    value: '{{ PHP.log.slowlogTimeout }}' }
-   # PHP flags
-   - { key: 'php_admin_flag[log_errors]', value: 'on' }
+    regexp: '^[\s;]*{{ item.variable }}[\s]*='
+    line:   '{{ item.variable }} = {{ item.value }}'
+  with_items: "{{ PHP.fpm.conf }}"
+  when: PHP.fpm.conf is defined and item.value != ""

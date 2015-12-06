@@ -22,11 +22,16 @@ MAIL:
     # - { variable: "relayhost", value: "foobar" }
 
 PHP:
-  pm:
-    maxChildren: 15
-    startServers: 2
-    minSpareServers: 1
-    maxSpareServers: 3
-  log:
-    accessFormat: '%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d'
-    slowlogTimeout: 10s
+  fpm:
+    conf:
+    # PM
+    - { variable: "pm.max_children",      value: "15" }
+    - { variable: "pm.start_servers",     value: "2" }
+    - { variable: "pm.min_spare_servers", value: "1" }
+    - { variable: "pm.max_spare_servers", value: "3" }
+    # Misc
+    - { variable: "catch_workers_output", value: "yes" }
+    # Logs
+    - { variable: "access.format",              value: "%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d" }
+    - { variable: "request_slowlog_timeout",    value: "10s" }
+    - { variable: "php_admin_flag[log_errors]", value: "on" }
