@@ -75,6 +75,8 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+MYSQL_HOST            | MySQL Hostname
+MYSQL_PORT            | Port that the MySQL instance is using
 <br>                  |
 PHP_TIMEZONE          | Timezone (date.timezone) setting for PHP (cli and fpm)
 EFFECTIVE_UID         | Effective UID for php, fpm und webserver

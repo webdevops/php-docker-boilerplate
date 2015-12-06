@@ -33,6 +33,8 @@ cp /opt/docker/vhost.conf /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<MYSQL_PASSWORD>@${MYSQL_PASSWORD}@"            /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<MYSQL_ROOT_PASSWORD>@${MYSQL_ROOT_PASSWORD}@"  /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<MYSQL_DATABASE>@${MYSQL_DATABASE}@"            /etc/nginx/conf.d/vhost.conf
+/bin/sed -i "s@<MYSQL_HOST>@${MYSQL_HOST}@"                    /etc/nginx/conf.d/vhost.conf
+/bin/sed -i "s@<MYSQL_PORT>@${MYSQL_PORT}@"                    /etc/nginx/conf.d/vhost.conf
 
 /bin/sed -i "s@<POSTGRES_USER>@${POSTGRES_USER}@"              /etc/nginx/conf.d/vhost.conf
 /bin/sed -i "s@<POSTGRES_PASSWORD>@${POSTGRES_PASSWORD}@"      /etc/nginx/conf.d/vhost.conf

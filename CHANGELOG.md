@@ -7,6 +7,7 @@ PHP Docker Boilerplate Changelog
 - Improved documentation
 - Splitted MySQL Dockerfiles (with version and fork - MySQL, MariaDB and Percona)
 - Fixed slow shutdown of storage (thanks to Stephan Ferraro)
+- Added MySQL host and port as environment variables
 
 4.0.0 - 2015-08-17
 ------------------
