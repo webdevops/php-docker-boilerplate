@@ -26,6 +26,7 @@ case "$1" in
 
         logMsg "Starting MySQL backup..."
         mysqldump --opt --single-transaction --events --all-databases --routines --comments | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+        logMsg "Finished"
         ;;
 
     ###################################
@@ -39,5 +40,6 @@ case "$1" in
 
         logMsg "Starting Solr backup..."
         tar jcPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" /data/solr/
+        logMsg "Finished"
         ;;
 esac

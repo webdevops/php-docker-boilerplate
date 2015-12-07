@@ -33,25 +33,14 @@ rebuild:
 	docker-compose build --no-cache
 
 #############################
-# Docker cloud
-#############################
-
-cloud-build:
-	docker-compose --file docker-compose-cloud.yml build
-	docker-compose --file docker-compose-cloud.yml build --no-cache sourcecode
-	docker-compose --file docker-compose-cloud.yml stop
-	docker-compose --file docker-compose-cloud.yml rm --force sourcecode
-	docker-compose --file docker-compose-cloud.yml up -d --force-recreate
-
-#############################
 # MySQL
 #############################
 
 mysql-backup:
-	docker-compose run --rm --no-deps main root bash /docker/bin/backup.sh mysql
+	docker-compose run --rm --no-deps main root bash /application/bin/backup.sh mysql
 
 mysql-restore:
-	docker-compose run --rm --no-deps main root bash /docker/bin/restore.sh mysql
+	docker-compose run --rm --no-deps main root bash /application/bin/restore.sh mysql
 
 #############################
 # Solr
@@ -59,12 +48,12 @@ mysql-restore:
 
 solr-backup:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps main root bash /docker/bin/backup.sh solr
+	docker-compose run --rm --no-deps main root bash /application/bin/backup.sh solr
 	docker-compose start solr
 
 solr-restore:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps main root bash /docker/bin/restore.sh solr
+	docker-compose run --rm --no-deps main root bash /application/bin/restore.sh solr
 	docker-compose start solr
 
 #############################
