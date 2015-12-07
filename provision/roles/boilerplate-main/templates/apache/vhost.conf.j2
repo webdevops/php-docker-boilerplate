@@ -1,0 +1,28 @@
+#######################################
+# Vhost
+#######################################
+{% for vhost in WEB.vhost %}
+
+# Vhost for "{{ vhost.serverName }}"
+
+<VirtualHost *:80>
+  ServerName "{{ vhost.serverName }}"
+  ServerAlias "{{ vhost.serverAlias }}"
+  DocumentRoot "{{ vhost.documentRoot|default('<DOCUMENT_ROOT>') }}"
+
+  UseCanonicalName Off
+
+  Include /opt/docker/etc/httpd/vhost.common.conf
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName "{{ vhost.serverName }}"
+  ServerAlias "{{ vhost.serverAlias }}"
+  DocumentRoot "{{ vhost.documentRoot|default('<DOCUMENT_ROOT>') }}"
+
+  UseCanonicalName Off
+  Include /opt/docker/etc/httpd/vhost.common.conf
+  Include /opt/docker/etc/httpd/vhost.ssl.conf
+</VirtualHost>
+
+{% endfor %}

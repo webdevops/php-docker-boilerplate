@@ -1,0 +1,13 @@
+---
+
+- file:
+    path: "/opt/docker/etc/httpd"
+    state: directory
+
+- name: Deploy dynamic apache vhost
+  template:
+    src:   ../../templates/apache/vhost.conf.j2
+    dest:  /opt/docker/etc/httpd/vhost.conf
+    owner: root
+    group: root
+    mode:  0775

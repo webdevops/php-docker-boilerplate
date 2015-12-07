@@ -1,0 +1,23 @@
+#######################################
+# Environment Configuration
+#  - feel free to edit -
+# -> for most changes you only have to
+#         docker-compose up -d
+#    to apply them
+#######################################
+
+#######################################
+# Context environment
+
+# TYPO3
+TYPO3_CONTEXT=Production/Docker
+
+# Symfony
+SYMFONY_ENV=prod
+SYMFONY_DEBUG=0
+
+# CakePHP
+CAKE_ENV=prod
+
+# yii
+YII_ENVIRONMENT=Production
