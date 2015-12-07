@@ -9,6 +9,10 @@ Checkout this project and create and run the Docker containers using [docker-com
 ```bash
 git clone https://github.com/webdevops/php-docker-boilerplate.git projectname
 cd projectname
+
+# copy favorite docker-compose.*.yml to docker-compose.yml
+cp docker-compose.development.yml docker-compose.yml
+
 docker-compose up -d
 ```
 

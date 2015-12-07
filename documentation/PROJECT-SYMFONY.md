@@ -8,7 +8,7 @@
 make create symfony
 ```
 
-And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `docker-env.yml`:
+And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `docker-environment.yml`:
 
     DOCUMENT_ROOT=code/web/
     DOCUMENT_INDEX=app_dev.php

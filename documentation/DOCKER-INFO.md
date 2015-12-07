@@ -6,9 +6,8 @@
 
 Container                 | Description
 ------------------------- | -------------------------------
-main                      | Main container with PHP-FPM and tools (your entrypoint for bash, php and other stuff)
+main                      | Main container with nginx/apache and PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
-web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
 postgres (optional)       | PostgreSQL database
 solr (optional)           | Apache Solr server
