@@ -26,7 +26,7 @@ PHP:
     conf:
       # PM
       - { variable: "pm.max_children",      value: "30" }
-      - { variable: "pm.start_servers",     value: "10 }
+      - { variable: "pm.start_servers",     value: "10" }
       - { variable: "pm.min_spare_servers", value: "5" }
       - { variable: "pm.max_spare_servers", value: "10" }
       # Misc
