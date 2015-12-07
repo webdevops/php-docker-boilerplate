@@ -1,7 +1,0 @@
-- include: install.yml
-  tags:
-    - bootstrap
-
-- include: configuration.yml
-  tags:
-    - entrypoint

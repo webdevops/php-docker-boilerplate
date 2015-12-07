@@ -1,0 +1,54 @@
+#++++++++++++++++++++++++++++++++++++++
+# Application Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# PHP-Versions:
+#  ubuntu-12.04 -> PHP 5.3, LTS (precise)
+#  ubuntu-14.04 -> PHP 5.5, LTS (trusty)
+#  ubuntu-15.04 -> PHP 5.6 (vivid)
+#  ubuntu-15.10 -> PHP 5.6 (wily)
+#  centos-7 -> PHP 5.4
+#
+# Apache:
+#   webdevops/php-apache:ubuntu-12.04
+#   webdevops/php-apache:ubuntu-14.04
+#   webdevops/php-apache:ubuntu-15.04
+#   webdevops/php-apache:ubuntu-15.10
+#   webdevops/php-apache:centos-7
+#
+# Nginx:
+#   webdevops/php-nginx:ubuntu-12.04
+#   webdevops/php-nginx:ubuntu-14.04
+#   webdevops/php-nginx:ubuntu-15.04
+#   webdevops/php-nginx:ubuntu-15.10
+#   webdevops/php-nginx:centos-7
+#
+# HHVM:
+#   webdevops/hhvm-apache
+#   webdevops/hhvm-nginx
+#
+#++++++++++++++++++++++++++++++++++++++
+
+
+
+FROM webdevops/php-apache:ubuntu-14.04
+FROM webdevops/php-apache:ubuntu-14.04
+FROM webdevops/php-apache:ubuntu-14.04
+FROM webdevops/php-apache:ubuntu-14.04
+
+ENV PROVISION_CONTEXT "production"
+
+# Deploy scripts/configurations
+COPY etc/             /opt/docker/etc/
+COPY provision/       /opt/docker/provision/
+
+RUN /opt/docker/bin/control.sh provision.role boilerplate-main \
+    && /opt/docker/bin/control.sh provision.role.startup boilerplate-deployment \
+    && /opt/docker/bin/control.sh service.enable cron \
+    && /opt/docker/bin/control.sh service.enable dnsmasq \
+    && /opt/docker/bin/control.sh service.enable postfix \
+    && /opt/docker/bin/bootstrap.sh
+
+# Configure volume/workdir
+RUN mkdir -p /application/code/
+WORKDIR /application/code/

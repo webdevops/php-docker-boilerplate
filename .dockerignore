@@ -1,0 +1,7 @@
+*.md
+.git*
+/backup/
+/bin/
+/documentation/
+/docker/
+/code/

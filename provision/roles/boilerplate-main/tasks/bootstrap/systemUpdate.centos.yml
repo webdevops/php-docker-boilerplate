@@ -1,0 +1,4 @@
+---
+
+- name: Update system packages (yum) ... will take some time
+  yum: name=* state=latest

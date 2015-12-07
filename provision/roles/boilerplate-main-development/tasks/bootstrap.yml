@@ -1,0 +1,15 @@
+---
+
+- include: bootstrap/php-blackfire/centos.yml
+  when: ansible_distribution == 'CentOS' and PROVISION.install.phpBlackfire
+
+- include: bootstrap/php-xdebug/centos.yml
+  when: ansible_distribution == 'CentOS' and PROVISION.install.phpXdebug
+
+
+- include: bootstrap/php-blackfire/ubuntu.yml
+  when: ansible_distribution == 'Ubuntu' and PROVISION.install.phpBlackfire
+
+- include: bootstrap/php-xdebug/ubuntu.yml
+  when: ansible_distribution == 'Ubuntu' and PROVISION.install.phpXdebug
+

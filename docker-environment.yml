@@ -1,0 +1,48 @@
+#######################################
+# Environment Configuration
+#  - feel free to edit -
+# -> for most changes you only have to
+#         docker-compose up -d
+#    to apply them
+#######################################
+
+#######################################
+# Webserver
+
+# General
+WEB_DOCUMENT_ROOT=/application/code/
+WEB_DOCUMENT_INDEX=index.php
+CLI_SCRIPT=php /application/code/index.php
+
+#######################################
+# SSH settings
+# SSH public key (without comment):
+# -> ssh-rsa AAAAB3Nza....
+#  Github public ssh keys:
+# -> https://github.com/USERNAME.keys
+SSH_AUTH_KEY=""
+
+#######################################
+# MySQL settings
+# -> if you change these settings
+#    you have to remove the database:
+#         docker-compose rm mysql
+#    because it's stored database in
+#    volume and provisioning is only
+#    done once.
+MYSQL_ROOT_PASSWORD=dev
+MYSQL_USER=dev
+MYSQL_PASSWORD=dev
+MYSQL_DATABASE=database
+
+#######################################
+# PostgreSQL settings
+POSTGRES_USER=dev
+POSTGRES_PASSWORD=dev
+
+#######################################
+# FTP settings
+FTP_USER=dev
+FTP_PASSWORD=dev
+FTP_PATH=/data/ftp/
+#FTP_PATH=/docker/code/

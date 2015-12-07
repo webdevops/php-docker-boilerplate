@@ -1,0 +1,150 @@
+#######################################
+# Main php container
+#######################################
+main:
+  build: .
+  dockerfile: Dockerfile.development
+  links:
+    - mysql
+    #- postgres
+    #- mail
+    #- solr
+    #- elasticsearch
+    #- redis
+    #- memcached
+    #- ftp
+  ports:
+    - "8000:80"
+    - "8443:443"
+    - "10022:22"
+  volumes:
+    - ./:/application/
+    - /tmp/debug/:/tmp/debug/
+  volumes_from:
+    - storage
+  # cap and privileged needed for slowlog
+  cap_add:
+    - SYS_PTRACE
+  privileged: true
+  env_file:
+    - docker-environment.yml
+    - docker-environment.development.yml
+
+#######################################
+# MySQL server
+#######################################
+mysql:
+  build: docker/mysql
+  dockerfile: MySQL-5.5
+  #dockerfile: MySQL-5.6
+  #dockerfile: MySQL-5.7
+  #dockerfile: MariaDB-5.5
+  #dockerfile: MariaDB-10
+  #dockerfile: Percona-5.5
+  #dockerfile: Percona-5.6
+  ports:
+    - 13306:3306
+  volumes_from:
+    - storage
+  volumes:
+    - /tmp/debug/:/tmp/debug/
+  env_file:
+    - docker-environment.yml
+    - docker-environment.development.yml
+
+#######################################
+# PostgreSQL server
+#######################################
+#postgres:
+#  build: docker/postgres/
+#  ports:
+#    - 15432:5432
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# Solr server
+#######################################
+#solr:
+#  build: docker/solr/
+#  ports:
+#    - 18983:8983
+#  volumes_from:
+#    - storage
+#  environment:
+#    - SOLR_STORAGE=/data/solr/server-master/
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# Elasticsearch
+#######################################
+#elasticsearch:
+#  build: docker/elasticsearch/
+#  ports:
+#    - 19200:9200
+#    - 19300:9300
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# Redis
+#######################################
+#redis:
+#  build: docker/redis/
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# Memcached
+#######################################
+#memcached:
+#  build: docker/memcached/
+#  volumes_from:
+#    - storage
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# Mailcatcher
+#######################################
+#mail:
+#  build: docker/mail/
+#  ports:
+#    - 1080:1080
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# FTP (vsftpd)
+#######################################
+#ftp:
+#  build: docker/vsftpd/
+#  volumes_from:
+#    - storage
+#  volumes:
+#    - ./:/docker/
+#    - /tmp/debug/:/tmp/debug/
+#  env_file:
+#    - docker-environment.yml
+#    - docker-environment.development.yml
+
+#######################################
+# Storage
+#######################################
+storage:
+  build: docker/storage/
+  volumes:
+    - /data

@@ -33,7 +33,7 @@ You can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-dev
 
 ## Table of contents
 
-- [Installation and requirements](/documentation/INSTALL.md)
+- [First steps / Installation and requirements](/documentation/INSTALL.md)
 - [Updating docker boilerplate](/documentation/UPDATE.md)
 - [Customizing](/documentation/CUSTOMIZE.md)
 - [Services (Webserver, MySQL... Ports, Users, Passwords)](/documentation/SERVICES.md)
@@ -55,6 +55,9 @@ Thanks for your support, ideas and issues.
 - [Benjamin Rau](https://twitter.com/benjamin_rau)
 - [Philipp Kitzberger](https://github.com/Kitzberger)
 - [Stephan Ferraro](https://github.com/ferraro)
+- [Cedric Ziel](https://github.com/cedricziel)
+- [Elmar Hinz](https://github.com/elmar-hinz)
+
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for inspiration.
 
