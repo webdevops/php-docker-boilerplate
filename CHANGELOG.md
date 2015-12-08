@@ -1,12 +1,21 @@
-TYPO3 Docker Boilerplate Changelog
+PHP Docker Boilerplate Changelog
 ==================================
 
-4.1.0 - UPCOMING
+5.0.0 - UPCOMING
+----------------
+- Refactored with new `webdevops/base` images
+- Faster creation/startup times
+- Ansible provisioning
+- Real production and development provisioning
+- Added cloud support (without host mounted volumes)
+
+4.1.0 - canceled
 ------------------
 - Added cron
 - Improved documentation
 - Splitted MySQL Dockerfiles (with version and fork - MySQL, MariaDB and Percona)
 - Fixed slow shutdown of storage (thanks to Stephan Ferraro)
+- Added MySQL host and port as environment variables
 
 4.0.0 - 2015-08-13 - t3ugs @jweilandnet
 ---------------------------------------

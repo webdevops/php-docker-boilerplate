@@ -1,0 +1,28 @@
+---
+
+- include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+
+- include: bootstrap/systemUpdate.centos.yml
+  when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'CentOS'
+
+- include: bootstrap/systemUpdate.ubuntu.yml
+  when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'Ubuntu'
+
+- include: bootstrap/composer.yml
+  when: PROVISION.install.phpComposer is defined and PROVISION.install.phpComposer
+- include: bootstrap/cron.yml
+- include: bootstrap/dnsmasq.yml
+  when: DNS is defined
+- include: bootstrap/postfix.yml
+  when: MAIL is defined
+
+- include: bootstrap/php.centos.yml
+  when: ansible_distribution == 'CentOS'
+
+- include: bootstrap/php.ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- include: bootstrap/php.yml
+
+- include: bootstrap/web.apache.yml
+- include: bootstrap/web.nginx.yml

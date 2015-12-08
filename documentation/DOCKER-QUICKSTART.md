@@ -7,6 +7,8 @@
 Create and start containers (eg. first start):
 
 ```bash
+# copy favorite docker-compose.*.yml to docker-compose.yml
+cp docker-compose.development.yml docker-compose.yml
 docker-compose up -d
 ```
 
@@ -52,8 +54,8 @@ docker-compose logs
 # ... or only php
 docker-compose logs main
 
-# ... or only php and webserver
-docker-compose logs main web
+# ... or only main and mysql
+docker-compose logs main mysql
 ```
 
 CLI script (defined in docker-env.yml)

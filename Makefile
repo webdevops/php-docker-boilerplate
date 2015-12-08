@@ -27,15 +27,20 @@ stop:
 state:
 	docker-compose ps
 
+rebuild:
+	docker-compose stop
+	docker-compose rm --force main web
+	docker-compose build --no-cache
+
 #############################
 # MySQL
 #############################
 
 mysql-backup:
-	docker-compose run --rm --no-deps main root bash /docker/bin/backup.sh mysql
+	docker-compose run --rm --no-deps main root bash /application/bin/backup.sh mysql
 
 mysql-restore:
-	docker-compose run --rm --no-deps main root bash /docker/bin/restore.sh mysql
+	docker-compose run --rm --no-deps main root bash /application/bin/restore.sh mysql
 
 #############################
 # Solr
@@ -43,12 +48,12 @@ mysql-restore:
 
 solr-backup:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps main root bash /docker/bin/backup.sh solr
+	docker-compose run --rm --no-deps main root bash /application/bin/backup.sh solr
 	docker-compose start solr
 
 solr-restore:
 	docker-compose stop solr
-	docker-compose run --rm --no-deps main root bash /docker/bin/restore.sh solr
+	docker-compose run --rm --no-deps main root bash /application/bin/restore.sh solr
 	docker-compose start solr
 
 #############################

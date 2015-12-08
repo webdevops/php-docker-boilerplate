@@ -2,7 +2,7 @@
 
 # Services
 
-### Web (Nginx or Apache HTTPd)
+### Main (Nginx or Apache HTTPd)
 
 Setting       | Value
 ------------- | -------------

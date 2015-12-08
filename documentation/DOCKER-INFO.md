@@ -6,9 +6,8 @@
 
 Container                 | Description
 ------------------------- | -------------------------------
-main                      | Main container with PHP-FPM and tools (your entrypoint for bash, php and other stuff)
+main                      | Main container with nginx/apache and PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
-web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
 postgres (optional)       | PostgreSQL database
 solr (optional)           | Apache Solr server
@@ -54,9 +53,6 @@ make mysql-restore        | Restore MySQL databases
 make solr-backup          | Backup Solr cores
 make solr-restore         | Restore Solr cores
 <br>                      |
-make create-cms-project   | Create new TYPO3 project (based on typo3/cms-base-distribution)
-make create-neos-project  | Create new NEOS project (based on typo3/neos-base-distribution)
-<br>                      |
 make build                | Run building (composer, gulp, bower)
 
 ## Environment settings
@@ -78,6 +74,8 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+MYSQL_HOST            | MySQL Hostname
+MYSQL_PORT            | Port that the MySQL instance is using
 <br>                  |
 PHP_TIMEZONE          | Timezone (date.timezone) setting for PHP (cli and fpm)
 EFFECTIVE_UID         | Effective UID for php, fpm und webserver
