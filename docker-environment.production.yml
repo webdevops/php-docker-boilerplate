@@ -11,13 +11,3 @@
 
 # TYPO3
 TYPO3_CONTEXT=Production/Docker
-
-# Symfony
-SYMFONY_ENV=prod
-SYMFONY_DEBUG=0
-
-# CakePHP
-CAKE_ENV=prod
-
-# yii
-YII_ENVIRONMENT=Production
