@@ -33,7 +33,7 @@ SSH_AUTH_KEY=""
 MYSQL_ROOT_PASSWORD=dev
 MYSQL_USER=dev
 MYSQL_PASSWORD=dev
-MYSQL_DATABASE=database
+MYSQL_DATABASE=typo3
 
 #######################################
 # PostgreSQL settings
