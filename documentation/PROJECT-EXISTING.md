@@ -15,7 +15,7 @@ or manually
 git clone --recursive https://github..../ code/
 ```
 
-Check `DOCUMENT_ROOT` and `DOCUMENT_INDEX` in `docker-environment.yml`
+Check `DOCUMENT_ROOT` and `DOCUMENT_INDEX` in `etc/environment*.yml`
 
 ## Cli runner
 

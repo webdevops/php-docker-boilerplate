@@ -21,8 +21,8 @@ main:
     - sourcecode
     - storage
   env_file:
-    - docker-environment.yml
-    - docker-environment.production.yml
+    - etc/environment.yml
+    - etc/environment.production.yml
 
 #######################################
 # MySQL server
@@ -39,8 +39,8 @@ mysql:
   volumes_from:
     - storage
   env_file:
-    - docker-environment.yml
-    - docker-environment.production.yml
+    - etc/environment.yml
+    - etc/environment.production.yml
 
 #######################################
 # PostgreSQL server
@@ -50,8 +50,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # Solr server
@@ -63,8 +63,8 @@ mysql:
 #  environment:
 #    - SOLR_STORAGE=/data/solr/server-master/
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # Elasticsearch
@@ -74,8 +74,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # Redis
@@ -85,8 +85,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # Memcached
@@ -96,8 +96,8 @@ mysql:
 #  volumes_from:
 #    - storage
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # Mailcatcher
@@ -105,8 +105,8 @@ mysql:
 #mail:
 #  build: docker/mail/
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # FTP (vsftpd)
@@ -117,8 +117,8 @@ mysql:
 #    - sourcecode
 #    - storage
 #  env_file:
-#    - docker-environment.yml
-#    - docker-environment.production.yml
+#    - etc/environment.yml
+#    - etc/environment.production.yml
 
 #######################################
 # sourcecode
@@ -129,8 +129,8 @@ sourcecode:
   volumes:
     - /docker/code/
   env_file:
-    - docker-environment.yml
-    - docker-environment.production.yml
+    - etc/environment.yml
+    - etc/environment.production.yml
 
 #######################################
 # Storage

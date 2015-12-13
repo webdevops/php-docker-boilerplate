@@ -58,7 +58,7 @@ docker-compose logs main
 docker-compose logs main mysql
 ```
 
-CLI script (defined in docker-env.yml)
+CLI script (defined in etc/environment*.yml)
 
 ```bash
 docker-compose run --rm main cli help
