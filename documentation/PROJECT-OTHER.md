@@ -5,7 +5,7 @@
 ## Create project
 
 - Put your project files into `code/`
-- If needed modify `DOCUMENT_ROOT` and `DOCUMENT_INDEX` in `docker-env.yml`
+- If needed modify `DOCUMENT_ROOT` and `DOCUMENT_INDEX` in `etc/environment*.yml`
 - You're done - really
 
 ## Cli runner
