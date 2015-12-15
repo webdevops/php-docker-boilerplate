@@ -15,6 +15,9 @@
 #   webdevops/php-apache:ubuntu-15.04
 #   webdevops/php-apache:ubuntu-15.10
 #   webdevops/php-apache:centos-7
+#   webdevops/php-apache:debian-7
+#   webdevops/php-apache:debian-8
+#   webdevops/php-apache:debian-8-php7
 #
 # Nginx:
 #   webdevops/php-nginx:ubuntu-12.04
@@ -22,6 +25,9 @@
 #   webdevops/php-nginx:ubuntu-15.04
 #   webdevops/php-nginx:ubuntu-15.10
 #   webdevops/php-nginx:centos-7
+#   webdevops/php-nginx:debian-7
+#   webdevops/php-nginx:debian-8
+#   webdevops/php-nginx:debian-8-php7
 #
 # HHVM:
 #   webdevops/hhvm-apache
