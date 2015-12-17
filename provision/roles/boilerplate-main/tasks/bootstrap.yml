@@ -1,6 +1,33 @@
 ---
+#############################
+# Gather environment stuff
+#############################
 
 - include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+
+- stat: path=/usr/sbin/php-fpm7.0
+  register: php7_debian
+
+- name: Fact - php5 pool [RedHat family]
+  set_fact:
+     php_pool_conf: /etc/php-fpm.d/www.conf
+  when: ansible_os_family == 'RedHat'
+
+- name: Fact - php5 pool [Debian family]
+  set_fact:
+     php_pool_conf: /etc/php5/fpm/pool.d/www.conf
+     php_base_path: /etc/php5
+  when: ansible_os_family == 'Debian'
+
+- name: Fact - php7 pool [Debian family]
+  set_fact:
+     php_pool_conf: /etc/php/7.0/fpm/pool.d/www.conf
+     php_base_path: /etc/php/7.0
+  when: ansible_os_family == 'Debian' and php7_debian.stat.exists is defined and php7_debian.stat.exists
+
+#############################
+# Run tasks
+#############################
 
 - include: bootstrap/systemUpdate.centos.yml
   when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'CentOS'
@@ -16,13 +43,13 @@
 - include: bootstrap/postfix.yml
   when: MAIL is defined
 
-- include: bootstrap/php.centos.yml
-  when: ansible_distribution == 'CentOS'
+- include: bootstrap/php.redhat.yml
+  when: ansible_os_family == 'RedHat'
 
-- include: bootstrap/php.ubuntu.yml
-  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+- include: bootstrap/php.debian.yml php_base_path="{{ php_base_path }}"
+  when: ansible_os_family == 'Debian'
 
-- include: bootstrap/php.yml
+- include: bootstrap/php.yml php_pool_conf="{{ php_pool_conf }}"
 
 - include: bootstrap/web.apache.yml
 - include: bootstrap/web.nginx.yml

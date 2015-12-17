@@ -2,14 +2,14 @@
 
 - name: Create /etc/php5/mods-available/
   file:
-    path:  /etc/php5/mods-available/
+    path:  "{{ php_base_path }}/mods-available/"
     state: directory
     mode:  0755
 
 - name: Link php.ini for cli and fpm
   file:
     src:  '{{ item.file }}'
-    dest: '/etc/php5/{{ item.category }}/conf.d/{{ item.target }}'
+    dest: '{{ php_base_path }}/{{ item.category }}/conf.d/{{ item.target }}'
     force: yes
     state: link
   with_items:
@@ -22,7 +22,7 @@
 
 - name: Configure php-fpm (php-fpm.conf)
   lineinfile:
-    dest:    /etc/php5/fpm/php-fpm.conf
+    dest:    "{{ php_base_path }}/fpm/php-fpm.conf"
     regexp: '^[\s;]*{{ item.key }}[\s]*='
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
