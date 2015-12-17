@@ -7,3 +7,12 @@
     line:   '{{ item.variable }} = {{ item.value }}'
   with_items: "{{ MAIL.conf }}"
   when: MAIL.conf is defined and item.value != ""
+
+- name: Configure aliases
+  lineinfile:
+    dest:   /etc/aliases
+    regexp: '^[\s;]*{{ item.user }}[\s]*:'
+    line:   '{{ item.user }}: {{ item.destination }}'
+  with_items: "{{ MAIL.aliases }}"
+  when: MAIL.aliases is defined and item.destination != ""
+  notify: update aliases
