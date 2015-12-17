@@ -1,5 +1,13 @@
 #######################################
 # Main php container
+#
+# for this container you have to remove
+# following entries from .dockerignore:
+#
+# etc/*
+# provision/*
+# code/*
+#
 #######################################
 main:
   build: .

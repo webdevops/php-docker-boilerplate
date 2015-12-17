@@ -8,8 +8,8 @@
 
 
 - include: bootstrap/php-blackfire/ubuntu.yml
-  when: ansible_distribution == 'Ubuntu' and PROVISION.install.phpBlackfire
+  when: ( ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian' ) and PROVISION.install.phpBlackfire
 
 - include: bootstrap/php-xdebug/ubuntu.yml
-  when: ansible_distribution == 'Ubuntu' and PROVISION.install.phpXdebug
+  when: ( ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian' ) and PROVISION.install.phpXdebug
 
