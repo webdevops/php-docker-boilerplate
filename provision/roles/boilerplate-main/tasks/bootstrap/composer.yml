@@ -6,6 +6,7 @@
 - name: Update composer (phar)
   command: 'composer self-update'
   when: composer_bin.stat.exists is defined and composer_bin.stat.exists
+  ignore_errors: yes
 
 - name: Install composer (phar)
   raw: 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer'

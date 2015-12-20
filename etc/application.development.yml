@@ -4,7 +4,6 @@ PROVISION:
   systemUpdate: false
 
   install:
-    phpComposer:  true
     phpBlackfire: false
     phpXdebug:    false
 
