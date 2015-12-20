@@ -1,15 +1,11 @@
 ---
 
-- include: bootstrap/php-blackfire/centos.yml
-  when: ansible_distribution == 'CentOS' and PROVISION.install.phpBlackfire
+- include: bootstrap/php-blackfire/debian.yml
+  when: ansible_distribution == 'CentOS' and PROVISION.install.phpBlackfire is defined and PROVISION.install.phpBlackfire
 
-- include: bootstrap/php-xdebug/centos.yml
-  when: ansible_distribution == 'CentOS' and PROVISION.install.phpXdebug
+- include: bootstrap/php-blackfire/redhat.yml
+  when: ansible_os_family == 'Debian' and PROVISION.install.phpBlackfire is defined and PROVISION.install.phpBlackfire
 
-
-- include: bootstrap/php-blackfire/ubuntu.yml
-  when: ( ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian' ) and PROVISION.install.phpBlackfire
-
-- include: bootstrap/php-xdebug/ubuntu.yml
-  when: ( ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian' ) and PROVISION.install.phpXdebug
+- include: bootstrap/php.xdebug.yml
+  when: PROVISION.install.phpXdebug is defined and PROVISION.install.phpXdebug
 
