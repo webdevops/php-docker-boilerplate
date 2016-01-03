@@ -2,7 +2,7 @@
 
 # Installation
 
-## Reqirements
+## Requirements
 
 - GNU/Linux with Docker (recommendation: [Vagrant](https://www.vagrantup.com/downloads.html) VM with Docker or [native Linux with Docker](http://docs.docker.com/linux/step_one/)
 - make
@@ -15,8 +15,8 @@ the much faster virtualisation (networking, disk access, shared folders) compare
 There is also a [Vagrant VM for VirtualBox, VMware and Parallels](https://github.com/webdevops/vagrant-docker-vm)
 with a mailcatcher (Postfix with Dovecot, catches all outgoing mails).
 
-_Warning:_ Boot2docker ist not recommended because of slow/buggy file sharing between host and guest and there is no
-convienient way to access the box with Samba or SSH.
+_Warning:_ Boot2docker is not recommended because of slow/buggy file sharing between host and guest and there is no
+convenient way to access the box with Samba or SSH.
 This Docker boilerplate tries to avoid common anti-patterns like a Samba/SSH container because Boot2docker
 isn't able to handle such tasks.
 

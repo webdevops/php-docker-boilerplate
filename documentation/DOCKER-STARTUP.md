@@ -27,10 +27,10 @@ For an existing project just put your files into `code/` folder or use git to cl
 ## Advanced usage (git)
 
 Use this boilerplate as template and customize it for each project. Put this Docker
-configuration for each project into seperate git repositories.
+configuration for each project into separate git repositories.
 
 Now set your existing project repository to be a git submodule in `code/`.
 Every developer now needs only to clone the Docker repository with `--recursive` option
 to get both, the Docker configuration and the TYPO3 installation.
 
-For better useability track a whole branch (eg. develop or master) as submodule and not just a single commit.
+For better usability track a whole branch (eg. develop or master) as submodule and not just a single commit.
