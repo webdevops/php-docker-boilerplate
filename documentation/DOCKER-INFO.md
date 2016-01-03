@@ -106,4 +106,4 @@ Save, set a break point and test the debugger.
 ## Application cache
 
 Symlink your application cache (eg. typo3temp/) to `/data/cache/` and it will be stored inside the `storage` container
-so it will be accessable within all containers (eg. web or main).
+so it will be accessible within all containers (eg. web or main).
