@@ -135,8 +135,7 @@ mysql:
 #  volumes_from:
 #    - storage
 #  volumes:
-#    - ./:/docker/
-#    - /tmp/debug/:/tmp/debug/
+#    - ./:/application/
 #  env_file:
 #    - etc/environment.yml
 #    - etc/environment.development.yml
