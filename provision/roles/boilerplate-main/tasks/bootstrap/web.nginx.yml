@@ -6,7 +6,7 @@
 
 - name: Deploy dynamic nginx vhost
   template:
-    src:   ../../templates/nginx/vhost.conf.j2
+    src:   templates/nginx/vhost.conf.j2
     dest:  /opt/docker/etc/nginx/vhost.conf
     owner: root
     group: root
