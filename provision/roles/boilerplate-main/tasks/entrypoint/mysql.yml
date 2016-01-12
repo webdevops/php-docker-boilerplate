@@ -2,7 +2,7 @@
 
 - name: Deploy root my.cnf
   template:
-    src:   ../../templates/my.cnf.j2
+    src:   templates/my.cnf.j2
     dest:  /root/.my.cnf
     owner: root
     group: root
@@ -10,7 +10,7 @@
 
 - name: Deploy user my.cnf
   template:
-    src:   ../../templates/my.cnf.j2
+    src:   templates/my.cnf.j2
     dest:  /home/.my.cnf
     owner: "{{ lookup('env','APPLICATION_USER') }}"
     group: "{{ lookup('env','APPLICATION_USER') }}"
