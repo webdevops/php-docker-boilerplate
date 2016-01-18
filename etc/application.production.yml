@@ -4,8 +4,9 @@ PROVISION:
   systemUpdate: true
 
   install:
-    phpBlackfire: false
-    phpXdebug:    false
+    phpBlackfire:       false
+    phpXdebug:          false
+    apacheModPagespeed: false
 
 WEB:
   vhost:
