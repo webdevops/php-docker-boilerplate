@@ -33,6 +33,6 @@ PHP:
     # Misc
     - { variable: "catch_workers_output", value: "yes" }
     # Logs
-    - { variable: "access.format",              value: "%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d" }
+    - { variable: "access.format", value: '"%R - %u %t \"%m %r%Q%q\" %s %f cpu:%C%% mem:%{megabytes}M reqTime:%d"' }
     - { variable: "request_slowlog_timeout",    value: "10s" }
     - { variable: "php_admin_flag[log_errors]", value: "on" }
