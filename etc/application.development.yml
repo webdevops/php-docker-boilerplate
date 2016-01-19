@@ -6,7 +6,7 @@ PROVISION:
   install:
     phpBlackfire:       false
     phpXdebug:          false
-    apacheModPagespeed: true
+    apacheModPagespeed: false
 
 WEB:
   vhost:
