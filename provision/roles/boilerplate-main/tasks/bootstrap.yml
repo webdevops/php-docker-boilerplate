@@ -53,4 +53,6 @@
 - include: bootstrap/php.yml php_pool_conf="{{ php_pool_conf }}"
 
 - include: bootstrap/web.apache.yml
+- include: bootstrap/web.apache.pagespeed.yml
+  when: PROVISION.install.apacheModPagespeed is defined and PROVISION.install.apacheModPagespeed
 - include: bootstrap/web.nginx.yml
