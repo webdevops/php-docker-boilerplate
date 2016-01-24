@@ -9,4 +9,4 @@
     line:   'address=/{{ item.domain }}/{{ item.address }}'
     create: yes
   with_items: "{{ DNS.domain }}"
-  when: DNS.domain  is defined
+  when: DNS.domain is defined
