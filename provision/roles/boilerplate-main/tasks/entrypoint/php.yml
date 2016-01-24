@@ -5,24 +5,8 @@
 
 - name: Configure environment variables from DOCKER_ENVIRONMENT for php-fpm (pool www.conf)
   lineinfile:
-    dest:   "{{ php_pool_conf }}"
+    dest:   "/opt/docker/etc/php/fpm/pool.d/application.conf"
     regexp: '^env\[{{ item.key }}\][\s]*='
     line:   'env[{{ item.key }}] = "{{ item.value }}"'
   with_dict: "{{ DOCKER_ENVIRONMENT }}"
   when: DOCKER_ENVIRONMENT is defined and item.value != ''
-
-- name: Set development environment php.ini
-  file:
-    src:  '/opt/docker/etc/php/development.ini'
-    dest: '/opt/docker/etc/php/php.ini'
-    state: link
-    force: yes
-  when: PROVISION_CONTEXT == "development" or PROVISION_CONTEXT == ""
-
-- name: Enable production environment php.ini
-  file:
-    src:  '/opt/docker/etc/php/production.ini'
-    dest: '/opt/docker/etc/php/php.ini'
-    state: link
-    force: yes
-  when: PROVISION_CONTEXT == "production"
