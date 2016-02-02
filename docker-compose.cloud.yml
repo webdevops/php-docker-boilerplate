@@ -37,8 +37,8 @@ main:
 #######################################
 mysql:
   build: docker/mysql
-  dockerfile: MySQL-5.5
-  #dockerfile: MySQL-5.6
+  #dockerfile: MySQL-5.5
+  dockerfile: MySQL-5.6
   #dockerfile: MySQL-5.7
   #dockerfile: MariaDB-5.5
   #dockerfile: MariaDB-10
