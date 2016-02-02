@@ -58,3 +58,9 @@ long_query_time     = 1
 max_connections    = 20
 max_allowed_packet = 16M
 
+
+#################################################
+## TYPO3
+##
+
+sql-mode=""
