@@ -35,8 +35,8 @@ case "$1" in
     "solr")
         if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
             logMsg "Starting Solr restore..."
-            rm -rf /data/solr/* && mkdir -p /data/solr/
-            chmod 777 /data/solr/
+            rm -rf /storage/solr/* && mkdir -p /storage/solr/
+            chmod 777 /storage/solr/
             tar jxPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" -C /
             logMsg "Finished"
         else

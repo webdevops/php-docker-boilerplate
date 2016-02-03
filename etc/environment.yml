@@ -44,5 +44,5 @@ POSTGRES_PASSWORD=dev
 # FTP settings
 FTP_USER=dev
 FTP_PASSWORD=dev
-FTP_PATH=/data/ftp/
+FTP_PATH=/storage/ftp/
 #FTP_PATH=/docker/code/

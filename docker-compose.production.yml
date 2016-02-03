@@ -68,7 +68,7 @@ mysql:
 #  volumes_from:
 #    - storage
 #  environment:
-#    - SOLR_STORAGE=/data/solr/server-master/
+#    - SOLR_STORAGE=/storage/solr/server-master/
 #  env_file:
 #    - etc/environment.yml
 #    - etc/environment.production.yml

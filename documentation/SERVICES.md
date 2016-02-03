@@ -80,4 +80,4 @@ Host          | ftp
 Ports         | 20,21
 User          | dev (if not changed in env)
 Password      | dev (if not changed in env)
-Path          | /data/ftp (if not changed in env)
+Path          | /storage/ftp (if not changed in env)
