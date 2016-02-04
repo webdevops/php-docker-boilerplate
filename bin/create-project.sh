@@ -8,7 +8,7 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
 if [ "$#" -lt 1 ]; then
-    echo "No project type defined (either cms, neos or git)"
+    echo "No project type defined (either typo3, neos or git)"
     exit 1
 fi
 
