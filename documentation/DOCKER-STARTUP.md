@@ -33,4 +33,4 @@ Now set your existing project repository to be a git submodule in `code/`.
 Every developer now needs only to clone the Docker repository with `--recursive` option
 to get both, the Docker configuration and the TYPO3 installation.
 
-For better usability track a whole branch (eg. develop or master) as submodule and not just a single commit.
+For better usability track a whole branch (eg. develop or master) as submodule and not just a single commit. [This requires git v1.8.2+](https://git.kernel.org/cgit/git/git.git/tree/Documentation/RelNotes/1.8.2.txt?id=v1.8.2#n186).
