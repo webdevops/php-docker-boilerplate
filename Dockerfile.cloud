@@ -50,6 +50,6 @@ RUN /opt/docker/bin/control.sh provision.role.startup boilerplate-main \
     && /opt/docker/bin/bootstrap.sh
 
 # Configure volume/workdir
-                               RUN mkdir -p /application/code/
+RUN mkdir -p /application/code/
 VOLUME /application/
 WORKDIR /application/code/
