@@ -46,9 +46,6 @@ COPY provision/       /opt/docker/provision/
 RUN /opt/docker/bin/control.sh provision.role boilerplate-main \
     && /opt/docker/bin/control.sh provision.role boilerplate-main-development \
     && /opt/docker/bin/control.sh provision.role.startup boilerplate-deployment \
-    && /opt/docker/bin/control.sh service.enable cron \
-    && /opt/docker/bin/control.sh service.enable dnsmasq \
-    && /opt/docker/bin/control.sh service.enable postfix \
     && /opt/docker/bin/bootstrap.sh
 
 # Configure volume/workdir

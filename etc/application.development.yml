@@ -8,6 +8,12 @@ PROVISION:
     phpXdebug:          false
     apacheModPagespeed: false
 
+  service:
+    # set "enabled" or "disabled" to controll startup of services
+    - { service: "cron",    status: "enabled" }
+    - { service: "dnsmasq", status: "enabled" }
+    - { service: "postfix", status: "enabled" }
+
 WEB:
   vhost:
     - { serverName: "docker.vm", serverAlias: "*.vm" }

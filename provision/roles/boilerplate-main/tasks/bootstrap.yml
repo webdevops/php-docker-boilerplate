@@ -18,6 +18,8 @@
 - include: bootstrap/composer.yml
   when: PROVISION.install.phpComposer is defined and PROVISION.install.phpComposer
 
+- include: bootstrap/services.yml
+
 - include: bootstrap/cron.yml
 
 - include: bootstrap/dnsmasq.yml
