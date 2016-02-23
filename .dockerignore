@@ -2,6 +2,6 @@
 .git*
 backup/*
 bin/*
-code/*
+app/*
 docker/*
 documentation/*
