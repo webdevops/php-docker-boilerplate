@@ -91,7 +91,7 @@ Hostname                         | IP or Hostname of VM
 Port                             | 8000
 Debugger                         | Xdebug  
 Use path mappings                | Check
-Path mapping of folder 'code'    | /docker/code/
+Path mapping of folder 'app'     | /app/
 
 ### 2.) Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
 
@@ -105,5 +105,5 @@ Save, set a break point and test the debugger.
 
 ## Application cache
 
-Symlink your application cache (eg. typo3temp/) to `/data/cache/` and it will be stored inside the `storage` container
+Symlink your application cache (eg. typo3temp/) to `/storage/cache/` and it will be stored inside the `storage` container
 so it will be accessible within all containers (eg. web or main).

@@ -4,7 +4,7 @@
 
 ## Create project
 
-- Put your project files into `code/`
+- Put your project files into `app/`
 - If needed modify `DOCUMENT_ROOT` and `DOCUMENT_INDEX` in `etc/environment*.yml`
 - You're done - really
 

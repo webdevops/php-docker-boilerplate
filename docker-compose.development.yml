@@ -18,8 +18,9 @@ main:
     - "8443:443"
     - "10022:22"
   volumes:
-    - ./:/application/
+    - ./app/:/app/
     - /tmp/debug/:/tmp/debug/
+    - ./:/docker/
   volumes_from:
     - storage
   # cap and privileged needed for slowlog
@@ -75,7 +76,7 @@ mysql:
 #  volumes_from:
 #    - storage
 #  environment:
-#    - SOLR_STORAGE=/data/solr/server-master/
+#    - SOLR_STORAGE=/storage/solr/server-master/
 #  env_file:
 #    - etc/environment.yml
 #    - etc/environment.development.yml

@@ -16,7 +16,7 @@ docker-compose up -d
 
 ## Complete reset
 
-Reset all containers, delete all data (`mysql`, `solr` ..) but not your project files in `code/`!
+Reset all containers, delete all data (`mysql`, `solr` ..) but not your project files in `app/`!
 
 ```bash
 docker-compose stop

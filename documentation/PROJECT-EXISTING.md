@@ -12,7 +12,7 @@ make create git https://github..../
 
 or manually
 ```bash
-git clone --recursive https://github..../ code/
+git clone --recursive https://github..../ app/
 ```
 
 Check `DOCUMENT_ROOT` and `DOCUMENT_INDEX` in `etc/environment*.yml`

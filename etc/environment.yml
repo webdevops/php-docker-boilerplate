@@ -10,9 +10,9 @@
 # Webserver
 
 # General
-WEB_DOCUMENT_ROOT=/application/code/
+EB_DOCUMENT_ROOT=/app/web/
 WEB_DOCUMENT_INDEX=index.php
-CLI_SCRIPT=php /application/code/typo3/cli_dispatch.phpsh
+CLI_SCRIPT=php /app/web/typo3/cli_dispatch.phpsh
 
 #######################################
 # SSH settings
@@ -44,5 +44,5 @@ POSTGRES_PASSWORD=dev
 # FTP settings
 FTP_USER=dev
 FTP_PASSWORD=dev
-FTP_PATH=/data/ftp/
+FTP_PATH=/storage/ftp/
 #FTP_PATH=/docker/code/

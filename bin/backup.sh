@@ -39,7 +39,7 @@ case "$1" in
         fi
 
         logMsg "Starting Solr backup..."
-        tar jcPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" /data/solr/
+        tar jcPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" /storage/solr/
         logMsg "Finished"
         ;;
 esac
