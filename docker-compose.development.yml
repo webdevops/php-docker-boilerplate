@@ -18,8 +18,9 @@ main:
     - "8443:443"
     - "10022:22"
   volumes:
-    - ./:/application/
+    - ./app/:/app/
     - /tmp/debug/:/tmp/debug/
+    - ./:/docker/
   volumes_from:
     - storage
   # cap and privileged needed for slowlog

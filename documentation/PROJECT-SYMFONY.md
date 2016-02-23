@@ -10,7 +10,7 @@ make create symfony
 
 And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `etc/environment*.yml`:
 
-    DOCUMENT_ROOT=code/web/
+    DOCUMENT_ROOT=/app/web/
     DOCUMENT_INDEX=app_dev.php
 
 ## SYMFONY cli runner
@@ -18,7 +18,7 @@ And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `etc/environment*.yml`:
 You can run one-shot command inside the `main` service container:
 
 ```bash
-docker-compose run --rm main php code/app/console
+docker-compose run --rm main php /app/console
 docker-compose run --rm main bash
 ```
 

@@ -22,14 +22,14 @@ Now create your project inside the docker boilerplate:
 - [Running any other php based project](PROJECT-OTHER.md)
 - [Running existing project](PROJECT-EXISTING.md)
 
-For an existing project just put your files into `code/` folder or use git to clone your project into `code/`.
+For an existing project just put your files into `app/` folder or use git to clone your project into `app/`.
 
 ## Advanced usage (git)
 
 Use this boilerplate as template and customize it for each project. Put this Docker
 configuration for each project into separate git repositories.
 
-Now set your existing project repository to be a git submodule in `code/`.
+Now set your existing project repository to be a git submodule in `app/`.
 Every developer now needs only to clone the Docker repository with `--recursive` option
 to get both, the Docker configuration and the TYPO3 installation.
 

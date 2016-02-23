@@ -15,11 +15,6 @@ the much faster virtualisation (networking, disk access, shared folders) compare
 There is also a [Vagrant VM for VirtualBox, VMware and Parallels](https://github.com/webdevops/vagrant-docker-vm)
 with a mailcatcher (Postfix with Dovecot, catches all outgoing mails).
 
-_Warning:_ Boot2docker is not recommended because of slow/buggy file sharing between host and guest and there is no
-convenient way to access the box with Samba or SSH.
-This Docker boilerplate tries to avoid common anti-patterns like a Samba/SSH container because Boot2docker
-isn't able to handle such tasks.
-
 For more convenience use [CliTools.phar](https://github.com/webdevops/clitools) (will also run on native Linux, not only inside a Vagrant box)
 
 ## First startup

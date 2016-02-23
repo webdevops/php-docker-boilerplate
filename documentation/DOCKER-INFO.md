@@ -91,7 +91,7 @@ Hostname                         | IP or Hostname of VM
 Port                             | 8000
 Debugger                         | Xdebug  
 Use path mappings                | Check
-Path mapping of folder 'code'    | /docker/code/
+Path mapping of folder 'app'     | /app/
 
 ### 2.) Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
 
