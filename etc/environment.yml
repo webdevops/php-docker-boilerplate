@@ -10,7 +10,7 @@
 # Webserver
 
 # General
-EB_DOCUMENT_ROOT=/app/web/
+WEB_DOCUMENT_ROOT=/app/web/
 WEB_DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php /app/web/typo3/cli_dispatch.phpsh
 
