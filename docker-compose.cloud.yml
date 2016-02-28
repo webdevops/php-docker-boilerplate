@@ -6,7 +6,7 @@
 #
 # etc/*
 # provision/*
-# code/*
+# app/*
 #
 #######################################
 main:
@@ -26,7 +26,6 @@ main:
     - "8443:443"
     - "10022:22"
   volumes_from:
-    - sourcecode
     - storage
   env_file:
     - etc/environment.yml
@@ -127,18 +126,6 @@ mysql:
 #  env_file:
 #    - etc/environment.yml
 #    - etc/environment.production.yml
-
-#######################################
-# sourcecode
-#######################################
-sourcecode:
-  build: .
-  dockerfile: Dockerfile-Source
-  volumes:
-    - /docker/code/
-  env_file:
-    - etc/environment.yml
-    - etc/environment.production.yml
 
 #######################################
 # Storage
