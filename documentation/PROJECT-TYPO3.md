@@ -13,12 +13,12 @@ make create typo3
 or
 
 ```bash
-rm -f code/.gitkeep
-composer create-project typo3/cms-base-distribution code/
-touch code/FIRST_INSTALL code/.gitkeep
+rm -f app/.gitkeep
+composer create-project typo3/cms-base-distribution app/
+touch app/FIRST_INSTALL app/.gitkeep
 ```
 
-Feel free to modify your TYPO3 installation in your `code` (a shared folder of Docker),
+Feel free to modify your TYPO3 installation in your `app/` (a shared folder of Docker),
 most of the time there is no need to enter any Docker container.
 
 

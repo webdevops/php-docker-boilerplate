@@ -67,7 +67,7 @@ build:
 	bash bin/build.sh
 
 clean:
-	test -d code/typo3temp && { rm -rf code/typo3temp/*; }
+	test -d app/typo3temp && { rm -rf app/typo3temp/*; }
 
 bash:
 	docker-compose run --rm main bash

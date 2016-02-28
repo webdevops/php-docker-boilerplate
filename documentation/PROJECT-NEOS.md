@@ -13,16 +13,16 @@ make create neos
 or
 
 ```bash
-rm -f code/.gitkeep
-composer create-project typo3/neos-base-distribution code/
-touch code/.gitkeep
+rm -f app/.gitkeep
+composer create-project typo3/neos-base-distribution app/
+touch app/.gitkeep
 ```
 
 And change `DOCUMENT_ROOT` in `docker-env.yml`:
 
-    DOCUMENT_ROOT=code/Web/
+    DOCUMENT_ROOT=/app/Web/
 
-Feel free to modify your NEOS installation in your `code` (a shared folder of Docker),
+Feel free to modify your NEOS installation in your `app/` (a shared folder of Docker),
 most of the time there is no need to enter any Docker container.
 
 ## NEOS cli runner
