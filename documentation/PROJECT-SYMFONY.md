@@ -18,8 +18,8 @@ And change `DOCUMENT_ROOT` and `DOCUMENT_ROOT` in `etc/environment*.yml`:
 You can run one-shot command inside the `main` service container:
 
 ```bash
-docker-compose run --rm main php /app/console
-docker-compose run --rm main bash
+docker-compose run --rm app php /app/console
+docker-compose run --rm app bash
 ```
 
 Webserver is available at Port 8000

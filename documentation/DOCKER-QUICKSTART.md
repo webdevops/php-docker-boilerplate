@@ -51,15 +51,15 @@ Logs (eg. for debugging)
 # show all logs
 docker-compose logs
 
-# ... or only php
-docker-compose logs main
+# ... or only php and webserver
+docker-compose logs app
 
-# ... or only main and mysql
-docker-compose logs main mysql
+# ... or only app and mysql
+docker-compose logs app mysql
 ```
 
 CLI script (defined in etc/environment*.yml)
 
 ```bash
-docker-compose run --rm main cli help
+docker-compose run --rm app cli help
 ```

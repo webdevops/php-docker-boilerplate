@@ -4,13 +4,13 @@
 
 ## Startup or (docker) linking errors (safe reset)
 
-If you got any startup issues you can try to rebuild `main` containers.
+If you got any startup issues you can try to rebuild `app` containers.
 You won't lose any data with this way - it's a safe reset.
 
 ```bash
 docker-compose stop
-docker-compose rm --force main
-docker-compose build --no-cache main
+docker-compose rm --force app
+docker-compose build --no-cache app
 docker-compose up -d
 ```
 

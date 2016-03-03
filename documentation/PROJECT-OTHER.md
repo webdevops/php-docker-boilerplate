@@ -10,11 +10,11 @@
 
 ## Cli runner
 
-You can run one-shot command inside the `main` service container:
+You can run one-shot command inside the `app` service container:
 
 ```bash
-docker-compose run --rm main any-php-file.php argument1 argument2
-docker-compose run --rm main bash
+docker-compose run --rm app any-php-file.php argument1 argument2
+docker-compose run --rm app bash
 ```
 
 Webserver is available at Port 8000

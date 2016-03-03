@@ -9,6 +9,7 @@ PHP Docker Boilerplate Changelog
 - Real production and development provisioning
 - Added cloud support (without host mounted volumes)
 - Moved `code/` to `app/` (Moved `/application/code` to `/app` inside Docker container)
+- Renamed `main` to `app` container
 
 4.1.0 - canceled
 ------------------

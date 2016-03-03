@@ -6,7 +6,7 @@
 
 Container                 | Description
 ------------------------- | -------------------------------
-main                      | Main container with nginx/apache and PHP-FPM and tools (your entrypoint for bash, php and other stuff)
+app                       | PHP application container with nginx/apache and PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
 mysql                     | MySQL database
 postgres (optional)       | PostgreSQL database
@@ -17,15 +17,13 @@ redis (optional)          | Redis server
 ftps (optional)           | FTP server (vsftpd)
 mailcatcher (optional)    | Mailserver with easy web and REST interface for mailing
 
-This directory will be mounted under `/docker` in `main` and `web` container.
+The `app/` directory will be mounted under `/app` inside `app` container.
 
 ## Docker images
 Container                 | Source
 ------------------------- | -------------------------------
-main/ubuntu               | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official* (prebuilt available from https://hub.docker.com/r/webdevops/php-boilerplate/)
-main/centos               | [CentOS](https://registry.hub.docker.com/_/centos/) *official* (prebuilt available from https://hub.docker.com/r/webdevops/php-boilerplate/)
+app                       | [WebDevOps Images](https://registry.hub.docker.com/u/webdevops/)
 storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
-web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
 mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
 postgres                  | [PostgreSQL](https://registry.hub.docker.com/_/postgres/) *official*
 solr (optional)           | [Solr](https://registry.hub.docker.com/u/guywithnose/solr/) from _guywithnose_
@@ -41,7 +39,7 @@ Customize the [Makefile](Makefile) for your needs.
 
 Command                   | Description
 ------------------------- | -------------------------------
-make bash                 | Enter main container with bash (user www-data)
+make bash                 | Enter main container with bash (user application)
 make root                 | Enter main container with bash (user root)
 <br>                      |
 make backup               | General backup (run all backup tasks)
