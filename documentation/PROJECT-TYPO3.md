@@ -24,11 +24,11 @@ most of the time there is no need to enter any Docker container.
 
 ## TYPO3 cli runner
 
-You can run one-shot command inside the `main` service container:
+You can run one-shot command inside the `app` service container:
 
 ```bash
-docker-compose run --rm main typo3/cli_dispatch.phpsh scheduler
-docker-compose run --rm main bash
+docker-compose run --rm app typo3/cli_dispatch.phpsh scheduler
+docker-compose run --rm app bash
 ```
 
 Webserver is available at Port 8000

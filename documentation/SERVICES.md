@@ -2,11 +2,11 @@
 
 # Services
 
-### Main (Nginx or Apache HTTPd)
+### App (PHP with Nginx or Apache HTTPd)
 
 Setting       | Value
 ------------- | -------------
-Host          | web:80 and web:443 (ssl)
+Host          | app:80 and app:443 (ssl)
 External Port | 8000 and 8443 (ssl)
 
 ### MySQL

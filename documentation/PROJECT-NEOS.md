@@ -27,16 +27,16 @@ most of the time there is no need to enter any Docker container.
 
 ## NEOS cli runner
 
-You can run one-shot command inside the `main` service container:
+You can run one-shot command inside the `app` service container:
 
 ```bash
 # commands with root rights
-docker-compose run --rm main root ./flow core:setfilepermissions
+docker-compose run --rm app root ./flow core:setfilepermissions
 
 # normal commands
-docker-compose run --rm main ./flow core:anyothercommand
+docker-compose run --rm app ./flow core:anyothercommand
 
-docker-compose run --rm main bash
+docker-compose run --rm app bash
 ```
 
 
