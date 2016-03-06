@@ -23,7 +23,7 @@ case "$1" in
     ###################################
     "typo3")
         execInDir "$CODE_DIR" "composer create-project typo3/cms-base-distribution \"$CODE_DIR\""
-        execInDir "$CODE_DIR" "touch FIRST_INSTALL"
+        execInDir "$CODE_DIR" "touch web/FIRST_INSTALL"
         ;;
 
     ###################################
