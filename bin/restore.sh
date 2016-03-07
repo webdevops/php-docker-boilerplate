@@ -22,6 +22,7 @@ case "$1" in
         if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
             logMsg "Starting MySQL restore..."
             bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | mysql
+            logMsg "Finished"
         else
             errorMsg "MySQL backup file not found"
             exit 1
@@ -34,9 +35,10 @@ case "$1" in
     "solr")
         if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
             logMsg "Starting Solr restore..."
-            rm -rf /data/solr/* && mkdir -p /data/solr/
-            chmod 777 /data/solr/
+            rm -rf /storage/solr/* && mkdir -p /storage/solr/
+            chmod 777 /storage/solr/
             tar jxPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" -C /
+            logMsg "Finished"
         else
             errorMsg "Solr backup file not found"
             exit 1

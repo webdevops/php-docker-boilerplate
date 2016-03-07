@@ -1,0 +1,4 @@
+---
+
+- include: entrypoint/mysql.yml
+- include: entrypoint/php.yml

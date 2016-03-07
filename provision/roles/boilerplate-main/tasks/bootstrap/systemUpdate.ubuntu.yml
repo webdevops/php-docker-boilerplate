@@ -1,0 +1,6 @@
+---
+
+- name: Upgrade system packages (apt-get dist-upgrade) ... will take some time
+  apt:
+    upgrade: dist
+    update_cache: true

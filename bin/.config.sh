@@ -23,9 +23,9 @@ if [ -z "`which $READLINK`" ]; then
     exit 1
 fi
 
-SCRIPT_DIR=$(dirname $($READLINK -f "$0"))
+SCRIPT_DIR=$(dirname "$($READLINK -f "$0")")
 ROOT_DIR=$($READLINK -f "$SCRIPT_DIR/../")
-CODE_DIR=$($READLINK -f "$ROOT_DIR/code")
+CODE_DIR=$($READLINK -f "$ROOT_DIR/app")
 
 BACKUP_DIR=$($READLINK -f "$ROOT_DIR/backup")
 BACKUP_SOLR_FILE='solr.cores.tbz2'

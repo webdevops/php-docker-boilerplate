@@ -5,7 +5,7 @@
 # Official images:
 #
 #   elasticsearch - official Elasticsaerch
-#                   https://registry.hub.docker.com/u/library/elasticsearch/
+#                   https://hub.docker.com/r/library/elasticsearch/
 #
 #++++++++++++++++++++++++++++++++++++++
 

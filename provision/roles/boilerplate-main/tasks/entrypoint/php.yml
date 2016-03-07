@@ -1,0 +1,12 @@
+---
+
+- include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+- include_vars: "/opt/docker/etc/application.environment.yml"
+
+- name: Configure environment variables from DOCKER_ENVIRONMENT for php-fpm (pool www.conf)
+  lineinfile:
+    dest:   "/opt/docker/etc/php/fpm/pool.d/application.conf"
+    regexp: '^env\[{{ item.key }}\][\s]*='
+    line:   'env[{{ item.key }}] = "{{ item.value }}"'
+  with_dict: "{{ DOCKER_ENVIRONMENT }}"
+  when: DOCKER_ENVIRONMENT is defined and item.value != ''

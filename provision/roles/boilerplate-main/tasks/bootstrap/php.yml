@@ -1,0 +1,35 @@
+---
+
+- include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+
+- name: Configure php-fpm (pool www.conf)
+  lineinfile:
+    dest:   "/opt/docker/etc/php/fpm/pool.d/application.conf"
+    regexp: '^[\s;]*{{ item.variable }}[\s]*='
+    line:   '{{ item.variable }} = {{ item.value }}'
+  with_items: "{{ PHP.fpm.conf }}"
+  when: PHP.fpm.conf is defined and item.value != ""
+
+- name: Configure php-fpm (php-fpm.conf)
+  lineinfile:
+    dest:    "/opt/docker/etc/php/fpm/php-fpm.conf"
+    regexp: '^[\s;]*{{ item.key }}[\s]*='
+    line:   '{{ item.key }} = {{ item.value }}'
+  with_items:
+   - { key: 'daemonize', value: 'no' }
+
+- name: Set development environment php.ini
+  file:
+    src:  '/opt/docker/etc/php/development.ini'
+    dest: '/opt/docker/etc/php/php.ini'
+    state: link
+    force: yes
+  when: PROVISION_CONTEXT == "development"
+
+- name: Enable production environment php.ini
+  file:
+    src:  '/opt/docker/etc/php/production.ini'
+    dest: '/opt/docker/etc/php/php.ini'
+    state: link
+    force: yes
+  when: PROVISION_CONTEXT == "production" or PROVISION_CONTEXT == ""

@@ -6,9 +6,8 @@
 
 Container                 | Description
 ------------------------- | -------------------------------
-main                      | Main container with PHP-FPM and tools (your entrypoint for bash, php and other stuff)
+app                       | PHP application container with nginx/apache and PHP-FPM and tools (your entrypoint for bash, php and other stuff)
 storage                   | Storage container, eg. for Solr data
-web                       | Apache HTTPD or Nginx webserver
 mysql                     | MySQL database
 postgres (optional)       | PostgreSQL database
 solr (optional)           | Apache Solr server
@@ -18,15 +17,13 @@ redis (optional)          | Redis server
 ftps (optional)           | FTP server (vsftpd)
 mailcatcher (optional)    | Mailserver with easy web and REST interface for mailing
 
-This directory will be mounted under `/docker` in `main` and `web` container.
+The `app/` directory will be mounted under `/app` inside `app` container.
 
 ## Docker images
 Container                 | Source
 ------------------------- | -------------------------------
-main/ubuntu               | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official* (prebuilt available from https://hub.docker.com/r/webdevops/php-boilerplate/)
-main/centos               | [CentOS](https://registry.hub.docker.com/_/centos/) *official* (prebuilt available from https://hub.docker.com/r/webdevops/php-boilerplate/)
+app                       | [WebDevOps Images](https://registry.hub.docker.com/u/webdevops/)
 storage                   | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
-web                       | [Apache](https://registry.hub.docker.com/_/httpd/) *official* or [Nginx](https://registry.hub.docker.com/_/nginx/) *official*
 mysql                     | [MySQL](https://registry.hub.docker.com/_/mysql/) *official*
 postgres                  | [PostgreSQL](https://registry.hub.docker.com/_/postgres/) *official*
 solr (optional)           | [Solr](https://registry.hub.docker.com/u/guywithnose/solr/) from _guywithnose_
@@ -42,7 +39,7 @@ Customize the [Makefile](Makefile) for your needs.
 
 Command                   | Description
 ------------------------- | -------------------------------
-make bash                 | Enter main container with bash (user www-data)
+make bash                 | Enter main container with bash (user application)
 make root                 | Enter main container with bash (user root)
 <br>                      |
 make backup               | General backup (run all backup tasks)
@@ -75,6 +72,8 @@ MYSQL_ROOT_PASSWORD   | Password for MySQL user "root"
 MYSQL_USER            | Initial created MySQL user
 MYSQL_PASSWORD        | Password for initial MySQL user
 MYSQL_DATABASE        | Initial created MySQL database
+MYSQL_HOST            | MySQL Hostname
+MYSQL_PORT            | Port that the MySQL instance is using
 <br>                  |
 PHP_TIMEZONE          | Timezone (date.timezone) setting for PHP (cli and fpm)
 EFFECTIVE_UID         | Effective UID for php, fpm und webserver
@@ -90,7 +89,7 @@ Hostname                         | IP or Hostname of VM
 Port                             | 8000
 Debugger                         | Xdebug  
 Use path mappings                | Check
-Path mapping of folder 'code'    | /docker/code/
+Path mapping of folder 'app'     | /app/
 
 ### 2.) Add a debug connection (Run -> Edit Configurations... -> Connections) and create a new configuration (PHP Web Application).
 
@@ -104,5 +103,5 @@ Save, set a break point and test the debugger.
 
 ## Application cache
 
-Symlink your application cache (eg. typo3temp/) to `/data/cache/` and it will be stored inside the `storage` container
-so it will be accessable within all containers (eg. web or main).
+Symlink your application cache (eg. typo3temp/) to `/storage/cache/` and it will be stored inside the `storage` container
+so it will be accessible within all containers (eg. web or main).
