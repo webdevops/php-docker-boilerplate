@@ -1,8 +1,11 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
-5.0.0 - UPCOMING
+5.1.0 - UPCOMING
 ----------------
+
+5.0.0 - 2016-03-07
+------------------
 - Refactored with new `webdevops/base` images
 - Faster creation/startup times
 - Ansible provisioning
