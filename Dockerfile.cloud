@@ -1,0 +1,66 @@
+#++++++++++++++++++++++++++++++++++++++
+# PHP application Docker container
+#++++++++++++++++++++++++++++++++++++++
+#
+# PHP-Versions:
+#  ubuntu-12.04 -> PHP 5.3         (precise)  LTS
+#  ubuntu-14.04 -> PHP 5.5         (trusty)   LTS
+#  ubuntu-15.04 -> PHP 5.6         (vivid)
+#  ubuntu-15.10 -> PHP 5.6         (wily)
+#  ubuntu-16.04 -> PHP 5.6 and 7.0 (xenial)   LTS
+#  centos-7     -> PHP 5.4
+#  debian-7     -> PHP 5.4         (wheezy)
+#  debian-8     -> PHP 5.6 and 7.x (jessie)
+#  debian-9     -> PHP 5.6 and 7.0 (stretch)
+#
+# Apache:
+#   webdevops/php-apache:ubuntu-12.04
+#   webdevops/php-apache:ubuntu-14.04
+#   webdevops/php-apache:ubuntu-15.04
+#   webdevops/php-apache:ubuntu-15.10
+#   webdevops/php-apache:ubuntu-16.04
+#   webdevops/php-apache:ubuntu-16.04-php7
+#   webdevops/php-apache:centos-7
+#   webdevops/php-apache:debian-7
+#   webdevops/php-apache:debian-8
+#   webdevops/php-apache:debian-8-php7
+#   webdevops/php-apache:debian-9
+#   webdevops/php-apache:debian-9-php7
+#
+# Nginx:
+#   webdevops/php-nginx:ubuntu-12.04
+#   webdevops/php-nginx:ubuntu-14.04
+#   webdevops/php-nginx:ubuntu-15.04
+#   webdevops/php-nginx:ubuntu-15.10
+#   webdevops/php-nginx:ubuntu-16.04
+#   webdevops/php-nginx:ubuntu-16.04-php7
+#   webdevops/php-nginx:centos-7
+#   webdevops/php-nginx:debian-7
+#   webdevops/php-nginx:debian-8
+#   webdevops/php-nginx:debian-8-php7
+#   webdevops/php-nginx:debian-9
+#   webdevops/php-nginx:debian-9-php7
+#
+# HHVM:
+#   webdevops/hhvm-apache
+#   webdevops/hhvm-nginx
+#
+#++++++++++++++++++++++++++++++++++++++
+
+FROM webdevops/php-apache:ubuntu-14.04
+
+ENV PROVISION_CONTEXT "production"
+
+# Deploy scripts/configurations
+COPY etc/             /opt/docker/etc/
+COPY provision/       /opt/docker/provision/
+
+COPY app/             /app/
+
+RUN /opt/docker/bin/control.sh provision.role.startup boilerplate-main \
+    && /opt/docker/bin/control.sh provision.role.startup boilerplate-deployment \
+    && /opt/docker/bin/bootstrap.sh
+
+# Configure volume/workdir
+RUN mkdir -p /app/
+WORKDIR /app/

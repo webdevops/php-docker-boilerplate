@@ -1,4 +1,0 @@
-- include: generate.yml
-  when: ansible_distribution == 'Ubuntu'
-  tags:
-    - bootstrap

@@ -1,6 +1,6 @@
 # Dockerized TYPO3 project boilerplate
 
-[![latest v4.0.0](https://img.shields.io/badge/latest-v4.0.0-green.svg?style=flat)](https://github.com/webdevops/TYPO3-docker-boilerplate/releases/tag/4.0.0)
+[![latest v5.0.0](https://img.shields.io/badge/latest-v5.0.0-green.svg?style=flat)](https://github.com/webdevops/TYPO3-docker-boilerplate/releases/tag/5.0.0)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/webdevops/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/webdevops/typo3-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/webdevops/typo3-docker-boilerplate.svg)](http://isitmaintained.com/project/webdevops/typo3-docker-boilerplate "Percentage of issues still open")
@@ -13,7 +13,7 @@ Supports:
 - PHP-FPM (with Xdebug)
 - MySQL, MariaDB or PerconaDB
 - PostgreSQL
-- Solr (disabled, with TYPO3 CMS EXT:solr configuration as example)
+- Solr (disabled, without configuration)
 - Elasticsearch (disabled, without configuration)
 - Redis (disabled)
 - Memcached (disabled)
@@ -22,16 +22,19 @@ Supports:
 - Support for `TYPO3_CONTEXT` and `FLOW_CONTEXT` for TYPO3, FLOW, NEOS.
 - maybe more later...
 
-This Docker boilerplate based on the best practises and don't use too much magic.
-Configuration of each docker container is available in the `docker/` directory - feel free to customize.
+This Docker boilerplate is based on the [Docker best practices](https://docs.docker.com/articles/dockerfile_best-practices/) and doesn't use too much magic. Configuration of each docker container is available in the `docker/` directory - feel free to customize.
 
-Warning: There may be issues when using it in production - if you have any success stories please contact me.
+This boilerplate can also be used for any other web project. Just customize the makefile for your needs.
 
-You can use my [Vagrant Development VM](https://github.com/webdevops/vagrant-development) for this Docker boilerplate, eg. for easy creating new boilerplate installations with an easy shell command: `ct docker:create directory`
+*Warning: There may be issues when using it in production.*
+
+If you have any success stories please contact me.
+
+You can use my [Vagrant Development VM](https://github.com/mblaschke/vagrant-development) for this Docker boilerplate, e.g. for easily creating new boilerplate installations with short shell command: `ct docker:create directory`.
 
 ## Table of contents
 
-- [Installation and requirements](/documentation/INSTALL.md)
+- [First steps / Installation and requirements](/documentation/INSTALL.md)
 - [Updating docker boilerplate](/documentation/UPDATE.md)
 - [Customizing](/documentation/CUSTOMIZE.md)
 - [Services (Webserver, MySQL... Ports, Users, Passwords)](/documentation/SERVICES.md)
@@ -45,7 +48,7 @@ You can use my [Vagrant Development VM](https://github.com/webdevops/vagrant-dev
 
 This Docker layout is based on https://github.com/denderello/symfony-docker-example/
 
-Thanks for support, ideas and issues ...
+Thanks for your support, ideas and issues.
 - [Ingo Pfennigstorf](https://github.com/ipf)
 - [Florian Tatzel](https://github.com/PanadeEdu)
 - [Josef Florian Glatz](https://github.com/jousch)
@@ -53,6 +56,9 @@ Thanks for support, ideas and issues ...
 - [Benjamin Rau](https://twitter.com/benjamin_rau)
 - [Philipp Kitzberger](https://github.com/Kitzberger)
 - [Stephan Ferraro](https://github.com/ferraro)
+- [Cedric Ziel](https://github.com/cedricziel)
+- [Elmar Hinz](https://github.com/elmar-hinz)
+
 
 Thanks to [cron IT GmbH](http://www.cron.eu/) for inspiration.
 

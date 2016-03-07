@@ -8,7 +8,7 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.config.sh"
 
 function excludeFilter {
-    cat | grep -v -E -e '(/typo3/|/typo3_src|/fileadmin/|/typo3temp/|/uploads/|/Packages/|/Data/|/vendor/)'
+    cat | grep -v -E -e '(/Packages/|/Data/|/vendor/)'
 }
 
 #######################################
@@ -59,7 +59,7 @@ done
 ## Gulp
 #######################################
 
-sectionHeader "Checking for gulpfile.js in T3 Root ..."
+sectionHeader "Checking for gulpfile.js ..."
 
 find "$CODE_DIR" -type f -name 'package.json' | excludeFilter | while read FILE; do
     GULPFILE_DIR=$(dirname $($READLINK -f "$FILE"))

@@ -1,0 +1,38 @@
+---
+#############################
+# Gather environment stuff
+#############################
+
+- include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
+
+#############################
+# Run tasks
+#############################
+
+- include: bootstrap/systemUpdate.centos.yml
+  when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'CentOS'
+
+- include: bootstrap/systemUpdate.ubuntu.yml
+  when: PROVISION.systemUpdate is defined and PROVISION.systemUpdate and ansible_distribution == 'Ubuntu'
+
+- include: bootstrap/composer.yml
+  when: PROVISION.install.phpComposer is defined and PROVISION.install.phpComposer
+
+- include: bootstrap/services.yml
+
+- include: bootstrap/cron.yml
+
+- include: bootstrap/dnsmasq.yml
+  when: DNS is defined
+
+- include: bootstrap/postfix.yml
+  when: MAIL is defined
+
+- include: bootstrap/php.yml
+
+- include: bootstrap/web.apache.yml
+
+- include: bootstrap/web.apache.pagespeed.yml
+  when: PROVISION.install.apacheModPagespeed is defined and PROVISION.install.apacheModPagespeed
+
+- include: bootstrap/web.nginx.yml

@@ -1,0 +1,45 @@
+---
+
+PROVISION:
+  systemUpdate: true
+
+  install:
+    phpBlackfire:       false
+    phpXdebug:          false
+    apacheModPagespeed: false
+
+  service:
+    # set "enabled" or "disabled" to controll startup of services
+    - { service: "cron",    status: "disabled" }
+    - { service: "dnsmasq", status: "enabled" }
+    - { service: "postfix", status: "enabled" }
+
+WEB:
+  vhost:
+    - { serverName: "docker.vm", serverAlias: "*.vm" }
+
+DNS:
+  domain:
+    - { domain: ".vm", address: "127.0.0.1" }
+
+MAIL:
+  aliases:
+    - { user: "root", destination: "root@example.com" }
+  conf:
+    - { variable: "inet_interfaces", value: "loopback-only" }
+    # - { variable: "relayhost", value: "foobar" }
+
+PHP:
+  fpm:
+    conf:
+      # PM
+      - { variable: "pm.max_children",      value: "30" }
+      - { variable: "pm.start_servers",     value: "10" }
+      - { variable: "pm.min_spare_servers", value: "5" }
+      - { variable: "pm.max_spare_servers", value: "10" }
+      # Misc
+      - { variable: "catch_workers_output", value: "yes" }
+      # Logs
+      - { variable: "access.format",              value: "%R - %u %t \"%m %r%Q%q\" %s %f" }
+      - { variable: "request_slowlog_timeout",    value: "10s" }
+      - { variable: "php_admin_flag[log_errors]", value: "on" }

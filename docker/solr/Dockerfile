@@ -31,7 +31,7 @@ RUN ln -s /opt/solr/contrib         /opt/solr/example/solr/contrib
 # Fix rights
 RUN chown solr:solr -R /opt/solr/example/solr/
 
-VOLUME "/data"
+VOLUME "/storage"
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["solr"]
