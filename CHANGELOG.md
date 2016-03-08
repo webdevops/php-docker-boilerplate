@@ -4,6 +4,10 @@ PHP Docker Boilerplate Changelog
 5.1.0 - UPCOMING
 ----------------
 
+5.0.1 - 2016-03-08
+------------------
+- Fixed documentation
+
 5.0.0 - 2016-03-07
 ------------------
 - Refactored with new `webdevops/base` images
