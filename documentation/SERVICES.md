@@ -18,7 +18,7 @@ Setting       | Value
 ------------- | -------------
 User          | dev (if not changed in env)
 Password      | dev (if not changed in env)
-Database      | database (if not changed in env)
+Database      | typo3 (if not changed in env)
 Host          | mysql:3306
 External Port | 13306
 
