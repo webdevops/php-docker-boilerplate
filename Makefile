@@ -63,11 +63,13 @@ restore: mysql-restore solr-restore
 build:
 	bash bin/build.sh
 
-bash:
-	docker exec -ti "`docker-compose ps -q app`" 'bash'
+bash: shell
+
+shell:
+	docker exec -it -u application $$(docker-compose ps -q app) /bin/bash
 
 root:
-	docker exec -ti "`docker-compose ps -q app`" 'root'
+	docker exec -it -u root $$(docker-compose ps -q app) /bin/bash
 
 #############################
 # Argument fix workaround
