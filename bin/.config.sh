@@ -52,3 +52,22 @@ execInDir() {
 
     sh -c "cd \"$1\" && $2"
 }
+
+dockerContainerId() {
+    echo "$(docker-compose ps -q "$1" 2> /dev/null || echo "")"
+}
+
+dockerExec() {
+    docker exec -i "$(docker-compose ps -q app)" $@
+}
+
+dockerCopyFrom() {
+    PATH_DOCKER="$1"
+    PATH_HOST="$2"
+    docker cp "$(docker-compose ps -q app):${PATH_DOCKER}" "${PATH_HOST}"
+}
+dockerCopyTo() {
+    PATH_HOST="$1"
+    PATH_DOCKER="$2"
+    docker cp "${PATH_HOST}" "$(docker-compose ps -q app):${PATH_DOCKER}"
+}
