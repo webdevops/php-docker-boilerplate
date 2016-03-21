@@ -19,13 +19,17 @@ case "$1" in
     ## MySQL
     ###################################
     "mysql")
-        if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
-            logMsg "Starting MySQL restore..."
-            bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExec mysql
-            logMsg "Finished"
+        if [[ -n "$(dockerContainerId mysql)" ]]; then
+            if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
+                logMsg "Starting MySQL restore..."
+                bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExec mysql
+                logMsg "Finished"
+            else
+                errorMsg "MySQL backup file not found"
+                exit 1
+            fi
         else
-            errorMsg "MySQL backup file not found"
-            exit 1
+            echo " * Skipping mysql restore, no such container"
         fi
         ;;
 
@@ -51,7 +55,7 @@ case "$1" in
                 exit 1
             fi
         else
-            echo "[WARNING] Skipping solr restore, no such container"
+            echo " * Skipping solr restore, no such container"
         fi
         ;;
 esac

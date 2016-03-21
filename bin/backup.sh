@@ -19,14 +19,18 @@ case "$1" in
     ## MySQL
     ###################################
     "mysql")
-        if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
-            logMsg "Removing old backup file..."
-            rm -f -- "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
-        fi
+        if [[ -n "$(dockerContainerId mysql)" ]]; then
+            if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
+                logMsg "Removing old backup file..."
+                rm -f -- "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+            fi
 
-        logMsg "Starting MySQL backup..."
-        dockerExec mysqldump --opt --single-transaction --events --all-databases --routines --comments | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
-        logMsg "Finished"
+            logMsg "Starting MySQL backup..."
+            dockerExec mysqldump --opt --single-transaction --events --all-databases --routines --comments | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+            logMsg "Finished"
+        else
+            echo " * Skipping mysql backup, no such container"
+        fi
         ;;
 
     ###################################
@@ -46,7 +50,7 @@ case "$1" in
             docker-compose start solr
             logMsg "Finished"
         else
-            echo "[WARNING] Skipping solr backup, no such container"
+            echo " * Skipping solr backup, no such container"
         fi
         ;;
 esac
