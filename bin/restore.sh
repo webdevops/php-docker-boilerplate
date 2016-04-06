@@ -23,6 +23,7 @@ case "$1" in
             if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
                 logMsg "Starting MySQL restore..."
                 bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExec mysql
+                echo "FLUSH PRIVILEGES;" | dockerExec mysql
                 logMsg "Finished"
             else
                 errorMsg "MySQL backup file not found"
