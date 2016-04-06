@@ -3,6 +3,8 @@ PHP Docker Boilerplate Changelog
 
 5.1.0 - UPCOMING
 ----------------
+- Enabled xdebug by default
+- Added exit if solr entrypoint is failing inside 
 
 5.0.0 - 2016-03-07
 ------------------
