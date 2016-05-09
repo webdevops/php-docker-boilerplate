@@ -2,9 +2,14 @@ PHP Docker Boilerplate Changelog
 ==================================
 
 5.1.0 - UPCOMING
-----------------
-- Enabled xdebug by default
-- Added exit if solr entrypoint is failing inside 
+-----------------
+
+5.0.2 - 2016-05-09
+------------------
+- Added exit if solr entrypoint is failing inside
+- Fix solr storage
+- Add `make shell` and `make root` (Makefile targets)
+- Refactored backup and restore (solr and mysql, see Makefile)
 
 5.0.0 - 2016-03-07
 ------------------
