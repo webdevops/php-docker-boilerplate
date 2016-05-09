@@ -19,13 +19,18 @@ case "$1" in
     ## MySQL
     ###################################
     "mysql")
-        if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
-            logMsg "Starting MySQL restore..."
-            bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | mysql
-            logMsg "Finished"
+        if [[ -n "$(dockerContainerId mysql)" ]]; then
+            if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
+                logMsg "Starting MySQL restore..."
+                bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExec mysql
+                echo "FLUSH PRIVILEGES;" | dockerExec mysql
+                logMsg "Finished"
+            else
+                errorMsg "MySQL backup file not found"
+                exit 1
+            fi
         else
-            errorMsg "MySQL backup file not found"
-            exit 1
+            echo " * Skipping mysql restore, no such container"
         fi
         ;;
 
@@ -33,15 +38,25 @@ case "$1" in
     ## Solr
     ###################################
     "solr")
-        if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
-            logMsg "Starting Solr restore..."
-            rm -rf /storage/solr/* && mkdir -p /storage/solr/
-            chmod 777 /storage/solr/
-            tar jxPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" -C /
-            logMsg "Finished"
+        if [[ -n "$(dockerContainerId solr)" ]]; then
+            if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
+                logMsg "Starting Solr restore..."
+                docker-compose stop solr
+
+                dockerExec rm -rf /storage/solr/
+                dockerExec mkdir -p /storage/solr/
+                dockerExec chmod 777 /storage/solr/
+                dockerCopyTo "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" "/tmp/solr-restore.tbz2"
+                dockerExec tar -jxPf "/tmp/solr-restore.tbz2" -C /
+
+                docker-compose start solr
+                logMsg "Finished"
+            else
+                errorMsg "Solr backup file not found"
+                exit 1
+            fi
         else
-            errorMsg "Solr backup file not found"
-            exit 1
+            echo " * Skipping solr restore, no such container"
         fi
         ;;
 esac

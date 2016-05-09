@@ -19,27 +19,38 @@ case "$1" in
     ## MySQL
     ###################################
     "mysql")
-        if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
-            logMsg "Removing old backup file..."
-            rm -f -- "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
-        fi
+        if [[ -n "$(dockerContainerId mysql)" ]]; then
+            if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
+                logMsg "Removing old backup file..."
+                rm -f -- "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+            fi
 
-        logMsg "Starting MySQL backup..."
-        mysqldump --opt --single-transaction --events --all-databases --routines --comments | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
-        logMsg "Finished"
+            logMsg "Starting MySQL backup..."
+            dockerExec mysqldump --opt --single-transaction --events --all-databases --routines --comments | bzip2 > "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}"
+            logMsg "Finished"
+        else
+            echo " * Skipping mysql backup, no such container"
+        fi
         ;;
 
     ###################################
     ## Solr
     ###################################
     "solr")
-        if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
-            logMsg "Removing old backup file..."
-            rm -f -- "${BACKUP_DIR}/${BACKUP_SOLR_FILE}"
-        fi
+        if [[ -n "$(dockerContainerId solr)" ]]; then
+            logMsg "Starting Solr backup..."
+            docker-compose stop solr
 
-        logMsg "Starting Solr backup..."
-        tar jcPf "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" /storage/solr/
-        logMsg "Finished"
+            if [ -f "${BACKUP_DIR}/${BACKUP_SOLR_FILE}" ]; then
+                logMsg "Removing old backup file..."
+                rm -f -- "${BACKUP_DIR}/${BACKUP_SOLR_FILE}"
+            fi
+            dockerExec tar -cP --to-stdout /storage/solr/ | bzip2 > "${BACKUP_DIR}/${BACKUP_SOLR_FILE}"
+
+            docker-compose start solr
+            logMsg "Finished"
+        else
+            echo " * Skipping solr backup, no such container"
+        fi
         ;;
 esac

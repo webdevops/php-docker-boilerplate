@@ -38,24 +38,20 @@ rebuild:
 #############################
 
 mysql-backup:
-	docker-compose run --rm --no-deps app root bash /docker/bin/backup.sh mysql
+	bash ./bin/backup.sh mysql
 
 mysql-restore:
-	docker-compose run --rm --no-deps app root bash /docker/bin/restore.sh mysql
+	bash ./bin/restore.sh mysql
 
 #############################
 # Solr
 #############################
 
 solr-backup:
-	docker-compose stop solr
-	docker-compose run --rm --no-deps app root bash /docker/bin/backup.sh solr
-	docker-compose start solr
+	bash ./bin/backup.sh solr
 
 solr-restore:
-	docker-compose stop solr
-	docker-compose run --rm --no-deps app root bash /docker/bin/restore.sh solr
-	docker-compose start solr
+	bash ./bin/restore.sh solr
 
 #############################
 # General
@@ -67,11 +63,13 @@ restore: mysql-restore solr-restore
 build:
 	bash bin/build.sh
 
-bash:
-	docker-compose run --rm app bash
+bash: shell
+
+shell:
+	docker exec -it -u application $$(docker-compose ps -q app) /bin/bash
 
 root:
-	docker-compose run --rm app root
+	docker exec -it -u root $$(docker-compose ps -q app) /bin/bash
 
 #############################
 # Argument fix workaround

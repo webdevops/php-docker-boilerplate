@@ -133,4 +133,4 @@ mysql:
 storage:
   build: docker/storage/
   volumes:
-    - /data
+    - /storage

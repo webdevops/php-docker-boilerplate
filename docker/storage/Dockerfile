@@ -2,4 +2,9 @@
 # Storage Docker container
 #++++++++++++++++++++++++++++++++++++++
 
-FROM webdevops/storage
+FROM busybox
+
+RUN mkdir /storage \
+    && chmod 1777 /storage
+
+VOLUME "/storage"
