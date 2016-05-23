@@ -14,32 +14,32 @@
 #  debian-9     -> PHP 5.6 and 7.0 (stretch)
 #
 # Apache:
-#   webdevops/php-apache:ubuntu-12.04
-#   webdevops/php-apache:ubuntu-14.04
-#   webdevops/php-apache:ubuntu-15.04
-#   webdevops/php-apache:ubuntu-15.10
-#   webdevops/php-apache:ubuntu-16.04
-#   webdevops/php-apache:ubuntu-16.04-php7
-#   webdevops/php-apache:centos-7
-#   webdevops/php-apache:debian-7
-#   webdevops/php-apache:debian-8
-#   webdevops/php-apache:debian-8-php7
-#   webdevops/php-apache:debian-9
-#   webdevops/php-apache:debian-9-php7
+#   webdevops/php-apache-dev:ubuntu-12.04
+#   webdevops/php-apache-dev:ubuntu-14.04
+#   webdevops/php-apache-dev:ubuntu-15.04
+#   webdevops/php-apache-dev:ubuntu-15.10
+#   webdevops/php-apache-dev:ubuntu-16.04
+#   webdevops/php-apache-dev:ubuntu-16.04-php7
+#   webdevops/php-apache-dev:centos-7
+#   webdevops/php-apache-dev:debian-7
+#   webdevops/php-apache-dev:debian-8
+#   webdevops/php-apache-dev:debian-8-php7
+#   webdevops/php-apache-dev:debian-9
+#   webdevops/php-apache-dev:debian-9-php7
 #
 # Nginx:
-#   webdevops/php-nginx:ubuntu-12.04
-#   webdevops/php-nginx:ubuntu-14.04
-#   webdevops/php-nginx:ubuntu-15.04
-#   webdevops/php-nginx:ubuntu-15.10
-#   webdevops/php-nginx:ubuntu-16.04
-#   webdevops/php-nginx:ubuntu-16.04-php7
-#   webdevops/php-nginx:centos-7
-#   webdevops/php-nginx:debian-7
-#   webdevops/php-nginx:debian-8
-#   webdevops/php-nginx:debian-8-php7
-#   webdevops/php-nginx:debian-9
-#   webdevops/php-nginx:debian-9-php7
+#   webdevops/php-nginx-dev-dev:ubuntu-12.04
+#   webdevops/php-nginx-dev-dev:ubuntu-14.04
+#   webdevops/php-nginx-dev-dev:ubuntu-15.04
+#   webdevops/php-nginx-dev-dev:ubuntu-15.10
+#   webdevops/php-nginx-dev-dev:ubuntu-16.04
+#   webdevops/php-nginx-dev-dev:ubuntu-16.04-php7
+#   webdevops/php-nginx-dev-dev:centos-7
+#   webdevops/php-nginx-dev-dev:debian-7
+#   webdevops/php-nginx-dev-dev:debian-8
+#   webdevops/php-nginx-dev-dev:debian-8-php7
+#   webdevops/php-nginx-dev-dev:debian-9
+#   webdevops/php-nginx-dev-dev:debian-9-php7
 #
 # HHVM:
 #   webdevops/hhvm-apache
@@ -47,7 +47,7 @@
 #
 #++++++++++++++++++++++++++++++++++++++
 
-FROM webdevops/php-apache:ubuntu-14.04
+FROM webdevops/php-apache-dev:ubuntu-14.04
 
 ENV PROVISION_CONTEXT "development"
 
@@ -55,9 +55,7 @@ ENV PROVISION_CONTEXT "development"
 COPY etc/             /opt/docker/etc/
 COPY provision/       /opt/docker/provision/
 
-RUN /opt/docker/bin/control.sh provision.role boilerplate-main \
-    && /opt/docker/bin/control.sh provision.role boilerplate-main-development \
-    && /opt/docker/bin/control.sh provision.role.startup boilerplate-deployment \
+RUN /opt/docker/bin/provision add --tag bootstrap --tag entrypoint boilerplate-main boilerplate-main-development boilerplate-deployment \
     && /opt/docker/bin/bootstrap.sh
 
 # Configure volume/workdir

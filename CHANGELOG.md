@@ -1,8 +1,10 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
-5.1.0 - UPCOMING
------------------
+5.1.0 - 2016-05-23
+------------------
+- Add support for new WebDevOps Docker images 0.5.0 and up
+- Removed xdebug and blackfire, for xdebug use php-dev, php-apache-dev, php-nginx-dev images
 
 5.0.2 - 2016-05-09
 ------------------

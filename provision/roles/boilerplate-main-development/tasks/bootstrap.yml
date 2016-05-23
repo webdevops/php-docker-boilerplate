@@ -5,7 +5,3 @@
 
 - include: bootstrap/php-blackfire/redhat.yml
   when: ansible_os_family == 'Debian' and PROVISION.install.phpBlackfire is defined and PROVISION.install.phpBlackfire
-
-- include: bootstrap/php.xdebug.yml
-  when: PROVISION.install.phpXdebug is defined and PROVISION.install.phpXdebug
-
