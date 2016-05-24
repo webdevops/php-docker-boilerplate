@@ -30,7 +30,7 @@ server {
         fastcgi_read_timeout 1000;
     }
 
-    include /opt/docker/etc/nginx/vhost.common.conf;
+    include /opt/docker/etc/nginx/vhost.common.d/*.conf;
 }
 
 ##############
@@ -62,7 +62,7 @@ server {
         fastcgi_read_timeout 1000;
     }
 
-    include /opt/docker/etc/nginx/vhost.common.conf;
+    include /opt/docker/etc/nginx/vhost.common.d/*.conf;
     include /opt/docker/etc/nginx/vhost.ssl.conf;
 }
 
