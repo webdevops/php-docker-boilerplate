@@ -1,6 +1,6 @@
 # Dockerized PHP web project boilerplate
 
-[![latest v5.1.0](https://img.shields.io/badge/latest-v5.1.0-green.svg?style=flat)](https://github.com/webdevops/php-docker-boilerplate/releases/tag/5.1.0)
+[![latest v5.1.1](https://img.shields.io/badge/latest-v5.1.1-green.svg?style=flat)](https://github.com/webdevops/php-docker-boilerplate/releases/tag/5.1.1)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/php-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/php-docker-boilerplate "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/php-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/php-docker-boilerplate "Percentage of issues still open")

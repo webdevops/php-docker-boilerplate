@@ -12,7 +12,12 @@
 
   UseCanonicalName Off
 
-  Include /opt/docker/etc/httpd/vhost.common.conf
+  <IfVersion < 2.4>
+    Include /opt/docker/etc/httpd/vhost.common.d/*.conf
+  </IfVersion>
+  <IfVersion >= 2.4>
+    IncludeOptional /opt/docker/etc/httpd/vhost.common.d/*.conf
+  </IfVersion>
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -21,7 +26,14 @@
   DocumentRoot "{{ vhost.documentRoot|default('<DOCUMENT_ROOT>') }}"
 
   UseCanonicalName Off
-  Include /opt/docker/etc/httpd/vhost.common.conf
+
+  <IfVersion < 2.4>
+    Include /opt/docker/etc/httpd/vhost.common.d/*.conf
+  </IfVersion>
+  <IfVersion >= 2.4>
+    IncludeOptional /opt/docker/etc/httpd/vhost.common.d/*.conf
+  </IfVersion>
+
   Include /opt/docker/etc/httpd/vhost.ssl.conf
 </VirtualHost>
 

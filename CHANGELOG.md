@@ -1,6 +1,11 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
+5.1.1 - 2016-05-24
+------------------
+- Fixed Docker image names in Dockerfile.development
+- Updated nginx and apache vhost configuration
+
 5.1.0 - 2016-05-23
 ------------------
 - Add support for new WebDevOps Docker images 0.5.0 and up
