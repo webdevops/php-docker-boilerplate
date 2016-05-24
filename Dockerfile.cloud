@@ -7,11 +7,11 @@
 #  ubuntu-14.04 -> PHP 5.5         (trusty)   LTS
 #  ubuntu-15.04 -> PHP 5.6         (vivid)
 #  ubuntu-15.10 -> PHP 5.6         (wily)
-#  ubuntu-16.04 -> PHP 5.6 and 7.0 (xenial)   LTS
+#  ubuntu-16.04 -> PHP 7.0         (xenial)   LTS
 #  centos-7     -> PHP 5.4
 #  debian-7     -> PHP 5.4         (wheezy)
 #  debian-8     -> PHP 5.6 and 7.x (jessie)
-#  debian-9     -> PHP 5.6 and 7.0 (stretch)
+#  debian-9     -> PHP 7.0         (stretch)
 #
 # Apache:
 #   webdevops/php-apache:ubuntu-12.04
@@ -19,13 +19,11 @@
 #   webdevops/php-apache:ubuntu-15.04
 #   webdevops/php-apache:ubuntu-15.10
 #   webdevops/php-apache:ubuntu-16.04
-#   webdevops/php-apache:ubuntu-16.04-php7
 #   webdevops/php-apache:centos-7
 #   webdevops/php-apache:debian-7
 #   webdevops/php-apache:debian-8
 #   webdevops/php-apache:debian-8-php7
 #   webdevops/php-apache:debian-9
-#   webdevops/php-apache:debian-9-php7
 #
 # Nginx:
 #   webdevops/php-nginx:ubuntu-12.04
@@ -33,13 +31,11 @@
 #   webdevops/php-nginx:ubuntu-15.04
 #   webdevops/php-nginx:ubuntu-15.10
 #   webdevops/php-nginx:ubuntu-16.04
-#   webdevops/php-nginx:ubuntu-16.04-php7
 #   webdevops/php-nginx:centos-7
 #   webdevops/php-nginx:debian-7
 #   webdevops/php-nginx:debian-8
 #   webdevops/php-nginx:debian-8-php7
 #   webdevops/php-nginx:debian-9
-#   webdevops/php-nginx:debian-9-php7
 #
 # HHVM:
 #   webdevops/hhvm-apache
