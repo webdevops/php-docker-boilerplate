@@ -1,6 +1,10 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
+5.1.2 - 2016-05-25
+------------------
+- Fix typo in Docker image names (duplicate -dev)
+
 5.1.1 - 2016-05-24
 ------------------
 - Fixed Docker image names in Dockerfile.development
