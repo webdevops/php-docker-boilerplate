@@ -26,16 +26,16 @@
 #   webdevops/php-apache-dev:debian-9
 #
 # Nginx:
-#   webdevops/php-nginx-dev-dev:ubuntu-12.04
-#   webdevops/php-nginx-dev-dev:ubuntu-14.04
-#   webdevops/php-nginx-dev-dev:ubuntu-15.04
-#   webdevops/php-nginx-dev-dev:ubuntu-15.10
-#   webdevops/php-nginx-dev-dev:ubuntu-16.04
-#   webdevops/php-nginx-dev-dev:centos-7
-#   webdevops/php-nginx-dev-dev:debian-7
-#   webdevops/php-nginx-dev-dev:debian-8
-#   webdevops/php-nginx-dev-dev:debian-8-php7
-#   webdevops/php-nginx-dev-dev:debian-9
+#   webdevops/php-nginx-dev:ubuntu-12.04
+#   webdevops/php-nginx-dev:ubuntu-14.04
+#   webdevops/php-nginx-dev:ubuntu-15.04
+#   webdevops/php-nginx-dev:ubuntu-15.10
+#   webdevops/php-nginx-dev:ubuntu-16.04
+#   webdevops/php-nginx-dev:centos-7
+#   webdevops/php-nginx-dev:debian-7
+#   webdevops/php-nginx-dev:debian-8
+#   webdevops/php-nginx-dev:debian-8-php7
+#   webdevops/php-nginx-dev:debian-9
 #
 # HHVM:
 #   webdevops/hhvm-apache
