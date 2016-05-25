@@ -1,6 +1,10 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
+5.1.3 - 2016-05-25
+------------------
+- Fix nginx vhost configuration (modular WebDevOps image design)
+
 5.1.2 - 2016-05-25
 ------------------
 - Fix typo in Docker image names (duplicate -dev)

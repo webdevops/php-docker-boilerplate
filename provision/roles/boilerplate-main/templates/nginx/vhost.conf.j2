@@ -9,6 +9,7 @@ server {
     listen  80;
 
     server_name  {{ vhost.serverName }} {{ vhost.serverAlias }};
+
     access_log   /dev/stdout;
     error_log    /dev/stdout info;
 
@@ -16,19 +17,6 @@ server {
     index "{{ vhost.documentIndex|default('<DOCUMENT_INDEX>') }}";
 
     client_max_body_size 50m;
-
-    location / {
-        try_files $uri $uri/ /{{ vhost.documentIndex|default('<DOCUMENT_INDEX>') }}?$query_string;
-    }
-
-    location ~ \.php$ {
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass php;
-        include fastcgi_params;
-
-        fastcgi_param SCRIPT_FILENAME     $request_filename;
-        fastcgi_read_timeout 1000;
-    }
 
     include /opt/docker/etc/nginx/vhost.common.d/*.conf;
 }
@@ -41,6 +29,7 @@ server {
     listen  443;
 
     server_name  {{ vhost.serverName }} {{ vhost.serverAlias }};
+
     access_log   /dev/stdout;
     error_log    /dev/stdout info;
 
@@ -48,19 +37,6 @@ server {
     index "{{ vhost.documentIndex|default('<DOCUMENT_INDEX>') }}";
 
     client_max_body_size 50m;
-
-    location / {
-        try_files $uri $uri/ /{{ vhost.documentIndex|default('<DOCUMENT_INDEX>') }}?$query_string;
-    }
-
-    location ~ \.php$ {
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass php;
-        include fastcgi_params;
-
-        fastcgi_param SCRIPT_FILENAME     $request_filename;
-        fastcgi_read_timeout 1000;
-    }
 
     include /opt/docker/etc/nginx/vhost.common.d/*.conf;
     include /opt/docker/etc/nginx/vhost.ssl.conf;
