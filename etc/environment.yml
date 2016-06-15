@@ -39,6 +39,7 @@ MYSQL_DATABASE=database
 # PostgreSQL settings
 POSTGRES_USER=dev
 POSTGRES_PASSWORD=dev
+POSTGRES_DATABASE=dev
 
 #######################################
 # FTP settings

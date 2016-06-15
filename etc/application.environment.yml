@@ -22,6 +22,7 @@ DOCKER_ENVIRONMENT:
   MYSQL_DATABASE:      "{{ lookup('env','MYSQL_DATABASE') }}"
 
   # Postgres
+  POSTGRES_DATABASE:   "{{ lookup('env','POSTGRES_DATABASE') }}"
   POSTGRES_USER:       "{{ lookup('env','POSTGRES_USER') }}"
   POSTGRES_PASSWORD:   "{{ lookup('env','POSTGRES_PASSWORD') }}"
 

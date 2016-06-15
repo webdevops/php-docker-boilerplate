@@ -54,6 +54,8 @@ mysql:
 #######################################
 #postgres:
 #  build: docker/postgres/
+#  dockerfile: Postgres-9.4.Dockerfile
+#  dockerfile: Postgres-9.5.Dockerfile
 #  volumes_from:
 #    - storage
 #  env_file:
