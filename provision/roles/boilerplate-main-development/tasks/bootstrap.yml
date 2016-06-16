@@ -1,7 +1,7 @@
 ---
 
-- include: bootstrap/php-blackfire/debian.yml
-  when: ansible_distribution == 'CentOS' and PROVISION.install.phpBlackfire is defined and PROVISION.install.phpBlackfire
-
 - include: bootstrap/php-blackfire/redhat.yml
-  when: ansible_os_family == 'Debian' and PROVISION.install.phpBlackfire is defined and PROVISION.install.phpBlackfire
+  when: ansible_distribution == 'CentOS' and PHP.debugger is defined and PHP.debugger == "blackfire"
+
+- include: bootstrap/php-blackfire/debian.yml
+  when: ansible_os_family == 'Debian' and PHP.debugger is defined and PHP.debugger == "blackfire"

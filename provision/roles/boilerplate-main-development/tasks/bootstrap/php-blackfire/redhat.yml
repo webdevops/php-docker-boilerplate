@@ -1,5 +1,10 @@
 ---
 
+- name: Remove xdebug
+  file:
+    path: "/etc/php.d/xdebug.ini"
+    state: absent
+
 - name: Add blackfire.io key
   rpm_key:
     key:   https://packagecloud.io/gpg.key
