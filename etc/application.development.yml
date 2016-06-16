@@ -26,8 +26,8 @@ MAIL:
     # - { variable: "relayhost", value: "foobar" }
 
 PHP:
-  # PHP debugger [xdebug or blackfire]
-  debugger: "blackfire"
+  # PHP debugger [xdebug or blackfire or none]
+  debugger: "xdebug"
 
   fpm:
     conf:

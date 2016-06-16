@@ -1,7 +1,7 @@
 ---
 
-- include: bootstrap/php-blackfire/redhat.yml
-  when: ansible_distribution == 'CentOS' and PHP.debugger is defined and PHP.debugger == "blackfire"
+- include: bootstrap/php-debugger.blackfire.yml
+  when: PHP.debugger is defined and PHP.debugger == "blackfire"
 
-- include: bootstrap/php-blackfire/debian.yml
-  when: ansible_os_family == 'Debian' and PHP.debugger is defined and PHP.debugger == "blackfire"
+- include: bootstrap/php-debugger.none.yml
+  when: PHP.debugger is not defined or PHP.debugger == "" or PHP.debugger == "none"
