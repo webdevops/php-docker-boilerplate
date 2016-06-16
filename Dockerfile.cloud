@@ -53,7 +53,7 @@ COPY provision/       /opt/docker/provision/
 
 COPY app/             /app/
 
-RUN /opt/docker/bin/provision add --tag bootstrap --tag entrypoint boilerplate-main boilerplate-deployment \
+RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
     && /opt/docker/bin/bootstrap.sh
 
 # Configure volume/workdir
