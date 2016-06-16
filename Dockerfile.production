@@ -51,7 +51,7 @@ ENV PROVISION_CONTEXT "production"
 COPY etc/             /opt/docker/etc/
 COPY provision/       /opt/docker/provision/
 
-RUN /opt/docker/bin/provision add --tag bootstrap --tag entrypoint boilerplate-main boilerplate-deployment \
+RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
     && /opt/docker/bin/bootstrap.sh
 
 # Configure volume/workdir

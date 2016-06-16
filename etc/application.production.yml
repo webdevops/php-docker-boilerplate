@@ -1,8 +1,6 @@
 ---
 
 PROVISION:
-  systemUpdate: true
-
   install:
     apacheModPagespeed: false
 

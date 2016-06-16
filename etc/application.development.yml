@@ -1,8 +1,6 @@
 ---
 
 PROVISION:
-  systemUpdate: false
-
   install:
     apacheModPagespeed: false
 
@@ -28,6 +26,9 @@ MAIL:
     # - { variable: "relayhost", value: "foobar" }
 
 PHP:
+  # PHP debugger [xdebug or blackfire or none]
+  debugger: "xdebug"
+
   fpm:
     conf:
     # PM
