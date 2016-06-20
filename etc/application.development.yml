@@ -26,9 +26,6 @@ MAIL:
     - { variable: "relayhost", value: "[mailcatcher]:1025" }
 
 PHP:
-  # PHP debugger [xdebug or blackfire or none]
-  debugger: "xdebug"
-
   fpm:
     conf:
     # PM

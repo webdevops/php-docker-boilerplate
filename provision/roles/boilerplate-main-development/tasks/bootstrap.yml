@@ -1,7 +1,1 @@
 ---
-
-- include: bootstrap/php-debugger.blackfire.yml
-  when: PHP.debugger is defined and PHP.debugger == "blackfire"
-
-- include: bootstrap/php-debugger.none.yml
-  when: PHP.debugger is not defined or PHP.debugger == "" or PHP.debugger == "none"
