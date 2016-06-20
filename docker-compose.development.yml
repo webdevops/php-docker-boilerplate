@@ -5,9 +5,9 @@ app:
   build: .
   dockerfile: Dockerfile.development
   links:
+    - mailcatcher
     - mysql
     #- postgres
-    #- mail
     #- solr
     #- elasticsearch
     #- redis
@@ -30,6 +30,8 @@ app:
   env_file:
     - etc/environment.yml
     - etc/environment.development.yml
+  environment:
+    - VIRTUAL_HOST=boilerplate.docker
 
 #######################################
 # MySQL server
@@ -120,13 +122,12 @@ mysql:
 #######################################
 # Mailcatcher
 #######################################
-#mail:
-#  build: docker/mail/
-#  ports:
-#    - 1080:1080
-#  env_file:
-#    - etc/environment.yml
-#    - etc/environment.development.yml
+mailcatcher:
+  image: schickling/mailcatcher
+  ports:
+    - 1080:1080
+  environment:
+    - VIRTUAL_HOST=mailcatcher.docker
 
 #######################################
 # FTP (vsftpd)

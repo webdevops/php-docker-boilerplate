@@ -23,7 +23,7 @@ MAIL:
     - { user: "root", destination: "root@example.com" }
   conf:
     - { variable: "inet_interfaces", value: "loopback-only" }
-    # - { variable: "relayhost", value: "foobar" }
+    - { variable: "relayhost", value: "[mailcatcher]:1025" }
 
 PHP:
   # PHP debugger [xdebug or blackfire or none]
