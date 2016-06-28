@@ -40,13 +40,14 @@ services:
   mysql:
     build:
       context: docker/mysql/
-      #dockerfile: MySQL-5.5
-      dockerfile: MySQL-5.6
-      #dockerfile: MySQL-5.7
-      #dockerfile: MariaDB-5.5
-      #dockerfile: MariaDB-10
-      #dockerfile: Percona-5.5
-      #dockerfile: Percona-5.6
+      #dockerfile: MySQL-5.5.Dockerfile
+      dockerfile: MySQL-5.6.Dockerfile
+      #dockerfile: MySQL-5.7.Dockerfile
+      #dockerfile: MariaDB-5.5.Dockerfile
+      #dockerfile: MariaDB-10.Dockerfile
+      #dockerfile: Percona-5.5.Dockerfile
+      #dockerfile: Percona-5.6.Dockerfile
+      #dockerfile: Percona-5.7.Dockerfile
     volumes_from:
       - storage
     env_file:
