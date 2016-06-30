@@ -1,8 +1,6 @@
 ---
 
 PROVISION:
-  systemUpdate: false
-
   install:
     apacheModPagespeed: false
 
@@ -25,7 +23,7 @@ MAIL:
     - { user: "root", destination: "root@example.com" }
   conf:
     - { variable: "inet_interfaces", value: "loopback-only" }
-    # - { variable: "relayhost", value: "foobar" }
+    - { variable: "relayhost", value: "[mailcatcher]:1025" }
 
 PHP:
   fpm:

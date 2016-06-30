@@ -7,6 +7,11 @@
 #######################################
 
 #######################################
+# PHP Debugger (xdebug|blackfire|none)
+
+PHP_DEBUGGER=xdebug
+
+#######################################
 # Context environment
 
 # TYPO3
@@ -21,3 +26,4 @@ CAKE_ENV=dev
 
 # yii
 YII_ENVIRONMENT=Development
+
