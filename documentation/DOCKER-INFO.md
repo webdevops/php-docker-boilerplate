@@ -16,6 +16,7 @@ memcached (optional)      | Memcached server
 redis (optional)          | Redis server
 ftps (optional)           | FTP server (vsftpd)
 mailcatcher (optional)    | Mailserver with easy web and REST interface for mailing
+phpmyadmin (optional)     | Tool written in PHP, intended to handle the administration of MySQL over the Web
 
 The `app/` directory will be mounted under `/app` inside `app` container.
 
@@ -32,6 +33,7 @@ memcached (optional)      | [Memcached](https://registry.hub.docker.com/_/memcac
 redis (optional)          | [Redis](https://registry.hub.docker.com/_/redis/) *official*
 ftp (optional)            | [Ubuntu](https://registry.hub.docker.com/_/ubuntu/) *official*
 mailcatcher (optional)    | [Mailcatcher](https://registry.hub.docker.com/u/schickling/mailcatcher/) from _schickling_
+phpmyadmin (optional)     | [PhpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/) *official*
 
 ## Makefile
 
