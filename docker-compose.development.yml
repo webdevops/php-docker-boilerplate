@@ -151,7 +151,7 @@ mysql:
 #    - mysql
 #  environment:
 #    - PMA_ARBITRARY=1
-#    - VIRTUAL_HOST=phpmyadmin.local
+#    - VIRTUAL_HOST=phpmyadmin.docker
 #  ports:
 #    - "8001:80"
 #  volumes:
