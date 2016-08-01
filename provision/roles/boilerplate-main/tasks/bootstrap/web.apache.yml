@@ -10,4 +10,17 @@
     dest:  /opt/docker/etc/httpd/vhost.conf
     owner: root
     group: root
-    mode:  0775
+    mode:  0644
+
+- file:
+    path: "/opt/docker/etc/httpd/vhost.extra.d/"
+    state: directory
+
+- name: Deploy apache vhost with extra parameters
+  template:
+    src:   templates/apache/vhost-extra.conf.j2
+    dest:  /opt/docker/etc/httpd/vhost.extra.d/{{ item.serverName }}.conf
+    owner: root
+    group: root
+    mode:  0644
+  with_items: "{{ WEB.vhost }}"

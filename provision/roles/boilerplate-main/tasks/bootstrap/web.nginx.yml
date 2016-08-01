@@ -10,4 +10,18 @@
     dest:  /opt/docker/etc/nginx/vhost.conf
     owner: root
     group: root
-    mode:  0775
+    mode:  0644
+
+- file:
+    path: "/opt/docker/etc/nginx/vhost.extra.d/"
+    state: directory
+
+- name: Deploy nginx vhost with extra parameters
+  template:
+    src:   templates/nginx/vhost-extra.conf.j2
+    dest:  /opt/docker/etc/nginx/vhost.extra.d/{{ item.serverName }}.conf
+    owner: root
+    group: root
+    mode:  0644
+  with_items: "{{ WEB.vhost }}"
+
