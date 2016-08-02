@@ -32,7 +32,7 @@ server {
 server {
     listen  443;
 
-    server_name  {{ vhost.serverName }} {{ vhost.serverAlias }};
+    server_name  {{ vhost.serverName }}{% if vhost.serverAlias is defined %} {{ vhost.serverAlias }}{% endif %};
 
     access_log   /dev/stdout;
     error_log    /dev/stdout info;
