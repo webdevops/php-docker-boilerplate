@@ -156,6 +156,21 @@ services:
   #    - etc/environment.development.yml
 
   #######################################
+  # phpMyAdmin
+  #######################################
+  #phpmyadmin:
+  #  image: phpmyadmin/phpmyadmin
+  #  links:
+  #    - mysql
+  #  environment:
+  #    - PMA_ARBITRARY=1
+  #    - VIRTUAL_HOST=phpmyadmin.docker
+  #  ports:
+  #    - "8001:80"
+  #  volumes:
+  #    - /sessions
+
+  #######################################
   # Storage
   #######################################
   storage:

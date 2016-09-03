@@ -81,3 +81,13 @@ Ports         | 20,21
 User          | dev (if not changed in env)
 Password      | dev (if not changed in env)
 Path          | /storage/ftp (if not changed in env)
+
+### PhpMyAdmin
+
+Setting       | Value
+------------- | -------------
+Host          | phpmyadmin
+Ports         | 8001
+Log in server | mysql
+Username      | dev (if not changed in env, see mysql container configuration)
+Password      | dev (if not changed in env, see mysql container configuration)

@@ -17,6 +17,7 @@ Supports:
 - Memcached (disabled)
 - Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
 - FTP server (vsftpd)
+- PhpMyAdmin
 - maybe more later...
 
 This Docker boilerplate is based on the [Docker best practices](https://docs.docker.com/articles/dockerfile_best-practices/) and doesn't use too much magic. Configuration of each docker container is available in the `docker/` directory - feel free to customize.
