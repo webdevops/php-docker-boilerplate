@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile.development
     links:
-      - mailcatcher
+      - mailhog
       - mysql
       #- postgres
       #- solr
@@ -132,14 +132,14 @@ services:
   #    - etc/environment.development.yml
 
   #######################################
-  # Mailcatcher
+  # Mailhog
   #######################################
-  mailcatcher:
-    image: schickling/mailcatcher
+  mailhog:
+    image: mailhog/mailhog
     ports:
-      - 1080:1080
+      - 8025:8025
     environment:
-      - VIRTUAL_HOST=mailcatcher.docker
+      - VIRTUAL_HOST=mailhog.docker
 
   #######################################
   # FTP (vsftpd)
