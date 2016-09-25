@@ -34,7 +34,8 @@ services:
       - etc/environment.yml
       - etc/environment.development.yml
     environment:
-      - VIRTUAL_HOST=boilerplate.docker
+      - VIRTUAL_HOST=.app.boilerplate.docker
+      - VIRTUAL_PORT=80
 
   #######################################
   # MySQL server
@@ -91,6 +92,9 @@ services:
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
+  #  environment:
+  #    - VIRTUAL_HOST=solr.boilerplate.docker
+  #    - VIRTUAL_PORT=8983
 
   #######################################
   # Elasticsearch
@@ -106,6 +110,9 @@ services:
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
+  #  environment:
+  #    - VIRTUAL_HOST=elasticsearch.boilerplate.docker
+  #    - VIRTUAL_PORT=9200
 
   #######################################
   # Redis
@@ -139,7 +146,8 @@ services:
     ports:
       - 8025:8025
     environment:
-      - VIRTUAL_HOST=mailhog.docker
+      - VIRTUAL_HOST=mail.boilerplate.docker
+      - VIRTUAL_PORT=8025
 
   #######################################
   # FTP (vsftpd)
@@ -164,7 +172,8 @@ services:
   #    - mysql
   #  environment:
   #    - PMA_ARBITRARY=1
-  #    - VIRTUAL_HOST=phpmyadmin.docker
+  #    - VIRTUAL_HOST=pma.boilerplate.docker
+  #    - VIRTUAL_PORT=80
   #  ports:
   #    - "8001:80"
   #  volumes:
