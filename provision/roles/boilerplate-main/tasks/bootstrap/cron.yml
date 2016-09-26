@@ -6,6 +6,13 @@
     dest: '/etc/cron.d/docker-boilerplate'
     state: link
     force: yes
+    mode: '0644'
+
+- name: Permissions of crontab
+  file:
+    path:  '/opt/docker/etc/cron/crontab'
+    state: touch
+    mode: '0644'
 
 - name: Add newline to crontab
   raw: 'echo >> /opt/docker/etc/crontab'
