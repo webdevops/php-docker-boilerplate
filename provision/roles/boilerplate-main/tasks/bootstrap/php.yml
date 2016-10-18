@@ -2,13 +2,30 @@
 
 - include_vars: "/opt/docker/etc/application.{{ PROVISION_CONTEXT }}.yml"
 
+#############################
+# Stats
+#############################
+
+- stat:
+    path:   /opt/docker/etc/php/fpm/php-fpm.conf
+  register: phpFpmConf
+
+- stat:
+    path:   /opt/docker/etc/php/fpm/pool.d/application.conf
+  register: phpFpmApplicationPool
+
+#############################
+# Tasks
+#############################
+
 - name: Configure php-fpm (pool www.conf)
   lineinfile:
     dest:   "/opt/docker/etc/php/fpm/pool.d/application.conf"
     regexp: '^[\s;]*{{ item.variable }}[\s]*='
     line:   '{{ item.variable }} = {{ item.value }}'
   with_items: "{{ PHP.fpm.conf }}"
-  when: PHP.fpm.conf is defined and item.value != ""
+  when: PHP.fpm.conf is defined and item.value != "" and
+        phpFpmApplicationPool.stat.exists is defined and phpFpmApplicationPool.stat.exists
 
 - name: Configure php-fpm (php-fpm.conf)
   lineinfile:
@@ -17,6 +34,7 @@
     line:   '{{ item.key }} = {{ item.value }}'
   with_items:
    - { key: 'daemonize', value: 'no' }
+  when: phpFpmConf.stat.exists is defined and phpFpmConf.stat.exists
 
 - name: Set development environment php.ini
   file:

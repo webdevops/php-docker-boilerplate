@@ -1,9 +1,7 @@
-![TYPO3 Docker Boilerplate](https://static.webdevops.io/php-docker-boilerplate.svg)
+![PHP Docker Boilerplate](https://static.webdevops.io/php-docker-boilerplate.svg)
 
-[![latest v5.1.3](https://img.shields.io/badge/latest-v5.1.3-green.svg?style=flat)](https://github.com/webdevops/php-docker-boilerplate/releases/tag/5.1.3)
+[![latest v5.2.0-beta1](https://img.shields.io/badge/latest-v5.2.0-beta1-green.svg?style=flat)](https://github.com/webdevops/php-docker-boilerplate/releases/tag/5.2.0-beta1)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mblaschke/php-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/php-docker-boilerplate "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/mblaschke/php-docker-boilerplate.svg)](http://isitmaintained.com/project/mblaschke/php-docker-boilerplate "Percentage of issues still open")
 
 This is an easy customizable docker boilerplate for any PHP-based projects like _Symfony Framework_, _CakePHP_, _Yii_ and many other frameworks or applications.
 
@@ -19,6 +17,7 @@ Supports:
 - Memcached (disabled)
 - Mailcatcher (if no mail sandbox is used, eg. [Vagrant Development VM](https://github.com/mblaschke/vagrant-development))
 - FTP server (vsftpd)
+- PhpMyAdmin
 - maybe more later...
 
 This Docker boilerplate is based on the [Docker best practices](https://docs.docker.com/articles/dockerfile_best-practices/) and doesn't use too much magic. Configuration of each docker container is available in the `docker/` directory - feel free to customize.

@@ -1,5 +1,6 @@
-======================
-Altering Docker Images
-======================
+=========================
+Customizing Docker Images
+=========================
 
-This section is not done yet!
+The main `Dockerfile.*` for the php application container can be customized as any normal Dockerfile image.
+
