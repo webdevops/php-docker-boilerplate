@@ -1,6 +1,17 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
+5.2.0-beta1 - 2016-10-18
+------------------------
+- Add dinghy/dory support
+- Switch to mailhog instead of mailcatcher
+- Add phpmyadmin
+- Switch to ubuntu 16.04 as default
+- docker-compose.yml is now using version 2
+- PHP debugger can now be switched with variable
+- Add PostgreSQL 9.5
+- Some minor fixes and cleanups
+
 5.1.3 - 2016-05-25
 ------------------
 - Fix nginx vhost configuration (modular WebDevOps image design)
