@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile.development
     links:
-      - mailhog
+      - mail
       - mysql
       #- postgres
       #- solr
@@ -140,13 +140,28 @@ services:
   # Mail
   #######################################
   # Mailhog
-  mailhog:
+  mail:
      image: mailhog/mailhog
       ports:
        - 8025:8025
      environment:
       - VIRTUAL_HOST=mail.boilerplate.docker
       - VIRTUAL_PORT=8025
+
+  # Mailcatcher
+  #mail:
+  #  image: schickling/mailcatcher
+  #  environment:
+  #    - VIRTUAL_HOST=mail.boilerplate.docker
+  #    - VIRTUAL_PORT=1080
+
+
+  # Mailsandbox
+  #mail:
+  #  image: webdevops/mail-sandbox
+  #  environment:
+  #    - VIRTUAL_HOST=mail.boilerplate.docker
+  #    - VIRTUAL_PORT=80
 
   #######################################
   # FTP (vsftpd)
