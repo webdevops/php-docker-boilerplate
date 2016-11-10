@@ -144,8 +144,8 @@ services:
   # Mailhog
   mail:
      image: mailhog/mailhog
-     ports:
-       - 8025:8025
+   #  ports:
+   #    - 8025:8025
      environment:
       - VIRTUAL_HOST=mail.boilerplate.docker
       - VIRTUAL_PORT=8025
