@@ -36,6 +36,8 @@ services:
     environment:
       - VIRTUAL_HOST=.app.boilerplate.docker
       - VIRTUAL_PORT=80
+      - POSTFIX_RELAYHOST=[mail]:1025
+
 
   #######################################
   # MySQL server
