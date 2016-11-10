@@ -16,10 +16,10 @@ services:
       #- redis
       #- memcached
       #- ftp
-    ports:
-      - "8000:80"
-      - "8443:443"
-      - "10022:22"
+    #ports:
+    #  - "8000:80"
+    #  - "8443:443"
+    #  - "10022:22"
     volumes:
       - ./app/:/app/
       - /tmp/debug/:/tmp/debug/
@@ -83,8 +83,6 @@ services:
   #solr:
   #  build:
   #    context: docker/solr/
-  #  ports:
-  #    - 18983:8983
   #  volumes_from:
   #    - storage
   #  environment:
@@ -139,13 +137,14 @@ services:
   #    - etc/environment.development.yml
 
   #######################################
-  # Mailhog
+  # Mail
   #######################################
+  # Mailhog
   mailhog:
-    image: mailhog/mailhog
-    ports:
-      - 8025:8025
-    environment:
+     image: mailhog/mailhog
+      ports:
+       - 8025:8025
+     environment:
       - VIRTUAL_HOST=mail.boilerplate.docker
       - VIRTUAL_PORT=8025
 
@@ -174,8 +173,6 @@ services:
   #    - PMA_ARBITRARY=1
   #    - VIRTUAL_HOST=pma.boilerplate.docker
   #    - VIRTUAL_PORT=80
-  #  ports:
-  #    - "8001:80"
   #  volumes:
   #    - /sessions
 
