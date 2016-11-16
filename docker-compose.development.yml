@@ -87,12 +87,11 @@ services:
   #    context: docker/solr/
   #  volumes_from:
   #    - storage
-  #  environment:
-  #    - SOLR_STORAGE=/storage/solr/server-master/
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
   #  environment:
+  #    - SOLR_STORAGE=/storage/solr/server-master/
   #    - VIRTUAL_HOST=solr.boilerplate.docker
   #    - VIRTUAL_PORT=8983
 
