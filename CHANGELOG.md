@@ -1,6 +1,12 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
+5.2.0-beta1 - 2016-12-06
+------------------------
+- Remove port exposures
+- DEV: Redirect all mails to mailcatcher (see environment var POSTFIX_RELAYHOST)
+- Add mail-sandbox with roundcube
+
 5.2.0-beta1 - 2016-10-18
 ------------------------
 - Add dinghy/dory support
