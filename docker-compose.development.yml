@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile.development
     links:
-      - mailhog
+      - mail
       - mysql
       #- postgres
       #- solr
@@ -16,10 +16,10 @@ services:
       #- redis
       #- memcached
       #- ftp
-    ports:
-      - "8000:80"
-      - "8443:443"
-      - "10022:22"
+    #ports:
+    #  - "8000:80"
+    #  - "8443:443"
+    #  - "10022:22"
     volumes:
       - ./app/:/app/
       - /tmp/debug/:/tmp/debug/
@@ -36,6 +36,8 @@ services:
     environment:
       - VIRTUAL_HOST=.app.boilerplate.docker
       - VIRTUAL_PORT=80
+      - POSTFIX_RELAYHOST=[mail]:1025
+
 
   #######################################
   # MySQL server
@@ -83,16 +85,13 @@ services:
   #solr:
   #  build:
   #    context: docker/solr/
-  #  ports:
-  #    - 18983:8983
   #  volumes_from:
   #    - storage
-  #  environment:
-  #    - SOLR_STORAGE=/storage/solr/server-master/
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
   #  environment:
+  #    - SOLR_STORAGE=/storage/solr/server-master/
   #    - VIRTUAL_HOST=solr.boilerplate.docker
   #    - VIRTUAL_PORT=8983
 
@@ -139,15 +138,31 @@ services:
   #    - etc/environment.development.yml
 
   #######################################
-  # Mailhog
+  # Mail
   #######################################
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - 8025:8025
-    environment:
+  # Mailhog
+  mail:
+     image: mailhog/mailhog
+   #  ports:
+   #    - 8025:8025
+     environment:
       - VIRTUAL_HOST=mail.boilerplate.docker
       - VIRTUAL_PORT=8025
+
+  # Mailcatcher
+  #mail:
+  #  image: schickling/mailcatcher
+  #  environment:
+  #    - VIRTUAL_HOST=mail.boilerplate.docker
+  #    - VIRTUAL_PORT=1080
+
+
+  # Mailsandbox
+  #mail:
+  #  image: webdevops/mail-sandbox
+  #  environment:
+  #    - VIRTUAL_HOST=mail.boilerplate.docker
+  #    - VIRTUAL_PORT=80
 
   #######################################
   # FTP (vsftpd)
@@ -174,8 +189,6 @@ services:
   #    - PMA_ARBITRARY=1
   #    - VIRTUAL_HOST=pma.boilerplate.docker
   #    - VIRTUAL_PORT=80
-  #  ports:
-  #    - "8001:80"
   #  volumes:
   #    - /sessions
 

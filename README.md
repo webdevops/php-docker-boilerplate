@@ -1,6 +1,6 @@
 ![PHP Docker Boilerplate](https://static.webdevops.io/php-docker-boilerplate.svg)
 
-[![latest v5.2.0-beta1](https://img.shields.io/badge/latest-v5.2.0-beta1-green.svg?style=flat)](https://github.com/webdevops/php-docker-boilerplate/releases/tag/5.2.0-beta1)
+[![latest v5.2.0-beta2](https://img.shields.io/badge/latest-v5.2.0-beta2-green.svg?style=flat)](https://github.com/webdevops/php-docker-boilerplate/releases/tag/5.2.0-beta2)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 This is an easy customizable docker boilerplate for any PHP-based projects like _Symfony Framework_, _CakePHP_, _Yii_ and many other frameworks or applications.
