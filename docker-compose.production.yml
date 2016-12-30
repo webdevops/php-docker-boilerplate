@@ -44,8 +44,6 @@ services:
       #dockerfile: Percona-5.7.Dockerfile
     volumes_from:
       - storage
-    volumes:
-      - /tmp/debug/:/tmp/debug/
     env_file:
       - etc/environment.yml
       - etc/environment.production.yml
