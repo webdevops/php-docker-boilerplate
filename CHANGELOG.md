@@ -1,7 +1,12 @@
 PHP Docker Boilerplate Changelog
 ==================================
 
-5.2.0-beta1 - 2016-12-06
+5.2.0-beta3 - 2017-01-18
+------------------------
+- Reverted changes in docker-compose.development.yml (ports)
+- Introducted docker-compose.development-reverse-proxy.yml for reverse proxy usage
+
+5.2.0-beta2 - 2016-12-06
 ------------------------
 - Remove port exposures
 - DEV: Redirect all mails to mailcatcher (see environment var POSTFIX_RELAYHOST)

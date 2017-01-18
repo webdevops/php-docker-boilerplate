@@ -16,13 +16,12 @@ services:
       #- redis
       #- memcached
       #- ftp
-    #ports:
-    #  - "8000:80"
-    #  - "8443:443"
-    #  - "10022:22"
+    ports:
+      - "8000:80"
+      - "8443:443"
+      - "10022:22"
     volumes:
       - ./app/:/app/
-      - /tmp/debug/:/tmp/debug/
       - ./:/docker/
     volumes_from:
       - storage
@@ -57,8 +56,6 @@ services:
       - 13306:3306
     volumes_from:
       - storage
-    volumes:
-      - /tmp/debug/:/tmp/debug/
     env_file:
       - etc/environment.yml
       - etc/environment.development.yml
