@@ -22,8 +22,9 @@ case "$1" in
         if [[ -n "$(dockerContainerId mysql)" ]]; then
             if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
                 logMsg "Starting MySQL restore..."
-                bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExec mysql
-                echo "FLUSH PRIVILEGES;" | dockerExec mysql
+                source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../etc/environment.yml"
+                bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExec mysql -h mysql -u root -p"${MYSQL_ROOT_PASSWORD}"
+                echo "FLUSH PRIVILEGES;" | dockerExec mysql -h mysql -u root -p"${MYSQL_ROOT_PASSWORD}"
                 logMsg "Finished"
             else
                 errorMsg "MySQL backup file not found"
