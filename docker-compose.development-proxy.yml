@@ -16,10 +16,10 @@ services:
       #- redis
       #- memcached
       #- ftp
-    ports:
-      - "8000:80"
-      - "8443:443"
-      - "10022:22"
+    #ports:
+    #  - "8000:80"
+    #  - "8443:443"
+    #  - "10022:22"
     volumes:
       - ./app/:/app/
       - ./:/docker/
@@ -52,8 +52,8 @@ services:
       #dockerfile: Percona-5.5.Dockerfile
       #dockerfile: Percona-5.6.Dockerfile
       #dockerfile: Percona-5.7.Dockerfile
-    ports:
-      - 13306:3306
+    #ports:
+    #  - 13306:3306
     volumes_from:
       - storage
     env_file:
