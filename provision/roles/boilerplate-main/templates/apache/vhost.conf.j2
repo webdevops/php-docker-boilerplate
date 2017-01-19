@@ -7,31 +7,47 @@
 
 <VirtualHost *:80>
   ServerName "{{ vhost.serverName }}"
+{% if vhost.serverAlias is defined %}
   ServerAlias "{{ vhost.serverAlias }}"
+{% endif %}
   DocumentRoot "{{ vhost.documentRoot|default('<DOCUMENT_ROOT>') }}"
 
   UseCanonicalName Off
 
   <IfVersion < 2.4>
     Include /opt/docker/etc/httpd/vhost.common.d/*.conf
+{% if vhost.vhost_extra is defined %}
+    Include /opt/docker/etc/httpd/vhost.extra.d/{{ vhost.serverName }}.conf
+{% endif %}
   </IfVersion>
   <IfVersion >= 2.4>
     IncludeOptional /opt/docker/etc/httpd/vhost.common.d/*.conf
+{% if vhost.vhost_extra is defined %}
+    IncludeOptional /opt/docker/etc/httpd/vhost.extra.d/{{ vhost.serverName }}.conf
+{% endif %}
   </IfVersion>
 </VirtualHost>
 
 <VirtualHost *:443>
   ServerName "{{ vhost.serverName }}"
+{% if vhost.serverAlias is defined %}
   ServerAlias "{{ vhost.serverAlias }}"
+{% endif %}
   DocumentRoot "{{ vhost.documentRoot|default('<DOCUMENT_ROOT>') }}"
 
   UseCanonicalName Off
 
   <IfVersion < 2.4>
     Include /opt/docker/etc/httpd/vhost.common.d/*.conf
+{% if vhost.vhost_extra is defined %}
+    Include /opt/docker/etc/httpd/vhost.extra.d/{{ vhost.serverName }}.conf
+{% endif %}
   </IfVersion>
   <IfVersion >= 2.4>
     IncludeOptional /opt/docker/etc/httpd/vhost.common.d/*.conf
+{% if vhost.vhost_extra is defined %}
+    IncludeOptional /opt/docker/etc/httpd/vhost.extra.d/{{ vhost.serverName }}.conf
+{% endif %}
   </IfVersion>
 
   Include /opt/docker/etc/httpd/vhost.ssl.conf

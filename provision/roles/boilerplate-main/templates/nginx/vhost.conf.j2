@@ -8,7 +8,7 @@
 server {
     listen  80;
 
-    server_name  {{ vhost.serverName }} {{ vhost.serverAlias }};
+    server_name  {{ vhost.serverName }}{% if vhost.serverAlias is defined %} {{ vhost.serverAlias }}{% endif %};
 
     access_log   /dev/stdout;
     error_log    /dev/stdout info;
@@ -19,6 +19,10 @@ server {
     client_max_body_size 50m;
 
     include /opt/docker/etc/nginx/vhost.common.d/*.conf;
+
+{% if vhost.vhost_extra is defined %}
+    include /opt/docker/etc/nginx/vhost.extra.d/{{ vhost.serverName }}.conf
+{% endif %}
 }
 
 ##############
@@ -28,7 +32,7 @@ server {
 server {
     listen  443;
 
-    server_name  {{ vhost.serverName }} {{ vhost.serverAlias }};
+    server_name  {{ vhost.serverName }}{% if vhost.serverAlias is defined %} {{ vhost.serverAlias }}{% endif %};
 
     access_log   /dev/stdout;
     error_log    /dev/stdout info;
@@ -39,6 +43,9 @@ server {
     client_max_body_size 50m;
 
     include /opt/docker/etc/nginx/vhost.common.d/*.conf;
+{% if vhost.vhost_extra is defined %}
+    Include /opt/docker/etc/nginx/vhost.extra.d/{{ vhost.serverName }}.conf
+{% endif %}
     include /opt/docker/etc/nginx/vhost.ssl.conf;
 }
 

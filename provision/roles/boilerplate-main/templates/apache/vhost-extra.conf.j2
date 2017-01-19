@@ -1,0 +1,7 @@
+#######################################
+# vhost-extra for {{ item.serverName }}
+#######################################
+
+{% if item.vhost_extra is defined %}
+{{ item.vhost_extra }}
+{% endif %}
