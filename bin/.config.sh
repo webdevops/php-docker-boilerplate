@@ -61,6 +61,10 @@ dockerExec() {
     docker exec -i "$(docker-compose ps -q app)" $@
 }
 
+dockerExecMySQL() {
+    docker exec -i "$(docker-compose ps -q mysql)" $@
+}
+
 dockerCopyFrom() {
     PATH_DOCKER="$1"
     PATH_HOST="$2"
