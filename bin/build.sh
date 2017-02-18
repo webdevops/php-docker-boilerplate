@@ -20,7 +20,7 @@ sectionHeader "Checking for composer.json ..."
 find "$CODE_DIR" -type f -name 'composer.json' | excludeFilter | while read FILE; do
     COMPOSER_JSON_DIR=$(dirname $($READLINK -f "$FILE"))
 
-    execInDir "$COMPOSER_JSON_DIR" "composer install --no-dev --no-interaction"
+    execInDir "$COMPOSER_JSON_DIR" "docker run --rm --env COMPOSER_CACHE_DIR=/tmp --user $(id -u):$(id -g) -v \$(pwd):/app composer/composer:alpine install --no-dev --no-interaction"
 done
 
 
