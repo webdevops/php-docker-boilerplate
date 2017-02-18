@@ -23,8 +23,8 @@ case "$1" in
             if [ -f "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" ]; then
                 logMsg "Starting MySQL restore..."
                 MYSQL_ROOT_PASSWORD=$(dockerExecMySQL printenv MYSQL_ROOT_PASSWORD)
-                bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExecMySQL mysql -h mysql -u root -p"${MYSQL_ROOT_PASSWORD}"
-                echo "FLUSH PRIVILEGES;" | dockerExec mysql -h mysql -u root -p"${MYSQL_ROOT_PASSWORD}"
+                bzcat "${BACKUP_DIR}/${BACKUP_MYSQL_FILE}" | dockerExecMySQL sh -c "MYSQL_PWD=\"${MYSQL_ROOT_PASSWORD}\" mysql -h mysql -uroot"
+                echo "FLUSH PRIVILEGES;" | dockerExec sh -c "MYSQL_PWD=\"${MYSQL_ROOT_PASSWORD}\" mysql -h mysql -uroot"
                 logMsg "Finished"
             else
                 errorMsg "MySQL backup file not found"
