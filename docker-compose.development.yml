@@ -183,7 +183,7 @@ services:
   #  links:
   #    - mysql
   #  environment:
-  #    - PMA_ARBITRARY=1
+  #    - PMA_HOSTS=mysql
   #    - VIRTUAL_HOST=pma.boilerplate.docker
   #    - VIRTUAL_PORT=80
   #  volumes:
