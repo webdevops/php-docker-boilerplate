@@ -29,9 +29,10 @@ state:
 
 rebuild:
 	docker-compose stop
+	docker-compose pull
 	docker-compose rm --force app
 	docker-compose build --no-cache
-	docker-compose up -d
+	docker-compose up -d --force-recreate
 
 #############################
 # MySQL
