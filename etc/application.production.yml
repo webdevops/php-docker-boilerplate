@@ -1,12 +1,18 @@
 ---
 
+# For advanced provisioning you have to enable following lines in Dockerfile:
+#
+# RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
+#     && /opt/docker/bin/bootstrap.sh
+#
+
 PROVISION:
   install:
     apacheModPagespeed: false
 
   service:
     # set "enabled" or "disabled" to controll startup of services
-    - { service: "cron",    status: "disabled" }
+    - { service: "cron",    status: "enabled" }
     - { service: "dnsmasq", status: "enabled" }
     - { service: "postfix", status: "enabled" }
 

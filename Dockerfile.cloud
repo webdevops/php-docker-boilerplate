@@ -3,6 +3,9 @@
 #++++++++++++++++++++++++++++++++++++++
 #
 # PHP-Versions:
+#  5.6          -> PHP 5.6         official PHP image
+#  7.0          -> PHP 7.0         official PHP image
+#  7.1          -> PHP 7.1         official PHP image
 #  ubuntu-12.04 -> PHP 5.3         (precise)  LTS
 #  ubuntu-14.04 -> PHP 5.5         (trusty)   LTS
 #  ubuntu-15.04 -> PHP 5.6         (vivid)
@@ -14,6 +17,9 @@
 #  debian-9     -> PHP 7.0         (stretch)
 #
 # Apache:
+#   webdevops/php-apache:5.6
+#   webdevops/php-apache:7.0
+#   webdevops/php-apache:7.1
 #   webdevops/php-apache:ubuntu-12.04
 #   webdevops/php-apache:ubuntu-14.04
 #   webdevops/php-apache:ubuntu-15.04
@@ -26,6 +32,9 @@
 #   webdevops/php-apache:debian-9
 #
 # Nginx:
+#   webdevops/php-nginx:5.6
+#   webdevops/php-nginx:7.0
+#   webdevops/php-nginx:7.1
 #   webdevops/php-nginx:ubuntu-12.04
 #   webdevops/php-nginx:ubuntu-14.04
 #   webdevops/php-nginx:ubuntu-15.04
@@ -53,9 +62,8 @@ COPY provision/       /opt/docker/provision/
 
 COPY app/             /app/
 
-RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
-    && /opt/docker/bin/bootstrap.sh
+# RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
+#     && /opt/docker/bin/bootstrap.sh
 
 # Configure volume/workdir
-RUN mkdir -p /app/
 WORKDIR /app/

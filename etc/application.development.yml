@@ -1,5 +1,11 @@
 ---
 
+# For advanced provisioning you have to enable following lines in Dockerfile:
+#
+# RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
+#     && /opt/docker/bin/bootstrap.sh
+#
+
 PROVISION:
   install:
     apacheModPagespeed: false
