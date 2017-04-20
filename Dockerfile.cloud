@@ -58,12 +58,13 @@ ENV PROVISION_CONTEXT "production"
 
 # Deploy scripts/configurations
 COPY etc/             /opt/docker/etc/
-COPY provision/       /opt/docker/provision/
 
 COPY app/             /app/
 
-# RUN /opt/docker/bin/provision run --tag bootstrap --role boilerplate-main --role boilerplate-deployment \
-#     && /opt/docker/bin/bootstrap.sh
+RUN ln -sf /opt/docker/etc/cron/crontab /etc/cron.d/docker-boilerplate \
+    && chmod 0644 /opt/docker/etc/cron/crontab \
+    && echo >> /opt/docker/etc/cron/crontab \
+    && ln -sf /opt/docker/etc/php/production.ini /opt/docker/etc/php/php.ini
 
 # Configure volume/workdir
 WORKDIR /app/

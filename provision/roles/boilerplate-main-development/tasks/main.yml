@@ -1,6 +1,0 @@
----
-
-- include: bootstrap.yml
-  tags:
-    - bootstrap
-  when: PROVISION_CONTEXT == "development"

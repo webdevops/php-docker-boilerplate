@@ -1,3 +1,0 @@
----
-
-PROVISION_CONTEXT: "{{ lookup('env','PROVISION_CONTEXT') }}"
