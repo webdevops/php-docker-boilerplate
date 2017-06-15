@@ -15,6 +15,35 @@ WEB_DOCUMENT_INDEX=index.php
 CLI_SCRIPT=php /app/index.php
 
 #######################################
+# PHP settings
+# (available in docker images after 2017-06-15)
+
+# PHP.ini
+
+# php.memory_limit=2G
+# php.date.timezone=UTC
+# php.display_errors=1
+# php.max_execution_time=600
+# php.post_max_size=50M
+# php.upload_max_filesize=50M
+
+# FPM global (master)
+
+# fpm.global.process_control_timeout=5m
+# fpm.global.process.max=100
+
+# FPM pool
+
+# fpm.pool.pm=dynamic
+# fpm.pool.pm.max_children=20
+# fpm.pool.pm.start_servers=20
+# fpm.pool.pm.min_spare_servers=1
+# fpm.pool.pm.max_spare_servers=3
+# fpm.pool.pm.process_idle_timeout=10s
+# fpm.pool.pm.max_requests=1000
+# fpm.pool.request_terminate_timeout=5m
+
+#######################################
 # SSH settings
 # SSH public key (without comment):
 # -> ssh-rsa AAAAB3Nza....
