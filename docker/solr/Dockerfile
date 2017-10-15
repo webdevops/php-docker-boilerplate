@@ -31,7 +31,7 @@ RUN mv /tmp/solr-typo3-plugin.jar /opt/solr/example/solr/typo3lib/ \
 # Fix rights
 RUN chown solr:solr -R /opt/solr/example/solr/
 
-VOLUME "/storage"
+VOLUME "/opt/solr/server/solr/data"
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["solr"]

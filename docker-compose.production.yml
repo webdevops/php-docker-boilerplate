@@ -22,8 +22,6 @@ services:
       - "10022:22"
     volumes:
       - ./app/:/app/
-    volumes_from:
-      - storage
     env_file:
       - etc/environment.yml
       - etc/environment.production.yml
@@ -42,8 +40,8 @@ services:
       #dockerfile: Percona-5.5.Dockerfile
       #dockerfile: Percona-5.6.Dockerfile
       #dockerfile: Percona-5.7.Dockerfile
-    volumes_from:
-      - storage
+    volumes:
+      - mysql:/var/lib/mysql
     env_file:
       - etc/environment.yml
       - etc/environment.production.yml
@@ -58,8 +56,8 @@ services:
   #    dockerfile: Postgres-9.5.Dockerfile
   #  ports:
   #    - 15432:5432
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - solr:/opt/solr/server/solr/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.production.yml
@@ -72,10 +70,10 @@ services:
   #    context: docker/solr/
   #  ports:
   #    - 18983:8983
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - solr:/opt/solr/server/solr/data
   #  environment:
-  #    - SOLR_STORAGE=/storage/solr/server-master/
+  #    - SOLR_STORAGE=/opt/solr/server/solr/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.production.yml
@@ -89,8 +87,8 @@ services:
   #  ports:
   #    - 19200:9200
   #    - 19300:9300
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - elasticsearch:/usr/share/elasticsearch/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.production.yml
@@ -101,8 +99,8 @@ services:
   #redis:
   #  build:
   #    context: docker/redis/
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - redis:/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.production.yml
@@ -113,8 +111,6 @@ services:
   #memcached:
   #  build:
   #    context: docker/memcached/
-  #  volumes_from:
-  #    - storage
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.production.yml
@@ -125,19 +121,16 @@ services:
   #ftp:
   #  build:
   #    context: docker/vsftp/
-  #  volumes_from:
-  #    - storage
   #  volumes:
   #    - ./:/application/
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.production.yml
 
-  #######################################
-  # Storage
-  #######################################
-  storage:
-    build:
-      context: docker/storage/
-    volumes:
-      - /storage
+volumes:
+  mysql:
+  postgres:
+  solr:
+  elasticsearch:
+  redis:
+  phpmyadmin:

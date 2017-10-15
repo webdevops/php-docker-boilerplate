@@ -23,8 +23,6 @@ services:
     volumes:
       - ./app/:/app/
       - ./:/docker/
-    volumes_from:
-      - storage
     # cap and privileged needed for slowlog
     cap_add:
       - SYS_PTRACE
@@ -54,8 +52,8 @@ services:
       #dockerfile: Percona-5.7.Dockerfile
     ports:
       - 13306:3306
-    volumes_from:
-      - storage
+    volumes:
+      - mysql:/var/lib/mysql
     env_file:
       - etc/environment.yml
       - etc/environment.development.yml
@@ -70,8 +68,8 @@ services:
   #    dockerfile: Postgres-9.5.Dockerfile
   #  ports:
   #    - 15432:5432
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - postgres:/var/lib/postgresql/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
@@ -82,13 +80,13 @@ services:
   #solr:
   #  build:
   #    context: docker/solr/
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - solr:/opt/solr/server/solr/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
   #  environment:
-  #    - SOLR_STORAGE=/storage/solr/server-master/
+  #    - SOLR_STORAGE=/opt/solr/server/solr/data
   #    - VIRTUAL_HOST=solr.boilerplate.docker
   #    - VIRTUAL_PORT=8983
 
@@ -110,8 +108,8 @@ services:
   #  ports:
   #    - 19200:9200
   #    - 19300:9300
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - elasticsearch:/usr/share/elasticsearch/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
@@ -125,8 +123,8 @@ services:
   #redis:
   #  build:
   #    context: docker/redis/
-  #  volumes_from:
-  #    - storage
+  #  volumes:
+  #    - redis:/data
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
@@ -137,8 +135,6 @@ services:
   #memcached:
   #  build:
   #    context: docker/memcached/
-  #  volumes_from:
-  #    - storage
   #  env_file:
   #    - etc/environment.yml
   #    - etc/environment.development.yml
@@ -176,8 +172,6 @@ services:
   #ftp:
   #  build:
   #    context: docker/vsftpd/
-  #  volumes_from:
-  #    - storage
   #  volumes:
   #    - ./:/application/
   #  env_file:
@@ -196,13 +190,12 @@ services:
   #    - VIRTUAL_HOST=pma.boilerplate.docker
   #    - VIRTUAL_PORT=80
   #  volumes:
-  #    - /sessions
+  #    - phpmyadmin:/sessions
 
-  #######################################
-  # Storage
-  #######################################
-  storage:
-    build:
-      context: docker/storage/
-    volumes:
-      - /storage
+volumes:
+  mysql:
+  postgres:
+  solr:
+  elasticsearch:
+  redis:
+  phpmyadmin:
