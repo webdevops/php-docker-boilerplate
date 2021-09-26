@@ -25,13 +25,13 @@ case "$1" in
     ## SYMFONY
     ###################################
     "symfony")
-    if command -v symfony >/dev/null 2>&1; then
-       execInDir "$CODE_DIR" "symfony new '$CODE_DIR'"
-    else
-        wget https://get.symfony.com/cli/installer -O - | bash
-        export PATH="$HOME/.symfony/bin:$PATH"
-        execInDir "$CODE_DIR" "symfony new '$CODE_DIR'"
-    fi
+        if command -v symfony >/dev/null 2>&1; then
+           execInDir "$CODE_DIR" "symfony new '$CODE_DIR'"
+        else
+            wget https://get.symfony.com/cli/installer -O - | bash
+            export PATH="$HOME/.symfony/bin:$PATH"
+            execInDir "$CODE_DIR" "symfony new '$CODE_DIR'"
+        fi
         ;;
 
     ###################################
